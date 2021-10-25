@@ -1,0 +1,33 @@
+/* 
+  Copyright © 2020 Anonyome Labs, Inc. All rights reserved.
+
+  SPDX-License-Identifier: Apache-2.0
+
+*/
+
+// MARK: - Errors: Client
+
+"relay.errors.invalidConfig" = "There was an issue with the configuration file. Please check that a valid configuration is included in the bundle";
+"relay.errors.notSignedIn" = "Not signed in";
+
+// MARK: - Errors: Service
+
+"relay.errors.ambiguousRelayError" = "User has been assigned ambiguous Relay";
+
+// MARK: - Errors: SudoPlatformError
+
+"relay.errors.accountLockedError" = "Account is locked";
+"relay.errors.decodingError" = "A decoding error has occurred";
+"relay.errors.environmentError" = "An environment error has occurred";
+"relay.errors.identityInsufficient" = "Identity is insufficient";
+"relay.errors.identityNotVerified" = "Identity is not verified";
+"relay.errors.invalidArgument" = "Invalid argument";
+"relay.errors.invalidTokenError" = "An invalid token error has occurred";
+"relay.errors.insufficientRelayError" = "Insufficient Relay to perform operation";
+"relay.errors.noRelayError" = "No Relay accessible";
+"relay.errors.noEntitlementsError" = "No Entitlements assigned to user";
+"relay.errors.policyFailed" = "A policy has failed";
+"relay.errors.serviceError" = "Service error has occurred";
+"relay.errors.unknownTimezone" = "Unknown time zone";
+"relay.errors.relayServiceConfigNotFound" = "Relay service configuration not found";
+"relay.errors.invalidInitMessage" = "Attempt to create postbox failed due to invalid config";

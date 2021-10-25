@@ -1,0 +1,124 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/Protocols/AppSyncClientHelper.swift",
+      "line": 16,
+      "symbol": "AppSyncClientHelper",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/Utility/DefaultAppSyncClientHelper.swift",
+      "line": 13,
+      "symbol": "DefaultAppSyncClientHelper",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Public/Errors/SudoDIRelayError.swift",
+      "line": 31,
+      "symbol": "SudoDIRelayError.accountLockedError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Public/Errors/SudoDIRelayError.swift",
+      "line": 32,
+      "symbol": "SudoDIRelayError.ambiguousRelay",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Public/Errors/SudoDIRelayError.swift",
+      "line": 33,
+      "symbol": "SudoDIRelayError.decodingError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Public/Errors/SudoDIRelayError.swift",
+      "line": 34,
+      "symbol": "SudoDIRelayError.environmentError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Public/Errors/SudoDIRelayError.swift",
+      "line": 35,
+      "symbol": "SudoDIRelayError.identityInsufficient",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Public/Errors/SudoDIRelayError.swift",
+      "line": 36,
+      "symbol": "SudoDIRelayError.identityNotVerified",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Public/Errors/SudoDIRelayError.swift",
+      "line": 37,
+      "symbol": "SudoDIRelayError.insufficientEntitlementsError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Public/Errors/SudoDIRelayError.swift",
+      "line": 38,
+      "symbol": "SudoDIRelayError.internalError(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Public/Errors/SudoDIRelayError.swift",
+      "line": 39,
+      "symbol": "SudoDIRelayError.invalidArgument(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Public/Errors/SudoDIRelayError.swift",
+      "line": 40,
+      "symbol": "SudoDIRelayError.invalidTokenError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Public/Errors/SudoDIRelayError.swift",
+      "line": 41,
+      "symbol": "SudoDIRelayError.noEntitlementsError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Public/Errors/SudoDIRelayError.swift",
+      "line": 42,
+      "symbol": "SudoDIRelayError.policyFailed",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Public/Errors/SudoDIRelayError.swift",
+      "line": 43,
+      "symbol": "SudoDIRelayError.serviceError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Public/Errors/SudoDIRelayError.swift",
+      "line": 44,
+      "symbol": "SudoDIRelayError.unknownTimezone",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Public/Types/RelayMessage.swift",
+      "line": 42,
+      "symbol": "RelayMessage.init(messageId:connectionId:cipherText:direction:timestamp:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh"
+}

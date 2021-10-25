@@ -1,0 +1,1746 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1CA1F7A9ABA42CD7B92D3615 /* Pods_SudoDIRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33FFF372CE5267B58B5ADBEF /* Pods_SudoDIRelay.framework */; };
+		464CAEBE26EED499006C6FD0 /* SudoDecentralizedIdentityRelay.h in Headers */ = {isa = PBXBuildFile; fileRef = 464CAE2D26EED493006C6FD0 /* SudoDecentralizedIdentityRelay.h */; };
+		464CAEBF26EED499006C6FD0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 464CAE2F26EED493006C6FD0 /* Localizable.strings */; };
+		464CAF1D26EEE07D006C6FD0 /* Date+MillisecondsSinceEpoch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE3426EED493006C6FD0 /* Date+MillisecondsSinceEpoch.swift */; };
+		464CAF1E26EEE07D006C6FD0 /* OperationArray+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE3526EED493006C6FD0 /* OperationArray+Convenience.swift */; };
+		464CAF1F26EEE07D006C6FD0 /* SudoLogger+DecentralizedRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE3626EED493006C6FD0 /* SudoLogger+DecentralizedRelay.swift */; };
+		464CAF2026EEE07D006C6FD0 /* Bundle+Static.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE3726EED493006C6FD0 /* Bundle+Static.swift */; };
+		464CAF2126EEE07D006C6FD0 /* GraphQLResultWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE3B26EED494006C6FD0 /* GraphQLResultWorker.swift */; };
+		464CAF2226EEE07D006C6FD0 /* GraphQLAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE3C26EED494006C6FD0 /* GraphQLAPI.swift */; };
+		464CAF2326EEE07D006C6FD0 /* RelayTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE3E26EED494006C6FD0 /* RelayTransformer.swift */; };
+		464CAF2426EEE07D006C6FD0 /* DefaultRelayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4026EED494006C6FD0 /* DefaultRelayService.swift */; };
+		464CAF2526EEE07D006C6FD0 /* AppSyncClientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4226EED494006C6FD0 /* AppSyncClientHelper.swift */; };
+		464CAF2626EEE07D006C6FD0 /* Resetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4326EED494006C6FD0 /* Resetable.swift */; };
+		464CAF2726EEE07D006C6FD0 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4526EED494006C6FD0 /* SubscriptionManager.swift */; };
+		464CAF2826EEE07D006C6FD0 /* OperationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4626EED494006C6FD0 /* OperationFactory.swift */; };
+		464CAF2926EEE07D006C6FD0 /* DefaultAppSyncClientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4726EED494006C6FD0 /* DefaultAppSyncClientHelper.swift */; };
+		464CAF2A26EEE07D006C6FD0 /* RelaySubscriptionToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4826EED494006C6FD0 /* RelaySubscriptionToken.swift */; };
+		464CAF2B26EEE07D006C6FD0 /* SubscribeToMessagesReceivedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4B26EED494006C6FD0 /* SubscribeToMessagesReceivedUseCase.swift */; };
+		464CAF2C26EEE07D006C6FD0 /* SubscribeToPostboxDeletedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4C26EED494006C6FD0 /* SubscribeToPostboxDeletedUseCase.swift */; };
+		464CAF2D26EEE07D006C6FD0 /* GetMessagesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4D26EED494006C6FD0 /* GetMessagesUseCase.swift */; };
+		464CAF2E26EEE07D006C6FD0 /* DeletePostboxUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4E26EED494006C6FD0 /* DeletePostboxUseCase.swift */; };
+		464CAF2F26EEE07D006C6FD0 /* CreatePostboxUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4F26EED494006C6FD0 /* CreatePostboxUseCase.swift */; };
+		464CAF3026EEE07D006C6FD0 /* StoreMessageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5026EED494006C6FD0 /* StoreMessageUseCase.swift */; };
+		464CAF3126EEE07D006C6FD0 /* UseCaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5126EED494006C6FD0 /* UseCaseFactory.swift */; };
+		464CAF3226EEE07D006C6FD0 /* RelayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5326EED494006C6FD0 /* RelayService.swift */; };
+		464CAF3326EEE07D006C6FD0 /* DefaultSudoDIRelayClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5526EED494006C6FD0 /* DefaultSudoDIRelayClient.swift */; };
+		464CAF3426EEE07D006C6FD0 /* RelayMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5726EED494006C6FD0 /* RelayMessage.swift */; };
+		464CAF3526EEE07D006C6FD0 /* SubscriptionToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5826EED495006C6FD0 /* SubscriptionToken.swift */; };
+		464CAF3626EEE07D006C6FD0 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5926EED495006C6FD0 /* Status.swift */; };
+		464CAF3726EEE07D006C6FD0 /* CachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5A26EED495006C6FD0 /* CachePolicy.swift */; };
+		464CAF3826EEE07D006C6FD0 /* SudoDIRelayClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5B26EED495006C6FD0 /* SudoDIRelayClient.swift */; };
+		464CAF3926EEE07D006C6FD0 /* SudoDIRelayError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5D26EED495006C6FD0 /* SudoDIRelayError.swift */; };
+		464CAF3A26EEE07D006C6FD0 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5F26EED495006C6FD0 /* Strings.swift */; };
+		464CAF3B26EEE1A4006C6FD0 /* MockGraphQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7726EED496006C6FD0 /* MockGraphQL.swift */; };
+		464CAF3C26EEE1A4006C6FD0 /* MockOperationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7826EED496006C6FD0 /* MockOperationFactory.swift */; };
+		464CAF3D26EEE1A4006C6FD0 /* MockSubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7926EED496006C6FD0 /* MockSubscriptionManager.swift */; };
+		464CAF3E26EEE1A4006C6FD0 /* MockSubscriptionToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7A26EED496006C6FD0 /* MockSubscriptionToken.swift */; };
+		464CAF3F26EEE1A4006C6FD0 /* MockKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7B26EED496006C6FD0 /* MockKeyManager.swift */; };
+		464CAF4026EEE1A4006C6FD0 /* MockAWSNetworkTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7C26EED496006C6FD0 /* MockAWSNetworkTransport.swift */; };
+		464CAF4126EEE1A4006C6FD0 /* MockDeletePostboxUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7E26EED496006C6FD0 /* MockDeletePostboxUseCase.swift */; };
+		464CAF4226EEE1A4006C6FD0 /* MockCreatePostboxUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7F26EED496006C6FD0 /* MockCreatePostboxUseCase.swift */; };
+		464CAF4326EEE1A4006C6FD0 /* MockSubscribeToPostboxDeletedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8026EED496006C6FD0 /* MockSubscribeToPostboxDeletedUseCase.swift */; };
+		464CAF4426EEE1A4006C6FD0 /* MockStoreMessageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8126EED496006C6FD0 /* MockStoreMessageUseCase.swift */; };
+		464CAF4526EEE1A4006C6FD0 /* MockSubscribeToMessagesReceivedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8226EED496006C6FD0 /* MockSubscribeToMessagesReceivedUseCase.swift */; };
+		464CAF4626EEE1A4006C6FD0 /* MockGetMessagesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8326EED496006C6FD0 /* MockGetMessagesUseCase.swift */; };
+		464CAF4726EEE1A4006C6FD0 /* MockAppSyncClientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8426EED496006C6FD0 /* MockAppSyncClientHelper.swift */; };
+		464CAF4826EEE1A4006C6FD0 /* MockUseCaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8526EED496006C6FD0 /* MockUseCaseFactory.swift */; };
+		464CAF4926EEE1A4006C6FD0 /* MockRelayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8626EED496006C6FD0 /* MockRelayService.swift */; };
+		464CAF4A26EEE1A4006C6FD0 /* MockPlatformOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8726EED497006C6FD0 /* MockPlatformOperationQueue.swift */; };
+		464CAF4B26EEE1A4006C6FD0 /* Date+MillisecondsSinceEpochTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8B26EED497006C6FD0 /* Date+MillisecondsSinceEpochTests.swift */; };
+		464CAF4C26EEE1A4006C6FD0 /* GraphQLResultWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8F26EED497006C6FD0 /* GraphQLResultWorkerTests.swift */; };
+		464CAF4D26EEE1A4006C6FD0 /* RelayTransformerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE9126EED497006C6FD0 /* RelayTransformerTests.swift */; };
+		464CAF4E26EEE1A4006C6FD0 /* DefaultRelayServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE9326EED497006C6FD0 /* DefaultRelayServiceTests.swift */; };
+		464CAF4F26EEE1A4006C6FD0 /* RelaySubscriptionTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE9526EED497006C6FD0 /* RelaySubscriptionTokenTests.swift */; };
+		464CAF5026EEE1A4006C6FD0 /* SubscriptionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE9626EED497006C6FD0 /* SubscriptionManagerTests.swift */; };
+		464CAF5126EEE1A4006C6FD0 /* SubscribeToPostboxDeletedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE9A26EED497006C6FD0 /* SubscribeToPostboxDeletedUseCaseTests.swift */; };
+		464CAF5226EEE1A4006C6FD0 /* SubscribeToMessagesReceivedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE9C26EED497006C6FD0 /* SubscribeToMessagesReceivedUseCaseTests.swift */; };
+		464CAF5326EEE1A4006C6FD0 /* DeletePostboxUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE9E26EED497006C6FD0 /* DeletePostboxUseCaseTests.swift */; };
+		464CAF5426EEE1A4006C6FD0 /* GetMessagesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEA026EED497006C6FD0 /* GetMessagesUseCaseTests.swift */; };
+		464CAF5526EEE1A4006C6FD0 /* CreatePostboxUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEA226EED497006C6FD0 /* CreatePostboxUseCaseTests.swift */; };
+		464CAF5626EEE1A4006C6FD0 /* StoreMessageUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEA426EED498006C6FD0 /* StoreMessageUseCaseTests.swift */; };
+		464CAF5726EEE1A4006C6FD0 /* RelayMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEA726EED498006C6FD0 /* RelayMessageTests.swift */; };
+		464CAF5826EEE1A4006C6FD0 /* DeletePostboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEA926EED498006C6FD0 /* DeletePostboxTests.swift */; };
+		464CAF5926EEE1A4006C6FD0 /* StoreMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEAA26EED498006C6FD0 /* StoreMessageTests.swift */; };
+		464CAF5A26EEE1A4006C6FD0 /* CreatePostboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEAB26EED498006C6FD0 /* CreatePostboxTests.swift */; };
+		464CAF5B26EEE1A4006C6FD0 /* SubscribeToPostboxDeletedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEAC26EED498006C6FD0 /* SubscribeToPostboxDeletedTests.swift */; };
+		464CAF5C26EEE1A4006C6FD0 /* TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEAD26EED498006C6FD0 /* TestCase.swift */; };
+		464CAF5D26EEE1A4006C6FD0 /* GetMessagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEAE26EED498006C6FD0 /* GetMessagesTests.swift */; };
+		464CAF5E26EEE1A4006C6FD0 /* SubscribeToMessagesReceivedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEAF26EED498006C6FD0 /* SubscribeToMessagesReceivedTests.swift */; };
+		464CAF5F26EEE1A4006C6FD0 /* SudoDIRelayErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEB126EED498006C6FD0 /* SudoDIRelayErrorTests.swift */; };
+		464CAF6026EEE1A5006C6FD0 /* Logger+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEB426EED498006C6FD0 /* Logger+Tests.swift */; };
+		464CAF6126EEE1A5006C6FD0 /* XCTestCase+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEB526EED498006C6FD0 /* XCTestCase+Utility.swift */; };
+		464CAF6226EEE1A5006C6FD0 /* Error+Equality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEB626EED498006C6FD0 /* Error+Equality.swift */; };
+		464CAF6326EEE1A5006C6FD0 /* Array+OperationConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEB726EED498006C6FD0 /* Array+OperationConvenience.swift */; };
+		464CAF6426EEE1A5006C6FD0 /* DataFactoryNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEBA26EED498006C6FD0 /* DataFactoryNamespace.swift */; };
+		464CAF6526EEE1A5006C6FD0 /* DataFactory+GraphQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEBB26EED498006C6FD0 /* DataFactory+GraphQL.swift */; };
+		464CAF6626EEE1A5006C6FD0 /* AnyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEBC26EED498006C6FD0 /* AnyError.swift */; };
+		464CAF6726EEE1A5006C6FD0 /* DataFactory+Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEBD26EED498006C6FD0 /* DataFactory+Domain.swift */; };
+		464CAF6826EEE1CD006C6FD0 /* GetMessagesIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6426EED495006C6FD0 /* GetMessagesIntegrationTests.swift */; };
+		464CAF6926EEE1CD006C6FD0 /* DeletePostboxIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6526EED495006C6FD0 /* DeletePostboxIntegrationTests.swift */; };
+		464CAF6A26EEE1CD006C6FD0 /* SubscribeToPostboxDeletedIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6626EED495006C6FD0 /* SubscribeToPostboxDeletedIntegrationTests.swift */; };
+		464CAF6B26EEE1CD006C6FD0 /* CreatePostboxIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6726EED495006C6FD0 /* CreatePostboxIntegrationTests.swift */; };
+		464CAF6C26EEE1CD006C6FD0 /* SubscribeToMessagesReceivedIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6826EED495006C6FD0 /* SubscribeToMessagesReceivedIntegrationTests.swift */; };
+		464CAF6D26EEE1CD006C6FD0 /* BaseIntegrationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6926EED495006C6FD0 /* BaseIntegrationTestCase.swift */; };
+		464CAF6E26EEE1CD006C6FD0 /* StoreMessageIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6A26EED495006C6FD0 /* StoreMessageIntegrationTests.swift */; };
+		464CAF6F26EEE1CD006C6FD0 /* XCTestCase+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6D26EED496006C6FD0 /* XCTestCase+Utility.swift */; };
+		464CAF7026EEE1CD006C6FD0 /* DataFactoryNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6E26EED496006C6FD0 /* DataFactoryNamespace.swift */; };
+		464CAF7126EEE1CD006C6FD0 /* Result+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6F26EED496006C6FD0 /* Result+Convenience.swift */; };
+		464CAF7226EEE1CD006C6FD0 /* DataFactory+TestUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7026EED496006C6FD0 /* DataFactory+TestUtility.swift */; };
+		464CAF7326EEE1CD006C6FD0 /* HTTPTransports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7426EED496006C6FD0 /* HTTPTransports.swift */; };
+		84C07A82BA3A40976EC15BAC /* Pods_SudoDIRelay_SudoDIRelayIntegrationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCAD4B9A38E1428F0006B031 /* Pods_SudoDIRelay_SudoDIRelayIntegrationTests.framework */; };
+		84C0F0E626BBA8CE005810AC /* SudoDIRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C0F0DC26BBA8CE005810AC /* SudoDIRelay.framework */; };
+		84C0F0FD26BBA9EB005810AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C0F0FC26BBA9EB005810AC /* AppDelegate.swift */; };
+		84C0F0FF26BBA9EB005810AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C0F0FE26BBA9EB005810AC /* SceneDelegate.swift */; };
+		84C0F10126BBA9EB005810AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C0F10026BBA9EB005810AC /* ViewController.swift */; };
+		84C0F10426BBA9EB005810AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C0F10226BBA9EB005810AC /* Main.storyboard */; };
+		84C0F10626BBA9EE005810AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C0F10526BBA9EE005810AC /* Assets.xcassets */; };
+		84C0F10926BBA9EE005810AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C0F10726BBA9EE005810AC /* LaunchScreen.storyboard */; };
+		84C0F11726BBAA54005810AC /* SudoDIRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C0F0DC26BBA8CE005810AC /* SudoDIRelay.framework */; };
+		C0BB50814B29D8009E61A973 /* Pods_SudoDIRelay_SudoDIRelayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCA0B77AFCBC48EF74CF3E7 /* Pods_SudoDIRelay_SudoDIRelayTests.framework */; };
+		CEDE041DCC9E77CA5DC04D4C /* Pods_TestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A20DF231086AA67706FD6B /* Pods_TestApp.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		84C0F0E726BBA8CE005810AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84C0F0D326BBA8CD005810AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84C0F0DB26BBA8CE005810AC;
+			remoteInfo = SudoDecentralizedIdentityRelay;
+		};
+		84C0F11826BBAA54005810AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84C0F0D326BBA8CD005810AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84C0F0DB26BBA8CE005810AC;
+			remoteInfo = SudoDecentralizedIdentityRelay;
+		};
+		84C0F1D926BBAEBD005810AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84C0F0D326BBA8CD005810AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84C0F0F926BBA9EB005810AC;
+			remoteInfo = TestApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		06AC1E2E07922C8420722B89 /* Pods-TestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApp.debug.xcconfig"; path = "Target Support Files/Pods-TestApp/Pods-TestApp.debug.xcconfig"; sourceTree = "<group>"; };
+		1685B55FCC362B68C3EA38B5 /* Pods-SudoDIRelay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDIRelay.release.xcconfig"; path = "Target Support Files/Pods-SudoDIRelay/Pods-SudoDIRelay.release.xcconfig"; sourceTree = "<group>"; };
+		182752E71011A6189DAE8BDC /* Pods-SudoDecentralizedIdentityRelay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDecentralizedIdentityRelay.debug.xcconfig"; path = "Target Support Files/Pods-SudoDecentralizedIdentityRelay/Pods-SudoDecentralizedIdentityRelay.debug.xcconfig"; sourceTree = "<group>"; };
+		33FFF372CE5267B58B5ADBEF /* Pods_SudoDIRelay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoDIRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		464CAE2D26EED493006C6FD0 /* SudoDecentralizedIdentityRelay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SudoDecentralizedIdentityRelay.h; sourceTree = "<group>"; };
+		464CAE3026EED493006C6FD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		464CAE3426EED493006C6FD0 /* Date+MillisecondsSinceEpoch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+MillisecondsSinceEpoch.swift"; sourceTree = "<group>"; };
+		464CAE3526EED493006C6FD0 /* OperationArray+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OperationArray+Convenience.swift"; sourceTree = "<group>"; };
+		464CAE3626EED493006C6FD0 /* SudoLogger+DecentralizedRelay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SudoLogger+DecentralizedRelay.swift"; sourceTree = "<group>"; };
+		464CAE3726EED493006C6FD0 /* Bundle+Static.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Static.swift"; sourceTree = "<group>"; };
+		464CAE3B26EED494006C6FD0 /* GraphQLResultWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLResultWorker.swift; sourceTree = "<group>"; };
+		464CAE3C26EED494006C6FD0 /* GraphQLAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAPI.swift; sourceTree = "<group>"; };
+		464CAE3E26EED494006C6FD0 /* RelayTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelayTransformer.swift; sourceTree = "<group>"; };
+		464CAE4026EED494006C6FD0 /* DefaultRelayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRelayService.swift; sourceTree = "<group>"; };
+		464CAE4226EED494006C6FD0 /* AppSyncClientHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSyncClientHelper.swift; sourceTree = "<group>"; };
+		464CAE4326EED494006C6FD0 /* Resetable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resetable.swift; sourceTree = "<group>"; };
+		464CAE4526EED494006C6FD0 /* SubscriptionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
+		464CAE4626EED494006C6FD0 /* OperationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationFactory.swift; sourceTree = "<group>"; };
+		464CAE4726EED494006C6FD0 /* DefaultAppSyncClientHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAppSyncClientHelper.swift; sourceTree = "<group>"; };
+		464CAE4826EED494006C6FD0 /* RelaySubscriptionToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaySubscriptionToken.swift; sourceTree = "<group>"; };
+		464CAE4B26EED494006C6FD0 /* SubscribeToMessagesReceivedUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToMessagesReceivedUseCase.swift; sourceTree = "<group>"; };
+		464CAE4C26EED494006C6FD0 /* SubscribeToPostboxDeletedUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToPostboxDeletedUseCase.swift; sourceTree = "<group>"; };
+		464CAE4D26EED494006C6FD0 /* GetMessagesUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMessagesUseCase.swift; sourceTree = "<group>"; };
+		464CAE4E26EED494006C6FD0 /* DeletePostboxUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletePostboxUseCase.swift; sourceTree = "<group>"; };
+		464CAE4F26EED494006C6FD0 /* CreatePostboxUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostboxUseCase.swift; sourceTree = "<group>"; };
+		464CAE5026EED494006C6FD0 /* StoreMessageUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreMessageUseCase.swift; sourceTree = "<group>"; };
+		464CAE5126EED494006C6FD0 /* UseCaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCaseFactory.swift; sourceTree = "<group>"; };
+		464CAE5326EED494006C6FD0 /* RelayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelayService.swift; sourceTree = "<group>"; };
+		464CAE5526EED494006C6FD0 /* DefaultSudoDIRelayClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSudoDIRelayClient.swift; sourceTree = "<group>"; };
+		464CAE5726EED494006C6FD0 /* RelayMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelayMessage.swift; sourceTree = "<group>"; };
+		464CAE5826EED495006C6FD0 /* SubscriptionToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionToken.swift; sourceTree = "<group>"; };
+		464CAE5926EED495006C6FD0 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		464CAE5A26EED495006C6FD0 /* CachePolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachePolicy.swift; sourceTree = "<group>"; };
+		464CAE5B26EED495006C6FD0 /* SudoDIRelayClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SudoDIRelayClient.swift; sourceTree = "<group>"; };
+		464CAE5D26EED495006C6FD0 /* SudoDIRelayError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SudoDIRelayError.swift; sourceTree = "<group>"; };
+		464CAE5F26EED495006C6FD0 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		464CAE6026EED495006C6FD0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		464CAE6426EED495006C6FD0 /* GetMessagesIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMessagesIntegrationTests.swift; sourceTree = "<group>"; };
+		464CAE6526EED495006C6FD0 /* DeletePostboxIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletePostboxIntegrationTests.swift; sourceTree = "<group>"; };
+		464CAE6626EED495006C6FD0 /* SubscribeToPostboxDeletedIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToPostboxDeletedIntegrationTests.swift; sourceTree = "<group>"; };
+		464CAE6726EED495006C6FD0 /* CreatePostboxIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostboxIntegrationTests.swift; sourceTree = "<group>"; };
+		464CAE6826EED495006C6FD0 /* SubscribeToMessagesReceivedIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToMessagesReceivedIntegrationTests.swift; sourceTree = "<group>"; };
+		464CAE6926EED495006C6FD0 /* BaseIntegrationTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseIntegrationTestCase.swift; sourceTree = "<group>"; };
+		464CAE6A26EED495006C6FD0 /* StoreMessageIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreMessageIntegrationTests.swift; sourceTree = "<group>"; };
+		464CAE6B26EED495006C6FD0 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		464CAE6D26EED496006C6FD0 /* XCTestCase+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Utility.swift"; sourceTree = "<group>"; };
+		464CAE6E26EED496006C6FD0 /* DataFactoryNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFactoryNamespace.swift; sourceTree = "<group>"; };
+		464CAE6F26EED496006C6FD0 /* Result+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Result+Convenience.swift"; sourceTree = "<group>"; };
+		464CAE7026EED496006C6FD0 /* DataFactory+TestUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataFactory+TestUtility.swift"; sourceTree = "<group>"; };
+		464CAE7126EED496006C6FD0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		464CAE7426EED496006C6FD0 /* HTTPTransports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTransports.swift; sourceTree = "<group>"; };
+		464CAE7726EED496006C6FD0 /* MockGraphQL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockGraphQL.swift; sourceTree = "<group>"; };
+		464CAE7826EED496006C6FD0 /* MockOperationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockOperationFactory.swift; sourceTree = "<group>"; };
+		464CAE7926EED496006C6FD0 /* MockSubscriptionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSubscriptionManager.swift; sourceTree = "<group>"; };
+		464CAE7A26EED496006C6FD0 /* MockSubscriptionToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSubscriptionToken.swift; sourceTree = "<group>"; };
+		464CAE7B26EED496006C6FD0 /* MockKeyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockKeyManager.swift; sourceTree = "<group>"; };
+		464CAE7C26EED496006C6FD0 /* MockAWSNetworkTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAWSNetworkTransport.swift; sourceTree = "<group>"; };
+		464CAE7E26EED496006C6FD0 /* MockDeletePostboxUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDeletePostboxUseCase.swift; sourceTree = "<group>"; };
+		464CAE7F26EED496006C6FD0 /* MockCreatePostboxUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockCreatePostboxUseCase.swift; sourceTree = "<group>"; };
+		464CAE8026EED496006C6FD0 /* MockSubscribeToPostboxDeletedUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSubscribeToPostboxDeletedUseCase.swift; sourceTree = "<group>"; };
+		464CAE8126EED496006C6FD0 /* MockStoreMessageUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockStoreMessageUseCase.swift; sourceTree = "<group>"; };
+		464CAE8226EED496006C6FD0 /* MockSubscribeToMessagesReceivedUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSubscribeToMessagesReceivedUseCase.swift; sourceTree = "<group>"; };
+		464CAE8326EED496006C6FD0 /* MockGetMessagesUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockGetMessagesUseCase.swift; sourceTree = "<group>"; };
+		464CAE8426EED496006C6FD0 /* MockAppSyncClientHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAppSyncClientHelper.swift; sourceTree = "<group>"; };
+		464CAE8526EED496006C6FD0 /* MockUseCaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUseCaseFactory.swift; sourceTree = "<group>"; };
+		464CAE8626EED496006C6FD0 /* MockRelayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRelayService.swift; sourceTree = "<group>"; };
+		464CAE8726EED497006C6FD0 /* MockPlatformOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPlatformOperationQueue.swift; sourceTree = "<group>"; };
+		464CAE8B26EED497006C6FD0 /* Date+MillisecondsSinceEpochTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+MillisecondsSinceEpochTests.swift"; sourceTree = "<group>"; };
+		464CAE8F26EED497006C6FD0 /* GraphQLResultWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLResultWorkerTests.swift; sourceTree = "<group>"; };
+		464CAE9126EED497006C6FD0 /* RelayTransformerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelayTransformerTests.swift; sourceTree = "<group>"; };
+		464CAE9326EED497006C6FD0 /* DefaultRelayServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRelayServiceTests.swift; sourceTree = "<group>"; };
+		464CAE9526EED497006C6FD0 /* RelaySubscriptionTokenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaySubscriptionTokenTests.swift; sourceTree = "<group>"; };
+		464CAE9626EED497006C6FD0 /* SubscriptionManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionManagerTests.swift; sourceTree = "<group>"; };
+		464CAE9A26EED497006C6FD0 /* SubscribeToPostboxDeletedUseCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToPostboxDeletedUseCaseTests.swift; sourceTree = "<group>"; };
+		464CAE9C26EED497006C6FD0 /* SubscribeToMessagesReceivedUseCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToMessagesReceivedUseCaseTests.swift; sourceTree = "<group>"; };
+		464CAE9E26EED497006C6FD0 /* DeletePostboxUseCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletePostboxUseCaseTests.swift; sourceTree = "<group>"; };
+		464CAEA026EED497006C6FD0 /* GetMessagesUseCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMessagesUseCaseTests.swift; sourceTree = "<group>"; };
+		464CAEA226EED497006C6FD0 /* CreatePostboxUseCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostboxUseCaseTests.swift; sourceTree = "<group>"; };
+		464CAEA426EED498006C6FD0 /* StoreMessageUseCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreMessageUseCaseTests.swift; sourceTree = "<group>"; };
+		464CAEA726EED498006C6FD0 /* RelayMessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelayMessageTests.swift; sourceTree = "<group>"; };
+		464CAEA926EED498006C6FD0 /* DeletePostboxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletePostboxTests.swift; sourceTree = "<group>"; };
+		464CAEAA26EED498006C6FD0 /* StoreMessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreMessageTests.swift; sourceTree = "<group>"; };
+		464CAEAB26EED498006C6FD0 /* CreatePostboxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostboxTests.swift; sourceTree = "<group>"; };
+		464CAEAC26EED498006C6FD0 /* SubscribeToPostboxDeletedTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToPostboxDeletedTests.swift; sourceTree = "<group>"; };
+		464CAEAD26EED498006C6FD0 /* TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCase.swift; sourceTree = "<group>"; };
+		464CAEAE26EED498006C6FD0 /* GetMessagesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMessagesTests.swift; sourceTree = "<group>"; };
+		464CAEAF26EED498006C6FD0 /* SubscribeToMessagesReceivedTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToMessagesReceivedTests.swift; sourceTree = "<group>"; };
+		464CAEB126EED498006C6FD0 /* SudoDIRelayErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SudoDIRelayErrorTests.swift; sourceTree = "<group>"; };
+		464CAEB226EED498006C6FD0 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		464CAEB426EED498006C6FD0 /* Logger+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Logger+Tests.swift"; sourceTree = "<group>"; };
+		464CAEB526EED498006C6FD0 /* XCTestCase+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Utility.swift"; sourceTree = "<group>"; };
+		464CAEB626EED498006C6FD0 /* Error+Equality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Error+Equality.swift"; sourceTree = "<group>"; };
+		464CAEB726EED498006C6FD0 /* Array+OperationConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+OperationConvenience.swift"; sourceTree = "<group>"; };
+		464CAEB826EED498006C6FD0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		464CAEBA26EED498006C6FD0 /* DataFactoryNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFactoryNamespace.swift; sourceTree = "<group>"; };
+		464CAEBB26EED498006C6FD0 /* DataFactory+GraphQL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataFactory+GraphQL.swift"; sourceTree = "<group>"; };
+		464CAEBC26EED498006C6FD0 /* AnyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyError.swift; sourceTree = "<group>"; };
+		464CAEBD26EED498006C6FD0 /* DataFactory+Domain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataFactory+Domain.swift"; sourceTree = "<group>"; };
+		4DEEF3AD251C072D903B0DA3 /* Pods-SudoDecentralizedIdentityRelay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDecentralizedIdentityRelay.release.xcconfig"; path = "Target Support Files/Pods-SudoDecentralizedIdentityRelay/Pods-SudoDecentralizedIdentityRelay.release.xcconfig"; sourceTree = "<group>"; };
+		51F22A600C748D61E9CBCD1E /* Pods-SudoDIRelay-SudoDIRelayIntegrationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDIRelay-SudoDIRelayIntegrationTests.release.xcconfig"; path = "Target Support Files/Pods-SudoDIRelay-SudoDIRelayIntegrationTests/Pods-SudoDIRelay-SudoDIRelayIntegrationTests.release.xcconfig"; sourceTree = "<group>"; };
+		564E691B3F7C372121A00F45 /* Pods-SudoDIRelay-SudoDIRelayIntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDIRelay-SudoDIRelayIntegrationTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoDIRelay-SudoDIRelayIntegrationTests/Pods-SudoDIRelay-SudoDIRelayIntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5EB4E9655642C01F12220EA5 /* Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayTests/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayTests.debug.xcconfig"; sourceTree = "<group>"; };
+		788DA514F677786725F693AF /* Pods-TestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApp.release.xcconfig"; path = "Target Support Files/Pods-TestApp/Pods-TestApp.release.xcconfig"; sourceTree = "<group>"; };
+		7F9A8A44EFC5DF75F7AAED8D /* Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayTests.release.xcconfig"; path = "Target Support Files/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayTests/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayTests.release.xcconfig"; sourceTree = "<group>"; };
+		7FC4D90D620C2CB9F29F297A /* Pods-SudoDIRelay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDIRelay.debug.xcconfig"; path = "Target Support Files/Pods-SudoDIRelay/Pods-SudoDIRelay.debug.xcconfig"; sourceTree = "<group>"; };
+		84C0F0DC26BBA8CE005810AC /* SudoDIRelay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SudoDIRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C0F0E526BBA8CE005810AC /* SudoDIRelayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SudoDIRelayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C0F0FA26BBA9EB005810AC /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C0F0FC26BBA9EB005810AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		84C0F0FE26BBA9EB005810AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		84C0F10026BBA9EB005810AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		84C0F10326BBA9EB005810AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		84C0F10526BBA9EE005810AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84C0F10826BBA9EE005810AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		84C0F10A26BBA9EE005810AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84C0F11226BBAA54005810AC /* SudoDIRelayIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SudoDIRelayIntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1A20DF231086AA67706FD6B /* Pods_TestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B20911D3FFA37CDB04199FEF /* Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CCAD4B9A38E1428F0006B031 /* Pods_SudoDIRelay_SudoDIRelayIntegrationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoDIRelay_SudoDIRelayIntegrationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDCA0B77AFCBC48EF74CF3E7 /* Pods_SudoDIRelay_SudoDIRelayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoDIRelay_SudoDIRelayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D460010390EA4E7CE5182BA6 /* Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.release.xcconfig"; path = "Target Support Files/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.release.xcconfig"; sourceTree = "<group>"; };
+		E037D0B81FA07B33BE8A225E /* Pods-SudoDIRelay-SudoDIRelayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDIRelay-SudoDIRelayTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoDIRelay-SudoDIRelayTests/Pods-SudoDIRelay-SudoDIRelayTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F62AF80D92DED01896F28AB4 /* Pods-SudoDIRelay-SudoDIRelayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDIRelay-SudoDIRelayTests.release.xcconfig"; path = "Target Support Files/Pods-SudoDIRelay-SudoDIRelayTests/Pods-SudoDIRelay-SudoDIRelayTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84C0F0D926BBA8CE005810AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CA1F7A9ABA42CD7B92D3615 /* Pods_SudoDIRelay.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C0F0E226BBA8CE005810AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84C0F0E626BBA8CE005810AC /* SudoDIRelay.framework in Frameworks */,
+				C0BB50814B29D8009E61A973 /* Pods_SudoDIRelay_SudoDIRelayTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C0F0F726BBA9EB005810AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEDE041DCC9E77CA5DC04D4C /* Pods_TestApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C0F10F26BBAA54005810AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84C0F11726BBAA54005810AC /* SudoDIRelay.framework in Frameworks */,
+				84C07A82BA3A40976EC15BAC /* Pods_SudoDIRelay_SudoDIRelayIntegrationTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		464CAE2C26EED493006C6FD0 /* SudoDIRelay */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE2D26EED493006C6FD0 /* SudoDecentralizedIdentityRelay.h */,
+				464CAE2E26EED493006C6FD0 /* Resources */,
+				464CAE3126EED493006C6FD0 /* Source */,
+				464CAE6026EED495006C6FD0 /* Info.plist */,
+			);
+			path = SudoDIRelay;
+			sourceTree = "<group>";
+		};
+		464CAE2E26EED493006C6FD0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE2F26EED493006C6FD0 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		464CAE3126EED493006C6FD0 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE3226EED493006C6FD0 /* Internal */,
+				464CAE5426EED494006C6FD0 /* Public */,
+				464CAE5E26EED495006C6FD0 /* Swiftgen */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		464CAE3226EED493006C6FD0 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE3326EED493006C6FD0 /* Extensions */,
+				464CAE3826EED494006C6FD0 /* Data */,
+				464CAE4926EED494006C6FD0 /* Domain */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		464CAE3326EED493006C6FD0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE3426EED493006C6FD0 /* Date+MillisecondsSinceEpoch.swift */,
+				464CAE3526EED493006C6FD0 /* OperationArray+Convenience.swift */,
+				464CAE3626EED493006C6FD0 /* SudoLogger+DecentralizedRelay.swift */,
+				464CAE3726EED493006C6FD0 /* Bundle+Static.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		464CAE3826EED494006C6FD0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE3926EED494006C6FD0 /* Shared */,
+				464CAE3C26EED494006C6FD0 /* GraphQLAPI.swift */,
+				464CAE3D26EED494006C6FD0 /* Transformers */,
+				464CAE3F26EED494006C6FD0 /* Service */,
+				464CAE4126EED494006C6FD0 /* Protocols */,
+				464CAE4426EED494006C6FD0 /* Utility */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		464CAE3926EED494006C6FD0 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE3A26EED494006C6FD0 /* Workers */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		464CAE3A26EED494006C6FD0 /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE3B26EED494006C6FD0 /* GraphQLResultWorker.swift */,
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
+		464CAE3D26EED494006C6FD0 /* Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE3E26EED494006C6FD0 /* RelayTransformer.swift */,
+			);
+			path = Transformers;
+			sourceTree = "<group>";
+		};
+		464CAE3F26EED494006C6FD0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE4026EED494006C6FD0 /* DefaultRelayService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		464CAE4126EED494006C6FD0 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE4226EED494006C6FD0 /* AppSyncClientHelper.swift */,
+				464CAE4326EED494006C6FD0 /* Resetable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		464CAE4426EED494006C6FD0 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE4526EED494006C6FD0 /* SubscriptionManager.swift */,
+				464CAE4626EED494006C6FD0 /* OperationFactory.swift */,
+				464CAE4726EED494006C6FD0 /* DefaultAppSyncClientHelper.swift */,
+				464CAE4826EED494006C6FD0 /* RelaySubscriptionToken.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		464CAE4926EED494006C6FD0 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE4A26EED494006C6FD0 /* Use Cases */,
+				464CAE5226EED494006C6FD0 /* Service */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		464CAE4A26EED494006C6FD0 /* Use Cases */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE4B26EED494006C6FD0 /* SubscribeToMessagesReceivedUseCase.swift */,
+				464CAE4C26EED494006C6FD0 /* SubscribeToPostboxDeletedUseCase.swift */,
+				464CAE4D26EED494006C6FD0 /* GetMessagesUseCase.swift */,
+				464CAE4E26EED494006C6FD0 /* DeletePostboxUseCase.swift */,
+				464CAE4F26EED494006C6FD0 /* CreatePostboxUseCase.swift */,
+				464CAE5026EED494006C6FD0 /* StoreMessageUseCase.swift */,
+				464CAE5126EED494006C6FD0 /* UseCaseFactory.swift */,
+			);
+			path = "Use Cases";
+			sourceTree = "<group>";
+		};
+		464CAE5226EED494006C6FD0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE5326EED494006C6FD0 /* RelayService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		464CAE5426EED494006C6FD0 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE5526EED494006C6FD0 /* DefaultSudoDIRelayClient.swift */,
+				464CAE5626EED494006C6FD0 /* Types */,
+				464CAE5B26EED495006C6FD0 /* SudoDIRelayClient.swift */,
+				464CAE5C26EED495006C6FD0 /* Errors */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		464CAE5626EED494006C6FD0 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE5726EED494006C6FD0 /* RelayMessage.swift */,
+				464CAE5826EED495006C6FD0 /* SubscriptionToken.swift */,
+				464CAE5926EED495006C6FD0 /* Status.swift */,
+				464CAE5A26EED495006C6FD0 /* CachePolicy.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		464CAE5C26EED495006C6FD0 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE5D26EED495006C6FD0 /* SudoDIRelayError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		464CAE5E26EED495006C6FD0 /* Swiftgen */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE5F26EED495006C6FD0 /* Strings.swift */,
+			);
+			path = Swiftgen;
+			sourceTree = "<group>";
+		};
+		464CAE6126EED495006C6FD0 /* SudoDIRelayIntegrationTests */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE6226EED495006C6FD0 /* Test */,
+				464CAE6B26EED495006C6FD0 /* .swiftlint.yml */,
+				464CAE6C26EED495006C6FD0 /* Extensions */,
+				464CAE7126EED496006C6FD0 /* Info.plist */,
+				464CAE7226EED496006C6FD0 /* Utility */,
+			);
+			path = SudoDIRelayIntegrationTests;
+			sourceTree = "<group>";
+		};
+		464CAE6226EED495006C6FD0 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE6326EED495006C6FD0 /* SudoDIRelayClient */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		464CAE6326EED495006C6FD0 /* SudoDIRelayClient */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE6426EED495006C6FD0 /* GetMessagesIntegrationTests.swift */,
+				464CAE6526EED495006C6FD0 /* DeletePostboxIntegrationTests.swift */,
+				464CAE6626EED495006C6FD0 /* SubscribeToPostboxDeletedIntegrationTests.swift */,
+				464CAE6726EED495006C6FD0 /* CreatePostboxIntegrationTests.swift */,
+				464CAE6826EED495006C6FD0 /* SubscribeToMessagesReceivedIntegrationTests.swift */,
+				464CAE6926EED495006C6FD0 /* BaseIntegrationTestCase.swift */,
+				464CAE6A26EED495006C6FD0 /* StoreMessageIntegrationTests.swift */,
+			);
+			path = SudoDIRelayClient;
+			sourceTree = "<group>";
+		};
+		464CAE6C26EED495006C6FD0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE6D26EED496006C6FD0 /* XCTestCase+Utility.swift */,
+				464CAE6E26EED496006C6FD0 /* DataFactoryNamespace.swift */,
+				464CAE6F26EED496006C6FD0 /* Result+Convenience.swift */,
+				464CAE7026EED496006C6FD0 /* DataFactory+TestUtility.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		464CAE7226EED496006C6FD0 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE7426EED496006C6FD0 /* HTTPTransports.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		464CAE7526EED496006C6FD0 /* SudoDIRelayTests */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE7626EED496006C6FD0 /* Mocks */,
+				464CAE8826EED497006C6FD0 /* Test */,
+				464CAEB226EED498006C6FD0 /* .swiftlint.yml */,
+				464CAEB326EED498006C6FD0 /* Extensions */,
+				464CAEB826EED498006C6FD0 /* Info.plist */,
+				464CAEB926EED498006C6FD0 /* Utility */,
+			);
+			path = SudoDIRelayTests;
+			sourceTree = "<group>";
+		};
+		464CAE7626EED496006C6FD0 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE7726EED496006C6FD0 /* MockGraphQL.swift */,
+				464CAE7826EED496006C6FD0 /* MockOperationFactory.swift */,
+				464CAE7926EED496006C6FD0 /* MockSubscriptionManager.swift */,
+				464CAE7A26EED496006C6FD0 /* MockSubscriptionToken.swift */,
+				464CAE7B26EED496006C6FD0 /* MockKeyManager.swift */,
+				464CAE7C26EED496006C6FD0 /* MockAWSNetworkTransport.swift */,
+				464CAE7D26EED496006C6FD0 /* Use Cases */,
+				464CAE8426EED496006C6FD0 /* MockAppSyncClientHelper.swift */,
+				464CAE8526EED496006C6FD0 /* MockUseCaseFactory.swift */,
+				464CAE8626EED496006C6FD0 /* MockRelayService.swift */,
+				464CAE8726EED497006C6FD0 /* MockPlatformOperationQueue.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		464CAE7D26EED496006C6FD0 /* Use Cases */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE7E26EED496006C6FD0 /* MockDeletePostboxUseCase.swift */,
+				464CAE7F26EED496006C6FD0 /* MockCreatePostboxUseCase.swift */,
+				464CAE8026EED496006C6FD0 /* MockSubscribeToPostboxDeletedUseCase.swift */,
+				464CAE8126EED496006C6FD0 /* MockStoreMessageUseCase.swift */,
+				464CAE8226EED496006C6FD0 /* MockSubscribeToMessagesReceivedUseCase.swift */,
+				464CAE8326EED496006C6FD0 /* MockGetMessagesUseCase.swift */,
+			);
+			path = "Use Cases";
+			sourceTree = "<group>";
+		};
+		464CAE8826EED497006C6FD0 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE8926EED497006C6FD0 /* Internal */,
+				464CAEA526EED498006C6FD0 /* Public */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		464CAE8926EED497006C6FD0 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE8A26EED497006C6FD0 /* Extensions */,
+				464CAE8C26EED497006C6FD0 /* Data */,
+				464CAE9726EED497006C6FD0 /* Domain */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		464CAE8A26EED497006C6FD0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE8B26EED497006C6FD0 /* Date+MillisecondsSinceEpochTests.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		464CAE8C26EED497006C6FD0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE8D26EED497006C6FD0 /* Shared */,
+				464CAE9026EED497006C6FD0 /* Transformers */,
+				464CAE9226EED497006C6FD0 /* Service */,
+				464CAE9426EED497006C6FD0 /* Utility */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		464CAE8D26EED497006C6FD0 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE8E26EED497006C6FD0 /* Workers */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		464CAE8E26EED497006C6FD0 /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE8F26EED497006C6FD0 /* GraphQLResultWorkerTests.swift */,
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
+		464CAE9026EED497006C6FD0 /* Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE9126EED497006C6FD0 /* RelayTransformerTests.swift */,
+			);
+			path = Transformers;
+			sourceTree = "<group>";
+		};
+		464CAE9226EED497006C6FD0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE9326EED497006C6FD0 /* DefaultRelayServiceTests.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		464CAE9426EED497006C6FD0 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE9526EED497006C6FD0 /* RelaySubscriptionTokenTests.swift */,
+				464CAE9626EED497006C6FD0 /* SubscriptionManagerTests.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		464CAE9726EED497006C6FD0 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE9826EED497006C6FD0 /* Use Cases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		464CAE9826EED497006C6FD0 /* Use Cases */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE9926EED497006C6FD0 /* Subscribe To Postbox Deleted */,
+				464CAE9B26EED497006C6FD0 /* Subscribe To Messages Received */,
+				464CAE9D26EED497006C6FD0 /* Delete Postbox */,
+				464CAE9F26EED497006C6FD0 /* Get Messages */,
+				464CAEA126EED497006C6FD0 /* Create Postbox */,
+				464CAEA326EED497006C6FD0 /* Store Message */,
+			);
+			path = "Use Cases";
+			sourceTree = "<group>";
+		};
+		464CAE9926EED497006C6FD0 /* Subscribe To Postbox Deleted */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE9A26EED497006C6FD0 /* SubscribeToPostboxDeletedUseCaseTests.swift */,
+			);
+			path = "Subscribe To Postbox Deleted";
+			sourceTree = "<group>";
+		};
+		464CAE9B26EED497006C6FD0 /* Subscribe To Messages Received */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE9C26EED497006C6FD0 /* SubscribeToMessagesReceivedUseCaseTests.swift */,
+			);
+			path = "Subscribe To Messages Received";
+			sourceTree = "<group>";
+		};
+		464CAE9D26EED497006C6FD0 /* Delete Postbox */ = {
+			isa = PBXGroup;
+			children = (
+				464CAE9E26EED497006C6FD0 /* DeletePostboxUseCaseTests.swift */,
+			);
+			path = "Delete Postbox";
+			sourceTree = "<group>";
+		};
+		464CAE9F26EED497006C6FD0 /* Get Messages */ = {
+			isa = PBXGroup;
+			children = (
+				464CAEA026EED497006C6FD0 /* GetMessagesUseCaseTests.swift */,
+			);
+			path = "Get Messages";
+			sourceTree = "<group>";
+		};
+		464CAEA126EED497006C6FD0 /* Create Postbox */ = {
+			isa = PBXGroup;
+			children = (
+				464CAEA226EED497006C6FD0 /* CreatePostboxUseCaseTests.swift */,
+			);
+			path = "Create Postbox";
+			sourceTree = "<group>";
+		};
+		464CAEA326EED497006C6FD0 /* Store Message */ = {
+			isa = PBXGroup;
+			children = (
+				464CAEA426EED498006C6FD0 /* StoreMessageUseCaseTests.swift */,
+			);
+			path = "Store Message";
+			sourceTree = "<group>";
+		};
+		464CAEA526EED498006C6FD0 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				464CAEA626EED498006C6FD0 /* Types */,
+				464CAEA826EED498006C6FD0 /* DefaultSudoDIRelayClient Tests */,
+				464CAEB026EED498006C6FD0 /* Errors */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		464CAEA626EED498006C6FD0 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				464CAEA726EED498006C6FD0 /* RelayMessageTests.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		464CAEA826EED498006C6FD0 /* DefaultSudoDIRelayClient Tests */ = {
+			isa = PBXGroup;
+			children = (
+				464CAEA926EED498006C6FD0 /* DeletePostboxTests.swift */,
+				464CAEAA26EED498006C6FD0 /* StoreMessageTests.swift */,
+				464CAEAB26EED498006C6FD0 /* CreatePostboxTests.swift */,
+				464CAEAC26EED498006C6FD0 /* SubscribeToPostboxDeletedTests.swift */,
+				464CAEAD26EED498006C6FD0 /* TestCase.swift */,
+				464CAEAE26EED498006C6FD0 /* GetMessagesTests.swift */,
+				464CAEAF26EED498006C6FD0 /* SubscribeToMessagesReceivedTests.swift */,
+			);
+			path = "DefaultSudoDIRelayClient Tests";
+			sourceTree = "<group>";
+		};
+		464CAEB026EED498006C6FD0 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				464CAEB126EED498006C6FD0 /* SudoDIRelayErrorTests.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		464CAEB326EED498006C6FD0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				464CAEB426EED498006C6FD0 /* Logger+Tests.swift */,
+				464CAEB526EED498006C6FD0 /* XCTestCase+Utility.swift */,
+				464CAEB626EED498006C6FD0 /* Error+Equality.swift */,
+				464CAEB726EED498006C6FD0 /* Array+OperationConvenience.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		464CAEB926EED498006C6FD0 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				464CAEBA26EED498006C6FD0 /* DataFactoryNamespace.swift */,
+				464CAEBB26EED498006C6FD0 /* DataFactory+GraphQL.swift */,
+				464CAEBC26EED498006C6FD0 /* AnyError.swift */,
+				464CAEBD26EED498006C6FD0 /* DataFactory+Domain.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		6C63A5040BD71F5B3801A429 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B20911D3FFA37CDB04199FEF /* Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.debug.xcconfig */,
+				D460010390EA4E7CE5182BA6 /* Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.release.xcconfig */,
+				5EB4E9655642C01F12220EA5 /* Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayTests.debug.xcconfig */,
+				7F9A8A44EFC5DF75F7AAED8D /* Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayTests.release.xcconfig */,
+				182752E71011A6189DAE8BDC /* Pods-SudoDecentralizedIdentityRelay.debug.xcconfig */,
+				4DEEF3AD251C072D903B0DA3 /* Pods-SudoDecentralizedIdentityRelay.release.xcconfig */,
+				06AC1E2E07922C8420722B89 /* Pods-TestApp.debug.xcconfig */,
+				788DA514F677786725F693AF /* Pods-TestApp.release.xcconfig */,
+				7FC4D90D620C2CB9F29F297A /* Pods-SudoDIRelay.debug.xcconfig */,
+				1685B55FCC362B68C3EA38B5 /* Pods-SudoDIRelay.release.xcconfig */,
+				564E691B3F7C372121A00F45 /* Pods-SudoDIRelay-SudoDIRelayIntegrationTests.debug.xcconfig */,
+				51F22A600C748D61E9CBCD1E /* Pods-SudoDIRelay-SudoDIRelayIntegrationTests.release.xcconfig */,
+				E037D0B81FA07B33BE8A225E /* Pods-SudoDIRelay-SudoDIRelayTests.debug.xcconfig */,
+				F62AF80D92DED01896F28AB4 /* Pods-SudoDIRelay-SudoDIRelayTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		84C0F0D226BBA8CD005810AC = {
+			isa = PBXGroup;
+			children = (
+				464CAE2C26EED493006C6FD0 /* SudoDIRelay */,
+				464CAE6126EED495006C6FD0 /* SudoDIRelayIntegrationTests */,
+				464CAE7526EED496006C6FD0 /* SudoDIRelayTests */,
+				84C0F0FB26BBA9EB005810AC /* TestApp */,
+				84C0F0DD26BBA8CE005810AC /* Products */,
+				6C63A5040BD71F5B3801A429 /* Pods */,
+				B0C575EE279F0DFD7B49ED0E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		84C0F0DD26BBA8CE005810AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84C0F0DC26BBA8CE005810AC /* SudoDIRelay.framework */,
+				84C0F11226BBAA54005810AC /* SudoDIRelayIntegrationTests.xctest */,
+				84C0F0E526BBA8CE005810AC /* SudoDIRelayTests.xctest */,
+				84C0F0FA26BBA9EB005810AC /* TestApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84C0F0FB26BBA9EB005810AC /* TestApp */ = {
+			isa = PBXGroup;
+			children = (
+				84C0F0FC26BBA9EB005810AC /* AppDelegate.swift */,
+				84C0F10526BBA9EE005810AC /* Assets.xcassets */,
+				84C0F10A26BBA9EE005810AC /* Info.plist */,
+				84C0F10726BBA9EE005810AC /* LaunchScreen.storyboard */,
+				84C0F10226BBA9EB005810AC /* Main.storyboard */,
+				84C0F0FE26BBA9EB005810AC /* SceneDelegate.swift */,
+				84C0F10026BBA9EB005810AC /* ViewController.swift */,
+			);
+			path = TestApp;
+			sourceTree = "<group>";
+		};
+		B0C575EE279F0DFD7B49ED0E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B1A20DF231086AA67706FD6B /* Pods_TestApp.framework */,
+				33FFF372CE5267B58B5ADBEF /* Pods_SudoDIRelay.framework */,
+				CCAD4B9A38E1428F0006B031 /* Pods_SudoDIRelay_SudoDIRelayIntegrationTests.framework */,
+				CDCA0B77AFCBC48EF74CF3E7 /* Pods_SudoDIRelay_SudoDIRelayTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		84C0F0D726BBA8CE005810AC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				464CAEBE26EED499006C6FD0 /* SudoDecentralizedIdentityRelay.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		84C0F0DB26BBA8CE005810AC /* SudoDIRelay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84C0F0F026BBA8CE005810AC /* Build configuration list for PBXNativeTarget "SudoDIRelay" */;
+			buildPhases = (
+				682229C5FE643DB6EBE115CB /* [CP] Check Pods Manifest.lock */,
+				84C0F0D726BBA8CE005810AC /* Headers */,
+				84C0F0D826BBA8CE005810AC /* Sources */,
+				84C0F0D926BBA8CE005810AC /* Frameworks */,
+				84C0F0DA26BBA8CE005810AC /* Resources */,
+				46CDB9F526C1E4ED0019EDC1 /* SwiftLint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SudoDIRelay;
+			productName = SudoDecentralizedIdentityRelay;
+			productReference = 84C0F0DC26BBA8CE005810AC /* SudoDIRelay.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		84C0F0E426BBA8CE005810AC /* SudoDIRelayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84C0F0F326BBA8CE005810AC /* Build configuration list for PBXNativeTarget "SudoDIRelayTests" */;
+			buildPhases = (
+				B4C638017214EE13D87766A5 /* [CP] Check Pods Manifest.lock */,
+				84C0F0E126BBA8CE005810AC /* Sources */,
+				84C0F0E226BBA8CE005810AC /* Frameworks */,
+				84C0F0E326BBA8CE005810AC /* Resources */,
+				2952C29AD719F7AB6365DC8D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84C0F0E826BBA8CE005810AC /* PBXTargetDependency */,
+			);
+			name = SudoDIRelayTests;
+			productName = SudoDecentralizedIdentityRelayTests;
+			productReference = 84C0F0E526BBA8CE005810AC /* SudoDIRelayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		84C0F0F926BBA9EB005810AC /* TestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84C0F10B26BBA9EE005810AC /* Build configuration list for PBXNativeTarget "TestApp" */;
+			buildPhases = (
+				80822063C83A94C8D7B0D845 /* [CP] Check Pods Manifest.lock */,
+				84C0F0F626BBA9EB005810AC /* Sources */,
+				84C0F0F726BBA9EB005810AC /* Frameworks */,
+				84C0F0F826BBA9EB005810AC /* Resources */,
+				AE0CC9BCBFD9C61F3A9EF0D8 /* [CP] Embed Pods Frameworks */,
+				84C0F1D826BBAE8B005810AC /* Copy Config To Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestApp;
+			productName = TestApp;
+			productReference = 84C0F0FA26BBA9EB005810AC /* TestApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		84C0F11126BBAA54005810AC /* SudoDIRelayIntegrationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84C0F11C26BBAA54005810AC /* Build configuration list for PBXNativeTarget "SudoDIRelayIntegrationTests" */;
+			buildPhases = (
+				C7C684DE372173D0C0546955 /* [CP] Check Pods Manifest.lock */,
+				84C0F10E26BBAA54005810AC /* Sources */,
+				84C0F10F26BBAA54005810AC /* Frameworks */,
+				84C0F11026BBAA54005810AC /* Resources */,
+				6A7D92B08447738B753A365B /* [CP] Embed Pods Frameworks */,
+				84C0F1D726BBAE1F005810AC /* Copy TEST keys */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84C0F11926BBAA54005810AC /* PBXTargetDependency */,
+				84C0F1DA26BBAEBD005810AC /* PBXTargetDependency */,
+			);
+			name = SudoDIRelayIntegrationTests;
+			productName = SudoDecentralizedIdentityRelayIntegrationTests;
+			productReference = 84C0F11226BBAA54005810AC /* SudoDIRelayIntegrationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84C0F0D326BBA8CD005810AC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					84C0F0DB26BBA8CE005810AC = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					84C0F0E426BBA8CE005810AC = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					84C0F0F926BBA9EB005810AC = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					84C0F11126BBAA54005810AC = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 84C0F0F926BBA9EB005810AC;
+					};
+				};
+			};
+			buildConfigurationList = 84C0F0D626BBA8CD005810AC /* Build configuration list for PBXProject "SudoDIRelay" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 84C0F0D226BBA8CD005810AC;
+			productRefGroup = 84C0F0DD26BBA8CE005810AC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84C0F0DB26BBA8CE005810AC /* SudoDIRelay */,
+				84C0F0E426BBA8CE005810AC /* SudoDIRelayTests */,
+				84C0F0F926BBA9EB005810AC /* TestApp */,
+				84C0F11126BBAA54005810AC /* SudoDIRelayIntegrationTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84C0F0DA26BBA8CE005810AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				464CAEBF26EED499006C6FD0 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C0F0E326BBA8CE005810AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C0F0F826BBA9EB005810AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84C0F10626BBA9EE005810AC /* Assets.xcassets in Resources */,
+				84C0F10926BBA9EE005810AC /* LaunchScreen.storyboard in Resources */,
+				84C0F10426BBA9EB005810AC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C0F11026BBAA54005810AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2952C29AD719F7AB6365DC8D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SudoDIRelay-SudoDIRelayTests/Pods-SudoDIRelay-SudoDIRelayTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SudoDIRelay-SudoDIRelayTests/Pods-SudoDIRelay-SudoDIRelayTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SudoDIRelay-SudoDIRelayTests/Pods-SudoDIRelay-SudoDIRelayTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		46CDB9F526C1E4ED0019EDC1 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint > /dev/null; then\n    /usr/local/bin/swiftlint --path ${PROJECT_DIR}\nelse\n    echo \"Warning: SwiftLint not installed, run 'brew install swiftlint'\"\n    exit 1\nfi\n";
+		};
+		682229C5FE643DB6EBE115CB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SudoDIRelay-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A7D92B08447738B753A365B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SudoDIRelay-SudoDIRelayIntegrationTests/Pods-SudoDIRelay-SudoDIRelayIntegrationTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SudoDIRelay-SudoDIRelayIntegrationTests/Pods-SudoDIRelay-SudoDIRelayIntegrationTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SudoDIRelay-SudoDIRelayIntegrationTests/Pods-SudoDIRelay-SudoDIRelayIntegrationTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		80822063C83A94C8D7B0D845 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TestApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84C0F1D726BBAE1F005810AC /* Copy TEST keys */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy TEST keys";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp -f /var/anonyome_key/* \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\ncp -f config/register_key.private \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\ncp -f config/register_key.id \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" || :\n";
+		};
+		84C0F1D826BBAE8B005810AC /* Copy Config To Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Config To Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncp -f config/sudoplatformconfig.json \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nls ${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\n";
+		};
+		AE0CC9BCBFD9C61F3A9EF0D8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestApp/Pods-TestApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestApp/Pods-TestApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestApp/Pods-TestApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4C638017214EE13D87766A5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SudoDIRelay-SudoDIRelayTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7C684DE372173D0C0546955 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SudoDIRelay-SudoDIRelayIntegrationTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84C0F0D826BBA8CE005810AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				464CAF1D26EEE07D006C6FD0 /* Date+MillisecondsSinceEpoch.swift in Sources */,
+				464CAF1E26EEE07D006C6FD0 /* OperationArray+Convenience.swift in Sources */,
+				464CAF1F26EEE07D006C6FD0 /* SudoLogger+DecentralizedRelay.swift in Sources */,
+				464CAF2026EEE07D006C6FD0 /* Bundle+Static.swift in Sources */,
+				464CAF2126EEE07D006C6FD0 /* GraphQLResultWorker.swift in Sources */,
+				464CAF2226EEE07D006C6FD0 /* GraphQLAPI.swift in Sources */,
+				464CAF2326EEE07D006C6FD0 /* RelayTransformer.swift in Sources */,
+				464CAF2426EEE07D006C6FD0 /* DefaultRelayService.swift in Sources */,
+				464CAF2526EEE07D006C6FD0 /* AppSyncClientHelper.swift in Sources */,
+				464CAF2626EEE07D006C6FD0 /* Resetable.swift in Sources */,
+				464CAF2726EEE07D006C6FD0 /* SubscriptionManager.swift in Sources */,
+				464CAF2826EEE07D006C6FD0 /* OperationFactory.swift in Sources */,
+				464CAF2926EEE07D006C6FD0 /* DefaultAppSyncClientHelper.swift in Sources */,
+				464CAF2A26EEE07D006C6FD0 /* RelaySubscriptionToken.swift in Sources */,
+				464CAF2B26EEE07D006C6FD0 /* SubscribeToMessagesReceivedUseCase.swift in Sources */,
+				464CAF2C26EEE07D006C6FD0 /* SubscribeToPostboxDeletedUseCase.swift in Sources */,
+				464CAF2D26EEE07D006C6FD0 /* GetMessagesUseCase.swift in Sources */,
+				464CAF2E26EEE07D006C6FD0 /* DeletePostboxUseCase.swift in Sources */,
+				464CAF2F26EEE07D006C6FD0 /* CreatePostboxUseCase.swift in Sources */,
+				464CAF3026EEE07D006C6FD0 /* StoreMessageUseCase.swift in Sources */,
+				464CAF3126EEE07D006C6FD0 /* UseCaseFactory.swift in Sources */,
+				464CAF3226EEE07D006C6FD0 /* RelayService.swift in Sources */,
+				464CAF3326EEE07D006C6FD0 /* DefaultSudoDIRelayClient.swift in Sources */,
+				464CAF3426EEE07D006C6FD0 /* RelayMessage.swift in Sources */,
+				464CAF3526EEE07D006C6FD0 /* SubscriptionToken.swift in Sources */,
+				464CAF3626EEE07D006C6FD0 /* Status.swift in Sources */,
+				464CAF3726EEE07D006C6FD0 /* CachePolicy.swift in Sources */,
+				464CAF3826EEE07D006C6FD0 /* SudoDIRelayClient.swift in Sources */,
+				464CAF3926EEE07D006C6FD0 /* SudoDIRelayError.swift in Sources */,
+				464CAF3A26EEE07D006C6FD0 /* Strings.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C0F0E126BBA8CE005810AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				464CAF3B26EEE1A4006C6FD0 /* MockGraphQL.swift in Sources */,
+				464CAF3C26EEE1A4006C6FD0 /* MockOperationFactory.swift in Sources */,
+				464CAF3D26EEE1A4006C6FD0 /* MockSubscriptionManager.swift in Sources */,
+				464CAF3E26EEE1A4006C6FD0 /* MockSubscriptionToken.swift in Sources */,
+				464CAF3F26EEE1A4006C6FD0 /* MockKeyManager.swift in Sources */,
+				464CAF4026EEE1A4006C6FD0 /* MockAWSNetworkTransport.swift in Sources */,
+				464CAF4126EEE1A4006C6FD0 /* MockDeletePostboxUseCase.swift in Sources */,
+				464CAF4226EEE1A4006C6FD0 /* MockCreatePostboxUseCase.swift in Sources */,
+				464CAF4326EEE1A4006C6FD0 /* MockSubscribeToPostboxDeletedUseCase.swift in Sources */,
+				464CAF4426EEE1A4006C6FD0 /* MockStoreMessageUseCase.swift in Sources */,
+				464CAF4526EEE1A4006C6FD0 /* MockSubscribeToMessagesReceivedUseCase.swift in Sources */,
+				464CAF4626EEE1A4006C6FD0 /* MockGetMessagesUseCase.swift in Sources */,
+				464CAF4726EEE1A4006C6FD0 /* MockAppSyncClientHelper.swift in Sources */,
+				464CAF4826EEE1A4006C6FD0 /* MockUseCaseFactory.swift in Sources */,
+				464CAF4926EEE1A4006C6FD0 /* MockRelayService.swift in Sources */,
+				464CAF4A26EEE1A4006C6FD0 /* MockPlatformOperationQueue.swift in Sources */,
+				464CAF4B26EEE1A4006C6FD0 /* Date+MillisecondsSinceEpochTests.swift in Sources */,
+				464CAF4C26EEE1A4006C6FD0 /* GraphQLResultWorkerTests.swift in Sources */,
+				464CAF4D26EEE1A4006C6FD0 /* RelayTransformerTests.swift in Sources */,
+				464CAF4E26EEE1A4006C6FD0 /* DefaultRelayServiceTests.swift in Sources */,
+				464CAF4F26EEE1A4006C6FD0 /* RelaySubscriptionTokenTests.swift in Sources */,
+				464CAF5026EEE1A4006C6FD0 /* SubscriptionManagerTests.swift in Sources */,
+				464CAF5126EEE1A4006C6FD0 /* SubscribeToPostboxDeletedUseCaseTests.swift in Sources */,
+				464CAF5226EEE1A4006C6FD0 /* SubscribeToMessagesReceivedUseCaseTests.swift in Sources */,
+				464CAF5326EEE1A4006C6FD0 /* DeletePostboxUseCaseTests.swift in Sources */,
+				464CAF5426EEE1A4006C6FD0 /* GetMessagesUseCaseTests.swift in Sources */,
+				464CAF5526EEE1A4006C6FD0 /* CreatePostboxUseCaseTests.swift in Sources */,
+				464CAF5626EEE1A4006C6FD0 /* StoreMessageUseCaseTests.swift in Sources */,
+				464CAF5726EEE1A4006C6FD0 /* RelayMessageTests.swift in Sources */,
+				464CAF5826EEE1A4006C6FD0 /* DeletePostboxTests.swift in Sources */,
+				464CAF5926EEE1A4006C6FD0 /* StoreMessageTests.swift in Sources */,
+				464CAF5A26EEE1A4006C6FD0 /* CreatePostboxTests.swift in Sources */,
+				464CAF5B26EEE1A4006C6FD0 /* SubscribeToPostboxDeletedTests.swift in Sources */,
+				464CAF5C26EEE1A4006C6FD0 /* TestCase.swift in Sources */,
+				464CAF5D26EEE1A4006C6FD0 /* GetMessagesTests.swift in Sources */,
+				464CAF5E26EEE1A4006C6FD0 /* SubscribeToMessagesReceivedTests.swift in Sources */,
+				464CAF5F26EEE1A4006C6FD0 /* SudoDIRelayErrorTests.swift in Sources */,
+				464CAF6026EEE1A5006C6FD0 /* Logger+Tests.swift in Sources */,
+				464CAF6126EEE1A5006C6FD0 /* XCTestCase+Utility.swift in Sources */,
+				464CAF6226EEE1A5006C6FD0 /* Error+Equality.swift in Sources */,
+				464CAF6326EEE1A5006C6FD0 /* Array+OperationConvenience.swift in Sources */,
+				464CAF6426EEE1A5006C6FD0 /* DataFactoryNamespace.swift in Sources */,
+				464CAF6526EEE1A5006C6FD0 /* DataFactory+GraphQL.swift in Sources */,
+				464CAF6626EEE1A5006C6FD0 /* AnyError.swift in Sources */,
+				464CAF6726EEE1A5006C6FD0 /* DataFactory+Domain.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C0F0F626BBA9EB005810AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84C0F0FD26BBA9EB005810AC /* AppDelegate.swift in Sources */,
+				84C0F0FF26BBA9EB005810AC /* SceneDelegate.swift in Sources */,
+				84C0F10126BBA9EB005810AC /* ViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C0F10E26BBAA54005810AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				464CAF6826EEE1CD006C6FD0 /* GetMessagesIntegrationTests.swift in Sources */,
+				464CAF6926EEE1CD006C6FD0 /* DeletePostboxIntegrationTests.swift in Sources */,
+				464CAF6A26EEE1CD006C6FD0 /* SubscribeToPostboxDeletedIntegrationTests.swift in Sources */,
+				464CAF6B26EEE1CD006C6FD0 /* CreatePostboxIntegrationTests.swift in Sources */,
+				464CAF6C26EEE1CD006C6FD0 /* SubscribeToMessagesReceivedIntegrationTests.swift in Sources */,
+				464CAF6D26EEE1CD006C6FD0 /* BaseIntegrationTestCase.swift in Sources */,
+				464CAF6E26EEE1CD006C6FD0 /* StoreMessageIntegrationTests.swift in Sources */,
+				464CAF6F26EEE1CD006C6FD0 /* XCTestCase+Utility.swift in Sources */,
+				464CAF7026EEE1CD006C6FD0 /* DataFactoryNamespace.swift in Sources */,
+				464CAF7126EEE1CD006C6FD0 /* Result+Convenience.swift in Sources */,
+				464CAF7226EEE1CD006C6FD0 /* DataFactory+TestUtility.swift in Sources */,
+				464CAF7326EEE1CD006C6FD0 /* HTTPTransports.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84C0F0E826BBA8CE005810AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84C0F0DB26BBA8CE005810AC /* SudoDIRelay */;
+			targetProxy = 84C0F0E726BBA8CE005810AC /* PBXContainerItemProxy */;
+		};
+		84C0F11926BBAA54005810AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84C0F0DB26BBA8CE005810AC /* SudoDIRelay */;
+			targetProxy = 84C0F11826BBAA54005810AC /* PBXContainerItemProxy */;
+		};
+		84C0F1DA26BBAEBD005810AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84C0F0F926BBA9EB005810AC /* TestApp */;
+			targetProxy = 84C0F1D926BBAEBD005810AC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		464CAE2F26EED493006C6FD0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				464CAE3026EED493006C6FD0 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		84C0F10226BBA9EB005810AC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84C0F10326BBA9EB005810AC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		84C0F10726BBA9EE005810AC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84C0F10826BBA9EE005810AC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		84C0F0EE26BBA8CE005810AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		84C0F0EF26BBA8CE005810AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		84C0F0F126BBA8CE005810AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FC4D90D620C2CB9F29F297A /* Pods-SudoDIRelay.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UU2W43R8JA;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SudoDIRelay/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sudoplatform.SudoDIRelay;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84C0F0F226BBA8CE005810AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1685B55FCC362B68C3EA38B5 /* Pods-SudoDIRelay.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UU2W43R8JA;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SudoDIRelay/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sudoplatform.SudoDIRelay;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		84C0F0F426BBA8CE005810AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E037D0B81FA07B33BE8A225E /* Pods-SudoDIRelay-SudoDIRelayTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UU2W43R8JA;
+				INFOPLIST_FILE = SudoDIRelayTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sudoplatform.SudoDIRelayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84C0F0F526BBA8CE005810AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F62AF80D92DED01896F28AB4 /* Pods-SudoDIRelay-SudoDIRelayTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UU2W43R8JA;
+				INFOPLIST_FILE = SudoDIRelayTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sudoplatform.SudoDIRelayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		84C0F10C26BBA9EE005810AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06AC1E2E07922C8420722B89 /* Pods-TestApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UU2W43R8JA;
+				INFOPLIST_FILE = TestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sudoplatform.TestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84C0F10D26BBA9EE005810AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 788DA514F677786725F693AF /* Pods-TestApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UU2W43R8JA;
+				INFOPLIST_FILE = TestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sudoplatform.TestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		84C0F11A26BBAA54005810AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 564E691B3F7C372121A00F45 /* Pods-SudoDIRelay-SudoDIRelayIntegrationTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UU2W43R8JA;
+				INFOPLIST_FILE = SudoDIRelayIntegrationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sudoplatform.SudoDIRelayIntegrationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestApp.app/TestApp";
+			};
+			name = Debug;
+		};
+		84C0F11B26BBAA54005810AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51F22A600C748D61E9CBCD1E /* Pods-SudoDIRelay-SudoDIRelayIntegrationTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UU2W43R8JA;
+				INFOPLIST_FILE = SudoDIRelayIntegrationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sudoplatform.SudoDIRelayIntegrationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestApp.app/TestApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84C0F0D626BBA8CD005810AC /* Build configuration list for PBXProject "SudoDIRelay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84C0F0EE26BBA8CE005810AC /* Debug */,
+				84C0F0EF26BBA8CE005810AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84C0F0F026BBA8CE005810AC /* Build configuration list for PBXNativeTarget "SudoDIRelay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84C0F0F126BBA8CE005810AC /* Debug */,
+				84C0F0F226BBA8CE005810AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84C0F0F326BBA8CE005810AC /* Build configuration list for PBXNativeTarget "SudoDIRelayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84C0F0F426BBA8CE005810AC /* Debug */,
+				84C0F0F526BBA8CE005810AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84C0F10B26BBA9EE005810AC /* Build configuration list for PBXNativeTarget "TestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84C0F10C26BBA9EE005810AC /* Debug */,
+				84C0F10D26BBA9EE005810AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84C0F11C26BBAA54005810AC /* Build configuration list for PBXNativeTarget "SudoDIRelayIntegrationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84C0F11A26BBAA54005810AC /* Debug */,
+				84C0F11B26BBAA54005810AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84C0F0D326BBA8CD005810AC /* Project object */;
+}
