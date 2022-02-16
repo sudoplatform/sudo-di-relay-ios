@@ -19,15 +19,24 @@ class DefaultRelayServiceTests: XCTestCase {
 
     var mockOperationFactory: MockOperationFactory!
     var appSyncClient: AWSAppSyncClient!
+    var appSyncClientHelper: AppSyncClientHelper!
 
-    let utcTimestamp = "Thu, 1 Jan 1970 00:00:00 GMT+00"
+    let utcTimestamp: Double = 0.0
 
     // MARK: - Lifecycle
 
     override func setUp() {
         mockOperationFactory = MockOperationFactory()
         appSyncClient = MockAWSAppSyncClientGenerator.generateClient()
-        instanceUnderTest = DefaultRelayService(appSyncClient: appSyncClient)
+        guard let helper = try? MockAppSyncClientHelper() else {
+            XCTFail("Cannot instantiate MockAppSyncClientHelper in \(#function)")
+            return
+        }
+        appSyncClientHelper = helper
+        instanceUnderTest = DefaultRelayService(
+            appSyncClient: appSyncClient,
+            appSyncClientHelper: appSyncClientHelper
+        )
         instanceUnderTest.operationFactory = mockOperationFactory
     }
 
@@ -35,7 +44,11 @@ class DefaultRelayServiceTests: XCTestCase {
 
     func test_initializer() {
         let logger = Logger.testLogger
-        let instanceUnderTest = DefaultRelayService(appSyncClient: appSyncClient, logger: logger)
+        let instanceUnderTest = DefaultRelayService(
+            appSyncClient: appSyncClient,
+            appSyncClientHelper: appSyncClientHelper,
+            logger: logger
+        )
         XCTAssertTrue(instanceUnderTest.appSyncClient === appSyncClient)
         XCTAssertTrue(instanceUnderTest.logger === logger)
     }

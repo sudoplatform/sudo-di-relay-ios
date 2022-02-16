@@ -21,23 +21,23 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          SudoDIRelay 0.1.1 Docs
+          SudoDIRelay 0.0.1 Docs
         </a>
         
       </p>
     
-      <p class="header-col--secondary">
+      <div class="header-col--secondary">
         <form role="search" action="../search.json">
           <input type="text" placeholder="Search documentation" data-typeahead>
         </form>
-      </p>
+      </div>
     
     
     </header>
 
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">SudoDIRelay Reference</a>
-      <img class="carat" src="../img/carat.png" />
+      <img class="carat" src="../img/carat.png" alt=""/>
       SudoDIRelayClient Protocol Reference
     </p>
 
@@ -84,6 +84,9 @@
             <a class="nav-group-name-link" href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/AnyError.html">AnyError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/RelayMessage.html">RelayMessage</a>
               </li>
               <li class="nav-group-task">
@@ -108,6 +111,7 @@
             <h1>SudoDIRelayClient</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SudoDIRelayClient</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
 
                 </div>
@@ -128,7 +132,7 @@ the implementation class is only meant to be used for initializing an instance o
                 <a name="//apple_ref/swift/Section/Lifecycle" class="dashAnchor"></a>
                 <div class="section-name-container">
                   <a class="section-name-link" href="#/Lifecycle"></a>
-                  <h3 class="section-name"><p>Lifecycle</p>
+                  <h3 class="section-name"><span>Lifecycle</span>
 </h3>
                 </div>
               </div>
@@ -168,7 +172,7 @@ the implementation class is only meant to be used for initializing an instance o
                 <a name="//apple_ref/swift/Section/Queries" class="dashAnchor"></a>
                 <div class="section-name-container">
                   <a class="section-name-link" href="#/Queries"></a>
-                  <h3 class="section-name"><p>Queries</p>
+                  <h3 class="section-name"><span>Queries</span>
 </h3>
                 </div>
               </div>
@@ -215,7 +219,7 @@ the implementation class is only meant to be used for initializing an instance o
                 <a name="//apple_ref/swift/Section/Mutations" class="dashAnchor"></a>
                 <div class="section-name-container">
                   <a class="section-name-link" href="#/Mutations"></a>
-                  <h3 class="section-name"><p>Mutations</p>
+                  <h3 class="section-name"><span>Mutations</span>
 </h3>
                 </div>
               </div>
@@ -330,7 +334,7 @@ the implementation class is only meant to be used for initializing an instance o
                 <a name="//apple_ref/swift/Section/Subscriptions" class="dashAnchor"></a>
                 <div class="section-name-container">
                   <a class="section-name-link" href="#/Subscriptions"></a>
-                  <h3 class="section-name"><p>Subscriptions</p>
+                  <h3 class="section-name"><span>Subscriptions</span>
 </h3>
                 </div>
               </div>
@@ -406,15 +410,58 @@ Subscribe to messages inbound to the Postbox associated with the connection iden
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Helpers"></a>
+                <a name="//apple_ref/swift/Section/Helpers" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Helpers"></a>
+                  <h3 class="section-name"><span>Helpers</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SudoDIRelay0aB6ClientP18getPostboxEndpoint16withConnectionId10Foundation3URLVSgSS_tF"></a>
+                    <a name="//apple_ref/swift/Method/getPostboxEndpoint(withConnectionId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SudoDIRelay0aB6ClientP18getPostboxEndpoint16withConnectionId10Foundation3URLVSgSS_tF">getPostboxEndpoint(withConnectionId:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get HTTP endpoint of the provided postbox.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getPostboxEndpoint</span><span class="p">(</span><span class="n">withConnectionId</span> <span class="nv">connectionId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">URL</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Postbox HTTP endpoint on success, or nil on failure</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
 
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://sudoplatform.com" target="_blank" rel="external">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2021-10-26)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2022 <a class="link" href="https://sudoplatform.com" target="_blank" rel="external noopener">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2022-02-17)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
-</div>
 </html>

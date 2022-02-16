@@ -31,6 +31,6 @@ class MockAppSyncClientHelper: AppSyncClientHelper {
 
     func getHttpEndpoint() -> String {
         getHttpEndpointCalled = true
-        return "mockEndpoint"
+        return "test.com"
     }
 }

@@ -123,13 +123,7 @@ class MockCreatePostboxOperation: MockMutationOperation<SendInitMutation> {
 
     init(error: Error? = nil, result: SendInitMutation.Data? = nil) {
         let appSyncClient = MockAWSAppSyncClientGenerator.generateClient()
-        let input = WriteToRelayInput(
-            messageId: "init",
-            connectionId: "dummyId",
-            cipherText: "",
-            direction: Direction.inbound,
-            utcTimestamp: "Thu, 1 Jan 1970 00:00:00 GMT+00"
-        )
+        let input = IdAsInput(connectionId: "dummyId")
         let mutation = SendInitMutation(input: input)
         super.init(appSyncClient: appSyncClient, mutation: mutation, logger: .testLogger)
         self.error = error
@@ -146,7 +140,7 @@ class MockStoreMessageOperation: MockMutationOperation<StoreMessageMutation> {
             connectionId: "dummyId",
             cipherText: "message",
             direction: Direction.inbound,
-            utcTimestamp: "Thu, 1 Jan 1970 00:00:00 GMT+00"
+            utcTimestamp: 00
         )
         let mutation = StoreMessageMutation(input: input)
         super.init(appSyncClient: appSyncClient, mutation: mutation, logger: .testLogger)
@@ -159,7 +153,7 @@ class MockDeletePostboxOperation: MockMutationOperation<DeletePostBoxMutation> {
 
     init(error: Error? = nil, result: DeletePostBoxMutation.Data? = nil) {
         let appSyncClient = MockAWSAppSyncClientGenerator.generateClient()
-        let input = IdAsInput(id: "dummyId")
+        let input = IdAsInput(connectionId: "dummyId")
         let mutation = DeletePostBoxMutation(input: input)
         super.init(appSyncClient: appSyncClient, mutation: mutation, logger: .testLogger)
         self.error = error
@@ -195,7 +189,7 @@ class MockGetMessagesOperation: MockQueryOperation<GetMessagesQuery> {
 
     init(error: Error? = nil, result: GetMessagesQuery.Data? = nil) {
         let appSyncClient = MockAWSAppSyncClientGenerator.generateClient()
-        let input = IdAsInput(id: "dummyId")
+        let input = IdAsInput(connectionId: "dummyId")
         let query = GetMessagesQuery(input: input)
         super.init(appSyncClient: appSyncClient, query: query, cachePolicy: CachePolicy.remoteOnly, logger: .testLogger)
         self.error = error

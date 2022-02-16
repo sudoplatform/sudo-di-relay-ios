@@ -1,7 +1,7 @@
 #
 Pod::Spec.new do |spec|
   spec.name                  = 'SudoDIRelay'
-  spec.version               = '0.1.1'
+  spec.version               = '0.0.1'
   spec.author                = { 'Sudo Platform Engineering' => 'sudoplatform-engineering@anonyome.com' }
   spec.homepage              = 'https://sudoplatform.com'
 
@@ -14,11 +14,11 @@ Pod::Spec.new do |spec|
   spec.requires_arc          = true
   spec.swift_version         = '5.0'
 
-  spec.dependency 'AWSAppSync', '~> 3.1'
-  spec.dependency 'SudoUser', '~> 11.0'
+  spec.dependency 'AWSAppSync', '~> 3.2'
+  spec.dependency 'SudoUser', '~> 12.1.3'
   spec.dependency 'SudoLogging', '~> 0.3'
   spec.dependency 'SudoKeyManager', '~> 1.2'
   spec.dependency 'SudoOperations', '~> 4.0'
-  spec.dependency 'SudoApiClient', '~> 4.0'
+  spec.dependency 'SudoApiClient', '~> 6.1.0'
   spec.dependency 'SudoConfigManager', '~> 1.4'
 end

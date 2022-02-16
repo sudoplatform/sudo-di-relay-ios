@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 //
-
+import Foundation
 @testable import SudoDIRelay
 
 class MockRelayService: RelayService, Resetable {
@@ -119,5 +119,17 @@ class MockRelayService: RelayService, Resetable {
         subscribeToPostboxDeletedLastProperty = connectionId
         resultHandler(subscribeToPostboxDeletedResult)
         return subscribeToPostboxDeletedReturnResult
+    }
+
+    // MARK: - GetPostboxEndpoint
+
+    var getPostboxEndpointCallCount = 0
+    var getPostboxEndpointLastProperty: String = ""
+    var getPostboxEndpointReturnResult: URL? = nil
+
+    func getPostboxEndpoint(withConnectionId connectionId: String) -> URL? {
+        getPostboxEndpointCallCount += 1
+        getPostboxEndpointLastProperty = connectionId
+        return getPostboxEndpointReturnResult
     }
 }

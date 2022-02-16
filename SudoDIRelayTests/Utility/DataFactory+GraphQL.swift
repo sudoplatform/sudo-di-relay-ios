@@ -3,12 +3,14 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 //
-
+import Foundation
 @testable import SudoDIRelay
 
 extension DataFactory {
 
     enum GraphQL {
+
+        static var timestamp: Double { return 0.0 }
 
         static var createdAtEpochMs: Double {
             return 1.0
@@ -24,7 +26,7 @@ extension DataFactory {
                 connectionId: "dummyId",
                 cipherText: "message",
                 direction: Direction.inbound,
-                utcTimestamp: "Thu, 1 Jan 1970 00:00:00 GMT+00"
+                utcTimestamp: timestamp
             )
             let optionalGetMessages: GetMessagesQuery.Data.GetMessage? = getMessages
             return GetMessagesQuery.Data(getMessages: [optionalGetMessages])
@@ -36,18 +38,16 @@ extension DataFactory {
                 connectionId: "dummyId",
                 cipherText: "message",
                 direction: Direction.inbound,
-                utcTimestamp: "Thu, 1 Jan 1970 00:00:00 GMT+00"
+                utcTimestamp: timestamp
             )
             return StoreMessageMutation.Data(storeMessage: storeMessage)
         }
 
         static var createPostbox: SendInitMutation.Data {
             let createPostbox = SendInitMutation.Data.SendInit(
-                messageId: "init",
                 connectionId: "dummyId",
-                cipherText: "message",
-                direction: Direction.inbound,
-                utcTimestamp: "Thu, 1 Jan 1970 00:00:00 GMT+00"
+                owner: "dummyOwnerId",
+                utcTimestamp: timestamp
             )
             return SendInitMutation.Data(sendInit: createPostbox)
         }
@@ -65,7 +65,7 @@ extension DataFactory {
                 connectionId: "dummyId",
                 cipherText: "message",
                 direction: Direction.inbound,
-                utcTimestamp: "Thu, 1 Jan 1970 00:00:00 GMT+00"
+                utcTimestamp: timestamp
             )
             return try? OnMessageCreatedSubscription.Data(onMessageCreatedSubscription)
         }

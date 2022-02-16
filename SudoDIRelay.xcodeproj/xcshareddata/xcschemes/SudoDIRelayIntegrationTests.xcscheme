@@ -34,6 +34,28 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "84C0F0F926BBA9EB005810AC"
+            BuildableName = "TestApp.app"
+            BlueprintName = "TestApp"
+            ReferencedContainer = "container:SudoDIRelay.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "CONFIG_NAME"
+            value = "${CONFIG_NAME}"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "REGISTER_KEY"
+            value = "${REGISTER_KEY}"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -41,6 +63,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "84C0F0F926BBA9EB005810AC"
+            BuildableName = "TestApp.app"
+            BlueprintName = "TestApp"
+            ReferencedContainer = "container:SudoDIRelay.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

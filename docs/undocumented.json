@@ -1,6 +1,160 @@
 {
   "warnings": [
     {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 6,
+      "symbol": "KeyFormat",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 39,
+      "symbol": "IdAsInput",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 56,
+      "symbol": "Direction",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 89,
+      "symbol": "CreatePublicKeyInput",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 142,
+      "symbol": "DeletePublicKeyInput",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 159,
+      "symbol": "WriteToRelayInput",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 212,
+      "symbol": "PostBoxDeletionInput",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 238,
+      "symbol": "TableKeyAsInput",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 264,
+      "symbol": "GetPublicKeyForRelayQuery",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 435,
+      "symbol": "GetPublicKeysForRelayQuery",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 655,
+      "symbol": "GetKeyRingForRelayQuery",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 877,
+      "symbol": "GetMessagesQuery",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 996,
+      "symbol": "CreatePublicKeyForRelayMutation",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 1165,
+      "symbol": "DeletePublicKeyForRelayMutation",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 1334,
+      "symbol": "SendInitMutation",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 1433,
+      "symbol": "StoreMessageMutation",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 1552,
+      "symbol": "DeletePostBoxMutation",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 1631,
+      "symbol": "InternalFireOnPostBoxDeletedMutation",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 1767,
+      "symbol": "InternalFireOnMessageReceivedMutation",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 1886,
+      "symbol": "PingSubscription",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 1921,
+      "symbol": "OnMessageCreatedSubscription",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/GraphQLAPI.swift",
+      "line": 2042,
+      "symbol": "OnPostBoxDeletedSubscription",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/Protocols/AppSyncClientHelper.swift",
       "line": 16,
       "symbol": "AppSyncClientHelper",
@@ -9,7 +163,7 @@
     },
     {
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Internal/Data/Utility/DefaultAppSyncClientHelper.swift",
-      "line": 13,
+      "line": 14,
       "symbol": "DefaultAppSyncClientHelper",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
@@ -109,6 +263,13 @@
       "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Public/Errors/SudoDIRelayError.swift",
       "line": 44,
       "symbol": "SudoDIRelayError.unknownTimezone",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/anonyome/builds/c2dfa4ea/0/platform/decentralized-identity/sudo-decentralized-identity-relay-ios/sudo-di-relay-ios-gh/SudoDIRelay/Source/Public/Errors/SudoDIRelayError.swift",
+      "line": 45,
+      "symbol": "SudoDIRelayError.unauthorizedPostboxAccess",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },

@@ -85,4 +85,17 @@ class MockUseCaseFactory: UseCaseFactory {
         }
         return useCase
     }
+
+    // MARK: - GetPostboxEndpoint
+
+    var generateGetPostboxEndpointUseCaseCallCount = 0
+    var generateGetPostboxEndpointUseCaseResult: MockGetPostboxEndpointUseCase?
+
+    override func generateGetPostboxEndpoint() -> GetPostboxEndpointUseCase {
+        generateGetPostboxEndpointUseCaseCallCount += 1
+        guard let useCase = generateGetPostboxEndpointUseCaseResult else {
+            return super.generateGetPostboxEndpoint()
+        }
+        return useCase
+    }
 }

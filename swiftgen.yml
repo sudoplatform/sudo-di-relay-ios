@@ -1,0 +1,10 @@
+# String Files
+strings:
+  - inputs: SudoDecentralizedIdentityRelay/Resources/en.lproj/Localizable.strings
+    outputs:
+      templatePath: .swiftgen/strings/template.stencil
+      output: SudoDecentralizedIdentityRelay/Source/Swiftgen/Strings.swift
+      params:
+        enumName: L10n
+        noComments: false
+

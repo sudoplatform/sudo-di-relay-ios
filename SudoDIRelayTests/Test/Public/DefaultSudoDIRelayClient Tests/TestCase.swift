@@ -18,6 +18,7 @@ class DefaultSudoDIRelayTestCase: XCTestCase {
     var mockAppSyncClientHelper: MockAppSyncClientHelper!
     var mockUseCaseFactory: MockUseCaseFactory!
     var mockRelayService: MockRelayService!
+    var mockUserClient: MockSudoUserClient!
 
     // MARK: - Lifecycle
 
@@ -32,9 +33,11 @@ class DefaultSudoDIRelayTestCase: XCTestCase {
         }
         mockRelayService = MockRelayService()
         mockUseCaseFactory = MockUseCaseFactory(relayService: mockRelayService)
+        mockUserClient = MockSudoUserClient()
         instanceUnderTest = DefaultSudoDIRelayClient(
             appSyncClient: appSyncClient,
             appSyncClientHelper: mockAppSyncClientHelper,
+            sudoUserClient: mockUserClient,
             useCaseFactory: mockUseCaseFactory,
             relayService: mockRelayService)
     }

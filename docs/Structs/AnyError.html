@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>RelayMessage Structure Reference</title>
+    <title>AnyError Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Struct/RelayMessage" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Struct/AnyError" class="dashAnchor"></a>
 
-    <a title="RelayMessage Structure Reference"></a>
+    <a title="AnyError Structure Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -38,7 +38,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">SudoDIRelay Reference</a>
       <img class="carat" src="../img/carat.png" alt=""/>
-      RelayMessage Structure Reference
+      AnyError Structure Reference
     </p>
 
     <div class="content-wrapper">
@@ -108,62 +108,21 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            <h1>RelayMessage</h1>
+            <h1>AnyError</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">RelayMessage</span> <span class="p">:</span> <span class="kt">Equatable</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AnyError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">LocalizedError</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
 
                 </div>
               </div>
-            <p>A DIDComm message in the relay</p>
+            <p>Generic non-specific error.</p>
 
           </div>
         </section>
 
         <section class="section">
           <div class="section-content">
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Supplementary"></a>
-                <a name="//apple_ref/swift/Section/Supplementary" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/Supplementary"></a>
-                  <h3 class="section-name"><span>Supplementary</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:11SudoDIRelay12RelayMessageV9DirectionO"></a>
-                    <a name="//apple_ref/swift/Enum/Direction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11SudoDIRelay12RelayMessageV9DirectionO">Direction</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Direction of a DIDComm message.</p>
-
-                        <a href="../Structs/RelayMessage/Direction.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Direction</span> <span class="p">:</span> <span class="kt">Equatable</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
             <div class="task-group">
               <div class="task-name-container">
                 <a name="/Properties"></a>
@@ -178,9 +137,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11SudoDIRelay12RelayMessageV9messageIdSSvp"></a>
-                    <a name="//apple_ref/swift/Property/messageId" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11SudoDIRelay12RelayMessageV9messageIdSSvp">messageId</a>
+                    <a name="/s:11SudoDIRelay8AnyErrorV11descriptionSSvp"></a>
+                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SudoDIRelay8AnyErrorV11descriptionSSvp">description</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -188,16 +147,75 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The user&rsquo;s message identifier</p>
+                        <p>A descrption of error.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">messageId</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Lifecycle"></a>
+                <a name="//apple_ref/swift/Section/Lifecycle" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Lifecycle"></a>
+                  <h3 class="section-name"><span>Lifecycle</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SudoDIRelay8AnyErrorVyACSScfc"></a>
+                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SudoDIRelay8AnyErrorVyACSScfc">init(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize an instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>description</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A description of error.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -205,9 +223,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11SudoDIRelay12RelayMessageV12connectionIdSSvp"></a>
-                    <a name="//apple_ref/swift/Property/connectionId" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11SudoDIRelay12RelayMessageV12connectionIdSSvp">connectionId</a>
+                    <a name="/s:11SudoDIRelay8AnyErrorVyACs0D0_pcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SudoDIRelay8AnyErrorVyACs0D0_pcfc">init(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -215,16 +233,35 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Identifier of the DIDComm connection</p>
+                        <p>Initialize an instance.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">connectionId</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>other</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An other error.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -232,9 +269,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11SudoDIRelay12RelayMessageV10cipherTextSSvp"></a>
-                    <a name="//apple_ref/swift/Property/cipherText" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11SudoDIRelay12RelayMessageV10cipherTextSSvp">cipherText</a>
+                    <a name="/s:11SudoDIRelay8AnyErrorV7unknownACvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/unknown" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SudoDIRelay8AnyErrorV7unknownACvpZ">unknown</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -242,26 +279,39 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The text contained in the DIDComm mesasge</p>
+                        <p>An unknown error.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">cipherText</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">unknown</span><span class="p">:</span> <span class="kt">AnyError</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Conformance%3A%20LocalizedError"></a>
+                <a name="//apple_ref/swift/Section/Conformance: LocalizedError" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Conformance%3A%20LocalizedError"></a>
+                  <h3 class="section-name"><span>Conformance: LocalizedError</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11SudoDIRelay12RelayMessageV9directionAC9DirectionOvp"></a>
-                    <a name="//apple_ref/swift/Property/direction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11SudoDIRelay12RelayMessageV9directionAC9DirectionOvp">direction</a>
+                    <a name="/s:10Foundation14LocalizedErrorP16errorDescriptionSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/errorDescription" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10Foundation14LocalizedErrorP16errorDescriptionSSSgvp">errorDescription</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -269,41 +319,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Direction of the DIDComm message</p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">direction</span><span class="p">:</span> <span class="kt"><a href="../Structs/RelayMessage/Direction.html">Direction</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:11SudoDIRelay12RelayMessageV9timestamp10Foundation4DateVvp"></a>
-                    <a name="//apple_ref/swift/Property/timestamp" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11SudoDIRelay12RelayMessageV9timestamp10Foundation4DateVvp">timestamp</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The day and time which the message was created</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">timestamp</span><span class="p">:</span> <span class="kt">Date</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">errorDescription</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>

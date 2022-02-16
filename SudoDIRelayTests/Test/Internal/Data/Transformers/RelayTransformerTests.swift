@@ -11,7 +11,7 @@ class RelayTransformerTests: XCTestCase {
 
     // MARK: - Properties
 
-    let utcTimestamp = "Thu, 1 Jan 1970 00:00:00 GMT+00"
+    let utcTimestamp: Double = 0.0
 
     // MARK: - Tests: GetMessages Transformers
 
