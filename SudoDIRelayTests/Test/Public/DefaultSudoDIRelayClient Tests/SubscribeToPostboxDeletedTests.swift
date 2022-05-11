@@ -11,58 +11,75 @@ class DefaultSudoDIRelayClientSubscribeToPostboxDeleted: DefaultSudoDIRelayTestC
 
     // MARK: - Tests
 
-    func test_subscribeToPostboxDeleted_CreatesUseCase() {
-        _ = instanceUnderTest.subscribeToPostboxDeleted(withConnectionId: "dummyId") { _ in }
-        XCTAssertEqual(mockUseCaseFactory.generateSubscribeToPostboxDeletedUseCaseCallCount, 1)
-    }
-
-    func test_subscribeToPostboxDeleted_ReturnsSubscriptionTokenFromUseCase() {
-        let mockUseCase = MockSubscribeToPostboxDeletedUseCase()
-        mockUseCase.executeReturnResult = MockSubscriptionToken()
-        mockUseCaseFactory.generateSubscribeToPostboxDeletedUseCaseResult = mockUseCase
-        let returnedToken = instanceUnderTest.subscribeToPostboxDeleted(withConnectionId: "dummyId") { _ in }
-        XCTAssertTrue(returnedToken === mockUseCase.executeReturnResult)
-    }
-
-    func test_subscribeToPostboxDeleted_CallsExecuteOnUseCase() {
-        let mockUseCase = MockSubscribeToPostboxDeletedUseCase()
-        mockUseCaseFactory.generateSubscribeToPostboxDeletedUseCaseResult = mockUseCase
-        _ = instanceUnderTest.subscribeToPostboxDeleted(withConnectionId: "dummyId") { _ in }
-        XCTAssertEqual(mockUseCase.executeCallCount, 1)
-    }
-
-    func test_subscribeToPostboxDeleted_RespectsReturnedUseCaseError() {
-        let mockUseCase = MockSubscribeToPostboxDeletedUseCase(result: .failure(AnyError("Failure from subscription")))
-        mockUseCaseFactory.generateSubscribeToPostboxDeletedUseCaseResult = mockUseCase
-        waitUntil { done in
-            _ = self.instanceUnderTest.subscribeToPostboxDeleted(withConnectionId: "dummyId") { result in
-                defer { done() }
-                switch result {
-                case let .failure(error as AnyError):
-                    XCTAssertEqual(error, AnyError("Failure from subscription"))
-                    done()
-                default:
-                    XCTFail("Unexpected result: \(result)")
-                }
-            }
+    func test_subscribeToPostboxDeleted_CreatesUseCase() async {
+        do {
+            _ = try await instanceUnderTest.subscribeToPostboxDeleted(withConnectionId: "dummyId") { _ in }
+            XCTAssertEqual(mockUseCaseFactory.generateSubscribeToPostboxDeletedUseCaseCallCount, 1)
+        } catch {
+            XCTFail("Unexpected error \(error)")
         }
     }
 
-    func test_subscribeToPostboxDeleted_ReturnsUseCaseResult() {
-        let outputEntity = DataFactory.Domain.okStatus
-        let mockUseCase = MockSubscribeToPostboxDeletedUseCase(result: .success(outputEntity))
+    func test_subscribeToPostboxDeleted_ReturnsSubscriptionTokenFromUseCase() async {
+        let mockUseCase = MockSubscribeToPostboxDeletedUseCase()
+        mockUseCase.executeReturnResult = MockSubscriptionToken()
         mockUseCaseFactory.generateSubscribeToPostboxDeletedUseCaseResult = mockUseCase
-        waitUntil { done in
-            _ = self.instanceUnderTest.subscribeToPostboxDeleted(withConnectionId: "dummyId") { result in
-                defer { done() }
+
+        do {
+            let returnedToken = try await instanceUnderTest.subscribeToPostboxDeleted(withConnectionId: "dummyId") { _ in }
+            XCTAssertTrue(returnedToken === mockUseCase.executeReturnResult)
+        } catch {
+            XCTFail("Unexpected error \(error)")
+        }
+    }
+
+    func test_subscribeToPostboxDeleted_CallsExecuteOnUseCase() async {
+        let mockUseCase = MockSubscribeToPostboxDeletedUseCase()
+        mockUseCaseFactory.generateSubscribeToPostboxDeletedUseCaseResult = mockUseCase
+
+        do {
+            _ = try await instanceUnderTest.subscribeToPostboxDeleted(withConnectionId: "dummyId") { _ in }
+            XCTAssertEqual(mockUseCase.executeCallCount, 1)
+        } catch {
+            XCTFail("Unexpected error \(error)")
+        }
+
+    }
+
+    func test_subscribeToPostboxDeleted_RespectsReturnedUseCaseError() async {
+        let mockUseCase = MockSubscribeToPostboxDeletedUseCase(result: .failure(AnyError("Failure from subscription")))
+        mockUseCaseFactory.generateSubscribeToPostboxDeletedUseCaseResult = mockUseCase
+
+        do {
+            _ = try await instanceUnderTest.subscribeToPostboxDeleted(withConnectionId: "dummyId") { result in
                 switch result {
-                case .success(let status):
-                    XCTAssertEqual(status, Status.ok)
-                    done()
+                case let .failure(error as AnyError):
+                    XCTAssertEqual(error, AnyError("Failure from subscription"))
                 default:
                     XCTFail("Unexpected result: \(result)")
                 }
             }
+        } catch {
+            XCTFail("Unexpected error \(error)")
+        }
+    }
+
+    func test_subscribeToPostboxDeleted_ReturnsUseCaseResult() async {
+        let outputEntity = DataFactory.Domain.okStatus
+        let mockUseCase = MockSubscribeToPostboxDeletedUseCase(result: .success(outputEntity))
+        mockUseCaseFactory.generateSubscribeToPostboxDeletedUseCaseResult = mockUseCase
+
+        do {
+            _ = try await self.instanceUnderTest.subscribeToPostboxDeleted(withConnectionId: "dummyId") { result in
+                switch result {
+                case .success(let status):
+                    XCTAssertEqual(status, Status.ok)
+                default:
+                    XCTFail("Unexpected result: \(result)")
+                }
+            }
+        } catch {
+            XCTFail("Unexpected error \(error)")
         }
     }
 

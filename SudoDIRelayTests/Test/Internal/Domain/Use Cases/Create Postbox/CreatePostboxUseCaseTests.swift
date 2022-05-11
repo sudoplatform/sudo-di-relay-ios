@@ -13,17 +13,13 @@ class CreatePostboxUseCaseTests: XCTestCase {
     // MARK: - Properties
 
     var instanceUnderTest: CreatePostboxUseCase!
-
     var mockRelayService: MockRelayService!
-
-    var connectionId: String!
 
     // MARK: - Lifecycle
 
     override func setUp() {
         mockRelayService = MockRelayService()
         instanceUnderTest = CreatePostboxUseCase(relayService: mockRelayService)
-        connectionId = UUID().uuidString
     }
 
     // MARK: - Tests
@@ -33,41 +29,33 @@ class CreatePostboxUseCaseTests: XCTestCase {
         XCTAssertTrue(instanceUnderTest.relayService === mockRelayService)
     }
 
-    func test_execute_CallsCreatePostboxCorrectly() {
-        instanceUnderTest.execute(withConnectionId: connectionId) { _ in }
-        XCTAssertEqual(mockRelayService.createPostboxCallCount, 1)
-        XCTAssertEqual(mockRelayService.createPostboxLastProperty, connectionId)
+    func test_execute_CallsCreatePostboxCorrectly() async {
+        do {
+            try await instanceUnderTest.execute(withConnectionId: "dummyId", ownershipProofToken: "dummyToken")
+            XCTAssertEqual(mockRelayService.createPostboxCallCount, 1)
+            XCTAssertEqual(mockRelayService.createPostboxLastProperties?.0, "dummyId")
+            XCTAssertEqual(mockRelayService.createPostboxLastProperties?.1, "dummyToken")
+        } catch {
+            XCTFail("Unexpected error \(error)")
+        }
+
     }
 
-    func test_execute_RespectsCreatePostboxFailure() {
-        mockRelayService.createPostboxResult = .failure(AnyError("Create failed"))
-        waitUntil { done in
-            self.instanceUnderTest.execute(withConnectionId: "dummyId") { result in
-                defer { done() }
-                switch result {
-                case let .failure(error as AnyError):
-                    XCTAssertEqual(error, AnyError("Create failed"))
-                default:
-                    XCTFail("Unexpected result: \(result)")
-                }
-            }
+    func test_execute_RespectsCreatePostboxFailure() async {
+        mockRelayService.createPostboxError = AnyError("Create failed")
+        do {
+            try await self.instanceUnderTest.execute(withConnectionId: "dummyId", ownershipProofToken: "dummyToken")
+            XCTFail("Unexpected success")
+        } catch {
+            XCTAssertErrorsEqual(error, AnyError("Create failed"))
         }
     }
 
-    func test_execute_CreatePoxtboxReturnsVoidSuccess() {
-        mockRelayService.createPostboxResult = .success(())
-        waitUntil { done in
-            self.instanceUnderTest.execute(withConnectionId: "dummyId"
-            ) { result in
-                defer { done() }
-                switch result {
-                case .success():
-                    break
-                default:
-                    XCTFail("Unexpected result: \(result)")
-                }
-            }
+    func test_execute_CreatePoxtboxReturnsVoidSuccess() async {
+        do {
+            try await self.instanceUnderTest.execute(withConnectionId: "dummyId", ownershipProofToken: "dummyToken")
+        } catch {
+            XCTFail("Unexpected error: \(error)")
         }
     }
-
 }

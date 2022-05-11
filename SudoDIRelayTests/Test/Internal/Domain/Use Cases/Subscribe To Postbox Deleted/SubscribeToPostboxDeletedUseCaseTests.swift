@@ -29,49 +29,59 @@ class SubscribeToPostboxDeletedUseCaseTests: XCTestCase {
         XCTAssertTrue(instanceUnderTest.relayService === mockRelayService)
     }
 
-    func test_execute_CallsService() {
-        _ = instanceUnderTest.execute(withConnectionId: "dummyId") { _ in }
-        XCTAssertEqual(mockRelayService.subscribeToPostboxDeletedCallCount, 1)
+    func test_execute_CallsService() async {
+        do {
+            _ = try await instanceUnderTest.execute(withConnectionId: "dummyId") { _ in }
+            XCTAssertEqual(mockRelayService.subscribeToPostboxDeletedCallCount, 1)
+        } catch {
+            XCTFail("Unexpected error \(error)")
+        }
     }
 
-    func test_execute_ReturnsServiceSubscriptionToken() throws {
+    func test_execute_ReturnsServiceSubscriptionToken() async {
         let returnedToken = MockSubscriptionToken()
         mockRelayService.subscribeToPostboxDeletedReturnResult = returnedToken
-        let token = instanceUnderTest.execute(withConnectionId: "dummyId") { _ in }
-        XCTAssertTrue(token === returnedToken)
+        do {
+            let token = try await instanceUnderTest.execute(withConnectionId: "dummyId") { _ in }
+            XCTAssertTrue(token === returnedToken)
+
+        } catch {
+            XCTFail("Unexpected error \(error)")
+        }
     }
 
-    func test_execute_ResolvesToExpectedResult() throws {
+    func test_execute_ResolvesToExpectedResult() async {
         let status = DataFactory.Domain.okStatus
         mockRelayService.subscribeToPostboxDeletedResult = .success(status)
-        waitUntil { done in
-            _ = self.instanceUnderTest.execute(withConnectionId: "dummyId") { result in
-                defer { done() }
+
+        do {
+            _ = try await self.instanceUnderTest.execute(withConnectionId: "dummyId") { result in
                 switch result {
                 case .success(let status):
                     XCTAssertEqual(status, DataFactory.Domain.okStatus)
                 default:
                     XCTFail("Unexpected result: \(result)")
                 }
-                done()
-
             }
+        } catch {
+            XCTFail("Unexpected error \(error)")
         }
     }
 
-    func test_execute_RespectsSubscriptionError() throws {
+    func test_execute_RespectsSubscriptionError() async {
         mockRelayService.subscribeToPostboxDeletedResult = .failure(AnyError("Subscribe failed"))
-        waitUntil { done in
-            _ = self.instanceUnderTest.execute(withConnectionId: "dummyId") { result in
-                defer { done() }
+
+        do {
+            _ = try await self.instanceUnderTest.execute(withConnectionId: "dummyId") { result in
                 switch result {
                 case let .failure(error as AnyError):
                     XCTAssertEqual(error, AnyError("Subscribe failed"))
                 default:
                     XCTFail("Unexpected result: \(result)")
                 }
-                done()
             }
+        } catch {
+            XCTFail("Unexpected error \(error)")
         }
     }
 }

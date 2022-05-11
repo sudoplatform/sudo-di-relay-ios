@@ -50,4 +50,25 @@ extension XCTestCase {
         DispatchQueue.main.async { expectation.fulfill() }
         return XCTWaiter.wait(for: [expectation], timeout: 2, enforceOrder: true)
     }
+
+    /// Compare two errors.
+    /// - Parameters:
+    ///   - lhs: first error.
+    ///   - rhs: second error.
+    ///   - file: file reference.
+    ///   - line: line reference.
+    func XCTAssertErrorsEqual(_ lhs: Error?, _ rhs: Error?, file: StaticString = #file, line: UInt = #line) {
+        if lhs == nil, rhs == nil {
+            // No more testing is needed, they are equal
+            return
+        }
+        guard let left = lhs else {
+            return XCTFail("\(String(describing: lhs)) does not match \(String(describing: rhs))", file: file, line: line)
+        }
+        guard let right = rhs else {
+            return XCTFail("\(String(describing: lhs)) does not match \(String(describing: rhs))", file: file, line: line)
+        }
+
+        XCTAssertTrue(areEqual(left, right), "\(String(describing: lhs)) does not match \(String(describing: rhs))", file: file, line: line)
+    }
 }

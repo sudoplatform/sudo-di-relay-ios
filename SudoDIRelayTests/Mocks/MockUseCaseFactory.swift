@@ -8,15 +8,15 @@
 
 class MockUseCaseFactory: UseCaseFactory {
 
-    // MARK: - GetMessages
+    // MARK: - ListMessages
 
-    var generateGetMessagesUseCaseCallCount = 0
-    var generateGetMessagesUseCaseResult: MockGetMessagesUseCase?
+    var generateListMessagesUseCaseCallCount = 0
+    var generateListMessagesUseCaseResult: MockListMessagesUseCase?
 
-    override func generateGetMessages() -> GetMessagesUseCase {
-        generateGetMessagesUseCaseCallCount += 1
-        guard let useCase = generateGetMessagesUseCaseResult else {
-            return super.generateGetMessages()
+    override func generateListMessages() -> ListMessagesUseCase {
+        generateListMessagesUseCaseCallCount += 1
+        guard let useCase = generateListMessagesUseCaseResult else {
+            return super.generateListMessages()
         }
         return useCase
     }

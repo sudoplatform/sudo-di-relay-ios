@@ -8,23 +8,21 @@
 
 class MockDeletePostboxUseCase: DeletePostboxUseCase {
 
-    typealias ExecuteResult = Result<Void, Error>
-
-    init(result: ExecuteResult? = nil) {
+    init() {
         let relayService = MockRelayService()
         super.init(relayService: relayService)
-        if let result = result {
-            executeResult = result
-        }
     }
 
     var executeCallCount = 0
     var executeLastProperty: String?
-    var executeResult: ExecuteResult = .failure(AnyError("Please add base result to MockDeletePostboxUseCase.execute"))
+    var executeError: Error?
 
-    override func execute(withConnectionId connectionId: String, completion: @escaping ClientCompletion<Void>) {
+    override func execute(withConnectionId connectionId: String) async throws {
         executeCallCount += 1
         executeLastProperty = connectionId
-        completion(executeResult)
+
+        if let executeError = executeError {
+            throw executeError
+        }
     }
 }

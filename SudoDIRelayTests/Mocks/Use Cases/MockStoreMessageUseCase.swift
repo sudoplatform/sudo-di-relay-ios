@@ -8,7 +8,7 @@
 
 class MockStoreMessageUseCase: StoreMessageUseCase {
 
-    typealias ExecuteResult = Result<RelayMessage?, Error>
+    typealias ExecuteResult = RelayMessage?
 
     init(result: ExecuteResult? = nil) {
         let relayService = MockRelayService()
@@ -20,11 +20,17 @@ class MockStoreMessageUseCase: StoreMessageUseCase {
 
     var executeCallCount = 0
     var executeLastProperties: (connectionId: String?, message: String?)?
-    var executeResult: ExecuteResult = .failure(AnyError("Please add base result to MockStoreMessageUseCase.execute"))
+    var executeResult: RelayMessage?
+    var executeError: Error?
 
-    override func execute(withConnectionId connectionId: String, message: String, completion: @escaping ClientCompletion<RelayMessage?>) {
+    override func execute(withConnectionId connectionId: String, message: String) async throws -> RelayMessage? {
         executeCallCount += 1
         executeLastProperties = (connectionId, message)
-        completion(executeResult)
+
+        if let executeError = executeError {
+            throw executeError
+        }
+
+        return executeResult
     }
 }

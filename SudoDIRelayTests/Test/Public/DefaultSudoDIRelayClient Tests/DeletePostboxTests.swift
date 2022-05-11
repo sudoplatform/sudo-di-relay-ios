@@ -20,48 +20,49 @@ class DefaultSudoDIRelayClientDeletePostbox: DefaultSudoDIRelayTestCase {
 
     // MARK: - Tests: deletePostbox
 
-    func test_deletePostbox_CreatesUseCase() {
-        instanceUnderTest.deletePostbox(withConnectionId: "dummyId") { _ in }
-        XCTAssertEqual(mockUseCaseFactory.generateDeletePostboxUseCaseCallCount, 1)
-    }
-
-    func test_deletePostbox_CallsUseCaseExecute() {
-        let mockUseCase = MockDeletePostboxUseCase()
-        mockUseCaseFactory.generateDeletePostboxUseCaseResult = mockUseCase
-        instanceUnderTest.deletePostbox(withConnectionId: "dummyId") {_ in }
-        XCTAssertEqual(mockUseCase.executeCallCount, 1)
-        XCTAssertEqual(mockUseCase.executeLastProperty, "dummyId")
-    }
-
-    func test_deletePostbox_RespectsUseCaseFailure() {
-        let mockUseCase = MockDeletePostboxUseCase(result: .failure(AnyError("Delete failed")))
-        mockUseCaseFactory.generateDeletePostboxUseCaseResult = mockUseCase
-        waitUntil { done in
-            self.instanceUnderTest.deletePostbox(withConnectionId: "dummyId") { result in
-                defer { done() }
-                switch result {
-                case let .failure(error as AnyError):
-                    XCTAssertEqual(error, AnyError("Delete failed"))
-                default:
-                    XCTFail("Unexpected result: \(result)")
-                }
-            }
+    func test_deletePostbox_CreatesUseCase() async {
+        do {
+            try await instanceUnderTest.deletePostbox(withConnectionId: "dummyId")
+            XCTAssertEqual(mockUseCaseFactory.generateDeletePostboxUseCaseCallCount, 1)
+        } catch {
+            XCTFail("Unexpected error \(error)")
         }
     }
 
-    func test_deletePostbox_SuccessResult() {
-        let mockUseCase = MockDeletePostboxUseCase(result: .success(()))
+    func test_deletePostbox_CallsUseCaseExecute() async {
+        let mockUseCase = MockDeletePostboxUseCase()
         mockUseCaseFactory.generateDeletePostboxUseCaseResult = mockUseCase
-        waitUntil { done in
-            self.instanceUnderTest.deletePostbox(withConnectionId: "dummyId") { result in
-                defer { done() }
-                switch result {
-                case .success():
-                    break
-                default:
-                    XCTFail("Unexpected result: \(result)")
-                }
-            }
+
+        do {
+            try await instanceUnderTest.deletePostbox(withConnectionId: "dummyId")
+            XCTAssertEqual(mockUseCase.executeCallCount, 1)
+            XCTAssertEqual(mockUseCase.executeLastProperty, "dummyId")
+        } catch {
+            XCTFail("Unexpected error \(error)")
+        }
+    }
+
+    func test_deletePostbox_RespectsUseCaseFailure() async {
+        let mockUseCase = MockDeletePostboxUseCase()
+        mockUseCase.executeError = AnyError("Delete failed")
+        mockUseCaseFactory.generateDeletePostboxUseCaseResult = mockUseCase
+
+        do {
+            try await instanceUnderTest.deletePostbox(withConnectionId: "dummyId")
+        } catch {
+            XCTAssertErrorsEqual(error, AnyError("Delete failed"))
+        }
+
+    }
+
+    func test_deletePostbox_SuccessResult() async {
+        let mockUseCase = MockDeletePostboxUseCase()
+        mockUseCaseFactory.generateDeletePostboxUseCaseResult = mockUseCase
+
+        do {
+            try await instanceUnderTest.deletePostbox(withConnectionId: "dummyId")
+        } catch {
+            XCTFail("Unexpected error: \(error)")
         }
     }
 }

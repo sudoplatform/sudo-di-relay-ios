@@ -4,7 +4,6 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 import Foundation
-@testable import SudoDIRelay
 
 /// Generic non-specific error.
 public struct AnyError: Error, CustomStringConvertible, LocalizedError, Equatable {

@@ -7,8 +7,8 @@
 import Foundation
 import AWSAppSync
 
-/// Perform a query of the relay service to get messages in a Postbox corresponding to a connection identifier.
-class GetMessagesUseCase {
+/// Perform a mutation to store a message in a Postbox.
+class ListPostboxesUseCase {
 
     // MARK: - Properties
 
@@ -22,7 +22,7 @@ class GetMessagesUseCase {
 
     // MARK: - Methods
 
-    func execute(withConnectionId connectionId: String, completion: @escaping ClientCompletion<[RelayMessage]>) {
-        relayService.getMessages(withConnectionId: connectionId, completion: completion)
+    func execute(withSudoId sudoId: String)  async throws -> [Postbox] {
+        return try await relayService.listPostboxes(withSudoId: sudoId)
     }
 }

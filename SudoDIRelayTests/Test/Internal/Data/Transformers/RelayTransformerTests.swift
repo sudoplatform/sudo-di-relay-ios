@@ -13,9 +13,9 @@ class RelayTransformerTests: XCTestCase {
 
     let utcTimestamp: Double = 0.0
 
-    // MARK: - Tests: GetMessages Transformers
+    // MARK: - Tests: listMessages Transformers
 
-    func test_transform_GetMessagesQuery_success() throws {
+    func test_transform_listMessagesQuery_success() throws {
         let data = GetMessagesQuery.Data.GetMessage(
             messageId: "dummyId",
             connectionId: "dummyId",
@@ -31,7 +31,7 @@ class RelayTransformerTests: XCTestCase {
         XCTAssertEqual(result[0].timestamp, Date(millisecondsSince1970: 0))
     }
 
-    func test_transform_GetMessagesQueryListWithNils_success() throws {
+    func test_transform_ListMessagesQueryListWithNils_success() throws {
         let entry = GetMessagesQuery.Data.GetMessage(
             messageId: "dummyId",
             connectionId: "dummyId",

@@ -7,7 +7,7 @@
 import XCTest
 @testable import SudoDIRelay
 
-class DefaultSudoDIRelayClientGetMessages: DefaultSudoDIRelayTestCase {
+class DefaultSudoDIRelayClientListMessages: DefaultSudoDIRelayTestCase {
 
     // MARK: - Lifecycle
     override func setUp() {
@@ -18,38 +18,49 @@ class DefaultSudoDIRelayClientGetMessages: DefaultSudoDIRelayTestCase {
 
     let utcTimestamp = "Thu, 1 Jan 1970 00:00:00 GMT+00"
 
-    // MARK: - Tests: GetMessages
+    // MARK: - Tests: ListMessages
 
-    func test_getMessages_CreatesUseCase() {
-        instanceUnderTest.getMessages(withConnectionId: "dummyId") { _ in }
-        XCTAssertEqual(mockUseCaseFactory.generateGetMessagesUseCaseCallCount, 1)
-    }
+    func test_listMessages_CreatesUseCase() async {
+        let mockUseCase = MockListMessagesUseCase()
+        mockUseCase.executeResult = []
+        mockUseCaseFactory.generateListMessagesUseCaseResult = mockUseCase
 
-    func test_getMessages_CallsUseCaseExecute() {
-        let mockUseCase = MockGetMessagesUseCase()
-        mockUseCaseFactory.generateGetMessagesUseCaseResult = mockUseCase
-        instanceUnderTest.getMessages(withConnectionId: "dummyId") {_ in }
-        XCTAssertEqual(mockUseCase.executeCallCount, 1)
-        XCTAssertEqual(mockUseCase.executeLastProperty, "dummyId")
-    }
-
-    func test_getMessages_RespectsUseCaseFailure() {
-        let mockUseCase = MockGetMessagesUseCase(result: .failure(AnyError("Get failed")))
-        mockUseCaseFactory.generateGetMessagesUseCaseResult = mockUseCase
-        waitUntil { done in
-            self.instanceUnderTest.getMessages(withConnectionId: "dummyId") { result in
-                defer { done() }
-                switch result {
-                case let .failure(error as AnyError):
-                    XCTAssertEqual(error, AnyError("Get failed"))
-                default:
-                    XCTFail("Unexpected result: \(result)")
-                }
-            }
+        do {
+            _ = try await instanceUnderTest.listMessages(withConnectionId: "dummyId")
+            XCTAssertEqual(mockUseCaseFactory.generateListMessagesUseCaseCallCount, 1)
+        } catch {
+            XCTFail("Unexpected error \(error)")
         }
     }
 
-    func test_getMessages_SuccessResult() {
+    func test_listMessages_CallsUseCaseExecute() async {
+        let mockUseCase = MockListMessagesUseCase()
+        mockUseCase.executeResult = []
+        mockUseCaseFactory.generateListMessagesUseCaseResult = mockUseCase
+
+        do {
+            _ = try await instanceUnderTest.listMessages(withConnectionId: "dummyId")
+            XCTAssertEqual(mockUseCase.executeCallCount, 1)
+            XCTAssertEqual(mockUseCase.executeLastProperty, "dummyId")
+        } catch {
+            XCTFail("Unexpected error \(error)")
+        }
+
+    }
+
+    func test_listMessages_RespectsUseCaseFailure() async {
+        let mockUseCase = MockListMessagesUseCase()
+        mockUseCase.executeError = AnyError("List failed")
+        mockUseCaseFactory.generateListMessagesUseCaseResult = mockUseCase
+
+        do {
+            _ = try await instanceUnderTest.listMessages(withConnectionId: "dummyId")
+        } catch {
+            XCTAssertErrorsEqual(error, AnyError("List failed"))
+        }
+    }
+
+    func test_listMessages_SuccessResult() async {
         let result = [
             RelayMessage(
                 messageId: "dummyId",
@@ -59,23 +70,18 @@ class DefaultSudoDIRelayClientGetMessages: DefaultSudoDIRelayTestCase {
                 timestamp: Date(millisecondsSince1970: 0)
             )
         ]
-        let mockUseCase = MockGetMessagesUseCase(result: .success(result))
-        mockUseCaseFactory.generateGetMessagesUseCaseResult = mockUseCase
-        waitUntil { done in
-            self.instanceUnderTest.getMessages(withConnectionId: "dummyId") { result in
-                defer { done() }
-                switch result {
-                case .success(let result):
-                    XCTAssert(result.count == 1)
-                    XCTAssertEqual(result[0].connectionId, "dummyId")
-                    XCTAssertEqual(result[0].messageId, "dummyId")
-                    XCTAssertEqual(result[0].cipherText, "message")
-                    XCTAssertEqual(result[0].direction, RelayMessage.Direction.inbound)
-                    XCTAssertEqual(result[0].timestamp, Date(millisecondsSince1970: 0))
-                default:
-                    XCTFail("Unexpected result: \(result)")
-                }
-            }
+        let mockUseCase = MockListMessagesUseCase(result: result)
+        mockUseCaseFactory.generateListMessagesUseCaseResult = mockUseCase
+        do {
+            let messages = try await self.instanceUnderTest.listMessages(withConnectionId: "dummyId")
+            XCTAssert(messages.count == 1)
+            XCTAssertEqual(messages[0].connectionId, "dummyId")
+            XCTAssertEqual(messages[0].messageId, "dummyId")
+            XCTAssertEqual(messages[0].cipherText, "message")
+            XCTAssertEqual(messages[0].direction, RelayMessage.Direction.inbound)
+            XCTAssertEqual(messages[0].timestamp, Date(millisecondsSince1970: 0))
+        } catch {
+            XCTFail("Unexpected error \(error)")
         }
     }
 }

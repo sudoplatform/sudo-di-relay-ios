@@ -20,16 +20,16 @@ extension DataFactory {
             return 2.0
         }
 
-        static var getMessages: GetMessagesQuery.Data {
-            let getMessages = GetMessagesQuery.Data.GetMessage(
+        static var listMessages: GetMessagesQuery.Data {
+            let listMessages = GetMessagesQuery.Data.GetMessage(
                 messageId: "dummyId",
                 connectionId: "dummyId",
                 cipherText: "message",
                 direction: Direction.inbound,
                 utcTimestamp: timestamp
             )
-            let optionalGetMessages: GetMessagesQuery.Data.GetMessage? = getMessages
-            return GetMessagesQuery.Data(getMessages: [optionalGetMessages])
+            let optionalListMessages: GetMessagesQuery.Data.GetMessage? = listMessages
+            return GetMessagesQuery.Data(getMessages: [optionalListMessages])
         }
 
         static var storeMessage: StoreMessageMutation.Data {

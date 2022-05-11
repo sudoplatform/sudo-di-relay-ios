@@ -27,5 +27,14 @@ extension DataFactory {
         static var unsuccessfulStatus: Status {
             return Status.unsuccessful
         }
+
+        static var postbox: Postbox {
+            return Postbox(
+                connectionId: "id",
+                userId: "userId",
+                sudoId: "sudoId",
+                timestamp: Date(millisecondsSince1970: 0)
+            )
+        }
     }
 }

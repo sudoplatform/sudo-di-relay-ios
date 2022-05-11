@@ -20,59 +20,59 @@ class DefaultSudoDIRelayClientStoreMessage: DefaultSudoDIRelayTestCase {
 
     // MARK: - Tests: StoreMessage
 
-    func test_storeMessage_CreatesUseCase() {
-        instanceUnderTest.storeMessage(withConnectionId: "dummyId", message: "message") { _ in }
-        XCTAssertEqual(mockUseCaseFactory.generateStoreMessageUseCaseCallCount, 1)
-    }
-
-    func test_storeMessage_CallsUseCaseExecute() {
-        let mockUseCase = MockStoreMessageUseCase()
-        mockUseCaseFactory.generateStoreMessageUseCaseResult = mockUseCase
-        instanceUnderTest.storeMessage(withConnectionId: "dummyId", message: "message") {_ in }
-        XCTAssertEqual(mockUseCase.executeCallCount, 1)
-        XCTAssertEqual(mockUseCase.executeLastProperties?.connectionId, "dummyId")
-        XCTAssertEqual(mockUseCase.executeLastProperties?.message, "message")
-    }
-
-    func test_storeMessage_RespectsUseCaseFailure() {
-        let mockUseCase = MockStoreMessageUseCase(result: .failure(AnyError("Store failed")))
-        mockUseCaseFactory.generateStoreMessageUseCaseResult = mockUseCase
-        waitUntil { done in
-            self.instanceUnderTest.storeMessage(withConnectionId: "dummyId", message: "message") { result in
-                defer { done() }
-                switch result {
-                case let .failure(error as AnyError):
-                    XCTAssertEqual(error, AnyError("Store failed"))
-                default:
-                    XCTFail("Unexpected result: \(result)")
-                }
-            }
+    func test_storeMessage_CreatesUseCase() async {
+        do {
+            _ = try await instanceUnderTest.storeMessage(withConnectionId: "dummyId", message: "message")
+            XCTAssertEqual(mockUseCaseFactory.generateStoreMessageUseCaseCallCount, 1)
+        } catch {
+            XCTFail("Unexpected error \(error)")
         }
     }
 
-    func test_storeMessage_SuccessResult() {
-        let mockUseCase = MockStoreMessageUseCase(result: .success(RelayMessage(
+    func test_storeMessage_CallsUseCaseExecute() async {
+        let mockUseCase = MockStoreMessageUseCase()
+        mockUseCaseFactory.generateStoreMessageUseCaseResult = mockUseCase
+
+        do {
+            _ = try await instanceUnderTest.storeMessage(withConnectionId: "dummyId", message: "message")
+            XCTAssertEqual(mockUseCase.executeCallCount, 1)
+            XCTAssertEqual(mockUseCase.executeLastProperties?.connectionId, "dummyId")
+            XCTAssertEqual(mockUseCase.executeLastProperties?.message, "message")
+        } catch {
+            XCTFail("Unexpected error \(error)")
+        }
+    }
+
+    func test_storeMessage_RespectsUseCaseFailure() async {
+        let mockUseCase = MockStoreMessageUseCase()
+        mockUseCase.executeError = AnyError("Store failed")
+        mockUseCaseFactory.generateStoreMessageUseCaseResult = mockUseCase
+
+        do {
+            _ = try await self.instanceUnderTest.storeMessage(withConnectionId: "dummyId", message: "message")
+        } catch {
+            XCTAssertErrorsEqual(error, AnyError("Store failed"))
+        }
+    }
+
+    func test_storeMessage_SuccessResult() async {
+        let mockUseCase = MockStoreMessageUseCase(result: RelayMessage(
             messageId: "dummyId",
             connectionId: "dummyId",
             cipherText: "message",
             direction: RelayMessage.Direction.inbound,
             timestamp: Date(millisecondsSince1970: 0)
-        )))
+        ))
         mockUseCaseFactory.generateStoreMessageUseCaseResult = mockUseCase
-        waitUntil { done in
-            self.instanceUnderTest.storeMessage(withConnectionId: "dummyId", message: "message") { result in
-                defer { done() }
-                switch result {
-                case .success(let result):
-                    XCTAssertEqual(result?.connectionId, "dummyId")
-                    XCTAssertEqual(result?.messageId, "dummyId")
-                    XCTAssertEqual(result?.cipherText, "message")
-                    XCTAssertEqual(result?.direction, RelayMessage.Direction.inbound)
-                    XCTAssertEqual(result?.timestamp, Date(millisecondsSince1970: 0))
-                default:
-                    XCTFail("Unexpected result: \(result)")
-                }
-            }
+
+        do {
+            let message = try await instanceUnderTest.storeMessage(withConnectionId: "dummyId", message: "message")
+            XCTAssertEqual(message?.connectionId, "dummyId")
+            XCTAssertEqual(message?.messageId, "dummyId")
+            XCTAssertEqual(message?.cipherText, "message")
+            XCTAssertEqual(message?.direction, RelayMessage.Direction.inbound)
+        } catch {
+            XCTFail("Unexpected error \(error)")
         }
     }
 }

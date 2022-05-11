@@ -17,14 +17,14 @@ class DefaultSudoDIRelayClientGetPostboxEndpointTests: DefaultSudoDIRelayTestCas
     // MARK: - Tests: GetPostboxEndpoint
 
     func test_getPostboxEndpoint_CreatesUseCase() {
-        instanceUnderTest.getPostboxEndpoint(withConnectionId: "dummyId")
+        _ = instanceUnderTest.getPostboxEndpoint(withConnectionId: "dummyId")
         XCTAssertEqual(mockUseCaseFactory.generateGetPostboxEndpointUseCaseCallCount, 1)
     }
 
     func test_getPostboxEndpoint_CallsUseCaseExecute() {
         let mockUseCase = MockGetPostboxEndpointUseCase()
         mockUseCaseFactory.generateGetPostboxEndpointUseCaseResult = mockUseCase
-        instanceUnderTest.getPostboxEndpoint(withConnectionId: "dummyId")
+        _ = instanceUnderTest.getPostboxEndpoint(withConnectionId: "dummyId")
         XCTAssertEqual(mockUseCase.executeCallCount, 1)
         XCTAssertEqual(mockUseCase.executeLastProperty, "dummyId")
     }

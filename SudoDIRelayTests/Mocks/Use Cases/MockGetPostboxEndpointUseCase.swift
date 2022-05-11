@@ -20,7 +20,7 @@ class MockGetPostboxEndpointUseCase: GetPostboxEndpointUseCase {
 
     var executeCallCount = 0
     var executeLastProperty: String?
-    var executeReturnResult: URL? = nil
+    var executeReturnResult: URL?
 
     override func execute(withConnectionId connectionId: String) -> URL? {
         executeCallCount += 1

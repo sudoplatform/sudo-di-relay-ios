@@ -11,50 +11,67 @@ class DefaultSudoDIRelayClientSubscribeToMessagesReceived: DefaultSudoDIRelayTes
 
     // MARK: - Tests
 
-    func test_SubscribeToMessagesReceived_CreatesUseCase() {
-        _ = instanceUnderTest.subscribeToMessagesReceived(withConnectionId: "dummyId") { _ in }
-        XCTAssertEqual(mockUseCaseFactory.generateSubscribeToMessagesReceivedUseCaseCallCount, 1)
+    func test_SubscribeToMessagesReceived_CreatesUseCase() async {
+        do {
+            _ = try await instanceUnderTest.subscribeToMessagesReceived(withConnectionId: "dummyId") { _ in }
+            XCTAssertEqual(mockUseCaseFactory.generateSubscribeToMessagesReceivedUseCaseCallCount, 1)
+        } catch {
+            XCTFail("Unexpected error \(error)")
+        }
+
     }
 
-    func test_SubscribeToMessagesReceived_ReturnsSubscriptionTokenFromUseCase() {
+    func test_SubscribeToMessagesReceived_ReturnsSubscriptionTokenFromUseCase() async {
         let mockUseCase = MockSubscribeToMessagesReceivedUseCase()
         mockUseCase.executeReturnResult = MockSubscriptionToken()
         mockUseCaseFactory.generateSubscribeToMessagesReceivedUseCaseResult = mockUseCase
-        let returnedToken = instanceUnderTest.subscribeToMessagesReceived(withConnectionId: "dummyId") { _ in }
-        XCTAssertTrue(returnedToken === mockUseCase.executeReturnResult)
+
+        do {
+            let returnedToken = try await instanceUnderTest.subscribeToMessagesReceived(withConnectionId: "dummyId") { _ in }
+            XCTAssertTrue(returnedToken === mockUseCase.executeReturnResult)
+        } catch {
+            XCTFail("Unexpected error \(error)")
+        }
+
     }
 
-    func test_SubscribeToMessagesReceived_CallsExecuteOnUseCase() {
+    func test_SubscribeToMessagesReceived_CallsExecuteOnUseCase() async {
         let mockUseCase = MockSubscribeToMessagesReceivedUseCase()
         mockUseCaseFactory.generateSubscribeToMessagesReceivedUseCaseResult = mockUseCase
-        _ = instanceUnderTest.subscribeToMessagesReceived(withConnectionId: "dummyId") { _ in }
-        XCTAssertEqual(mockUseCase.executeCallCount, 1)
+
+        do {
+            _ = try await instanceUnderTest.subscribeToMessagesReceived(withConnectionId: "dummyId") { _ in }
+            XCTAssertEqual(mockUseCase.executeCallCount, 1)
+        } catch {
+            XCTFail("Unexpected error \(error)")
+        }
+
     }
 
-    func test_SubscribeToMessagesReceived_RespectsReturnedUseCaseError() {
+    func test_SubscribeToMessagesReceived_RespectsReturnedUseCaseError() async {
         let mockUseCase = MockSubscribeToMessagesReceivedUseCase(result: .failure(AnyError("Failure from subscription")))
         mockUseCaseFactory.generateSubscribeToMessagesReceivedUseCaseResult = mockUseCase
-        waitUntil { done in
-            _ = self.instanceUnderTest.subscribeToMessagesReceived(withConnectionId: "dummyId") { result in
-                defer { done() }
+
+        do {
+            _ = try await self.instanceUnderTest.subscribeToMessagesReceived(withConnectionId: "dummyId") { result in
                 switch result {
                 case let .failure(error as AnyError):
                     XCTAssertEqual(error, AnyError("Failure from subscription"))
-                    done()
                 default:
                     XCTFail("Unexpected result: \(result)")
                 }
             }
+        } catch {
+            XCTFail("Unexpected error \(error)")
         }
     }
 
-    func test_SubscribeToMessagesReceived_ReturnsUseCaseResult() {
+    func test_SubscribeToMessagesReceived_ReturnsUseCaseResult() async {
         let outputEntity = DataFactory.Domain.relayMessage
         let mockUseCase = MockSubscribeToMessagesReceivedUseCase(result: .success(outputEntity))
         mockUseCaseFactory.generateSubscribeToMessagesReceivedUseCaseResult = mockUseCase
-        waitUntil { done in
-            _ = self.instanceUnderTest.subscribeToMessagesReceived(withConnectionId: "dummyId") { result in
-                defer { done() }
+        do {
+            _ = try await self.instanceUnderTest.subscribeToMessagesReceived(withConnectionId: "dummyId") { result in
                 switch result {
                 case .success(let message):
                     XCTAssertEqual(message.connectionId, "dummyId")
@@ -62,11 +79,12 @@ class DefaultSudoDIRelayClientSubscribeToMessagesReceived: DefaultSudoDIRelayTes
                     XCTAssertEqual(message.cipherText, "dummyString")
                     XCTAssertEqual(message.direction, RelayMessage.Direction.inbound)
                     XCTAssertEqual(message.timestamp, Date(millisecondsSince1970: 0))
-                    done()
                 default:
                     XCTFail("Unexpected result: \(result)")
                 }
             }
+        } catch {
+            XCTFail("Unexpected error \(error)")
         }
     }
 }

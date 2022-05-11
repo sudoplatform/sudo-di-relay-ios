@@ -7,6 +7,7 @@
 import XCTest
 import AWSAppSync
 import SudoUser
+import SudoApiClient
 @testable import SudoDIRelay
 
 class DefaultSudoDIRelayTestCase: XCTestCase {
@@ -14,7 +15,7 @@ class DefaultSudoDIRelayTestCase: XCTestCase {
     // MARK: - Properties
 
     var instanceUnderTest: DefaultSudoDIRelayClient!
-    var appSyncClient: AWSAppSyncClient!
+    var graphQLClient: SudoApiClient!
     var mockAppSyncClientHelper: MockAppSyncClientHelper!
     var mockUseCaseFactory: MockUseCaseFactory!
     var mockRelayService: MockRelayService!
@@ -24,7 +25,12 @@ class DefaultSudoDIRelayTestCase: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        appSyncClient = MockAWSAppSyncClientGenerator.generateClient()
+        mockUserClient = MockSudoUserClient()
+        guard let (graphQLClient, _) = try? MockAWSAppSyncClientGenerator.generate(logger: .testLogger, sudoUserClient: mockUserClient) else {
+            XCTFail("Failed to mock AppSyncClientGenerator")
+            return
+        }
+
         do {
             mockAppSyncClientHelper = try MockAppSyncClientHelper()
         } catch {
@@ -33,15 +39,11 @@ class DefaultSudoDIRelayTestCase: XCTestCase {
         }
         mockRelayService = MockRelayService()
         mockUseCaseFactory = MockUseCaseFactory(relayService: mockRelayService)
-        mockUserClient = MockSudoUserClient()
         instanceUnderTest = DefaultSudoDIRelayClient(
-            appSyncClient: appSyncClient,
+            sudoApiClient: graphQLClient,
             appSyncClientHelper: mockAppSyncClientHelper,
             sudoUserClient: mockUserClient,
             useCaseFactory: mockUseCaseFactory,
             relayService: mockRelayService)
     }
-
-    // MARK: - Utilities
-
 }

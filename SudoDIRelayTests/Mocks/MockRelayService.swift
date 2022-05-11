@@ -14,73 +14,76 @@ class MockRelayService: RelayService, Resetable {
         resetCallCount += 1
     }
 
-    // MARK: - GetMessages
+    // MARK: - ListMessages
 
-    var getMessagesCallCount = 0
-    var getMessagesLastProperty: String = ""
-    var getMessagesResult: Result<[RelayMessage], Error> = .failure(
-        AnyError("Please add base result to `MockRelayService.getMessages")
-    )
+    var listMessagesCallCount = 0
+    var listMessagesLastProperty: String = ""
+    var listMessagesResult: [RelayMessage]?
+    var listMessagesError: Error?
 
-    func getMessages(
-        withConnectionId connectionId: String,
-        completion: @escaping ClientCompletion<[RelayMessage]>
-    ) {
-        getMessagesCallCount += 1
-        getMessagesLastProperty = connectionId
-        completion(getMessagesResult)
+    func listMessages(
+        withConnectionId connectionId: String
+    ) async throws -> [RelayMessage] {
+        listMessagesCallCount += 1
+        listMessagesLastProperty = connectionId
+
+        if let listMessagesError = listMessagesError {
+            throw listMessagesError
+        }
+
+        if let listMessagesResult = listMessagesResult {
+            return listMessagesResult
+        }
+
+        throw AnyError("Please add base result to`listMessages` in `MockRelayService`")
     }
 
     // MARK: - CreatePostbox
 
     var createPostboxCallCount = 0
-    var createPostboxLastProperty: String = ""
-    var createPostboxResult: Result<Void, Error> = .failure(
-        AnyError("Please add base result to `MockRelayService.createPostbox")
-    )
+    var createPostboxLastProperties: (String?, String?)?
+    var createPostboxError: Error?
 
-    func createPostbox(
-        withConnectionId connectionId: String,
-        completion: @escaping ClientCompletion<Void>
-    ) {
+    func createPostbox(withConnectionId connectionId: String, ownershipProofToken: String) async throws {
         createPostboxCallCount += 1
-        createPostboxLastProperty = connectionId
-        completion(createPostboxResult)
+        createPostboxLastProperties = (connectionId, ownershipProofToken)
+
+        if let createPostboxError = createPostboxError {
+            throw createPostboxError
+        }
     }
 
     // MARK: - StoreMessage
 
     var storeMessageCallCount = 0
     var storeMessageLastProperty: String = ""
-    var storeMessageResult: Result<RelayMessage?, Error> = .failure(
-        AnyError("Please add base result to `MockRelayService.storeMessage")
-    )
+    var storeMessageResult: RelayMessage?
+    var storeMessageError: Error?
 
-    func storeMessage(
-        withConnectionId connectionId: String,
-        message: String,
-        completion: @escaping ClientCompletion<RelayMessage?>
-    ) {
+    func storeMessage(withConnectionId connectionId: String, message: String) async throws -> RelayMessage? {
         storeMessageCallCount += 1
         storeMessageLastProperty = connectionId
-        completion(storeMessageResult)
+
+        if let storeMessageError = storeMessageError {
+            throw storeMessageError
+        }
+
+        return storeMessageResult
     }
 
     // MARK: - DeletePostbox
 
     var deletePostboxCallCount = 0
     var deletePostboxLastProperty: String = ""
-    var deletePostboxResult: Result<Void, Error> = .failure(
-        AnyError("Please add base result to `MockRelayService.deletePostbox")
-    )
+    var deletePostboxError: Error?
 
-    func deletePostbox(
-        withConnectionId connectionId: String,
-        completion: @escaping ClientCompletion<Void>
-    ) {
+    func deletePostbox(withConnectionId connectionId: String) async throws {
         deletePostboxCallCount += 1
         deletePostboxLastProperty = connectionId
-        completion(deletePostboxResult)
+
+        if let deletePostboxError = deletePostboxError {
+            throw deletePostboxError
+        }
     }
 
     // MARK: - SubscribeToMessagesReceived
@@ -91,14 +94,20 @@ class MockRelayService: RelayService, Resetable {
     "Please add base result to `MockRelayService.subscribeToMessagesReceived`"
     ))
     var subscribeToMessagesReceivedReturnResult: SubscriptionToken = MockSubscriptionToken()
+    var subscribeToMessageReceivedError: Error?
 
     func subscribeToMessagesReceived(
         withConnectionId connectionId: String,
         resultHandler: @escaping ClientCompletion<RelayMessage>
-    ) throws -> SubscriptionToken {
+    ) async throws -> SubscriptionToken {
         subscribeToMessagesReceivedCallCount += 1
         subscribeToMessagesReceivedLastProperty = connectionId
         resultHandler(subscribeToMessagesReceivedResult)
+
+        if let subscribeToMessageReceivedError = subscribeToMessageReceivedError {
+            throw subscribeToMessageReceivedError
+        }
+
         return subscribeToMessagesReceivedReturnResult
     }
 
@@ -110,6 +119,7 @@ class MockRelayService: RelayService, Resetable {
     "Please add base result to `MockRelayService.subscribeToPostboxDeleted`"
     ))
     var subscribeToPostboxDeletedReturnResult: SubscriptionToken = MockSubscriptionToken()
+    var subscribeToPostboxDeletedError: Error?
 
     func subscribeToPostboxDeleted(
         withConnectionId connectionId: String,
@@ -118,6 +128,11 @@ class MockRelayService: RelayService, Resetable {
         subscribeToPostboxDeletedCallCount += 1
         subscribeToPostboxDeletedLastProperty = connectionId
         resultHandler(subscribeToPostboxDeletedResult)
+
+        if let subscribeToPostboxDeletedError = subscribeToMessageReceivedError {
+            throw subscribeToPostboxDeletedError
+        }
+
         return subscribeToPostboxDeletedReturnResult
     }
 
@@ -125,11 +140,33 @@ class MockRelayService: RelayService, Resetable {
 
     var getPostboxEndpointCallCount = 0
     var getPostboxEndpointLastProperty: String = ""
-    var getPostboxEndpointReturnResult: URL? = nil
+    var getPostboxEndpointReturnResult: URL?
 
     func getPostboxEndpoint(withConnectionId connectionId: String) -> URL? {
         getPostboxEndpointCallCount += 1
         getPostboxEndpointLastProperty = connectionId
         return getPostboxEndpointReturnResult
+    }
+
+    // MARK: - listPostboxes
+
+    var listPostboxesCallCount = 0
+    var listPostboxesLastProperty: String = ""
+    var listPostboxesResult: [Postbox]?
+    var listPostboxesError: Error?
+
+    func listPostboxes(withSudoId sudoId: String) async throws -> [Postbox] {
+        listPostboxesCallCount += 1
+        listPostboxesLastProperty = sudoId
+
+        if let listPostboxesError = listPostboxesError {
+            throw listPostboxesError
+        }
+
+        if let listPostboxesResult = listPostboxesResult {
+            return listPostboxesResult
+        }
+
+        throw AnyError("Please add base result to `MockRelayService.listPostboxes`")
     }
 }

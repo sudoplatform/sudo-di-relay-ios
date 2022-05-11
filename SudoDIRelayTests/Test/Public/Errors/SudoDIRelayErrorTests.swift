@@ -6,102 +6,119 @@
 
 import XCTest
 // This is only testable to initialize GraphQLError for testing
-@testable import AWSAppSync
 @testable import SudoDIRelay
-import SudoOperations
+// Necessary for GraphQLError creation
+@testable import AWSAppSync
+@testable import SudoApiClient
 
 class SudoDIRelayErrorTests: XCTestCase {
 
     func constructGraphQLErrorWithErrorType(_ type: String?) -> GraphQLError {
         guard let type = type else {
-            return GraphQLError([:])
+            return GraphQLError([
+                "message": "message" // Must add a message due to force unwrap in AWSAppSync
+            ])
         }
         let obj: [String: Any] = [
-            "errorType": type
+            "errorType": type,
+            "message": "message"
         ]
         return GraphQLError(obj)
+    }
+
+    func generateGraphQLError(errorType: String) -> GraphQLError {
+        return GraphQLError([
+            "errorType": errorType,
+            "message": "message"
+        ])
     }
 
     // MARK: - Tests: GraphQL Initializer
 
     func test_init_graphQL_InvalidInitMessage() {
-        let graphQLError = constructGraphQLErrorWithErrorType("sudoplatform.relay.InvalidInitMessage")
+        let graphQLError = generateGraphQLError(errorType: "sudoplatform.relay.InvalidInitMessage")
         let error = SudoDIRelayError(graphQLError: graphQLError)
-        XCTAssertEqual(error, .invalidInitMessage)
+        XCTAssertErrorsEqual(error, SudoDIRelayError.invalidInitMessage)
     }
 
-    func test_init_graphQL_NoErrorTypeReturnsNil() {
+    func test_init_graphQL_NoErrorTypeReturnsMessage() {
         let graphQLError = constructGraphQLErrorWithErrorType(nil)
         let error = SudoDIRelayError(graphQLError: graphQLError)
-        XCTAssertNil(error)
+        XCTAssertErrorsEqual(error, SudoDIRelayError.internalError("message"))
     }
 
-    func test_init_graphQL_UnsupportedReturnsNil() {
-        let graphQLError = constructGraphQLErrorWithErrorType("foo-bar")
+    func test_init_graphQL_UnsupportedReturnsInternalError() {
+        let graphQLError = generateGraphQLError(errorType: "foo-bar")
         let error = SudoDIRelayError(graphQLError: graphQLError)
-        XCTAssertNil(error)
+        XCTAssertErrorsEqual(error, SudoDIRelayError.internalError("foo-bar - message"))
+    }
+
+    func test_init_graphQL_DecodingError() {
+        let graphQLError = constructGraphQLErrorWithErrorType("sudoplatform.DecodingError")
+        let error = SudoDIRelayError(graphQLError: graphQLError)
+        XCTAssertErrorsEqual(error, SudoDIRelayError.decodingError)
+    }
+
+    func test_init_graphQL_EnvironmentError() {
+        let graphQLError = constructGraphQLErrorWithErrorType("sudoplatform.EnvironmentError")
+        let error = SudoDIRelayError(graphQLError: graphQLError)
+        XCTAssertErrorsEqual(error, SudoDIRelayError.environmentError)
+    }
+
+    func test_init_graphQL_PolicyFailed() {
+        let graphQLError = constructGraphQLErrorWithErrorType("sudoplatform.PolicyFailed")
+        let error = SudoDIRelayError(graphQLError: graphQLError)
+        XCTAssertErrorsEqual(error, SudoDIRelayError.policyFailed)
+    }
+
+    func test_init_graphQL_InvalidTokenError() {
+        let graphQLError = constructGraphQLErrorWithErrorType("sudoplatform.relay.InvalidTokenError")
+        let error = SudoDIRelayError(graphQLError: graphQLError)
+        XCTAssertErrorsEqual(error, SudoDIRelayError.invalidTokenError)
+    }
+
+    func test_init_GraphQL_AccountLockedError() {
+        let graphQLError = constructGraphQLErrorWithErrorType("sudoplatform.AccountLocked")
+        let error = SudoDIRelayError(graphQLError: graphQLError)
+        XCTAssertErrorsEqual(error, SudoDIRelayError.accountLocked)
+    }
+
+    func test_init_GraphQL_IdentityInsufficient() {
+        let graphQLError = constructGraphQLErrorWithErrorType("sudoplatform.IdentityVerificationInsufficientError")
+        let error = SudoDIRelayError(graphQLError: graphQLError)
+        XCTAssertErrorsEqual(error, SudoDIRelayError.identityInsufficient)
+    }
+
+    func test_init_graphQL_IdentityNotVerified() {
+        let graphQLError = constructGraphQLErrorWithErrorType("sudoplatform.IdentityVerificationNotVerifiedError")
+        let error = SudoDIRelayError(graphQLError: graphQLError)
+        XCTAssertErrorsEqual(error, SudoDIRelayError.identityNotVerified)
+    }
+
+    func test_init_graphQL_InternalError() {
+        let graphQLError: GraphQLError = constructGraphQLErrorWithErrorType("foobar")
+        let error = SudoDIRelayError(graphQLError: graphQLError)
+        XCTAssertErrorsEqual(error, SudoDIRelayError.internalError("foobar - message"))
     }
 
     // MARK: - Tests: SudoPlatformError Initializer
 
     func test_init_sudoPlatformError_ServiceError() {
-        let sudoPlatformError: SudoPlatformError = .serviceError
-        let error = SudoDIRelayError(platformError: sudoPlatformError)
+        let sudoPlatformError: ApiOperationError = .serviceError
+        let error = SudoDIRelayError.fromApiOperationError(error: sudoPlatformError)
         XCTAssertEqual(error, .serviceError)
     }
 
-    func test_init_sudoPlatformError_DecodingError() {
-        let sudoPlatformError: SudoPlatformError = .decodingError
-        let error = SudoDIRelayError(platformError: sudoPlatformError)
-        XCTAssertEqual(error, .decodingError)
+    func test_init_sudoPlatformError_NotSignedIn() {
+        let sudoPlatformError: ApiOperationError = .notSignedIn
+        let error = SudoDIRelayError.fromApiOperationError(error: sudoPlatformError)
+        XCTAssertEqual(error, .notSignedIn)
     }
 
-    func test_init_sudoPlatformError_EnvironmentError() {
-        let sudoPlatformError: SudoPlatformError = .environmentError
-        let error = SudoDIRelayError(platformError: sudoPlatformError)
-        XCTAssertEqual(error, .environmentError)
-    }
-
-    func test_init_sudoPlatformError_PolicyFailed() {
-        let sudoPlatformError: SudoPlatformError = .policyFailed
-        let error = SudoDIRelayError(platformError: sudoPlatformError)
-        XCTAssertEqual(error, .policyFailed)
-    }
-
-    func test_init_sudoPlatformError_InvalidTokenError() {
-        let sudoPlatformError: SudoPlatformError = .invalidTokenError
-        let error = SudoDIRelayError(platformError: sudoPlatformError)
-        XCTAssertEqual(error, .invalidTokenError)
-    }
-
-    func test_init_sudoPlatformError_AccountLockedError() {
-        let sudoPlatformError: SudoPlatformError = .accountLockedError
-        let error = SudoDIRelayError(platformError: sudoPlatformError)
-        XCTAssertEqual(error, .accountLockedError)
-    }
-
-    func test_init_sudoPlatformError_IdentityInsufficient() {
-        let sudoPlatformError: SudoPlatformError = .identityInsufficient
-        let error = SudoDIRelayError(platformError: sudoPlatformError)
-        XCTAssertEqual(error, .identityInsufficient)
-    }
-
-    func test_init_sudoPlatformError_IdentityNotVerified() {
-        let sudoPlatformError: SudoPlatformError = .identityNotVerified
-        let error = SudoDIRelayError(platformError: sudoPlatformError)
-        XCTAssertEqual(error, .identityNotVerified)
-    }
-
-    func test_init_sudoPlatformError_InternalError_RespectsNil() {
-        let sudoPlatformError: SudoPlatformError = .internalError(cause: nil)
-        let error = SudoDIRelayError(platformError: sudoPlatformError)
-        XCTAssertEqual(error, .internalError(nil))
-    }
-
-    func test_init_sudoPlatformError_InternalError() {
-        let sudoPlatformError: SudoPlatformError = .internalError(cause: "foobar")
-        let error = SudoDIRelayError(platformError: sudoPlatformError)
-        XCTAssertEqual(error, .internalError("foobar"))
+    func test_init_sudoPlatformError_InsufficientEntitlements() {
+        let sudoPlatformError: ApiOperationError = .insufficientEntitlements
+        let error = SudoDIRelayError.fromApiOperationError(error: sudoPlatformError)
+        XCTAssertEqual(error, .insufficientEntitlements)
     }
 
     // MARK: - Tests: ErrorDescription
@@ -155,8 +172,8 @@ class SudoDIRelayErrorTests: XCTestCase {
     }
 
     func test_errorDescription_AccountLockedError() {
-        let L10Ndescription = L10n.Relay.Errors.accountLockedError
-        let errorDescription = SudoDIRelayError.accountLockedError.errorDescription
+        let L10Ndescription = L10n.Relay.Errors.accountLocked
+        let errorDescription = SudoDIRelayError.accountLocked.errorDescription
         XCTAssertEqual(errorDescription, L10Ndescription)
     }
 
@@ -187,8 +204,8 @@ class SudoDIRelayErrorTests: XCTestCase {
     // MARK: - Tests: Misc
 
     func test_localizedDescriptionRespected() {
-        let expectedDescription = L10n.Relay.Errors.accountLockedError
-        let actualDescription = (SudoDIRelayError.accountLockedError as Error).localizedDescription
+        let expectedDescription = L10n.Relay.Errors.accountLocked
+        let actualDescription = (SudoDIRelayError.accountLocked as Error).localizedDescription
         XCTAssertEqual(expectedDescription, actualDescription)
     }
 }

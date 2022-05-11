@@ -12,7 +12,6 @@ class DeletePostboxUseCaseTests: XCTestCase {
     // MARK: - Properties
 
     var instanceUnderTest: DeletePostboxUseCase!
-
     var mockRelayService: MockRelayService!
 
     // MARK: - Lifecycle
@@ -21,7 +20,6 @@ class DeletePostboxUseCaseTests: XCTestCase {
         mockRelayService = MockRelayService()
         instanceUnderTest = DeletePostboxUseCase(relayService: mockRelayService)
     }
-
     // MARK: - Tests
 
     func test_initializer() {
@@ -29,39 +27,33 @@ class DeletePostboxUseCaseTests: XCTestCase {
         XCTAssertTrue(instanceUnderTest.relayService === mockRelayService)
     }
 
-    func test_execute_CallsDeletePostboxCorrectly() {
-        instanceUnderTest.execute(withConnectionId: "dummyId") { _ in }
-        XCTAssertEqual(mockRelayService.deletePostboxCallCount, 1)
-        XCTAssertEqual(mockRelayService.deletePostboxLastProperty, "dummyId")
-    }
-
-    func test_execute_RespectsDeletePostboxFailure() {
-        mockRelayService.deletePostboxResult = .failure(AnyError("Delete failed"))
-        waitUntil { done in
-            self.instanceUnderTest.execute(withConnectionId: "dummyId") { result in
-                defer { done() }
-                switch result {
-                case let .failure(error as AnyError):
-                    XCTAssertEqual(error, AnyError("Delete failed"))
-                default:
-                    XCTFail("Unexpected result: \(result)")
-                }
-            }
+    func test_execute_CallsDeletePostboxCorrectly() async {
+        do {
+            try await instanceUnderTest.execute(withConnectionId: "dummyId")
+            XCTAssertEqual(mockRelayService.deletePostboxCallCount, 1)
+            XCTAssertEqual(mockRelayService.deletePostboxLastProperty, "dummyId")
+        } catch {
+            XCTFail("Unexpected error \(error)")
         }
     }
 
-    func test_execute_ReturnsVoidDeletePostboxSuccessResult() {
-        mockRelayService.deletePostboxResult = .success(())
-        waitUntil { done in
-            self.instanceUnderTest.execute(withConnectionId: "dummyId") { result in
-                defer { done() }
-                switch result {
-                case .success():
-                    break
-                default:
-                    XCTFail("Unexpected result: \(result)")
-                }
-            }
+    func test_execute_RespectsDeletePostboxFailure() async {
+        mockRelayService.deletePostboxError = AnyError("Delete failed")
+
+        do {
+            try await instanceUnderTest.execute(withConnectionId: "dummyId")
+            XCTFail("Unexpected success")
+        } catch {
+            XCTAssertErrorsEqual(error, AnyError("Delete failed"))
+        }
+    }
+
+    func test_execute_ReturnsVoidDeletePostboxSuccessResult() async {
+        do {
+            try await instanceUnderTest.execute(withConnectionId: "dummyId")
+        } catch {
+            XCTFail("Unexpected result: \(error)")
+
         }
     }
 }

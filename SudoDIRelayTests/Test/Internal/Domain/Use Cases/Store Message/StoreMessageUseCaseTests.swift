@@ -29,40 +29,37 @@ class StoreMessageUseCaseTests: XCTestCase {
         XCTAssertTrue(instanceUnderTest.relayService === mockRelayService)
     }
 
-    func test_execute_CallsStoreMessageCorrectly() {
-        instanceUnderTest.execute(withConnectionId: "dummyId", message: "message") { _ in }
-        XCTAssertEqual(mockRelayService.storeMessageCallCount, 1)
-        XCTAssertEqual(mockRelayService.storeMessageLastProperty, "dummyId")
-    }
+    func test_execute_CallsStoreMessageCorrectly() async {
 
-    func test_execute_RespectsStoreMessageFailure() {
-        mockRelayService.storeMessageResult = .failure(AnyError("Store failed"))
-        waitUntil { done in
-            self.instanceUnderTest.execute(withConnectionId: "dummyId", message: "message") { result in
-                defer { done() }
-                switch result {
-                case let .failure(error as AnyError):
-                    XCTAssertEqual(error, AnyError("Store failed"))
-                default:
-                    XCTFail("Unexpected result: \(result)")
-                }
-            }
+        do {
+            _ = try await instanceUnderTest.execute(withConnectionId: "dummyId", message: "message")
+            XCTAssertEqual(mockRelayService.storeMessageCallCount, 1)
+            XCTAssertEqual(mockRelayService.storeMessageLastProperty, "dummyId")
+        } catch {
+            XCTFail("Unexpected error \(error)")
         }
     }
 
-    func test_execute_ReturnsMessageStoreMessageSuccessResult() {
-        let res = DataFactory.Domain.relayMessage
-        mockRelayService.storeMessageResult = .success(res)
-        waitUntil { done in
-            self.instanceUnderTest.execute(withConnectionId: "dummyId", message: "message") { result in
-                defer { done() }
-                switch result {
-                case .success(let result):
-                    XCTAssertEqual(result, res)
-                default:
-                    XCTFail("Unexpected result: \(result)")
-                }
-            }
+    func test_execute_RespectsStoreMessageFailure() async {
+        mockRelayService.storeMessageError = AnyError("Store failed")
+
+        do {
+            let result = try await instanceUnderTest.execute(withConnectionId: "dummyid", message: "message")
+            XCTFail("Unexpected result \(String(describing: result))")
+        } catch {
+            XCTAssertErrorsEqual(error, AnyError("Store failed"))
+        }
+    }
+
+    func test_execute_ReturnsMessageStoreMessageSuccessResult() async {
+        let message = DataFactory.Domain.relayMessage
+        mockRelayService.storeMessageResult = message
+
+        do {
+            let result = try await instanceUnderTest.execute(withConnectionId: "dummyId", message: "message")
+            XCTAssertEqual(result, message)
+        } catch {
+            XCTFail("Unexpected error \(error)")
         }
     }
 }

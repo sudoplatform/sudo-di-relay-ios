@@ -26,7 +26,7 @@ class MockSubscribeToMessagesReceivedUseCase: SubscribeToMessagesReceivedUseCase
     override func execute(
         withConnectionId connectionId: String,
         completion: @escaping ClientCompletion<RelayMessage>
-    ) -> SubscriptionToken? {
+    ) async throws -> SubscriptionToken? {
         executeCallCount += 1
         executeLastProperty = connectionId
         completion(executeResult)

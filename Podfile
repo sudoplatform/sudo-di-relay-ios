@@ -1,4 +1,4 @@
-platform :ios, '13.0'
+platform :ios, '15.0'
 
 workspace 'SudoDIRelay'
 use_frameworks!
@@ -23,6 +23,9 @@ target 'SudoDIRelay' do
 
   target 'SudoDIRelayIntegrationTests' do
     podspec :name => 'SudoDIRelay'
+    pod 'SudoProfiles', '~> 15.0'
+    pod 'SudoEntitlements', '~> 6.0'
+    pod 'SudoEntitlementsAdmin', '~> 2.0'
   end
 end
 

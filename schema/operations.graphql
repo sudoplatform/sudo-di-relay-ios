@@ -74,7 +74,14 @@ query GetMessages($input: IdAsInput!) {
     utcTimestamp
   }
 }
-
+query ListPostboxesForSudoId($input: ListPostboxesForSudoIdInput) {
+  listPostboxesForSudoId(input: $input) {
+    connectionId
+    sudoId
+    owner
+    utcTimestamp
+  }
+}
 mutation CreatePublicKeyForRelay($input: CreatePublicKeyInput!) {
   createPublicKeyForRelay(input: $input) {
     id
@@ -103,7 +110,7 @@ mutation DeletePublicKeyForRelay($input: DeletePublicKeyInput) {
     updatedAtEpochMs
   }
 }
-mutation SendInit($input: IdAsInput!) {
+mutation SendInit($input: CreatePostboxInput!) {
   sendInit(input: $input) {
     connectionId
     owner

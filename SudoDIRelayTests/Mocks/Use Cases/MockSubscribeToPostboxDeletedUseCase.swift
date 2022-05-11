@@ -26,7 +26,7 @@ class MockSubscribeToPostboxDeletedUseCase: SubscribeToPostboxDeletedUseCase {
     override func execute(
         withConnectionId connectionId: String,
         completion: @escaping ClientCompletion<Status>
-    ) -> SubscriptionToken? {
+    ) async throws -> SubscriptionToken? {
         executeCallCount += 1
         executeLastProperty = connectionId
         completion(executeResult)
