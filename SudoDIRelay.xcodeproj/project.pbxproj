@@ -3,19 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1CA1F7A9ABA42CD7B92D3615 /* Pods_SudoDIRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33FFF372CE5267B58B5ADBEF /* Pods_SudoDIRelay.framework */; };
-		4600698C281903970010B7E6 /* ListPostboxesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4600698B281903970010B7E6 /* ListPostboxesUseCaseTests.swift */; };
 		4600698E2819120B0010B7E6 /* PostboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4600698D2819120B0010B7E6 /* PostboxTests.swift */; };
-		46006990281930190010B7E6 /* MockListPostboxesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4600698F281930190010B7E6 /* MockListPostboxesUseCase.swift */; };
 		4626C64D2769AE9C00C7328B /* SudoDIRelayClientTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4626C64C2769AE9C00C7328B /* SudoDIRelayClientTestCase.swift */; };
 		4626C64F2769AF9100C7328B /* SudoDIRelayConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4626C64E2769AF9100C7328B /* SudoDIRelayConfig.swift */; };
 		4626C651276A13A000C7328B /* AnyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEBC26EED498006C6FD0 /* AnyError.swift */; };
 		462EE3D127D9B0CB00BC2115 /* Postbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462EE3D027D9B0CA00BC2115 /* Postbox.swift */; };
-		462EE3D327D9BA4000BC2115 /* ListPostboxesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462EE3D227D9BA4000BC2115 /* ListPostboxesUseCase.swift */; };
 		464CAEBE26EED499006C6FD0 /* SudoDecentralizedIdentityRelay.h in Headers */ = {isa = PBXBuildFile; fileRef = 464CAE2D26EED493006C6FD0 /* SudoDecentralizedIdentityRelay.h */; };
 		464CAEBF26EED499006C6FD0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 464CAE2F26EED493006C6FD0 /* Localizable.strings */; };
 		464CAF1D26EEE07D006C6FD0 /* Date+MillisecondsSinceEpoch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE3426EED493006C6FD0 /* Date+MillisecondsSinceEpoch.swift */; };
@@ -31,19 +28,11 @@
 		464CAF2726EEE07D006C6FD0 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4526EED494006C6FD0 /* SubscriptionManager.swift */; };
 		464CAF2926EEE07D006C6FD0 /* DefaultAppSyncClientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4726EED494006C6FD0 /* DefaultAppSyncClientHelper.swift */; };
 		464CAF2A26EEE07D006C6FD0 /* RelaySubscriptionToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4826EED494006C6FD0 /* RelaySubscriptionToken.swift */; };
-		464CAF2B26EEE07D006C6FD0 /* SubscribeToMessagesReceivedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4B26EED494006C6FD0 /* SubscribeToMessagesReceivedUseCase.swift */; };
-		464CAF2C26EEE07D006C6FD0 /* SubscribeToPostboxDeletedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4C26EED494006C6FD0 /* SubscribeToPostboxDeletedUseCase.swift */; };
-		464CAF2D26EEE07D006C6FD0 /* ListMessagesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4D26EED494006C6FD0 /* ListMessagesUseCase.swift */; };
-		464CAF2E26EEE07D006C6FD0 /* DeletePostboxUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4E26EED494006C6FD0 /* DeletePostboxUseCase.swift */; };
-		464CAF2F26EEE07D006C6FD0 /* CreatePostboxUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4F26EED494006C6FD0 /* CreatePostboxUseCase.swift */; };
-		464CAF3026EEE07D006C6FD0 /* StoreMessageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5026EED494006C6FD0 /* StoreMessageUseCase.swift */; };
-		464CAF3126EEE07D006C6FD0 /* UseCaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5126EED494006C6FD0 /* UseCaseFactory.swift */; };
 		464CAF3226EEE07D006C6FD0 /* RelayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5326EED494006C6FD0 /* RelayService.swift */; };
 		464CAF3326EEE07D006C6FD0 /* DefaultSudoDIRelayClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5526EED494006C6FD0 /* DefaultSudoDIRelayClient.swift */; };
-		464CAF3426EEE07D006C6FD0 /* RelayMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5726EED494006C6FD0 /* RelayMessage.swift */; };
+		464CAF3426EEE07D006C6FD0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5726EED494006C6FD0 /* Message.swift */; };
 		464CAF3526EEE07D006C6FD0 /* SubscriptionToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5826EED495006C6FD0 /* SubscriptionToken.swift */; };
 		464CAF3626EEE07D006C6FD0 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5926EED495006C6FD0 /* Status.swift */; };
-		464CAF3726EEE07D006C6FD0 /* CachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5A26EED495006C6FD0 /* CachePolicy.swift */; };
 		464CAF3826EEE07D006C6FD0 /* SudoDIRelayClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5B26EED495006C6FD0 /* SudoDIRelayClient.swift */; };
 		464CAF3926EEE07D006C6FD0 /* SudoDIRelayError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5D26EED495006C6FD0 /* SudoDIRelayError.swift */; };
 		464CAF3A26EEE07D006C6FD0 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5F26EED495006C6FD0 /* Strings.swift */; };
@@ -52,14 +41,7 @@
 		464CAF3E26EEE1A4006C6FD0 /* MockSubscriptionToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7A26EED496006C6FD0 /* MockSubscriptionToken.swift */; };
 		464CAF3F26EEE1A4006C6FD0 /* MockKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7B26EED496006C6FD0 /* MockKeyManager.swift */; };
 		464CAF4026EEE1A4006C6FD0 /* MockAWSNetworkTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7C26EED496006C6FD0 /* MockAWSNetworkTransport.swift */; };
-		464CAF4126EEE1A4006C6FD0 /* MockDeletePostboxUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7E26EED496006C6FD0 /* MockDeletePostboxUseCase.swift */; };
-		464CAF4226EEE1A4006C6FD0 /* MockCreatePostboxUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7F26EED496006C6FD0 /* MockCreatePostboxUseCase.swift */; };
-		464CAF4326EEE1A4006C6FD0 /* MockSubscribeToPostboxDeletedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8026EED496006C6FD0 /* MockSubscribeToPostboxDeletedUseCase.swift */; };
-		464CAF4426EEE1A4006C6FD0 /* MockStoreMessageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8126EED496006C6FD0 /* MockStoreMessageUseCase.swift */; };
-		464CAF4526EEE1A4006C6FD0 /* MockSubscribeToMessagesReceivedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8226EED496006C6FD0 /* MockSubscribeToMessagesReceivedUseCase.swift */; };
-		464CAF4626EEE1A4006C6FD0 /* MockListMessagesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8326EED496006C6FD0 /* MockListMessagesUseCase.swift */; };
 		464CAF4726EEE1A4006C6FD0 /* MockAppSyncClientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8426EED496006C6FD0 /* MockAppSyncClientHelper.swift */; };
-		464CAF4826EEE1A4006C6FD0 /* MockUseCaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8526EED496006C6FD0 /* MockUseCaseFactory.swift */; };
 		464CAF4926EEE1A4006C6FD0 /* MockRelayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8626EED496006C6FD0 /* MockRelayService.swift */; };
 		464CAF4B26EEE1A4006C6FD0 /* Date+MillisecondsSinceEpochTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8B26EED497006C6FD0 /* Date+MillisecondsSinceEpochTests.swift */; };
 		464CAF4C26EEE1A4006C6FD0 /* GraphQLResultWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8F26EED497006C6FD0 /* GraphQLResultWorkerTests.swift */; };
@@ -67,19 +49,11 @@
 		464CAF4E26EEE1A4006C6FD0 /* DefaultRelayServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE9326EED497006C6FD0 /* DefaultRelayServiceTests.swift */; };
 		464CAF4F26EEE1A4006C6FD0 /* RelaySubscriptionTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE9526EED497006C6FD0 /* RelaySubscriptionTokenTests.swift */; };
 		464CAF5026EEE1A4006C6FD0 /* SubscriptionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE9626EED497006C6FD0 /* SubscriptionManagerTests.swift */; };
-		464CAF5126EEE1A4006C6FD0 /* SubscribeToPostboxDeletedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE9A26EED497006C6FD0 /* SubscribeToPostboxDeletedUseCaseTests.swift */; };
-		464CAF5226EEE1A4006C6FD0 /* SubscribeToMessagesReceivedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE9C26EED497006C6FD0 /* SubscribeToMessagesReceivedUseCaseTests.swift */; };
-		464CAF5326EEE1A4006C6FD0 /* DeletePostboxUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE9E26EED497006C6FD0 /* DeletePostboxUseCaseTests.swift */; };
-		464CAF5426EEE1A4006C6FD0 /* GetMessagesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEA026EED497006C6FD0 /* GetMessagesUseCaseTests.swift */; };
-		464CAF5526EEE1A4006C6FD0 /* CreatePostboxUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEA226EED497006C6FD0 /* CreatePostboxUseCaseTests.swift */; };
-		464CAF5626EEE1A4006C6FD0 /* StoreMessageUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEA426EED498006C6FD0 /* StoreMessageUseCaseTests.swift */; };
-		464CAF5726EEE1A4006C6FD0 /* RelayMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEA726EED498006C6FD0 /* RelayMessageTests.swift */; };
+		464CAF5726EEE1A4006C6FD0 /* MessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEA726EED498006C6FD0 /* MessageTests.swift */; };
 		464CAF5826EEE1A4006C6FD0 /* DeletePostboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEA926EED498006C6FD0 /* DeletePostboxTests.swift */; };
-		464CAF5926EEE1A4006C6FD0 /* StoreMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEAA26EED498006C6FD0 /* StoreMessageTests.swift */; };
 		464CAF5A26EEE1A4006C6FD0 /* CreatePostboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEAB26EED498006C6FD0 /* CreatePostboxTests.swift */; };
-		464CAF5B26EEE1A4006C6FD0 /* SubscribeToPostboxDeletedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEAC26EED498006C6FD0 /* SubscribeToPostboxDeletedTests.swift */; };
 		464CAF5C26EEE1A4006C6FD0 /* TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEAD26EED498006C6FD0 /* TestCase.swift */; };
-		464CAF5D26EEE1A4006C6FD0 /* GetMessagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEAE26EED498006C6FD0 /* GetMessagesTests.swift */; };
+		464CAF5D26EEE1A4006C6FD0 /* ListMessagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEAE26EED498006C6FD0 /* ListMessagesTests.swift */; };
 		464CAF5E26EEE1A4006C6FD0 /* SubscribeToMessagesReceivedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEAF26EED498006C6FD0 /* SubscribeToMessagesReceivedTests.swift */; };
 		464CAF5F26EEE1A4006C6FD0 /* SudoDIRelayErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEB126EED498006C6FD0 /* SudoDIRelayErrorTests.swift */; };
 		464CAF6026EEE1A5006C6FD0 /* Logger+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEB426EED498006C6FD0 /* Logger+Tests.swift */; };
@@ -89,21 +63,15 @@
 		464CAF6426EEE1A5006C6FD0 /* DataFactoryNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEBA26EED498006C6FD0 /* DataFactoryNamespace.swift */; };
 		464CAF6526EEE1A5006C6FD0 /* DataFactory+GraphQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEBB26EED498006C6FD0 /* DataFactory+GraphQL.swift */; };
 		464CAF6726EEE1A5006C6FD0 /* DataFactory+Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEBD26EED498006C6FD0 /* DataFactory+Domain.swift */; };
-		464CAF6826EEE1CD006C6FD0 /* ListMessagesIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6426EED495006C6FD0 /* ListMessagesIntegrationTests.swift */; };
-		464CAF6926EEE1CD006C6FD0 /* DeletePostboxIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6526EED495006C6FD0 /* DeletePostboxIntegrationTests.swift */; };
-		464CAF6A26EEE1CD006C6FD0 /* SubscribeToPostboxDeletedIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6626EED495006C6FD0 /* SubscribeToPostboxDeletedIntegrationTests.swift */; };
-		464CAF6B26EEE1CD006C6FD0 /* CreatePostboxIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6726EED495006C6FD0 /* CreatePostboxIntegrationTests.swift */; };
-		464CAF6C26EEE1CD006C6FD0 /* SubscribeToMessagesReceivedIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6826EED495006C6FD0 /* SubscribeToMessagesReceivedIntegrationTests.swift */; };
-		464CAF6E26EEE1CD006C6FD0 /* StoreMessageIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6A26EED495006C6FD0 /* StoreMessageIntegrationTests.swift */; };
+		464CAF6826EEE1CD006C6FD0 /* ListMessagesSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6426EED495006C6FD0 /* ListMessagesSystemTests.swift */; };
+		464CAF6926EEE1CD006C6FD0 /* DeletePostboxSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6526EED495006C6FD0 /* DeletePostboxSystemTests.swift */; };
+		464CAF6B26EEE1CD006C6FD0 /* CreatePostboxSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6726EED495006C6FD0 /* CreatePostboxSystemTests.swift */; };
+		464CAF6C26EEE1CD006C6FD0 /* SubscribeToMessagesReceivedSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6826EED495006C6FD0 /* SubscribeToMessagesReceivedSystemTests.swift */; };
 		464CAF6F26EEE1CD006C6FD0 /* XCTestCase+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6D26EED496006C6FD0 /* XCTestCase+Utility.swift */; };
 		464CAF7026EEE1CD006C6FD0 /* DataFactoryNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6E26EED496006C6FD0 /* DataFactoryNamespace.swift */; };
 		464CAF7126EEE1CD006C6FD0 /* Result+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE6F26EED496006C6FD0 /* Result+Convenience.swift */; };
 		464CAF7226EEE1CD006C6FD0 /* DataFactory+TestUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7026EED496006C6FD0 /* DataFactory+TestUtility.swift */; };
 		464CAF7326EEE1CD006C6FD0 /* HTTPTransports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7426EED496006C6FD0 /* HTTPTransports.swift */; };
-		466A054C2791024A007EB7AD /* GetPostboxEndpointUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466A054B2791024A007EB7AD /* GetPostboxEndpointUseCase.swift */; };
-		466A054E27978FE4007EB7AD /* GetPostboxEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466A054D27978FE4007EB7AD /* GetPostboxEndpointTests.swift */; };
-		466A05502797BB2D007EB7AD /* GetPostboxEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466A054F2797BB2D007EB7AD /* GetPostboxEndpointTests.swift */; };
-		466A05522797BBE4007EB7AD /* MockGetPostboxEndpointUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466A05512797BBE4007EB7AD /* MockGetPostboxEndpointUseCase.swift */; };
 		46E64E48281FEF91006F1E3D /* Error+Equality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E64E47281FEF91006F1E3D /* Error+Equality.swift */; };
 		46E8FF8F2806517600F9D51E /* GraphQLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E8FF8E2806517600F9D51E /* GraphQLHelper.swift */; };
 		46E8FF942806ADE800F9D51E /* PlatformSubscriptionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E8FF932806ADE800F9D51E /* PlatformSubscriptionStatus.swift */; };
@@ -116,6 +84,12 @@
 		84C0F10626BBA9EE005810AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C0F10526BBA9EE005810AC /* Assets.xcassets */; };
 		84C0F10926BBA9EE005810AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C0F10726BBA9EE005810AC /* LaunchScreen.storyboard */; };
 		84C0F11726BBAA54005810AC /* SudoDIRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C0F0DC26BBA8CE005810AC /* SudoDIRelay.framework */; };
+		A43ED15F2A750AB60FC2A46C /* ListOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43ED3F9A42BB4F5BA3BE46A /* ListOutput.swift */; };
+		ADFCBF692A11FDDF00C1341E /* ListPostboxesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFCBF682A11FDDF00C1341E /* ListPostboxesTests.swift */; };
+		ADFCBF6B2A11FF4500C1341E /* UpdatePostboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFCBF6A2A11FF4500C1341E /* UpdatePostboxTests.swift */; };
+		ADFCBF6D2A12F7BE00C1341E /* UpdatePostboxSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFCBF6C2A12F7BE00C1341E /* UpdatePostboxSystemTests.swift */; };
+		ADFCBF6F2A130C4B00C1341E /* ListPostboxesSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFCBF6E2A130C4B00C1341E /* ListPostboxesSystemTests.swift */; };
+		ADFCBF712A130C7800C1341E /* DeleteMessageSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFCBF702A130C7800C1341E /* DeleteMessageSystemTests.swift */; };
 		C0BB50814B29D8009E61A973 /* Pods_SudoDIRelay_SudoDIRelayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCA0B77AFCBC48EF74CF3E7 /* Pods_SudoDIRelay_SudoDIRelayTests.framework */; };
 		CEDE041DCC9E77CA5DC04D4C /* Pods_TestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A20DF231086AA67706FD6B /* Pods_TestApp.framework */; };
 /* End PBXBuildFile section */
@@ -149,13 +123,10 @@
 		1685B55FCC362B68C3EA38B5 /* Pods-SudoDIRelay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDIRelay.release.xcconfig"; path = "Target Support Files/Pods-SudoDIRelay/Pods-SudoDIRelay.release.xcconfig"; sourceTree = "<group>"; };
 		182752E71011A6189DAE8BDC /* Pods-SudoDecentralizedIdentityRelay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDecentralizedIdentityRelay.debug.xcconfig"; path = "Target Support Files/Pods-SudoDecentralizedIdentityRelay/Pods-SudoDecentralizedIdentityRelay.debug.xcconfig"; sourceTree = "<group>"; };
 		33FFF372CE5267B58B5ADBEF /* Pods_SudoDIRelay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoDIRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4600698B281903970010B7E6 /* ListPostboxesUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPostboxesUseCaseTests.swift; sourceTree = "<group>"; };
 		4600698D2819120B0010B7E6 /* PostboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostboxTests.swift; sourceTree = "<group>"; };
-		4600698F281930190010B7E6 /* MockListPostboxesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockListPostboxesUseCase.swift; sourceTree = "<group>"; };
 		4626C64C2769AE9C00C7328B /* SudoDIRelayClientTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoDIRelayClientTestCase.swift; sourceTree = "<group>"; };
 		4626C64E2769AF9100C7328B /* SudoDIRelayConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoDIRelayConfig.swift; sourceTree = "<group>"; };
 		462EE3D027D9B0CA00BC2115 /* Postbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Postbox.swift; sourceTree = "<group>"; };
-		462EE3D227D9BA4000BC2115 /* ListPostboxesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPostboxesUseCase.swift; sourceTree = "<group>"; };
 		464CAE2D26EED493006C6FD0 /* SudoDecentralizedIdentityRelay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SudoDecentralizedIdentityRelay.h; sourceTree = "<group>"; };
 		464CAE3026EED493006C6FD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		464CAE3426EED493006C6FD0 /* Date+MillisecondsSinceEpoch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+MillisecondsSinceEpoch.swift"; sourceTree = "<group>"; };
@@ -171,29 +142,19 @@
 		464CAE4526EED494006C6FD0 /* SubscriptionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		464CAE4726EED494006C6FD0 /* DefaultAppSyncClientHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAppSyncClientHelper.swift; sourceTree = "<group>"; };
 		464CAE4826EED494006C6FD0 /* RelaySubscriptionToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaySubscriptionToken.swift; sourceTree = "<group>"; };
-		464CAE4B26EED494006C6FD0 /* SubscribeToMessagesReceivedUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToMessagesReceivedUseCase.swift; sourceTree = "<group>"; };
-		464CAE4C26EED494006C6FD0 /* SubscribeToPostboxDeletedUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToPostboxDeletedUseCase.swift; sourceTree = "<group>"; };
-		464CAE4D26EED494006C6FD0 /* ListMessagesUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMessagesUseCase.swift; sourceTree = "<group>"; };
-		464CAE4E26EED494006C6FD0 /* DeletePostboxUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletePostboxUseCase.swift; sourceTree = "<group>"; };
-		464CAE4F26EED494006C6FD0 /* CreatePostboxUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostboxUseCase.swift; sourceTree = "<group>"; };
-		464CAE5026EED494006C6FD0 /* StoreMessageUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreMessageUseCase.swift; sourceTree = "<group>"; };
-		464CAE5126EED494006C6FD0 /* UseCaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCaseFactory.swift; sourceTree = "<group>"; };
 		464CAE5326EED494006C6FD0 /* RelayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelayService.swift; sourceTree = "<group>"; };
 		464CAE5526EED494006C6FD0 /* DefaultSudoDIRelayClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSudoDIRelayClient.swift; sourceTree = "<group>"; };
-		464CAE5726EED494006C6FD0 /* RelayMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelayMessage.swift; sourceTree = "<group>"; };
+		464CAE5726EED494006C6FD0 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		464CAE5826EED495006C6FD0 /* SubscriptionToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionToken.swift; sourceTree = "<group>"; };
 		464CAE5926EED495006C6FD0 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
-		464CAE5A26EED495006C6FD0 /* CachePolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachePolicy.swift; sourceTree = "<group>"; };
 		464CAE5B26EED495006C6FD0 /* SudoDIRelayClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SudoDIRelayClient.swift; sourceTree = "<group>"; };
 		464CAE5D26EED495006C6FD0 /* SudoDIRelayError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SudoDIRelayError.swift; sourceTree = "<group>"; };
 		464CAE5F26EED495006C6FD0 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		464CAE6026EED495006C6FD0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		464CAE6426EED495006C6FD0 /* ListMessagesIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMessagesIntegrationTests.swift; sourceTree = "<group>"; };
-		464CAE6526EED495006C6FD0 /* DeletePostboxIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletePostboxIntegrationTests.swift; sourceTree = "<group>"; };
-		464CAE6626EED495006C6FD0 /* SubscribeToPostboxDeletedIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToPostboxDeletedIntegrationTests.swift; sourceTree = "<group>"; };
-		464CAE6726EED495006C6FD0 /* CreatePostboxIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostboxIntegrationTests.swift; sourceTree = "<group>"; };
-		464CAE6826EED495006C6FD0 /* SubscribeToMessagesReceivedIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToMessagesReceivedIntegrationTests.swift; sourceTree = "<group>"; };
-		464CAE6A26EED495006C6FD0 /* StoreMessageIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreMessageIntegrationTests.swift; sourceTree = "<group>"; };
+		464CAE6426EED495006C6FD0 /* ListMessagesSystemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMessagesSystemTests.swift; sourceTree = "<group>"; };
+		464CAE6526EED495006C6FD0 /* DeletePostboxSystemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletePostboxSystemTests.swift; sourceTree = "<group>"; };
+		464CAE6726EED495006C6FD0 /* CreatePostboxSystemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostboxSystemTests.swift; sourceTree = "<group>"; };
+		464CAE6826EED495006C6FD0 /* SubscribeToMessagesReceivedSystemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToMessagesReceivedSystemTests.swift; sourceTree = "<group>"; };
 		464CAE6B26EED495006C6FD0 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		464CAE6D26EED496006C6FD0 /* XCTestCase+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Utility.swift"; sourceTree = "<group>"; };
 		464CAE6E26EED496006C6FD0 /* DataFactoryNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFactoryNamespace.swift; sourceTree = "<group>"; };
@@ -206,14 +167,7 @@
 		464CAE7A26EED496006C6FD0 /* MockSubscriptionToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSubscriptionToken.swift; sourceTree = "<group>"; };
 		464CAE7B26EED496006C6FD0 /* MockKeyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockKeyManager.swift; sourceTree = "<group>"; };
 		464CAE7C26EED496006C6FD0 /* MockAWSNetworkTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAWSNetworkTransport.swift; sourceTree = "<group>"; };
-		464CAE7E26EED496006C6FD0 /* MockDeletePostboxUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDeletePostboxUseCase.swift; sourceTree = "<group>"; };
-		464CAE7F26EED496006C6FD0 /* MockCreatePostboxUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockCreatePostboxUseCase.swift; sourceTree = "<group>"; };
-		464CAE8026EED496006C6FD0 /* MockSubscribeToPostboxDeletedUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSubscribeToPostboxDeletedUseCase.swift; sourceTree = "<group>"; };
-		464CAE8126EED496006C6FD0 /* MockStoreMessageUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockStoreMessageUseCase.swift; sourceTree = "<group>"; };
-		464CAE8226EED496006C6FD0 /* MockSubscribeToMessagesReceivedUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSubscribeToMessagesReceivedUseCase.swift; sourceTree = "<group>"; };
-		464CAE8326EED496006C6FD0 /* MockListMessagesUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockListMessagesUseCase.swift; sourceTree = "<group>"; };
 		464CAE8426EED496006C6FD0 /* MockAppSyncClientHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAppSyncClientHelper.swift; sourceTree = "<group>"; };
-		464CAE8526EED496006C6FD0 /* MockUseCaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUseCaseFactory.swift; sourceTree = "<group>"; };
 		464CAE8626EED496006C6FD0 /* MockRelayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRelayService.swift; sourceTree = "<group>"; };
 		464CAE8B26EED497006C6FD0 /* Date+MillisecondsSinceEpochTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+MillisecondsSinceEpochTests.swift"; sourceTree = "<group>"; };
 		464CAE8F26EED497006C6FD0 /* GraphQLResultWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLResultWorkerTests.swift; sourceTree = "<group>"; };
@@ -221,19 +175,11 @@
 		464CAE9326EED497006C6FD0 /* DefaultRelayServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRelayServiceTests.swift; sourceTree = "<group>"; };
 		464CAE9526EED497006C6FD0 /* RelaySubscriptionTokenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaySubscriptionTokenTests.swift; sourceTree = "<group>"; };
 		464CAE9626EED497006C6FD0 /* SubscriptionManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionManagerTests.swift; sourceTree = "<group>"; };
-		464CAE9A26EED497006C6FD0 /* SubscribeToPostboxDeletedUseCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToPostboxDeletedUseCaseTests.swift; sourceTree = "<group>"; };
-		464CAE9C26EED497006C6FD0 /* SubscribeToMessagesReceivedUseCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToMessagesReceivedUseCaseTests.swift; sourceTree = "<group>"; };
-		464CAE9E26EED497006C6FD0 /* DeletePostboxUseCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletePostboxUseCaseTests.swift; sourceTree = "<group>"; };
-		464CAEA026EED497006C6FD0 /* GetMessagesUseCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMessagesUseCaseTests.swift; sourceTree = "<group>"; };
-		464CAEA226EED497006C6FD0 /* CreatePostboxUseCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostboxUseCaseTests.swift; sourceTree = "<group>"; };
-		464CAEA426EED498006C6FD0 /* StoreMessageUseCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreMessageUseCaseTests.swift; sourceTree = "<group>"; };
-		464CAEA726EED498006C6FD0 /* RelayMessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelayMessageTests.swift; sourceTree = "<group>"; };
+		464CAEA726EED498006C6FD0 /* MessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTests.swift; sourceTree = "<group>"; };
 		464CAEA926EED498006C6FD0 /* DeletePostboxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletePostboxTests.swift; sourceTree = "<group>"; };
-		464CAEAA26EED498006C6FD0 /* StoreMessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreMessageTests.swift; sourceTree = "<group>"; };
 		464CAEAB26EED498006C6FD0 /* CreatePostboxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostboxTests.swift; sourceTree = "<group>"; };
-		464CAEAC26EED498006C6FD0 /* SubscribeToPostboxDeletedTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToPostboxDeletedTests.swift; sourceTree = "<group>"; };
 		464CAEAD26EED498006C6FD0 /* TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCase.swift; sourceTree = "<group>"; };
-		464CAEAE26EED498006C6FD0 /* GetMessagesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMessagesTests.swift; sourceTree = "<group>"; };
+		464CAEAE26EED498006C6FD0 /* ListMessagesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMessagesTests.swift; sourceTree = "<group>"; };
 		464CAEAF26EED498006C6FD0 /* SubscribeToMessagesReceivedTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToMessagesReceivedTests.swift; sourceTree = "<group>"; };
 		464CAEB126EED498006C6FD0 /* SudoDIRelayErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SudoDIRelayErrorTests.swift; sourceTree = "<group>"; };
 		464CAEB226EED498006C6FD0 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -246,10 +192,6 @@
 		464CAEBB26EED498006C6FD0 /* DataFactory+GraphQL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataFactory+GraphQL.swift"; sourceTree = "<group>"; };
 		464CAEBC26EED498006C6FD0 /* AnyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyError.swift; sourceTree = "<group>"; };
 		464CAEBD26EED498006C6FD0 /* DataFactory+Domain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataFactory+Domain.swift"; sourceTree = "<group>"; };
-		466A054B2791024A007EB7AD /* GetPostboxEndpointUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPostboxEndpointUseCase.swift; sourceTree = "<group>"; };
-		466A054D27978FE4007EB7AD /* GetPostboxEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPostboxEndpointTests.swift; sourceTree = "<group>"; };
-		466A054F2797BB2D007EB7AD /* GetPostboxEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPostboxEndpointTests.swift; sourceTree = "<group>"; };
-		466A05512797BBE4007EB7AD /* MockGetPostboxEndpointUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetPostboxEndpointUseCase.swift; sourceTree = "<group>"; };
 		46E64E47281FEF91006F1E3D /* Error+Equality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Equality.swift"; sourceTree = "<group>"; };
 		46E8FF8E2806517600F9D51E /* GraphQLHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLHelper.swift; sourceTree = "<group>"; };
 		46E8FF932806ADE800F9D51E /* PlatformSubscriptionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformSubscriptionStatus.swift; sourceTree = "<group>"; };
@@ -270,7 +212,13 @@
 		84C0F10526BBA9EE005810AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84C0F10826BBA9EE005810AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84C0F10A26BBA9EE005810AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84C0F11226BBAA54005810AC /* SudoDIRelayIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SudoDIRelayIntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C0F11226BBAA54005810AC /* SudoDIRelaySystemTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SudoDIRelaySystemTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A43ED3F9A42BB4F5BA3BE46A /* ListOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOutput.swift; sourceTree = "<group>"; };
+		ADFCBF682A11FDDF00C1341E /* ListPostboxesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPostboxesTests.swift; sourceTree = "<group>"; };
+		ADFCBF6A2A11FF4500C1341E /* UpdatePostboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePostboxTests.swift; sourceTree = "<group>"; };
+		ADFCBF6C2A12F7BE00C1341E /* UpdatePostboxSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePostboxSystemTests.swift; sourceTree = "<group>"; };
+		ADFCBF6E2A130C4B00C1341E /* ListPostboxesSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPostboxesSystemTests.swift; sourceTree = "<group>"; };
+		ADFCBF702A130C7800C1341E /* DeleteMessageSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMessageSystemTests.swift; sourceTree = "<group>"; };
 		B1A20DF231086AA67706FD6B /* Pods_TestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B20911D3FFA37CDB04199FEF /* Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CCAD4B9A38E1428F0006B031 /* Pods_SudoDIRelay_SudoDIRelayIntegrationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoDIRelay_SudoDIRelayIntegrationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -318,14 +266,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4600698A2819035C0010B7E6 /* List Postboxes */ = {
-			isa = PBXGroup;
-			children = (
-				4600698B281903970010B7E6 /* ListPostboxesUseCaseTests.swift */,
-			);
-			path = "List Postboxes";
-			sourceTree = "<group>";
-		};
 		464CAE2C26EED493006C6FD0 /* SudoDIRelay */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,8 +288,8 @@
 		464CAE3126EED493006C6FD0 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				46E8FF902806ADB400F9D51E /* Platform */,
 				464CAE3226EED493006C6FD0 /* Internal */,
+				46E8FF902806ADB400F9D51E /* Platform */,
 				464CAE5426EED494006C6FD0 /* Public */,
 				464CAE5E26EED495006C6FD0 /* Swiftgen */,
 			);
@@ -359,10 +299,10 @@
 		464CAE3226EED493006C6FD0 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
-				46E8FF8D2806516400F9D51E /* Utility */,
 				464CAE3826EED494006C6FD0 /* Data */,
 				464CAE4926EED494006C6FD0 /* Domain */,
 				464CAE3326EED493006C6FD0 /* Extensions */,
+				46E8FF8D2806516400F9D51E /* Utility */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -447,25 +387,8 @@
 			isa = PBXGroup;
 			children = (
 				464CAE5226EED494006C6FD0 /* Service */,
-				464CAE4A26EED494006C6FD0 /* Use Cases */,
 			);
 			path = Domain;
-			sourceTree = "<group>";
-		};
-		464CAE4A26EED494006C6FD0 /* Use Cases */ = {
-			isa = PBXGroup;
-			children = (
-				464CAE4F26EED494006C6FD0 /* CreatePostboxUseCase.swift */,
-				464CAE4E26EED494006C6FD0 /* DeletePostboxUseCase.swift */,
-				464CAE4D26EED494006C6FD0 /* ListMessagesUseCase.swift */,
-				466A054B2791024A007EB7AD /* GetPostboxEndpointUseCase.swift */,
-				462EE3D227D9BA4000BC2115 /* ListPostboxesUseCase.swift */,
-				464CAE5026EED494006C6FD0 /* StoreMessageUseCase.swift */,
-				464CAE4B26EED494006C6FD0 /* SubscribeToMessagesReceivedUseCase.swift */,
-				464CAE4C26EED494006C6FD0 /* SubscribeToPostboxDeletedUseCase.swift */,
-				464CAE5126EED494006C6FD0 /* UseCaseFactory.swift */,
-			);
-			path = "Use Cases";
 			sourceTree = "<group>";
 		};
 		464CAE5226EED494006C6FD0 /* Service */ = {
@@ -490,11 +413,11 @@
 		464CAE5626EED494006C6FD0 /* Types */ = {
 			isa = PBXGroup;
 			children = (
-				464CAE5A26EED495006C6FD0 /* CachePolicy.swift */,
-				464CAE5726EED494006C6FD0 /* RelayMessage.swift */,
+				A43ED3F9A42BB4F5BA3BE46A /* ListOutput.swift */,
+				464CAE5726EED494006C6FD0 /* Message.swift */,
+				462EE3D027D9B0CA00BC2115 /* Postbox.swift */,
 				464CAE5926EED495006C6FD0 /* Status.swift */,
 				464CAE5826EED495006C6FD0 /* SubscriptionToken.swift */,
-				462EE3D027D9B0CA00BC2115 /* Postbox.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -515,7 +438,7 @@
 			path = Swiftgen;
 			sourceTree = "<group>";
 		};
-		464CAE6126EED495006C6FD0 /* SudoDIRelayIntegrationTests */ = {
+		464CAE6126EED495006C6FD0 /* SudoDIRelaySystemTests */ = {
 			isa = PBXGroup;
 			children = (
 				464CAE6C26EED495006C6FD0 /* Extensions */,
@@ -524,7 +447,7 @@
 				464CAE6B26EED495006C6FD0 /* .swiftlint.yml */,
 				464CAE7126EED496006C6FD0 /* Info.plist */,
 			);
-			path = SudoDIRelayIntegrationTests;
+			path = SudoDIRelaySystemTests;
 			sourceTree = "<group>";
 		};
 		464CAE6226EED495006C6FD0 /* Test */ = {
@@ -538,14 +461,14 @@
 		464CAE6326EED495006C6FD0 /* SudoDIRelayClient */ = {
 			isa = PBXGroup;
 			children = (
-				464CAE6726EED495006C6FD0 /* CreatePostboxIntegrationTests.swift */,
-				464CAE6526EED495006C6FD0 /* DeletePostboxIntegrationTests.swift */,
-				464CAE6426EED495006C6FD0 /* ListMessagesIntegrationTests.swift */,
-				466A054D27978FE4007EB7AD /* GetPostboxEndpointTests.swift */,
-				464CAE6A26EED495006C6FD0 /* StoreMessageIntegrationTests.swift */,
-				464CAE6826EED495006C6FD0 /* SubscribeToMessagesReceivedIntegrationTests.swift */,
-				464CAE6626EED495006C6FD0 /* SubscribeToPostboxDeletedIntegrationTests.swift */,
+				464CAE6726EED495006C6FD0 /* CreatePostboxSystemTests.swift */,
+				ADFCBF702A130C7800C1341E /* DeleteMessageSystemTests.swift */,
+				464CAE6526EED495006C6FD0 /* DeletePostboxSystemTests.swift */,
+				464CAE6426EED495006C6FD0 /* ListMessagesSystemTests.swift */,
+				ADFCBF6E2A130C4B00C1341E /* ListPostboxesSystemTests.swift */,
+				464CAE6826EED495006C6FD0 /* SubscribeToMessagesReceivedSystemTests.swift */,
 				4626C64C2769AE9C00C7328B /* SudoDIRelayClientTestCase.swift */,
+				ADFCBF6C2A12F7BE00C1341E /* UpdatePostboxSystemTests.swift */,
 			);
 			path = SudoDIRelayClient;
 			sourceTree = "<group>";
@@ -555,9 +478,9 @@
 			children = (
 				464CAE7026EED496006C6FD0 /* DataFactory+TestUtility.swift */,
 				464CAE6E26EED496006C6FD0 /* DataFactoryNamespace.swift */,
+				46E64E47281FEF91006F1E3D /* Error+Equality.swift */,
 				464CAE6F26EED496006C6FD0 /* Result+Convenience.swift */,
 				464CAE6D26EED496006C6FD0 /* XCTestCase+Utility.swift */,
-				46E64E47281FEF91006F1E3D /* Error+Equality.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -586,7 +509,6 @@
 		464CAE7626EED496006C6FD0 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				464CAE7D26EED496006C6FD0 /* Use Cases */,
 				464CAE8426EED496006C6FD0 /* MockAppSyncClientHelper.swift */,
 				464CAE7C26EED496006C6FD0 /* MockAWSNetworkTransport.swift */,
 				464CAE7726EED496006C6FD0 /* MockGraphQL.swift */,
@@ -594,24 +516,8 @@
 				464CAE8626EED496006C6FD0 /* MockRelayService.swift */,
 				464CAE7926EED496006C6FD0 /* MockSubscriptionManager.swift */,
 				464CAE7A26EED496006C6FD0 /* MockSubscriptionToken.swift */,
-				464CAE8526EED496006C6FD0 /* MockUseCaseFactory.swift */,
 			);
 			path = Mocks;
-			sourceTree = "<group>";
-		};
-		464CAE7D26EED496006C6FD0 /* Use Cases */ = {
-			isa = PBXGroup;
-			children = (
-				464CAE7F26EED496006C6FD0 /* MockCreatePostboxUseCase.swift */,
-				464CAE7E26EED496006C6FD0 /* MockDeletePostboxUseCase.swift */,
-				4600698F281930190010B7E6 /* MockListPostboxesUseCase.swift */,
-				464CAE8326EED496006C6FD0 /* MockListMessagesUseCase.swift */,
-				466A05512797BBE4007EB7AD /* MockGetPostboxEndpointUseCase.swift */,
-				464CAE8126EED496006C6FD0 /* MockStoreMessageUseCase.swift */,
-				464CAE8226EED496006C6FD0 /* MockSubscribeToMessagesReceivedUseCase.swift */,
-				464CAE8026EED496006C6FD0 /* MockSubscribeToPostboxDeletedUseCase.swift */,
-			);
-			path = "Use Cases";
 			sourceTree = "<group>";
 		};
 		464CAE8826EED497006C6FD0 /* Test */ = {
@@ -696,71 +602,8 @@
 		464CAE9726EED497006C6FD0 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				464CAE9826EED497006C6FD0 /* Use Cases */,
 			);
 			path = Domain;
-			sourceTree = "<group>";
-		};
-		464CAE9826EED497006C6FD0 /* Use Cases */ = {
-			isa = PBXGroup;
-			children = (
-				4600698A2819035C0010B7E6 /* List Postboxes */,
-				464CAEA126EED497006C6FD0 /* Create Postbox */,
-				464CAE9D26EED497006C6FD0 /* Delete Postbox */,
-				464CAE9F26EED497006C6FD0 /* List Messages */,
-				464CAEA326EED497006C6FD0 /* Store Message */,
-				464CAE9B26EED497006C6FD0 /* Subscribe To Messages Received */,
-				464CAE9926EED497006C6FD0 /* Subscribe To Postbox Deleted */,
-			);
-			path = "Use Cases";
-			sourceTree = "<group>";
-		};
-		464CAE9926EED497006C6FD0 /* Subscribe To Postbox Deleted */ = {
-			isa = PBXGroup;
-			children = (
-				464CAE9A26EED497006C6FD0 /* SubscribeToPostboxDeletedUseCaseTests.swift */,
-			);
-			path = "Subscribe To Postbox Deleted";
-			sourceTree = "<group>";
-		};
-		464CAE9B26EED497006C6FD0 /* Subscribe To Messages Received */ = {
-			isa = PBXGroup;
-			children = (
-				464CAE9C26EED497006C6FD0 /* SubscribeToMessagesReceivedUseCaseTests.swift */,
-			);
-			path = "Subscribe To Messages Received";
-			sourceTree = "<group>";
-		};
-		464CAE9D26EED497006C6FD0 /* Delete Postbox */ = {
-			isa = PBXGroup;
-			children = (
-				464CAE9E26EED497006C6FD0 /* DeletePostboxUseCaseTests.swift */,
-			);
-			path = "Delete Postbox";
-			sourceTree = "<group>";
-		};
-		464CAE9F26EED497006C6FD0 /* List Messages */ = {
-			isa = PBXGroup;
-			children = (
-				464CAEA026EED497006C6FD0 /* GetMessagesUseCaseTests.swift */,
-			);
-			path = "List Messages";
-			sourceTree = "<group>";
-		};
-		464CAEA126EED497006C6FD0 /* Create Postbox */ = {
-			isa = PBXGroup;
-			children = (
-				464CAEA226EED497006C6FD0 /* CreatePostboxUseCaseTests.swift */,
-			);
-			path = "Create Postbox";
-			sourceTree = "<group>";
-		};
-		464CAEA326EED497006C6FD0 /* Store Message */ = {
-			isa = PBXGroup;
-			children = (
-				464CAEA426EED498006C6FD0 /* StoreMessageUseCaseTests.swift */,
-			);
-			path = "Store Message";
 			sourceTree = "<group>";
 		};
 		464CAEA526EED498006C6FD0 /* Public */ = {
@@ -776,7 +619,7 @@
 		464CAEA626EED498006C6FD0 /* Types */ = {
 			isa = PBXGroup;
 			children = (
-				464CAEA726EED498006C6FD0 /* RelayMessageTests.swift */,
+				464CAEA726EED498006C6FD0 /* MessageTests.swift */,
 				4600698D2819120B0010B7E6 /* PostboxTests.swift */,
 			);
 			path = Types;
@@ -787,12 +630,11 @@
 			children = (
 				464CAEAB26EED498006C6FD0 /* CreatePostboxTests.swift */,
 				464CAEA926EED498006C6FD0 /* DeletePostboxTests.swift */,
-				464CAEAE26EED498006C6FD0 /* GetMessagesTests.swift */,
-				466A054F2797BB2D007EB7AD /* GetPostboxEndpointTests.swift */,
-				464CAEAA26EED498006C6FD0 /* StoreMessageTests.swift */,
+				464CAEAE26EED498006C6FD0 /* ListMessagesTests.swift */,
+				ADFCBF682A11FDDF00C1341E /* ListPostboxesTests.swift */,
 				464CAEAF26EED498006C6FD0 /* SubscribeToMessagesReceivedTests.swift */,
-				464CAEAC26EED498006C6FD0 /* SubscribeToPostboxDeletedTests.swift */,
 				464CAEAD26EED498006C6FD0 /* TestCase.swift */,
+				ADFCBF6A2A11FF4500C1341E /* UpdatePostboxTests.swift */,
 			);
 			path = "DefaultSudoDIRelayClient Tests";
 			sourceTree = "<group>";
@@ -884,7 +726,7 @@
 			isa = PBXGroup;
 			children = (
 				464CAE2C26EED493006C6FD0 /* SudoDIRelay */,
-				464CAE6126EED495006C6FD0 /* SudoDIRelayIntegrationTests */,
+				464CAE6126EED495006C6FD0 /* SudoDIRelaySystemTests */,
 				464CAE7526EED496006C6FD0 /* SudoDIRelayTests */,
 				84C0F0FB26BBA9EB005810AC /* TestApp */,
 				84C0F0DD26BBA8CE005810AC /* Products */,
@@ -897,7 +739,7 @@
 			isa = PBXGroup;
 			children = (
 				84C0F0DC26BBA8CE005810AC /* SudoDIRelay.framework */,
-				84C0F11226BBAA54005810AC /* SudoDIRelayIntegrationTests.xctest */,
+				84C0F11226BBAA54005810AC /* SudoDIRelaySystemTests.xctest */,
 				84C0F0E526BBA8CE005810AC /* SudoDIRelayTests.xctest */,
 				84C0F0FA26BBA9EB005810AC /* TestApp.app */,
 			);
@@ -1003,9 +845,9 @@
 			productReference = 84C0F0FA26BBA9EB005810AC /* TestApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		84C0F11126BBAA54005810AC /* SudoDIRelayIntegrationTests */ = {
+		84C0F11126BBAA54005810AC /* SudoDIRelaySystemTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 84C0F11C26BBAA54005810AC /* Build configuration list for PBXNativeTarget "SudoDIRelayIntegrationTests" */;
+			buildConfigurationList = 84C0F11C26BBAA54005810AC /* Build configuration list for PBXNativeTarget "SudoDIRelaySystemTests" */;
 			buildPhases = (
 				C7C684DE372173D0C0546955 /* [CP] Check Pods Manifest.lock */,
 				84C0F10E26BBAA54005810AC /* Sources */,
@@ -1020,9 +862,9 @@
 				84C0F11926BBAA54005810AC /* PBXTargetDependency */,
 				84C0F1DA26BBAEBD005810AC /* PBXTargetDependency */,
 			);
-			name = SudoDIRelayIntegrationTests;
+			name = SudoDIRelaySystemTests;
 			productName = SudoDecentralizedIdentityRelayIntegrationTests;
-			productReference = 84C0F11226BBAA54005810AC /* SudoDIRelayIntegrationTests.xctest */;
+			productReference = 84C0F11226BBAA54005810AC /* SudoDIRelaySystemTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1050,7 +892,7 @@
 				};
 			};
 			buildConfigurationList = 84C0F0D626BBA8CD005810AC /* Build configuration list for PBXProject "SudoDIRelay" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -1065,7 +907,7 @@
 				84C0F0DB26BBA8CE005810AC /* SudoDIRelay */,
 				84C0F0E426BBA8CE005810AC /* SudoDIRelayTests */,
 				84C0F0F926BBA9EB005810AC /* TestApp */,
-				84C0F11126BBAA54005810AC /* SudoDIRelayIntegrationTests */,
+				84C0F11126BBAA54005810AC /* SudoDIRelaySystemTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1309,39 +1151,30 @@
 				4626C651276A13A000C7328B /* AnyError.swift in Sources */,
 				464CAF2526EEE07D006C6FD0 /* AppSyncClientHelper.swift in Sources */,
 				464CAF2026EEE07D006C6FD0 /* Bundle+Static.swift in Sources */,
-				464CAF3726EEE07D006C6FD0 /* CachePolicy.swift in Sources */,
-				464CAF2F26EEE07D006C6FD0 /* CreatePostboxUseCase.swift in Sources */,
-				462EE3D127D9B0CB00BC2115 /* Postbox.swift in Sources */,
 				464CAF1D26EEE07D006C6FD0 /* Date+MillisecondsSinceEpoch.swift in Sources */,
 				464CAF2926EEE07D006C6FD0 /* DefaultAppSyncClientHelper.swift in Sources */,
 				464CAF2426EEE07D006C6FD0 /* DefaultRelayService.swift in Sources */,
-				46E8FF8F2806517600F9D51E /* GraphQLHelper.swift in Sources */,
 				464CAF3326EEE07D006C6FD0 /* DefaultSudoDIRelayClient.swift in Sources */,
-				464CAF2E26EEE07D006C6FD0 /* DeletePostboxUseCase.swift in Sources */,
-				464CAF2D26EEE07D006C6FD0 /* ListMessagesUseCase.swift in Sources */,
-				466A054C2791024A007EB7AD /* GetPostboxEndpointUseCase.swift in Sources */,
-				46E8FF942806ADE800F9D51E /* PlatformSubscriptionStatus.swift in Sources */,
 				464CAF2226EEE07D006C6FD0 /* GraphQLAPI.swift in Sources */,
+				46E8FF8F2806517600F9D51E /* GraphQLHelper.swift in Sources */,
 				464CAF2126EEE07D006C6FD0 /* GraphQLResultWorker.swift in Sources */,
+				A43ED15F2A750AB60FC2A46C /* ListOutput.swift in Sources */,
+				464CAF3426EEE07D006C6FD0 /* Message.swift in Sources */,
 				464CAF1E26EEE07D006C6FD0 /* OperationArray+Convenience.swift in Sources */,
-				464CAF3426EEE07D006C6FD0 /* RelayMessage.swift in Sources */,
+				46E8FF942806ADE800F9D51E /* PlatformSubscriptionStatus.swift in Sources */,
+				462EE3D127D9B0CB00BC2115 /* Postbox.swift in Sources */,
 				464CAF3226EEE07D006C6FD0 /* RelayService.swift in Sources */,
 				464CAF2A26EEE07D006C6FD0 /* RelaySubscriptionToken.swift in Sources */,
 				464CAF2326EEE07D006C6FD0 /* RelayTransformer.swift in Sources */,
 				464CAF2626EEE07D006C6FD0 /* Resetable.swift in Sources */,
 				464CAF3626EEE07D006C6FD0 /* Status.swift in Sources */,
-				464CAF3026EEE07D006C6FD0 /* StoreMessageUseCase.swift in Sources */,
 				464CAF3A26EEE07D006C6FD0 /* Strings.swift in Sources */,
-				464CAF2B26EEE07D006C6FD0 /* SubscribeToMessagesReceivedUseCase.swift in Sources */,
-				462EE3D327D9BA4000BC2115 /* ListPostboxesUseCase.swift in Sources */,
-				464CAF2C26EEE07D006C6FD0 /* SubscribeToPostboxDeletedUseCase.swift in Sources */,
 				464CAF2726EEE07D006C6FD0 /* SubscriptionManager.swift in Sources */,
 				464CAF3526EEE07D006C6FD0 /* SubscriptionToken.swift in Sources */,
 				464CAF3826EEE07D006C6FD0 /* SudoDIRelayClient.swift in Sources */,
 				4626C64F2769AF9100C7328B /* SudoDIRelayConfig.swift in Sources */,
 				464CAF3926EEE07D006C6FD0 /* SudoDIRelayError.swift in Sources */,
 				464CAF1F26EEE07D006C6FD0 /* SudoLogger+DecentralizedRelay.swift in Sources */,
-				464CAF3126EEE07D006C6FD0 /* UseCaseFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1351,50 +1184,33 @@
 			files = (
 				464CAF6326EEE1A5006C6FD0 /* Array+OperationConvenience.swift in Sources */,
 				464CAF5A26EEE1A4006C6FD0 /* CreatePostboxTests.swift in Sources */,
-				464CAF5526EEE1A4006C6FD0 /* CreatePostboxUseCaseTests.swift in Sources */,
 				464CAF6726EEE1A5006C6FD0 /* DataFactory+Domain.swift in Sources */,
 				464CAF6526EEE1A5006C6FD0 /* DataFactory+GraphQL.swift in Sources */,
 				464CAF6426EEE1A5006C6FD0 /* DataFactoryNamespace.swift in Sources */,
 				464CAF4B26EEE1A4006C6FD0 /* Date+MillisecondsSinceEpochTests.swift in Sources */,
 				464CAF4E26EEE1A4006C6FD0 /* DefaultRelayServiceTests.swift in Sources */,
 				464CAF5826EEE1A4006C6FD0 /* DeletePostboxTests.swift in Sources */,
-				464CAF5326EEE1A4006C6FD0 /* DeletePostboxUseCaseTests.swift in Sources */,
 				464CAF6226EEE1A5006C6FD0 /* Error+Equality.swift in Sources */,
-				464CAF5D26EEE1A4006C6FD0 /* GetMessagesTests.swift in Sources */,
-				464CAF5426EEE1A4006C6FD0 /* GetMessagesUseCaseTests.swift in Sources */,
-				466A05502797BB2D007EB7AD /* GetPostboxEndpointTests.swift in Sources */,
 				464CAF4C26EEE1A4006C6FD0 /* GraphQLResultWorkerTests.swift in Sources */,
+				464CAF5D26EEE1A4006C6FD0 /* ListMessagesTests.swift in Sources */,
+				ADFCBF692A11FDDF00C1341E /* ListPostboxesTests.swift in Sources */,
 				464CAF6026EEE1A5006C6FD0 /* Logger+Tests.swift in Sources */,
+				464CAF5726EEE1A4006C6FD0 /* MessageTests.swift in Sources */,
 				464CAF4726EEE1A4006C6FD0 /* MockAppSyncClientHelper.swift in Sources */,
 				464CAF4026EEE1A4006C6FD0 /* MockAWSNetworkTransport.swift in Sources */,
-				464CAF4226EEE1A4006C6FD0 /* MockCreatePostboxUseCase.swift in Sources */,
-				464CAF4126EEE1A4006C6FD0 /* MockDeletePostboxUseCase.swift in Sources */,
-				464CAF4626EEE1A4006C6FD0 /* MockListMessagesUseCase.swift in Sources */,
-				466A05522797BBE4007EB7AD /* MockGetPostboxEndpointUseCase.swift in Sources */,
 				464CAF3B26EEE1A4006C6FD0 /* MockGraphQL.swift in Sources */,
 				464CAF3F26EEE1A4006C6FD0 /* MockKeyManager.swift in Sources */,
 				464CAF4926EEE1A4006C6FD0 /* MockRelayService.swift in Sources */,
-				464CAF4426EEE1A4006C6FD0 /* MockStoreMessageUseCase.swift in Sources */,
-				4600698C281903970010B7E6 /* ListPostboxesUseCaseTests.swift in Sources */,
-				464CAF4526EEE1A4006C6FD0 /* MockSubscribeToMessagesReceivedUseCase.swift in Sources */,
-				464CAF4326EEE1A4006C6FD0 /* MockSubscribeToPostboxDeletedUseCase.swift in Sources */,
 				464CAF3D26EEE1A4006C6FD0 /* MockSubscriptionManager.swift in Sources */,
 				464CAF3E26EEE1A4006C6FD0 /* MockSubscriptionToken.swift in Sources */,
-				464CAF4826EEE1A4006C6FD0 /* MockUseCaseFactory.swift in Sources */,
-				464CAF5726EEE1A4006C6FD0 /* RelayMessageTests.swift in Sources */,
+				4600698E2819120B0010B7E6 /* PostboxTests.swift in Sources */,
 				464CAF4F26EEE1A4006C6FD0 /* RelaySubscriptionTokenTests.swift in Sources */,
 				464CAF4D26EEE1A4006C6FD0 /* RelayTransformerTests.swift in Sources */,
-				464CAF5926EEE1A4006C6FD0 /* StoreMessageTests.swift in Sources */,
-				464CAF5626EEE1A4006C6FD0 /* StoreMessageUseCaseTests.swift in Sources */,
 				464CAF5E26EEE1A4006C6FD0 /* SubscribeToMessagesReceivedTests.swift in Sources */,
-				464CAF5226EEE1A4006C6FD0 /* SubscribeToMessagesReceivedUseCaseTests.swift in Sources */,
-				464CAF5B26EEE1A4006C6FD0 /* SubscribeToPostboxDeletedTests.swift in Sources */,
-				464CAF5126EEE1A4006C6FD0 /* SubscribeToPostboxDeletedUseCaseTests.swift in Sources */,
-				4600698E2819120B0010B7E6 /* PostboxTests.swift in Sources */,
 				464CAF5026EEE1A4006C6FD0 /* SubscriptionManagerTests.swift in Sources */,
 				464CAF5F26EEE1A4006C6FD0 /* SudoDIRelayErrorTests.swift in Sources */,
 				464CAF5C26EEE1A4006C6FD0 /* TestCase.swift in Sources */,
-				46006990281930190010B7E6 /* MockListPostboxesUseCase.swift in Sources */,
+				ADFCBF6B2A11FF4500C1341E /* UpdatePostboxTests.swift in Sources */,
 				464CAF6126EEE1A5006C6FD0 /* XCTestCase+Utility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1413,19 +1229,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				464CAF6B26EEE1CD006C6FD0 /* CreatePostboxIntegrationTests.swift in Sources */,
+				464CAF6B26EEE1CD006C6FD0 /* CreatePostboxSystemTests.swift in Sources */,
 				464CAF7226EEE1CD006C6FD0 /* DataFactory+TestUtility.swift in Sources */,
-				46E64E48281FEF91006F1E3D /* Error+Equality.swift in Sources */,
 				464CAF7026EEE1CD006C6FD0 /* DataFactoryNamespace.swift in Sources */,
-				464CAF6926EEE1CD006C6FD0 /* DeletePostboxIntegrationTests.swift in Sources */,
-				464CAF6826EEE1CD006C6FD0 /* ListMessagesIntegrationTests.swift in Sources */,
-				466A054E27978FE4007EB7AD /* GetPostboxEndpointTests.swift in Sources */,
+				ADFCBF712A130C7800C1341E /* DeleteMessageSystemTests.swift in Sources */,
+				464CAF6926EEE1CD006C6FD0 /* DeletePostboxSystemTests.swift in Sources */,
+				46E64E48281FEF91006F1E3D /* Error+Equality.swift in Sources */,
 				464CAF7326EEE1CD006C6FD0 /* HTTPTransports.swift in Sources */,
+				464CAF6826EEE1CD006C6FD0 /* ListMessagesSystemTests.swift in Sources */,
+				ADFCBF6F2A130C4B00C1341E /* ListPostboxesSystemTests.swift in Sources */,
 				464CAF7126EEE1CD006C6FD0 /* Result+Convenience.swift in Sources */,
-				464CAF6E26EEE1CD006C6FD0 /* StoreMessageIntegrationTests.swift in Sources */,
-				464CAF6C26EEE1CD006C6FD0 /* SubscribeToMessagesReceivedIntegrationTests.swift in Sources */,
-				464CAF6A26EEE1CD006C6FD0 /* SubscribeToPostboxDeletedIntegrationTests.swift in Sources */,
+				464CAF6C26EEE1CD006C6FD0 /* SubscribeToMessagesReceivedSystemTests.swift in Sources */,
 				4626C64D2769AE9C00C7328B /* SudoDIRelayClientTestCase.swift in Sources */,
+				ADFCBF6D2A12F7BE00C1341E /* UpdatePostboxSystemTests.swift in Sources */,
 				464CAF6F26EEE1CD006C6FD0 /* XCTestCase+Utility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1606,12 +1422,13 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = UU2W43R8JA;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SudoDIRelay/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1631,12 +1448,13 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = UU2W43R8JA;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SudoDIRelay/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1658,6 +1476,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UU2W43R8JA;
 				INFOPLIST_FILE = SudoDIRelayTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1676,8 +1495,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UU2W43R8JA;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SudoDIRelayTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1699,6 +1519,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UU2W43R8JA;
 				INFOPLIST_FILE = TestApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1717,8 +1538,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UU2W43R8JA;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TestApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1737,13 +1559,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UU2W43R8JA;
-				INFOPLIST_FILE = SudoDIRelayIntegrationTests/Info.plist;
+				INFOPLIST_FILE = SudoDIRelaySystemTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sudoplatform.SudoDIRelayIntegrationTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sudoplatform.SudoDIRelaySystemTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1757,14 +1580,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UU2W43R8JA;
-				INFOPLIST_FILE = SudoDIRelayIntegrationTests/Info.plist;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = SudoDIRelaySystemTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sudoplatform.SudoDIRelayIntegrationTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sudoplatform.SudoDIRelaySystemTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1811,7 +1635,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		84C0F11C26BBAA54005810AC /* Build configuration list for PBXNativeTarget "SudoDIRelayIntegrationTests" */ = {
+		84C0F11C26BBAA54005810AC /* Build configuration list for PBXNativeTarget "SudoDIRelaySystemTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84C0F11A26BBAA54005810AC /* Debug */,

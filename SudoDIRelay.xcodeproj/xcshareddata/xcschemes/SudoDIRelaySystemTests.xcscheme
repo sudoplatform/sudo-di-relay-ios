@@ -17,8 +17,18 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "84C0F11126BBAA54005810AC"
-               BuildableName = "SudoDIRelayIntegrationTests.xctest"
-               BlueprintName = "SudoDIRelayIntegrationTests"
+               BuildableName = "SudoDIRelaySystemTests.xctest"
+               BlueprintName = "SudoDIRelaySystemTests"
+               ReferencedContainer = "container:SudoDIRelay.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "84C0F0E426BBA8CE005810AC"
+               BuildableName = "SudoDIRelayTests.xctest"
+               BlueprintName = "SudoDIRelayTests"
                ReferencedContainer = "container:SudoDIRelay.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -63,6 +73,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "84C0F0F926BBA9EB005810AC"
+            BuildableName = "TestApp.app"
+            BlueprintName = "TestApp"
+            ReferencedContainer = "container:SudoDIRelay.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

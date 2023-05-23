@@ -1,5 +1,5 @@
 //
-// Copyright © 2020 Anonyome Labs, Inc. All rights reserved.
+// Copyright © 2023 Anonyome Labs, Inc. All rights reserved.
 //
 // SPDX-License-Identifier: Apache-2.0
 //
@@ -20,61 +20,103 @@ extension DataFactory {
             return 2.0
         }
 
-        static var listMessages: GetMessagesQuery.Data {
-            let listMessages = GetMessagesQuery.Data.GetMessage(
-                messageId: "dummyId",
-                connectionId: "dummyId",
-                cipherText: "message",
-                direction: Direction.inbound,
-                utcTimestamp: timestamp
-            )
-            let optionalListMessages: GetMessagesQuery.Data.GetMessage? = listMessages
-            return GetMessagesQuery.Data(getMessages: [optionalListMessages])
+        static var emptyListMessages: ListRelayMessagesQuery.Data {
+            let listMessages = ListRelayMessagesQuery.Data.ListRelayMessage(items: [], nextToken: nil)
+            return ListRelayMessagesQuery.Data(listRelayMessages: listMessages)
+        }
+        static var listMessages: ListRelayMessagesQuery.Data {
+            let listMessages = ListRelayMessagesQuery.Data.ListRelayMessage(
+                    items: [
+                        ListRelayMessagesQuery.Data.ListRelayMessage.Item(
+                            id: "message-id",
+                            createdAtEpochMs: createdAtEpochMs,
+                            updatedAtEpochMs: updatedAtEpochMs,
+                            owner: "owner-id",
+                            owners: [ListRelayMessagesQuery.Data.ListRelayMessage.Item.Owner(id: "sudo-id", issuer: "sudoplatform.sudoservice")],
+                            postboxId: "postbox-id",
+                            message: "message-contents"),
+                        ListRelayMessagesQuery.Data.ListRelayMessage.Item(
+                            id: "message-id-2",
+                            createdAtEpochMs: createdAtEpochMs,
+                            updatedAtEpochMs: updatedAtEpochMs,
+                            owner: "owner-id-2",
+                            owners: [ListRelayMessagesQuery.Data.ListRelayMessage.Item.Owner(id: "sudo-id-2", issuer: "sudoplatform.sudoservice")],
+                            postboxId: "postbox-id-2",
+                            message: "message-contents-2")
+                    ],
+                    nextToken: nil)
+            return ListRelayMessagesQuery.Data(listRelayMessages: listMessages)
         }
 
-        static var storeMessage: StoreMessageMutation.Data {
-            let storeMessage = StoreMessageMutation.Data.StoreMessage(
-                messageId: "dummyId",
-                connectionId: "dummyId",
-                cipherText: "message",
-                direction: Direction.inbound,
-                utcTimestamp: timestamp
+        static var deleteMessage: DeleteRelayMessageMutation.Data {
+            let deleteMessage = DeleteRelayMessageMutation.Data.DeleteRelayMessage(
+                    id: "message-id"
             )
-            return StoreMessageMutation.Data(storeMessage: storeMessage)
+            return DeleteRelayMessageMutation.Data(deleteRelayMessage: deleteMessage)
         }
 
-        static var createPostbox: SendInitMutation.Data {
-            let createPostbox = SendInitMutation.Data.SendInit(
-                connectionId: "dummyId",
-                owner: "dummyOwnerId",
-                utcTimestamp: timestamp
+        static var createPostbox: CreateRelayPostboxMutation.Data {
+            let createPostbox = CreateRelayPostboxMutation.Data.CreateRelayPostbox(
+                id: "postbox-id",
+                createdAtEpochMs: createdAtEpochMs,
+                updatedAtEpochMs: updatedAtEpochMs,
+                owner: "owner-id",
+                owners: [CreateRelayPostboxMutation.Data.CreateRelayPostbox.Owner(id: "sudo-id", issuer: "sudoplatform.sudoservice")],
+                connectionId: "connection-id",
+                isEnabled: true,
+                serviceEndpoint: "https://service-endpoint.com"
             )
-            return SendInitMutation.Data(sendInit: createPostbox)
+            return CreateRelayPostboxMutation.Data(createRelayPostbox: createPostbox)
         }
 
-        static var deletePostbox: DeletePostBoxMutation.Data {
-            let deletePostbox = DeletePostBoxMutation.Data.DeletePostBox(
-                status: 200
-            )
-            return DeletePostBoxMutation.Data(deletePostBox: deletePostbox)
+        static var emptyListPostboxes: ListRelayPostboxesQuery.Data {
+            let listPostboxes = ListRelayPostboxesQuery.Data.ListRelayPostbox(items: [], nextToken: nil)
+            return ListRelayPostboxesQuery.Data(listRelayPostboxes: listPostboxes)
         }
 
-        static var onMessageCreatedSubscription: OnMessageCreatedSubscription.Data? {
-            let onMessageCreatedSubscription = OnMessageCreatedSubscription.Data.OnMessageCreated(
-                messageId: "init",
-                connectionId: "dummyId",
-                cipherText: "message",
-                direction: Direction.inbound,
-                utcTimestamp: timestamp
+        static var listPostboxes: ListRelayPostboxesQuery.Data {
+            let listPostboxes = ListRelayPostboxesQuery.Data.ListRelayPostbox(
+                    items: [
+                        ListRelayPostboxesQuery.Data.ListRelayPostbox.Item(
+                                id: "postbox-id",
+                                createdAtEpochMs: createdAtEpochMs,
+                                updatedAtEpochMs: updatedAtEpochMs,
+                                owner: "owner-id",
+                                owners: [ListRelayPostboxesQuery.Data.ListRelayPostbox.Item.Owner(id: "sudo-id", issuer: "sudoplatform.sudoservice")],
+                                connectionId: "connection-id",
+                                isEnabled: true,
+                                serviceEndpoint: "https://service-endpoint"),
+                        ListRelayPostboxesQuery.Data.ListRelayPostbox.Item(
+                                id: "postbox-id-2",
+                                createdAtEpochMs: createdAtEpochMs,
+                                updatedAtEpochMs: updatedAtEpochMs,
+                                owner: "owner-id-2",
+                                owners: [ListRelayPostboxesQuery.Data.ListRelayPostbox.Item.Owner(id: "sudo-id-2", issuer: "sudoplatform.sudoservice")],
+                                connectionId: "connection-id-2",
+                                isEnabled: false,
+                                serviceEndpoint: "https://service-endpoint-2")
+                    ],
+                    nextToken: nil)
+            return ListRelayPostboxesQuery.Data(listRelayPostboxes: listPostboxes)
+        }
+        static var deletePostbox: DeleteRelayPostboxMutation.Data {
+            let deletePostbox = DeleteRelayPostboxMutation.Data.DeleteRelayPostbox(
+                id: "postbox-id"
             )
-            return try? OnMessageCreatedSubscription.Data(onMessageCreatedSubscription)
+            return DeleteRelayPostboxMutation.Data(deleteRelayPostbox: deletePostbox)
         }
 
-        static var onPostboxDeletedSubscription: OnPostBoxDeletedSubscription.Data? {
-            let onPostboxDeletedSubscription = OnPostBoxDeletedSubscription.Data.OnPostBoxDeleted(
-                connectionId: "dummyId",
-                remainingMessages: [])
-            return try? OnPostBoxDeletedSubscription.Data(onPostboxDeletedSubscription)
+        static var onMessageCreatedSubscription: OnRelayMessageCreatedSubscription.Data? {
+            let onMessageCreatedSubscription = OnRelayMessageCreatedSubscription.Data.OnRelayMessageCreated(
+                    id: "message-id",
+                    createdAtEpochMs: createdAtEpochMs,
+                    updatedAtEpochMs: updatedAtEpochMs,
+                    owner: "owner-id",
+                    owners: [OnRelayMessageCreatedSubscription.Data.OnRelayMessageCreated.Owner(id: "sudo-id", issuer: "sudoplatform.sudoservice")],
+                    postboxId: "postbox-id",
+                    message: "message contents"
+            )
+            return try? OnRelayMessageCreatedSubscription.Data(onMessageCreatedSubscription)
         }
     }
 }

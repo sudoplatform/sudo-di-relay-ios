@@ -1,5 +1,5 @@
 //
-// Copyright © 2020 Anonyome Labs, Inc. All rights reserved.
+// Copyright © 2023 Anonyome Labs, Inc. All rights reserved.
 //
 // SPDX-License-Identifier: Apache-2.0
 //
@@ -8,6 +8,26 @@ import Foundation
 import SudoKeyManager
 
 class MockKeyManager: SudoKeyManager {
+    func deletePrivateKey(_ name: String) throws {
+
+    }
+
+    func addPublicKeyFromPEM(_ key: String, name: String) throws {
+
+    }
+
+    func addPublicKeyFromPEM(_ key: String, name: String, isExportable: Bool) throws {
+
+    }
+
+    func getPublicKeyAsPEM(_ name: String) throws -> String? {
+        return nil
+    }
+
+    func deletePublicKey(_ name: String) throws {
+
+    }
+
     var namespace: String = ""
 
     var addPasswordCallCount = 0

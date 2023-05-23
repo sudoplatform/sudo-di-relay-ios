@@ -1,5 +1,5 @@
 //
-// Copyright © 2020 Anonyome Labs, Inc. All rights reserved.
+// Copyright © 2023 Anonyome Labs, Inc. All rights reserved.
 //
 // SPDX-License-Identifier: Apache-2.0
 //
@@ -39,14 +39,14 @@ class DefaultRelayServiceTests: XCTestCase {
         self.graphQLClient = appSyncClientHelper.getSudoApiClient()
         self.mockTransport = appSyncClientHelper.getMockTransport()
 
-        instanceUnderTest = DefaultRelayService(sudoApiClient: graphQLClient, appSyncClientHelper: appSyncClientHelper)
+        instanceUnderTest = DefaultRelayService(userClient: mockUserClient, sudoApiClient: graphQLClient, appSyncClientHelper: appSyncClientHelper)
         mockUserClient.isSignedInReturn = true
     }
 
     // MARK: - Tests: Lifecycle
 
     func test_initializer() {
-        let service = DefaultRelayService(sudoApiClient: self.graphQLClient, appSyncClientHelper: self.appSyncClientHelper, logger: logger)
+        let service = DefaultRelayService(userClient: mockUserClient, sudoApiClient: self.graphQLClient, appSyncClientHelper: self.appSyncClientHelper, logger: logger)
         XCTAssertTrue(service.sudoApiClient === graphQLClient)
         XCTAssertTrue(service.logger === logger)
     }
@@ -56,7 +56,7 @@ class DefaultRelayServiceTests: XCTestCase {
     func test_listMessages_RespectsErrors() async throws {
         self.mockTransport.error = AnyError("ERROR")
         do {
-            _ = try await instanceUnderTest.listMessages(withConnectionId: "dummyId")
+            _ = try await instanceUnderTest.listMessages(limit: nil, nextToken: nil)
             XCTFail("Expected error not thrown.")
         } catch {
             self.XCTAssertErrorsEqual(error, SudoDIRelayError.fatalError(description: "Unexpected API operation error: appSyncClientError(cause: ERROR)"))
@@ -65,33 +65,73 @@ class DefaultRelayServiceTests: XCTestCase {
 
     func test_listMessages_ReturnsSuccessResult() async throws {
 
-        var dummyGetMessagesData: [String: Any] {
-            return [
-                "__typename": "MessageEntry",
-                "messageId": "dummyId",
-                "connectionId": "dummyId",
-                "cipherText": "dummyCipherText",
-                "direction": "INBOUND",
-                "utcTimestamp": utcTimestamp
+        var dummyListMessagesData: [String: Any] {
+            [
+                "__typename": "ListRelayMessagesResult",
+                "items":
+                [
+                    [
+                        "__typename": "RelayMessage",
+                        "id": "message-id",
+                        "createdAtEpochMs": 1.0,
+                        "updatedAtEpochMs": 2.0,
+                        "owner": "owner-id",
+                        "owners": [
+                            [
+                                "__typename": "Owner",
+                                "id": "sudo-id",
+                                "issuer": "sudoplatform.sudoservice"
+                            ]
+                        ],
+                        "postboxId": "postbox-id",
+                        "message": "message contents"
+                    ],
+                    [
+                        "__typename": "RelayMessage",
+                        "id": "message-id-2",
+                        "createdAtEpochMs": 3.0,
+                        "updatedAtEpochMs": 4.0,
+                        "owner": "owner-id",
+                        "owners": [
+                            [
+                                "__typename": "Owner",
+                                "id": "sudo-id",
+                                "issuer": "sudoplatform.sudoservice"
+                            ]
+                        ],
+                        "postboxId": "postbox-id",
+                        "message": "message contents two"
+                    ]
+                ]
             ]
         }
-
-        var expectedResult: [RelayMessage] {
-            return [
-                RelayMessage(
-                messageId: "dummyId",
-                connectionId: "dummyId",
-                cipherText: "dummyCipherText",
-                direction: RelayMessage.Direction.inbound,
-                timestamp: Date(millisecondsSince1970: 0)
-            )
-            ]
+         var expectedResult: ListOutput<Message> {
+             ListOutput<Message>(
+                 items: [
+                     Message(
+                         id: "message-id",
+                         createdAt: Date(millisecondsSince1970: 1.0),
+                         updatedAt: Date(millisecondsSince1970: 2.0),
+                         ownerId: "owner-id",
+                         sudoId: "sudo-id",
+                         postboxId: "postbox-id",
+                         message: "message contents"
+                    ), Message(
+                         id: "message-id-2",
+                         createdAt: Date(millisecondsSince1970: 3.0),
+                         updatedAt: Date(millisecondsSince1970: 4.0),
+                         ownerId: "owner-id",
+                         sudoId: "sudo-id",
+                         postboxId: "postbox-id",
+                         message: "message contents two")
+                ],
+                 nextToken: nil
+             )
         }
 
-        let queryData =  try GetMessagesQuery.Data(
-            getMessages: [
-                GetMessagesQuery.Data.GetMessage(jsonObject: dummyGetMessagesData)
-            ]
+        let queryData =  try ListRelayMessagesQuery.Data(
+            listRelayMessages:
+                ListRelayMessagesQuery.Data.ListRelayMessage(jsonObject: dummyListMessagesData)
         )
 
         self.mockTransport.responseBody = [
@@ -100,36 +140,32 @@ class DefaultRelayServiceTests: XCTestCase {
             ]
         ]
 
-        let messages = try await self.instanceUnderTest.listMessages(withConnectionId: "dummyId")
+        let messages = try await self.instanceUnderTest.listMessages(limit: nil, nextToken: nil)
         XCTAssertEqual(messages, expectedResult)
     }
 
-    // MARK: - Tests: StoreMessage
+    // MARK: - Tests: DeleteMessage
 
-    func test_storeMessage_RespectsErrors() async throws {
-        self.mockTransport.error = AnyError("Store Failed")
+    func test_deleteMessage_RespectsErrors() async throws {
+        self.mockTransport.error = AnyError("Delete Failed")
 
         do {
-            _ = try await instanceUnderTest.storeMessage(withConnectionId: "dummyId", message: "message")
+            _ = try await instanceUnderTest.deleteMessage(withMessageId: "message-id")
             XCTFail("Expected error not thrown.")
         } catch {
             self.XCTAssertErrorsEqual(
                 error,
                 SudoDIRelayError.fatalError(
-                    description: "Unexpected API operation error: appSyncClientError(cause: Store Failed)")
+                    description: "Unexpected API operation error: appSyncClientError(cause: Delete Failed)")
             )
         }
     }
 
-    func test_storeMessage_ReturnsSuccessResult() async {
-        let data = StoreMessageMutation.Data.StoreMessage(
-            messageId: "dummyId",
-            connectionId: "dummyId",
-            cipherText: "message",
-            direction: Direction.inbound,
-            utcTimestamp: utcTimestamp
+    func test_deleteMessage_ReturnsSuccessResult() async {
+        let data = DeleteRelayMessageMutation.Data.DeleteRelayMessage(
+            id: "message-id"
         )
-        let mutationData = StoreMessageMutation.Data(storeMessage: data)
+        let mutationData = DeleteRelayMessageMutation.Data(deleteRelayMessage: data)
         self.mockTransport.responseBody = [
             [
                 "data": mutationData.jsonObject
@@ -137,12 +173,8 @@ class DefaultRelayServiceTests: XCTestCase {
         ]
 
         do {
-            let message = try await instanceUnderTest.storeMessage(withConnectionId: "dummyId", message: "message")
-            XCTAssertEqual(message?.connectionId, "dummyId")
-            XCTAssertEqual(message?.messageId, "dummyId")
-            XCTAssertEqual(message?.cipherText, "message")
-            XCTAssertEqual(message?.timestamp, Date(millisecondsSince1970: 0))
-            XCTAssertEqual(message?.direction, RelayMessage.Direction.inbound)
+            let result = try await instanceUnderTest.deleteMessage(withMessageId: "message-id")
+            XCTAssertEqual(result, "message-id")
         } catch {
             XCTFail("Unexpected error: \(error)")
         }
@@ -154,7 +186,10 @@ class DefaultRelayServiceTests: XCTestCase {
         self.mockTransport.error = AnyError("Create Failed")
 
         do {
-            _ = try await self.instanceUnderTest.createPostbox(withConnectionId: "dummyId", ownershipProofToken: "dummyProof")
+            _ = try await self.instanceUnderTest.createPostbox(
+                withConnectionId: "connection-id",
+                ownershipProofToken: "ownership-proof",
+                isEnabled: true)
             XCTFail("Expected error not thrown.")
         } catch {
             self.XCTAssertErrorsEqual(
@@ -164,62 +199,56 @@ class DefaultRelayServiceTests: XCTestCase {
         }
     }
 
-    func test_createPostbox_DoesNotThrowForSuccess() async {
-        let data = SendInitMutation.Data.SendInit(connectionId: "dummyId", owner: "ownerId", utcTimestamp: utcTimestamp)
-        let mutationData = SendInitMutation.Data(sendInit: data)
+    func test_createPostbox_DoesNotThrowForSuccess() async throws {
+        var dummyCreatePostboxData: [String: Any] {
+            [
+                "__typename": "RelayPostbox",
+                "id": "postbox-id",
+                "createdAtEpochMs": 1.0,
+                "updatedAtEpochMs": 2.0,
+                "owner": "owner-id",
+                "owners": [
+                    [
+                        "__typename": "Owner",
+                        "id": "sudo-id",
+                        "issuer": "sudoplatform.sudoservice"
+                    ]
+                ],
+                "connectionId": "connection-id",
+                "isEnabled": true,
+                "serviceEndpoint": "https://service-endpoint.com"
+            ]
+        }
+
+        let expectedResult = Postbox(
+            id: "postbox-id",
+            createdAt: Date(millisecondsSince1970: 1.0),
+            updatedAt: Date(millisecondsSince1970: 2.0),
+            ownerId: "owner-id",
+            sudoId: "sudo-id",
+            connectionId: "connection-id",
+            isEnabled: true,
+            serviceEndpoint: "https://service-endpoint.com")
+
+        let mutationData =  try CreateRelayPostboxMutation.Data(
+            createRelayPostbox: CreateRelayPostboxMutation.Data.CreateRelayPostbox(jsonObject: dummyCreatePostboxData)
+        )
+
         self.mockTransport.responseBody = [
             [
                 "data": mutationData.jsonObject
             ]
         ]
+
         do {
-            try await instanceUnderTest.createPostbox(withConnectionId: "dummyId", ownershipProofToken: "dummyProof")
+            let postbox = try await instanceUnderTest.createPostbox(
+                withConnectionId: "connection-id",
+                ownershipProofToken: "ownership-proof",
+                isEnabled: true)
+            XCTAssertEqual(postbox, expectedResult)
         } catch {
             XCTFail("Unexpected error: \(error)")
         }
-    }
-
-    // MARK: - Tests: DeletePostbox
-
-    func test_deletePostbox_RespectsErrors() async {
-        self.mockTransport.error = AnyError("Delete Failed")
-
-        do {
-            _ = try await instanceUnderTest.deletePostbox(withConnectionId: "dummyId")
-            XCTFail("Expected error not thrown.")
-        } catch {
-            self.XCTAssertErrorsEqual(
-                error,
-                SudoDIRelayError.fatalError(description: "Unexpected API operation error: appSyncClientError(cause: Delete Failed)")
-            )
-        }
-    }
-
-    func test_deletePostbox_DoesNotThrowForSuccess() async {
-
-        let data = DeletePostBoxMutation.Data.DeletePostBox(status: 200)
-        let mutationData = DeletePostBoxMutation.Data(deletePostBox: data)
-        self.mockTransport.responseBody = [
-            [
-                "data": mutationData.jsonObject
-            ]
-        ]
-        do {
-            _ = try await instanceUnderTest.deletePostbox(withConnectionId: "dummyId")
-        } catch {
-            XCTFail("Unexpected error: \(error)")
-        }
-    }
-
-    // MARK: - Tests: GetPostboxEndpoint
-
-    func test_getPostboxEndpoint_CorrectlyBuildsUrl() async {
-        let result = instanceUnderTest.getPostboxEndpoint(withConnectionId: "id")
-        guard let expected = URL(string: "test.com/id") else {
-            XCTFail("Unable to set up test for \(#function)")
-            return
-        }
-        XCTAssertEqual(expected, result)
     }
 
     // MARK: - Tests: listPostboxes
@@ -228,34 +257,202 @@ class DefaultRelayServiceTests: XCTestCase {
         self.mockTransport.error = AnyError("List Failed")
 
         do {
-            _ = try await instanceUnderTest.listPostboxes(withSudoId: "dummyId")
+            _ = try await instanceUnderTest.listPostboxes(limit: nil, nextToken: nil)
             XCTFail("Expected error not thrown.")
         } catch {
             self.XCTAssertErrorsEqual(error, SudoDIRelayError.fatalError(description: "Unexpected API operation error: appSyncClientError(cause: List Failed)"))
         }
     }
 
-    func test_listPostboxes_ReturnsSuccessResult() async {
-        let data = ListPostboxesForSudoIdQuery.Data.ListPostboxesForSudoId(
-            connectionId: "dummyId",
-            sudoId: "sudoId",
-            owner: "ownerId",
-            utcTimestamp: utcTimestamp
+    func test_listPostboxes_ReturnsSuccessResult() async  throws {
+        var dummyListPostboxesData: [String: Any] {
+            [
+                "__typename": "ListRelayPostboxesResult",
+                "items":
+                [
+                    [
+                        "__typename": "RelayPostbox",
+                        "id": "postbox-id",
+                        "createdAtEpochMs": 1.0,
+                        "updatedAtEpochMs": 2.0,
+                        "owner": "owner-id",
+                        "owners": [
+                            [
+                                "__typename": "Owner",
+                                "id": "sudo-id",
+                                "issuer": "sudoplatform.sudoservice"
+                            ]
+                        ],
+                        "connectionId": "connection-id",
+                        "isEnabled": true,
+                        "serviceEndpoint": "https://service-endpoint.com"
+                    ],
+                    [
+                        "__typename": "RelayPostbox",
+                        "id": "postbox-id-2",
+                        "createdAtEpochMs": 3.0,
+                        "updatedAtEpochMs": 4.0,
+                        "owner": "owner-id",
+                        "owners": [
+                            [
+                                "__typename": "Owner",
+                                "id": "sudo-id",
+                                "issuer": "sudoplatform.sudoservice"
+                            ]
+                        ],
+                        "connectionId": "connection-id-2",
+                        "isEnabled": false,
+                        "serviceEndpoint": "https://service-endpoint-2.com"
+                    ]
+                ]
+            ]
+        }
+
+        var expectedResult: ListOutput<Postbox> {
+            ListOutput<Postbox>(
+                items: [
+                    Postbox(
+                        id: "postbox-id",
+                        createdAt: Date(millisecondsSince1970: 1.0),
+                        updatedAt: Date(millisecondsSince1970: 2.0),
+                        ownerId: "owner-id",
+                        sudoId: "sudo-id",
+                        connectionId: "connection-id",
+                        isEnabled: true,
+                        serviceEndpoint: "https://service-endpoint.com"
+                   ), Postbox(
+                        id: "postbox-id-2",
+                        createdAt: Date(millisecondsSince1970: 3.0),
+                        updatedAt: Date(millisecondsSince1970: 4.0),
+                        ownerId: "owner-id",
+                        sudoId: "sudo-id",
+                        connectionId: "connection-id-2",
+                        isEnabled: false,
+                        serviceEndpoint: "https://service-endpoint-2.com")
+               ],
+                nextToken: nil
+            )
+       }
+
+       let queryData =  try ListRelayPostboxesQuery.Data(
+           listRelayPostboxes:
+               ListRelayPostboxesQuery.Data.ListRelayPostbox(jsonObject: dummyListPostboxesData)
+       )
+
+       self.mockTransport.responseBody = [
+           [
+               "data": queryData.jsonObject
+           ]
+       ]
+
+        do {
+            let postboxes = try await instanceUnderTest.listPostboxes(limit: nil, nextToken: nil)
+            XCTAssertEqual(postboxes, expectedResult)
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+    }
+
+    // MARK: - Tests: UpdatePostbox
+
+    func test_updatePostbox_RespectsErrors() async {
+        self.mockTransport.error = AnyError("Update Failed")
+
+        do {
+            _ = try await self.instanceUnderTest.updatePostbox(
+                withPostboxId: "postbox-id",
+                isEnabled: true)
+            XCTFail("Expected error not thrown.")
+        } catch {
+            self.XCTAssertErrorsEqual(
+                error,
+                SudoDIRelayError.fatalError(description: "Unexpected API operation error: appSyncClientError(cause: Update Failed)")
+            )
+        }
+    }
+
+    func test_updatePostbox_DoesNotThrowForSuccess() async throws {
+        var dummyUpdatePostboxData: [String: Any] {
+            [
+                "__typename": "RelayPostbox",
+                "id": "postbox-id",
+                "createdAtEpochMs": 1.0,
+                "updatedAtEpochMs": 2.0,
+                "owner": "owner-id",
+                "owners": [
+                    [
+                        "__typename": "Owner",
+                        "id": "sudo-id",
+                        "issuer": "sudoplatform.sudoservice"
+                    ]
+                ],
+                "connectionId": "connection-id",
+                "isEnabled": false,
+                "serviceEndpoint": "https://service-endpoint.com"
+            ]
+        }
+
+        let expectedResult = Postbox(
+            id: "postbox-id",
+            createdAt: Date(millisecondsSince1970: 1.0),
+            updatedAt: Date(millisecondsSince1970: 2.0),
+            ownerId: "owner-id",
+            sudoId: "sudo-id",
+            connectionId: "connection-id",
+            isEnabled: false,
+            serviceEndpoint: "https://service-endpoint.com")
+
+        let mutationData =  try UpdateRelayPostboxMutation.Data(
+            updateRelayPostbox: UpdateRelayPostboxMutation.Data.UpdateRelayPostbox(jsonObject: dummyUpdatePostboxData)
         )
-        let queryData = ListPostboxesForSudoIdQuery.Data(listPostboxesForSudoId: [data])
+
         self.mockTransport.responseBody = [
             [
-                "data": queryData.jsonObject
+                "data": mutationData.jsonObject
             ]
         ]
 
         do {
-            let postboxList = try await instanceUnderTest.listPostboxes(withSudoId: "sudoId")
-            XCTAssertEqual(postboxList.count, 1)
-            XCTAssertEqual(postboxList[0].connectionId, "dummyId")
-            XCTAssertEqual(postboxList[0].sudoId, "sudoId")
-            XCTAssertEqual(postboxList[0].userId, "ownerId")
-            XCTAssertEqual(postboxList[0].timestamp, Date(millisecondsSince1970: 0))
+            let postbox = try await instanceUnderTest.updatePostbox(
+                withPostboxId: "postbox-id",
+                isEnabled: true)
+            XCTAssertEqual(postbox, expectedResult)
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+    }
+
+    // MARK: - Tests: DeletePostbox
+
+    func test_deletePostbox_RespectsErrors() async throws {
+        self.mockTransport.error = AnyError("Delete Failed")
+
+        do {
+            _ = try await instanceUnderTest.deletePostbox(withPostboxId: "postbox-id")
+            XCTFail("Expected error not thrown.")
+        } catch {
+            self.XCTAssertErrorsEqual(
+                error,
+                SudoDIRelayError.fatalError(
+                    description: "Unexpected API operation error: appSyncClientError(cause: Delete Failed)")
+            )
+        }
+    }
+
+    func test_deletePostbox_ReturnsSuccessResult() async {
+        let data = DeleteRelayPostboxMutation.Data.DeleteRelayPostbox(
+            id: "postbox-id"
+        )
+        let mutationData = DeleteRelayPostboxMutation.Data(deleteRelayPostbox: data)
+        self.mockTransport.responseBody = [
+            [
+                "data": mutationData.jsonObject
+            ]
+        ]
+
+        do {
+            let result = try await instanceUnderTest.deletePostbox(withPostboxId: "postbox-id")
+            XCTAssertEqual(result, "postbox-id")
         } catch {
             XCTFail("Unexpected error: \(error)")
         }

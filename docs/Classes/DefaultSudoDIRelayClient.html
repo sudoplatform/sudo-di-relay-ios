@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          SudoDIRelay 2.0.0 Docs
+          SudoDIRelay 3.0.0 Docs
         </a>
         
       </p>
@@ -59,9 +59,6 @@
             <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums/CachePolicy.html">CachePolicy</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/PlatformSubscriptionStatus.html">PlatformSubscriptionStatus</a>
               </li>
               <li class="nav-group-task">
@@ -90,13 +87,13 @@
                 <a class="nav-group-task-link" href="../Structs/AnyError.html">AnyError</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ListOutput.html">ListOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Message.html">Message</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/Postbox.html">Postbox</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/RelayMessage.html">RelayMessage</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/RelayMessage/Direction.html">– Direction</a>
               </li>
             </ul>
           </li>
@@ -204,7 +201,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">sudoUserClient</span><span class="p">:</span> <span class="kt">SudoUserClient</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">sudoUserClient</span><span class="p">:</span> <span class="kt">SudoUserClient</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -286,9 +283,9 @@ Throws:</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11SudoDIRelay0aB6ClientP12listMessages16withConnectionIdSayAA12RelayMessageVGSS_tYaKF"></a>
-                    <a name="//apple_ref/swift/Method/listMessages(withConnectionId:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11SudoDIRelay0aB6ClientP12listMessages16withConnectionIdSayAA12RelayMessageVGSS_tYaKF">listMessages(withConnectionId:<wbr>)</a>
+                    <a name="/s:11SudoDIRelay0aB6ClientP13listPostboxes5limit9nextTokenAA10ListOutputVyAA7PostboxVGSiSg_SSSgtYaKF"></a>
+                    <a name="//apple_ref/swift/Method/listPostboxes(limit:nextToken:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SudoDIRelay0aB6ClientP13listPostboxes5limit9nextTokenAA10ListOutputVyAA7PostboxVGSiSg_SSSgtYaKF">listPostboxes(limit:<wbr>nextToken:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Asynchronous
@@ -305,7 +302,7 @@ Throws:</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listMessages</span><span class="p">(</span><span class="n">withConnectionId</span> <span class="nv">connectionId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Structs/RelayMessage.html">RelayMessage</a></span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listPostboxes</span><span class="p">(</span><span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">nextToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ListOutput.html">ListOutput</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Postbox.html">Postbox</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -315,9 +312,9 @@ Throws:</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11SudoDIRelay0aB6ClientP12storeMessage16withConnectionId7messageAA05RelayE0VSgSS_SStYaKF"></a>
-                    <a name="//apple_ref/swift/Method/storeMessage(withConnectionId:message:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11SudoDIRelay0aB6ClientP12storeMessage16withConnectionId7messageAA05RelayE0VSgSS_SStYaKF">storeMessage(withConnectionId:<wbr>message:<wbr>)</a>
+                    <a name="/s:11SudoDIRelay0aB6ClientP12listMessages5limit9nextTokenAA10ListOutputVyAA7MessageVGSiSg_SSSgtYaKF"></a>
+                    <a name="//apple_ref/swift/Method/listMessages(limit:nextToken:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SudoDIRelay0aB6ClientP12listMessages5limit9nextTokenAA10ListOutputVyAA7MessageVGSiSg_SSSgtYaKF">listMessages(limit:<wbr>nextToken:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Asynchronous
@@ -334,7 +331,7 @@ Throws:</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">storeMessage</span><span class="p">(</span><span class="n">withConnectionId</span> <span class="nv">connectionId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/RelayMessage.html">RelayMessage</a></span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listMessages</span><span class="p">(</span><span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">nextToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ListOutput.html">ListOutput</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Message.html">Message</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -344,9 +341,9 @@ Throws:</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11SudoDIRelay0aB6ClientP13createPostbox16withConnectionId19ownershipProofTokenySS_SStYaKF"></a>
-                    <a name="//apple_ref/swift/Method/createPostbox(withConnectionId:ownershipProofToken:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11SudoDIRelay0aB6ClientP13createPostbox16withConnectionId19ownershipProofTokenySS_SStYaKF">createPostbox(withConnectionId:<wbr>ownershipProofToken:<wbr>)</a>
+                    <a name="/s:11SudoDIRelay0aB6ClientP13createPostbox16withConnectionId19ownershipProofToken9isEnabledAA0E0VSS_SSSbSgtYaKF"></a>
+                    <a name="//apple_ref/swift/Method/createPostbox(withConnectionId:ownershipProofToken:isEnabled:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SudoDIRelay0aB6ClientP13createPostbox16withConnectionId19ownershipProofToken9isEnabledAA0E0VSS_SSSbSgtYaKF">createPostbox(withConnectionId:<wbr>ownershipProofToken:<wbr>isEnabled:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Asynchronous
@@ -363,7 +360,7 @@ Throws:</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createPostbox</span><span class="p">(</span><span class="n">withConnectionId</span> <span class="nv">connectionId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">ownershipProofToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createPostbox</span><span class="p">(</span><span class="n">withConnectionId</span> <span class="nv">connectionId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">ownershipProofToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">isEnabled</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Postbox.html">Postbox</a></span></code></pre>
 
                         </div>
                       </div>
@@ -373,9 +370,9 @@ Throws:</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11SudoDIRelay0aB6ClientP13deletePostbox16withConnectionIdySS_tYaKF"></a>
-                    <a name="//apple_ref/swift/Method/deletePostbox(withConnectionId:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11SudoDIRelay0aB6ClientP13deletePostbox16withConnectionIdySS_tYaKF">deletePostbox(withConnectionId:<wbr>)</a>
+                    <a name="/s:11SudoDIRelay0aB6ClientP13updatePostbox04withE2Id9isEnabledAA0E0VSS_SbSgtYaKF"></a>
+                    <a name="//apple_ref/swift/Method/updatePostbox(withPostboxId:isEnabled:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SudoDIRelay0aB6ClientP13updatePostbox04withE2Id9isEnabledAA0E0VSS_SbSgtYaKF">updatePostbox(withPostboxId:<wbr>isEnabled:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Asynchronous
@@ -392,7 +389,7 @@ Throws:</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deletePostbox</span><span class="p">(</span><span class="n">withConnectionId</span> <span class="nv">connectionId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updatePostbox</span><span class="p">(</span><span class="n">withPostboxId</span> <span class="nv">postboxId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">isEnabled</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Postbox.html">Postbox</a></span></code></pre>
 
                         </div>
                       </div>
@@ -402,35 +399,9 @@ Throws:</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11SudoDIRelay0aB6ClientP18getPostboxEndpoint16withConnectionId10Foundation3URLVSgSS_tF"></a>
-                    <a name="//apple_ref/swift/Method/getPostboxEndpoint(withConnectionId:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11SudoDIRelay0aB6ClientP18getPostboxEndpoint16withConnectionId10Foundation3URLVSgSS_tF">getPostboxEndpoint(withConnectionId:<wbr>)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getPostboxEndpoint</span><span class="p">(</span><span class="n">withConnectionId</span> <span class="nv">connectionId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">URL</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:11SudoDIRelay0aB6ClientP13listPostboxes04withA2IdSayAA7PostboxVGSS_tYaKF"></a>
-                    <a name="//apple_ref/swift/Method/listPostboxes(withSudoId:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11SudoDIRelay0aB6ClientP13listPostboxes04withA2IdSayAA7PostboxVGSS_tYaKF">listPostboxes(withSudoId:<wbr>)</a>
+                    <a name="/s:11SudoDIRelay0aB6ClientP13deletePostbox04withE2IdS2S_tYaKF"></a>
+                    <a name="//apple_ref/swift/Method/deletePostbox(withPostboxId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SudoDIRelay0aB6ClientP13deletePostbox04withE2IdS2S_tYaKF">deletePostbox(withPostboxId:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Asynchronous
@@ -447,7 +418,7 @@ Throws:</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">listPostboxes</span><span class="p">(</span><span class="n">withSudoId</span> <span class="nv">sudoId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Structs/Postbox.html">Postbox</a></span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deletePostbox</span><span class="p">(</span><span class="n">withPostboxId</span> <span class="nv">postboxId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -457,9 +428,9 @@ Throws:</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11SudoDIRelay0aB6ClientP27subscribeToMessagesReceived16withConnectionId13resultHandlerAA17SubscriptionToken_pSgSS_ys6ResultOyAA12RelayMessageVs5Error_pGctYaKF"></a>
-                    <a name="//apple_ref/swift/Method/subscribeToMessagesReceived(withConnectionId:resultHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11SudoDIRelay0aB6ClientP27subscribeToMessagesReceived16withConnectionId13resultHandlerAA17SubscriptionToken_pSgSS_ys6ResultOyAA12RelayMessageVs5Error_pGctYaKF">subscribeToMessagesReceived(withConnectionId:<wbr>resultHandler:<wbr>)</a>
+                    <a name="/s:11SudoDIRelay0aB6ClientP13deleteMessage04withE2IdS2S_tYaKF"></a>
+                    <a name="//apple_ref/swift/Method/deleteMessage(withMessageId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SudoDIRelay0aB6ClientP13deleteMessage04withE2IdS2S_tYaKF">deleteMessage(withMessageId:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Asynchronous
@@ -476,10 +447,7 @@ Throws:</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">subscribeToMessagesReceived</span><span class="p">(</span>
-    <span class="n">withConnectionId</span> <span class="nv">connectionId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-    <span class="nv">resultHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:11SudoDIRelay16ClientCompletiona">ClientCompletion</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/RelayMessage.html">RelayMessage</a></span><span class="o">&gt;</span>
-<span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/SubscriptionToken.html">SubscriptionToken</a></span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteMessage</span><span class="p">(</span><span class="n">withMessageId</span> <span class="nv">messageId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -489,9 +457,9 @@ Throws:</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11SudoDIRelay0aB6ClientP25subscribeToPostboxDeleted16withConnectionId13resultHandlerAA17SubscriptionToken_pSgSS_ys6ResultOyAA6StatusOs5Error_pGctYaKF"></a>
-                    <a name="//apple_ref/swift/Method/subscribeToPostboxDeleted(withConnectionId:resultHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11SudoDIRelay0aB6ClientP25subscribeToPostboxDeleted16withConnectionId13resultHandlerAA17SubscriptionToken_pSgSS_ys6ResultOyAA6StatusOs5Error_pGctYaKF">subscribeToPostboxDeleted(withConnectionId:<wbr>resultHandler:<wbr>)</a>
+                    <a name="/s:11SudoDIRelay0aB6ClientP25subscribeToMessageCreated19statusChangeHandler06resultJ0AA17SubscriptionToken_pSgyAA08PlatformL6StatusOcSg_ys6ResultOyAA0F0Vs5Error_pGctYaKF"></a>
+                    <a name="//apple_ref/swift/Method/subscribeToMessageCreated(statusChangeHandler:resultHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SudoDIRelay0aB6ClientP25subscribeToMessageCreated19statusChangeHandler06resultJ0AA17SubscriptionToken_pSgyAA08PlatformL6StatusOcSg_ys6ResultOyAA0F0Vs5Error_pGctYaKF">subscribeToMessageCreated(statusChangeHandler:<wbr>resultHandler:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Asynchronous
@@ -508,10 +476,36 @@ Throws:</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">subscribeToPostboxDeleted</span><span class="p">(</span>
-    <span class="n">withConnectionId</span> <span class="nv">connectionId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-    <span class="nv">resultHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:11SudoDIRelay16ClientCompletiona">ClientCompletion</a></span><span class="o">&lt;</span><span class="kt"><a href="../Enums/Status.html">Status</a></span><span class="o">&gt;</span>
-<span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/SubscriptionToken.html">SubscriptionToken</a></span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">subscribeToMessageCreated</span><span class="p">(</span>
+        <span class="nv">statusChangeHandler</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11SudoDIRelay0A31SubscriptionStatusChangeHandlera">SudoSubscriptionStatusChangeHandler</a></span><span class="p">?,</span>
+        <span class="nv">resultHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:11SudoDIRelay16ClientCompletiona">ClientCompletion</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Message.html">Message</a></span><span class="o">&gt;</span>
+<span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/SubscriptionToken.html">SubscriptionToken</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SudoDIRelay0aB6ClientP14unsubscribeAllyyF"></a>
+                    <a name="//apple_ref/swift/Method/unsubscribeAll()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SudoDIRelay0aB6ClientP14unsubscribeAllyyF">unsubscribeAll()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">unsubscribeAll</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -526,8 +520,8 @@ Throws:</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://sudoplatform.com" target="_blank" rel="external noopener">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2022-05-11)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2023 <a class="link" href="https://sudoplatform.com" target="_blank" rel="external noopener">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2023-05-23)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

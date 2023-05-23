@@ -21,11 +21,11 @@ target 'SudoDIRelay' do
     podspec :name => 'SudoDIRelay'
   end
 
-  target 'SudoDIRelayIntegrationTests' do
+  target 'SudoDIRelaySystemTests' do
     podspec :name => 'SudoDIRelay'
-    pod 'SudoProfiles', '~> 15.0'
-    pod 'SudoEntitlements', '~> 6.0'
-    pod 'SudoEntitlementsAdmin', '~> 2.0'
+    pod 'SudoProfiles', '~> 17.0'
+    pod 'SudoEntitlements', '~> 9.0'
+    pod 'SudoEntitlementsAdmin', '~> 4.0'
   end
 end
 

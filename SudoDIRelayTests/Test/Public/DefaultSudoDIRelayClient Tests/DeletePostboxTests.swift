@@ -1,5 +1,5 @@
 //
-// Copyright © 2020 Anonyome Labs, Inc. All rights reserved.
+// Copyright © 2023 Anonyome Labs, Inc. All rights reserved.
 //
 // SPDX-License-Identifier: Apache-2.0
 //
@@ -14,55 +14,30 @@ class DefaultSudoDIRelayClientDeletePostbox: DefaultSudoDIRelayTestCase {
         super.setUp()
     }
 
-    // MARK: - Properties
-
-    let utcTimestamp = "Thu, 1 Jan 1970 00:00:00 GMT+00"
-
     // MARK: - Tests: deletePostbox
 
-    func test_deletePostbox_CreatesUseCase() async {
+    func test_deletePostbox_RespectsFailure() async {
+        mockRelayService.deletePostboxError = SudoDIRelayError.unauthorizedPostboxAccess
         do {
-            try await instanceUnderTest.deletePostbox(withConnectionId: "dummyId")
-            XCTAssertEqual(mockUseCaseFactory.generateDeletePostboxUseCaseCallCount, 1)
+            try _ = await instanceUnderTest.deletePostbox(withPostboxId: "postbox-id")
+            XCTFail("Unexpected success.")
         } catch {
-            XCTFail("Unexpected error \(error)")
+            XCTAssertEqual(mockRelayService.deletePostboxLastProperty, "postbox-id")
+            XCTAssertErrorsEqual(error, SudoDIRelayError.unauthorizedPostboxAccess)
         }
-    }
-
-    func test_deletePostbox_CallsUseCaseExecute() async {
-        let mockUseCase = MockDeletePostboxUseCase()
-        mockUseCaseFactory.generateDeletePostboxUseCaseResult = mockUseCase
-
-        do {
-            try await instanceUnderTest.deletePostbox(withConnectionId: "dummyId")
-            XCTAssertEqual(mockUseCase.executeCallCount, 1)
-            XCTAssertEqual(mockUseCase.executeLastProperty, "dummyId")
-        } catch {
-            XCTFail("Unexpected error \(error)")
-        }
-    }
-
-    func test_deletePostbox_RespectsUseCaseFailure() async {
-        let mockUseCase = MockDeletePostboxUseCase()
-        mockUseCase.executeError = AnyError("Delete failed")
-        mockUseCaseFactory.generateDeletePostboxUseCaseResult = mockUseCase
-
-        do {
-            try await instanceUnderTest.deletePostbox(withConnectionId: "dummyId")
-        } catch {
-            XCTAssertErrorsEqual(error, AnyError("Delete failed"))
-        }
-
     }
 
     func test_deletePostbox_SuccessResult() async {
-        let mockUseCase = MockDeletePostboxUseCase()
-        mockUseCaseFactory.generateDeletePostboxUseCaseResult = mockUseCase
+        mockRelayService.deletePostboxResult = "postbox-id"
 
         do {
-            try await instanceUnderTest.deletePostbox(withConnectionId: "dummyId")
+            let deleted = try await instanceUnderTest.deletePostbox(
+                withPostboxId: "postbox-id")
+            XCTAssertEqual(deleted, "postbox-id")
+            XCTAssertEqual(mockRelayService.deletePostboxLastProperty, "postbox-id")
         } catch {
             XCTFail("Unexpected error: \(error)")
+
         }
     }
 }

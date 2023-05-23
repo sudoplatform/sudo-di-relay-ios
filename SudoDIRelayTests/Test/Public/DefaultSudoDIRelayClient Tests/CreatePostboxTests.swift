@@ -1,10 +1,11 @@
 //
-// Copyright © 2020 Anonyome Labs, Inc. All rights reserved.
+// Copyright © 2023 Anonyome Labs, Inc. All rights reserved.
 //
 // SPDX-License-Identifier: Apache-2.0
 //
 
 import XCTest
+@testable import AWSAppSync
 @testable import SudoDIRelay
 
 class DefaultSudoDIRelayClientCreatePostbox: DefaultSudoDIRelayTestCase {
@@ -16,51 +17,44 @@ class DefaultSudoDIRelayClientCreatePostbox: DefaultSudoDIRelayTestCase {
 
     // MARK: - Properties
 
-    let utcTimestamp = "Thu, 1 Jan 1970 00:00:00 GMT+00"
+    let now = Date.now
 
     // MARK: - Tests: createPostbox
 
-    func test_createPostbox_CreatesUseCase() async {
+    func test_createPostbox_RespectsFailure() async {
+        mockRelayService.createPostboxError = SudoDIRelayError.invalidPostboxInput
         do {
-            try await instanceUnderTest.createPostbox(withConnectionId: "dummyId", ownershipProofToken: "dummyProof")
-            XCTAssertEqual(mockUseCaseFactory.generateCreatePostboxUseCaseCallCount, 1)
-        } catch {
-            XCTFail("Unexpected error")
-        }
-    }
-
-    func test_createPostbox_CallsUseCaseExecute() async {
-        let mockUseCase = MockCreatePostboxUseCase()
-        mockUseCaseFactory.generateCreatePostboxUseCaseResult = mockUseCase
-        do {
-            try await instanceUnderTest.createPostbox(withConnectionId: "dummyId", ownershipProofToken: "dummyProof")
-            XCTAssertEqual(mockUseCase.executeCallCount, 1)
-            XCTAssertEqual(mockUseCase.executeLastProperties?.0, "dummyId")
-            XCTAssertEqual(mockUseCase.executeLastProperties?.1, "dummyProof")
-        } catch {
-            XCTFail("Unexpected error")
-        }
-    }
-
-    func test_createPostbox_RespectsUseCaseFailure() async {
-        let mockUseCase = MockCreatePostboxUseCase()
-        mockUseCase.executeError = AnyError("Create failed")
-        mockUseCaseFactory.generateCreatePostboxUseCaseResult = mockUseCase
-
-        do {
-            try await instanceUnderTest.createPostbox(withConnectionId: "dummyId", ownershipProofToken: "dummyProof")
+            try _ = await instanceUnderTest.createPostbox(withConnectionId: "connection-id", ownershipProofToken: "dummyProof", isEnabled: false)
             XCTFail("Unexpected success.")
         } catch {
-            XCTAssertErrorsEqual(error, AnyError("Create failed"))
+            XCTAssertEqual(mockRelayService.createPostboxLastProperties?.0, "connection-id")
+            XCTAssertEqual(mockRelayService.createPostboxLastProperties?.1, "dummyProof")
+            XCTAssertEqual(mockRelayService.createPostboxLastProperties?.2, false)
+            XCTAssertErrorsEqual(error, SudoDIRelayError.invalidPostboxInput)
         }
     }
 
     func test_createPostbox_SuccessResult() async {
-        let mockUseCase = MockCreatePostboxUseCase()
-        mockUseCaseFactory.generateCreatePostboxUseCaseResult = mockUseCase
+        let expected = Postbox(
+            id: "postbox-id",
+            createdAt: now,
+            updatedAt: now,
+            ownerId: "owner-id",
+            sudoId: "sudo-id",
+            connectionId: "my-connection-id",
+            isEnabled: true,
+            serviceEndpoint: "https://service-endpoint.com")
+        mockRelayService.createPostboxResult = expected
 
         do {
-            try await instanceUnderTest.createPostbox(withConnectionId: "dummyId", ownershipProofToken: "dummyProof")
+            let created = try await instanceUnderTest.createPostbox(
+                withConnectionId: "my-connection-id",
+                ownershipProofToken: "dummyProof",
+                isEnabled: true)
+            XCTAssertEqual(created, expected)
+            XCTAssertEqual(mockRelayService.createPostboxLastProperties?.0, "my-connection-id")
+            XCTAssertEqual(mockRelayService.createPostboxLastProperties?.1, "dummyProof")
+            XCTAssertEqual(mockRelayService.createPostboxLastProperties?.2, true)
         } catch {
             XCTFail("Unexpected error: \(error)")
 

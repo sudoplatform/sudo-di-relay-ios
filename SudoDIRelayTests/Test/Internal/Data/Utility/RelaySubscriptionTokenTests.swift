@@ -1,5 +1,5 @@
 //
-// Copyright © 2020 Anonyome Labs, Inc. All rights reserved.
+// Copyright © 2023 Anonyome Labs, Inc. All rights reserved.
 //
 // SPDX-License-Identifier: Apache-2.0
 //
@@ -28,8 +28,8 @@ class RelaySubscriptionTokenTests: XCTestCase {
     // MARK: - Tests
 
     func test_init() {
-        let instanceUnderTest = RelaySubscriptionToken(id: "dummyId", cancellable: mockCancellable, manager: mockSubscriptionManager)
-        XCTAssertEqual(instanceUnderTest.id, "dummyId")
+        let instanceUnderTest = RelaySubscriptionToken(id: "token-id", cancellable: mockCancellable, manager: mockSubscriptionManager)
+        XCTAssertEqual(instanceUnderTest.id, "token-id")
         XCTAssertTrue(instanceUnderTest.subscriptionReference === mockCancellable)
         XCTAssertTrue(instanceUnderTest.manager === mockSubscriptionManager)
     }
@@ -82,10 +82,10 @@ class RelaySubscriptionTokenTests: XCTestCase {
 
     func test_Hashable() {
         var expectedHasher = Hasher()
-        expectedHasher.combine("dummyId")
+        expectedHasher.combine("token-id")
         let expectedResult = expectedHasher.finalize()
         var actualHasher = Hasher()
-        let instanceUnderTest = RelaySubscriptionToken(id: "dummyId", cancellable: mockCancellable, manager: mockSubscriptionManager)
+        let instanceUnderTest = RelaySubscriptionToken(id: "token-id", cancellable: mockCancellable, manager: mockSubscriptionManager)
         actualHasher.combine(instanceUnderTest)
         let actualResult = actualHasher.finalize()
         XCTAssertEqual(actualResult, expectedResult)

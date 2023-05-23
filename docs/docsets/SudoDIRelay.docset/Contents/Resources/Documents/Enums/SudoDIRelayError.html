@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          SudoDIRelay 2.0.0 Docs
+          SudoDIRelay 3.0.0 Docs
         </a>
         
       </p>
@@ -59,9 +59,6 @@
             <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums/CachePolicy.html">CachePolicy</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/PlatformSubscriptionStatus.html">PlatformSubscriptionStatus</a>
               </li>
               <li class="nav-group-task">
@@ -90,13 +87,13 @@
                 <a class="nav-group-task-link" href="../Structs/AnyError.html">AnyError</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ListOutput.html">ListOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Message.html">Message</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/Postbox.html">Postbox</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/RelayMessage.html">RelayMessage</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/RelayMessage/Direction.html">– Direction</a>
               </li>
             </ul>
           </li>
@@ -200,6 +197,60 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:11SudoDIRelay0aB5ErrorO14invalidMessageyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/invalidMessage" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SudoDIRelay0aB5ErrorO14invalidMessageyA2CmF">invalidMessage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>returned message is invalid</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidMessage</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11SudoDIRelay0aB5ErrorO14invalidPostboxyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/invalidPostbox" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11SudoDIRelay0aB5ErrorO14invalidPostboxyA2CmF">invalidPostbox</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>returned postbox is invalid</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidPostbox</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:11SudoDIRelay0aB5ErrorO26relayServiceConfigNotFoundyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/relayServiceConfigNotFound" class="dashAnchor"></a>
                     <a class="token" href="#/s:11SudoDIRelay0aB5ErrorO26relayServiceConfigNotFoundyA2CmF">relayServiceConfigNotFound</a>
@@ -220,33 +271,6 @@ configuration file that you are using is invalid.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">case</span> <span class="n">relayServiceConfigNotFound</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:11SudoDIRelay0aB5ErrorO18invalidInitMessageyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/invalidInitMessage" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11SudoDIRelay0aB5ErrorO18invalidInitMessageyA2CmF">invalidInitMessage</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Message sent to create the postbox is invalid.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidInitMessage</span></code></pre>
 
                         </div>
                       </div>
@@ -280,7 +304,7 @@ configuration file that you are using is invalid.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Indicates that a fatal error occurred. This could be due to coding error, out-of-memory condition or other
-conditions that is beyond control of <code>SudoIdentityVerificationClient</code> implementation.</p>
+conditions that is beyond control of <code><a href="../Protocols/SudoDIRelayClient.html">SudoDIRelayClient</a></code> implementation.</p>
 
                       </div>
                       <div class="declaration">
@@ -380,8 +404,8 @@ conditions that is beyond control of <code>SudoIdentityVerificationClient</code>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://sudoplatform.com" target="_blank" rel="external noopener">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2022-05-11)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2023 <a class="link" href="https://sudoplatform.com" target="_blank" rel="external noopener">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2023-05-23)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

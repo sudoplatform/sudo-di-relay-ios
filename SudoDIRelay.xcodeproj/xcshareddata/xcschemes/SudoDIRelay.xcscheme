@@ -43,8 +43,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "84C0F11126BBAA54005810AC"
-               BuildableName = "SudoDIRelayIntegrationTests.xctest"
-               BlueprintName = "SudoDIRelayIntegrationTests"
+               BuildableName = "SudoDIRelaySystemTests.xctest"
+               BlueprintName = "SudoDIRelaySystemTests"
                ReferencedContainer = "container:SudoDIRelay.xcodeproj">
             </BuildableReference>
          </TestableReference>

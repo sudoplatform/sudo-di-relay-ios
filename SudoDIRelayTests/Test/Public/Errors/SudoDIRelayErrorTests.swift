@@ -1,5 +1,5 @@
 //
-// Copyright © 2020 Anonyome Labs, Inc. All rights reserved.
+// Copyright © 2023 Anonyome Labs, Inc. All rights reserved.
 //
 // SPDX-License-Identifier: Apache-2.0
 //
@@ -12,6 +12,13 @@ import XCTest
 @testable import SudoApiClient
 
 class SudoDIRelayErrorTests: XCTestCase {
+    // Public for generating graphql error for other test cases
+    public static func generateGraphQLError(errorType: String) -> GraphQLError {
+        return GraphQLError([
+            "errorType": errorType,
+            "message": "message"
+        ])
+    }
 
     func constructGraphQLErrorWithErrorType(_ type: String?) -> GraphQLError {
         guard let type = type else {
@@ -25,20 +32,22 @@ class SudoDIRelayErrorTests: XCTestCase {
         ]
         return GraphQLError(obj)
     }
-
     func generateGraphQLError(errorType: String) -> GraphQLError {
-        return GraphQLError([
-            "errorType": errorType,
-            "message": "message"
-        ])
+        return SudoDIRelayErrorTests.generateGraphQLError(errorType: errorType)
     }
 
     // MARK: - Tests: GraphQL Initializer
 
-    func test_init_graphQL_InvalidInitMessage() {
-        let graphQLError = generateGraphQLError(errorType: "sudoplatform.relay.InvalidInitMessage")
+    func test_init_graphQL_InvalidPostboxInput() {
+        let graphQLError = generateGraphQLError(errorType: "sudoplatform.relay.InvalidPostboxInputError")
         let error = SudoDIRelayError(graphQLError: graphQLError)
-        XCTAssertErrorsEqual(error, SudoDIRelayError.invalidInitMessage)
+        XCTAssertErrorsEqual(error, SudoDIRelayError.invalidPostboxInput)
+    }
+
+    func test_init_graphQL_UnauthorizedPostboxAccess() {
+        let graphQLError = generateGraphQLError(errorType: "sudoplatform.relay.UnauthorizedPostboxAccessError")
+        let error = SudoDIRelayError(graphQLError: graphQLError)
+        XCTAssertErrorsEqual(error, SudoDIRelayError.unauthorizedPostboxAccess)
     }
 
     func test_init_graphQL_NoErrorTypeReturnsMessage() {
@@ -65,14 +74,8 @@ class SudoDIRelayErrorTests: XCTestCase {
         XCTAssertErrorsEqual(error, SudoDIRelayError.environmentError)
     }
 
-    func test_init_graphQL_PolicyFailed() {
-        let graphQLError = constructGraphQLErrorWithErrorType("sudoplatform.PolicyFailed")
-        let error = SudoDIRelayError(graphQLError: graphQLError)
-        XCTAssertErrorsEqual(error, SudoDIRelayError.policyFailed)
-    }
-
     func test_init_graphQL_InvalidTokenError() {
-        let graphQLError = constructGraphQLErrorWithErrorType("sudoplatform.relay.InvalidTokenError")
+        let graphQLError = constructGraphQLErrorWithErrorType("sudoplatform.InvalidTokenError")
         let error = SudoDIRelayError(graphQLError: graphQLError)
         XCTAssertErrorsEqual(error, SudoDIRelayError.invalidTokenError)
     }
@@ -81,18 +84,6 @@ class SudoDIRelayErrorTests: XCTestCase {
         let graphQLError = constructGraphQLErrorWithErrorType("sudoplatform.AccountLocked")
         let error = SudoDIRelayError(graphQLError: graphQLError)
         XCTAssertErrorsEqual(error, SudoDIRelayError.accountLocked)
-    }
-
-    func test_init_GraphQL_IdentityInsufficient() {
-        let graphQLError = constructGraphQLErrorWithErrorType("sudoplatform.IdentityVerificationInsufficientError")
-        let error = SudoDIRelayError(graphQLError: graphQLError)
-        XCTAssertErrorsEqual(error, SudoDIRelayError.identityInsufficient)
-    }
-
-    func test_init_graphQL_IdentityNotVerified() {
-        let graphQLError = constructGraphQLErrorWithErrorType("sudoplatform.IdentityVerificationNotVerifiedError")
-        let error = SudoDIRelayError(graphQLError: graphQLError)
-        XCTAssertErrorsEqual(error, SudoDIRelayError.identityNotVerified)
     }
 
     func test_init_graphQL_InternalError() {
@@ -135,9 +126,15 @@ class SudoDIRelayErrorTests: XCTestCase {
         XCTAssertEqual(errorDescription, L10Ndescription)
     }
 
-    func test_errorDescription_InvalidInitMessage() {
-        let L10Ndescription = L10n.Relay.Errors.invalidInitMessage
-        let errorDescription = SudoDIRelayError.invalidInitMessage.errorDescription
+    func test_errorDescription_InvalidPostboxInput() {
+        let L10Ndescription = L10n.Relay.Errors.invalidPostboxInput
+        let errorDescription = SudoDIRelayError.invalidPostboxInput.errorDescription
+        XCTAssertEqual(errorDescription, L10Ndescription)
+    }
+
+    func test_errorDescriptionUnauthorizedPostboxAccess() {
+        let L10Ndescription = L10n.Relay.Errors.unauthorizedPostboxAccess
+        let errorDescription = SudoDIRelayError.unauthorizedPostboxAccess.errorDescription
         XCTAssertEqual(errorDescription, L10Ndescription)
     }
 
@@ -174,18 +171,6 @@ class SudoDIRelayErrorTests: XCTestCase {
     func test_errorDescription_AccountLockedError() {
         let L10Ndescription = L10n.Relay.Errors.accountLocked
         let errorDescription = SudoDIRelayError.accountLocked.errorDescription
-        XCTAssertEqual(errorDescription, L10Ndescription)
-    }
-
-    func test_errorDescription_IdentityInsufficient() {
-        let L10Ndescription = L10n.Relay.Errors.identityInsufficient
-        let errorDescription = SudoDIRelayError.identityInsufficient.errorDescription
-        XCTAssertEqual(errorDescription, L10Ndescription)
-    }
-
-    func test_errorDescription_IdentityNotVerified() {
-        let L10Ndescription = L10n.Relay.Errors.identityNotVerified
-        let errorDescription = SudoDIRelayError.identityNotVerified.errorDescription
         XCTAssertEqual(errorDescription, L10Ndescription)
     }
 

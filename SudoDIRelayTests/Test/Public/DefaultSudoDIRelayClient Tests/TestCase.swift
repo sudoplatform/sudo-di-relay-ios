@@ -1,5 +1,5 @@
 //
-// Copyright © 2020 Anonyome Labs, Inc. All rights reserved.
+// Copyright © 2023 Anonyome Labs, Inc. All rights reserved.
 //
 // SPDX-License-Identifier: Apache-2.0
 //
@@ -17,7 +17,6 @@ class DefaultSudoDIRelayTestCase: XCTestCase {
     var instanceUnderTest: DefaultSudoDIRelayClient!
     var graphQLClient: SudoApiClient!
     var mockAppSyncClientHelper: MockAppSyncClientHelper!
-    var mockUseCaseFactory: MockUseCaseFactory!
     var mockRelayService: MockRelayService!
     var mockUserClient: MockSudoUserClient!
 
@@ -38,12 +37,10 @@ class DefaultSudoDIRelayTestCase: XCTestCase {
             return
         }
         mockRelayService = MockRelayService()
-        mockUseCaseFactory = MockUseCaseFactory(relayService: mockRelayService)
         instanceUnderTest = DefaultSudoDIRelayClient(
             sudoApiClient: graphQLClient,
             appSyncClientHelper: mockAppSyncClientHelper,
             sudoUserClient: mockUserClient,
-            useCaseFactory: mockUseCaseFactory,
             relayService: mockRelayService)
     }
 }

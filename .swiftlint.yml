@@ -22,7 +22,7 @@ opt_in_rules:
 # Linting paths (excluded overrides included)
 included: 
     - SudoDIRelay
-    - SudoDIRelayIntegrationTests
+    - SudoDIRelaySystemTests
     - SudoDIRelayTests
 
 excluded:

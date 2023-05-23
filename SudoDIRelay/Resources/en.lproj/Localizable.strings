@@ -1,5 +1,5 @@
 /* 
-  Copyright © 2020 Anonyome Labs, Inc. All rights reserved.
+  Copyright © 2023 Anonyome Labs, Inc. All rights reserved.
 
   SPDX-License-Identifier: Apache-2.0
 
@@ -12,7 +12,10 @@
 
 // MARK: - Errors: Service
 
-"relay.errors.ambiguousRelayError" = "User has been assigned ambiguous Relay";
+"relay.errors.invalidMessage" = "The relay message was invalid";
+"relay.errors.invalidPostbox" = "The relay postbox was invalid";
+"relay.errors.unauthorizedPostboxAccess" = "User is not authorized to access the postbox";
+"relay.errors.invalidPostboxInput" = "Input provided to the postbox was invalid";
 
 // MARK: - Errors: SudoPlatformError
 
@@ -30,4 +33,3 @@
 "relay.errors.serviceError" = "Service error has occurred";
 "relay.errors.unknownTimezone" = "Unknown time zone";
 "relay.errors.relayServiceConfigNotFound" = "Relay service configuration not found";
-"relay.errors.invalidInitMessage" = "Attempt to create postbox failed due to invalid config";

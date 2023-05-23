@@ -1,172 +1,106 @@
 # this is an auto generated file. This will be overwritten
-query GetPublicKeyForRelay($keyId: String!, $keyFormats: [KeyFormat!]) {
-  getPublicKeyForRelay(keyId: $keyId, keyFormats: $keyFormats) {
-    id
-    keyId
-    keyRingId
-    algorithm
-    keyFormat
-    publicKey
-    owner
-    version
-    createdAtEpochMs
-    updatedAtEpochMs
-  }
-}
-query GetPublicKeysForRelay(
-  $limit: Int
-  $nextToken: String
-  $keyFormats: [KeyFormat!]
-) {
-  getPublicKeysForRelay(
-    limit: $limit
-    nextToken: $nextToken
-    keyFormats: $keyFormats
-  ) {
+query ListRelayPostboxes($limit: Int, $nextToken: String) {
+  listRelayPostboxes(limit: $limit, nextToken: $nextToken) {
     items {
       id
-      keyId
-      keyRingId
-      algorithm
-      keyFormat
-      publicKey
-      owner
-      version
       createdAtEpochMs
       updatedAtEpochMs
+      owner
+      owners {
+        id
+        issuer
+      }
+      connectionId
+      isEnabled
+      serviceEndpoint
     }
     nextToken
   }
 }
-query GetKeyRingForRelay(
-  $keyRingId: String!
-  $limit: Int
-  $nextToken: String
-  $keyFormats: [KeyFormat!]
-) {
-  getKeyRingForRelay(
-    keyRingId: $keyRingId
-    limit: $limit
-    nextToken: $nextToken
-    keyFormats: $keyFormats
-  ) {
+query ListRelayMessages($limit: Int, $nextToken: String) {
+  listRelayMessages(limit: $limit, nextToken: $nextToken) {
     items {
       id
-      keyId
-      keyRingId
-      algorithm
-      keyFormat
-      publicKey
-      owner
-      version
       createdAtEpochMs
       updatedAtEpochMs
+      owner
+      owners {
+        id
+        issuer
+      }
+      postboxId
+      message
     }
     nextToken
   }
 }
-query GetMessages($input: IdAsInput!) {
-  getMessages(input: $input) {
-    messageId
-    connectionId
-    cipherText
-    direction
-    utcTimestamp
-  }
-}
-query ListPostboxesForSudoId($input: ListPostboxesForSudoIdInput) {
-  listPostboxesForSudoId(input: $input) {
-    connectionId
-    sudoId
-    owner
-    utcTimestamp
-  }
-}
-mutation CreatePublicKeyForRelay($input: CreatePublicKeyInput!) {
-  createPublicKeyForRelay(input: $input) {
+mutation CreateRelayPostbox($input: CreateRelayPostboxInput!) {
+  createRelayPostbox(input: $input) {
     id
-    keyId
-    keyRingId
-    algorithm
-    keyFormat
-    publicKey
-    owner
-    version
     createdAtEpochMs
     updatedAtEpochMs
+    owner
+    owners {
+      id
+      issuer
+    }
+    connectionId
+    isEnabled
+    serviceEndpoint
   }
 }
-mutation DeletePublicKeyForRelay($input: DeletePublicKeyInput) {
-  deletePublicKeyForRelay(input: $input) {
+mutation UpdateRelayPostbox($input: UpdateRelayPostboxInput!) {
+  updateRelayPostbox(input: $input) {
     id
-    keyId
-    keyRingId
-    algorithm
-    keyFormat
-    publicKey
-    owner
-    version
     createdAtEpochMs
     updatedAtEpochMs
-  }
-}
-mutation SendInit($input: CreatePostboxInput!) {
-  sendInit(input: $input) {
-    connectionId
     owner
-    utcTimestamp
-  }
-}
-mutation StoreMessage($input: WriteToRelayInput!) {
-  storeMessage(input: $input) {
-    messageId
-    connectionId
-    cipherText
-    direction
-    utcTimestamp
-  }
-}
-mutation DeletePostBox($input: IdAsInput!) {
-  deletePostBox(input: $input) {
-    status
-  }
-}
-mutation InternalFireOnPostBoxDeleted($input: PostBoxDeletionInput!) {
-  internalFireOnPostBoxDeleted(input: $input) {
-    connectionId
-    remainingMessages {
-      connectionId
-      messageId
+    owners {
+      id
+      issuer
     }
+    connectionId
+    isEnabled
+    serviceEndpoint
   }
 }
-mutation InternalFireOnMessageReceived($input: WriteToRelayInput) {
-  internalFireOnMessageReceived(input: $input) {
-    messageId
-    connectionId
-    cipherText
-    direction
-    utcTimestamp
+mutation DeleteRelayPostbox($input: DeleteRelayPostboxInput!) {
+  deleteRelayPostbox(input: $input) {
+    id
   }
 }
-subscription Ping {
-  ping
-}
-subscription OnMessageCreated($connectionId: ID!, $direction: Direction!) {
-  onMessageCreated(connectionId: $connectionId, direction: $direction) {
-    messageId
-    connectionId
-    cipherText
-    direction
-    utcTimestamp
+mutation DeleteRelayMessage($input: DeleteRelayMessageInput!) {
+  deleteRelayMessage(input: $input) {
+    id
   }
 }
-subscription OnPostBoxDeleted($connectionId: ID!) {
-  onPostBoxDeleted(connectionId: $connectionId) {
-    connectionId
-    remainingMessages {
-      connectionId
-      messageId
+mutation InternalFireOnRelayMessageCreated(
+  $input: InternalFireOnRelayMessageCreatedInput!
+) {
+  internalFireOnRelayMessageCreated(input: $input) {
+    id
+    createdAtEpochMs
+    updatedAtEpochMs
+    owner
+    owners {
+      id
+      issuer
     }
+    postboxId
+    message
+  }
+}
+subscription OnRelayMessageCreated($owner: ID!) {
+  onRelayMessageCreated(owner: $owner) {
+    id
+    createdAtEpochMs
+    updatedAtEpochMs
+    owner
+    owners {
+      id
+      issuer
+    }
+    postboxId
+    message
   }
 }

@@ -1,5 +1,5 @@
 //
-// Copyright © 2020 Anonyome Labs, Inc. All rights reserved.
+// Copyright © 2023 Anonyome Labs, Inc. All rights reserved.
 //
 // SPDX-License-Identifier: Apache-2.0
 //
@@ -16,104 +16,264 @@ class RelayTransformerTests: XCTestCase {
     // MARK: - Tests: listMessages Transformers
 
     func test_transform_listMessagesQuery_success() throws {
-        let data = GetMessagesQuery.Data.GetMessage(
-            messageId: "dummyId",
-            connectionId: "dummyId",
-            cipherText: "message",
-            direction: Direction.inbound,
-            utcTimestamp: utcTimestamp
+        let item = ListRelayMessagesQuery.Data.ListRelayMessage.Item(
+            id: "message-id",
+            createdAtEpochMs: 1.0,
+            updatedAtEpochMs: 2.0,
+            owner: "owner-id",
+            owners: [ListRelayMessagesQuery.Data.ListRelayMessage.Item.Owner(id: "sudo-id", issuer: "sudoplatform.sudoservice")],
+            postboxId: "postbox-id",
+            message: "message contents"
         )
-        let result = try RelayTransformer.transform([data])
-        XCTAssertEqual(result[0].messageId, "dummyId")
-        XCTAssertEqual(result[0].connectionId, "dummyId")
-        XCTAssertEqual(result[0].cipherText, "message")
-        XCTAssertEqual(result[0].direction, RelayMessage.Direction.inbound)
-        XCTAssertEqual(result[0].timestamp, Date(millisecondsSince1970: 0))
-    }
-
-    func test_transform_ListMessagesQueryListWithNils_success() throws {
-        let entry = GetMessagesQuery.Data.GetMessage(
-            messageId: "dummyId",
-            connectionId: "dummyId",
-            cipherText: "message",
-            direction: Direction.inbound,
-            utcTimestamp: utcTimestamp
-        )
-        let data: [GetMessagesQuery.Data.GetMessage?] = [nil, nil, entry, nil]
+        let data = ListRelayMessagesQuery.Data.ListRelayMessage(items: [item], nextToken: nil)
         let result = try RelayTransformer.transform(data)
-        XCTAssertEqual(result[0].messageId, "dummyId")
-        XCTAssertEqual(result[0].connectionId, "dummyId")
-        XCTAssertEqual(result[0].cipherText, "message")
-        XCTAssertEqual(result[0].direction, RelayMessage.Direction.inbound)
-
-        XCTAssertEqual(result[0].timestamp, Date(millisecondsSince1970: 0))
+        XCTAssertNil(result.nextToken)
+        XCTAssertEqual(result.items.count, 1)
+        XCTAssertEqual(result.items[0].id, "message-id")
+        XCTAssertEqual(result.items[0].createdAt, Date(millisecondsSince1970: 1.0))
+        XCTAssertEqual(result.items[0].updatedAt, Date(millisecondsSince1970: 2.0))
+        XCTAssertEqual(result.items[0].ownerId, "owner-id")
+        XCTAssertEqual(result.items[0].sudoId, "sudo-id")
+        XCTAssertEqual(result.items[0].postboxId, "postbox-id")
+        XCTAssertEqual(result.items[0].message, "message contents")
     }
 
-    // MARK: - Tests: StoreMessage Transformers
+    func test_transform_ListMessagesQueryListWithNextToken_success() throws {
+        let entry = ListRelayMessagesQuery.Data.ListRelayMessage.Item(
+            id: "message-id",
+            createdAtEpochMs: 1.0,
+            updatedAtEpochMs: 2.0,
+            owner: "owner-id",
+            owners: [ListRelayMessagesQuery.Data.ListRelayMessage.Item.Owner(id: "sudo-id", issuer: "sudoplatform.sudoservice")],
+            postboxId: "postbox-id",
+            message: "message contents"
+        )
+        let entry_2 = ListRelayMessagesQuery.Data.ListRelayMessage.Item(
+                id: "message-id-2",
+                createdAtEpochMs: 3.0,
+                updatedAtEpochMs: 4.0,
+                owner: "owner-id-2",
+                owners: [ListRelayMessagesQuery.Data.ListRelayMessage.Item.Owner(id: "sudo-id", issuer: "sudoplatform.sudoservice"),
+                         ListRelayMessagesQuery.Data.ListRelayMessage.Item.Owner(id: "other-id", issuer: "sudoplatform.not-sudoservice")],
+                postboxId: "postbox-id-2",
+                message: "message contents 2"
+        )
+        let data = ListRelayMessagesQuery.Data.ListRelayMessage(items: [entry, entry_2], nextToken: "nextToken")
+        let result = try RelayTransformer.transform(data)
 
-    func test_transform_StoreMessage_success() throws {
-        let entry = StoreMessageMutation.Data.StoreMessage(
-            messageId: "dummyId",
-            connectionId: "dummyId",
-            cipherText: "message",
-            direction: Direction.inbound,
-            utcTimestamp: utcTimestamp
+        XCTAssertEqual(result.nextToken, "nextToken")
+        XCTAssertEqual(result.items.count, 2)
+        XCTAssertEqual(result.items[0].id, "message-id")
+        XCTAssertEqual(result.items[0].createdAt, Date(millisecondsSince1970: 1.0))
+        XCTAssertEqual(result.items[0].updatedAt, Date(millisecondsSince1970: 2.0))
+        XCTAssertEqual(result.items[0].ownerId, "owner-id")
+        XCTAssertEqual(result.items[0].sudoId, "sudo-id")
+        XCTAssertEqual(result.items[0].postboxId, "postbox-id")
+        XCTAssertEqual(result.items[0].message, "message contents")
+
+        XCTAssertEqual(result.items[1].id, "message-id-2")
+        XCTAssertEqual(result.items[1].createdAt, Date(millisecondsSince1970: 3.0))
+        XCTAssertEqual(result.items[1].updatedAt, Date(millisecondsSince1970: 4.0))
+        XCTAssertEqual(result.items[1].ownerId, "owner-id-2")
+        XCTAssertEqual(result.items[1].sudoId, "sudo-id")
+        XCTAssertEqual(result.items[1].postboxId, "postbox-id-2")
+        XCTAssertEqual(result.items[1].message, "message contents 2")
+    }
+
+    func test_transform_listMessagesQuery_WithNoValidSudoOwner_throws() throws {
+        let item = ListRelayMessagesQuery.Data.ListRelayMessage.Item(
+                id: "message-id",
+                createdAtEpochMs: 1.0,
+                updatedAtEpochMs: 2.0,
+                owner: "owner-id",
+                owners: [ListRelayMessagesQuery.Data.ListRelayMessage.Item.Owner(id: "sudo-id", issuer: "sudoplatform.not-sudoservice")],
+                postboxId: "postbox-id",
+                message: "message contents"
+        )
+        let data = ListRelayMessagesQuery.Data.ListRelayMessage(items: [item], nextToken: nil)
+        do {
+            _ = try RelayTransformer.transform(data)
+            XCTFail("Expected error not thrown.")
+        } catch {
+            XCTAssertErrorsEqual(error, SudoDIRelayError.invalidMessage)
+        }
+    }
+
+    // MARK: - Tests: DeleteMessage Transformers
+
+    func test_transform_DeleteMessage_success() throws {
+        let entry = DeleteRelayMessageMutation.Data.DeleteRelayMessage(
+            id: "message-id"
         )
         let result = try RelayTransformer.transform(entry)
-        XCTAssertEqual(result?.messageId, "dummyId")
-        XCTAssertEqual(result?.connectionId, "dummyId")
-        XCTAssertEqual(result?.cipherText, "message")
-        XCTAssertEqual(result?.direction, RelayMessage.Direction.inbound)
-        XCTAssertEqual(result?.timestamp, Date(millisecondsSince1970: 0))
-    }
-
-    func test_transform_StoreMessageAsNil_success() throws {
-        let input: StoreMessageMutation.Data.StoreMessage? = nil
-        let result = try RelayTransformer.transform(input)
-        XCTAssertNil(result)
+        XCTAssertEqual(result, "message-id")
     }
 
     // MARK: - Tests: OnMessageCreatedSubscription Transformer
 
-    func test_transform_OnMessageCreatedSubscription_success() throws {
-        let entry = OnMessageCreatedSubscription.Data.OnMessageCreated(
-            messageId: "dummyId",
-            connectionId: "dummyId",
-            cipherText: "message",
-            direction: Direction.inbound,
-            utcTimestamp: utcTimestamp
+    func test_transform_onMessageCreatedSubscription_success() throws {
+        let entry = OnRelayMessageCreatedSubscription.Data.OnRelayMessageCreated(
+                id: "message-id",
+                createdAtEpochMs: 1.0,
+                updatedAtEpochMs: 2.0,
+                owner: "owner-id",
+                owners: [OnRelayMessageCreatedSubscription.Data.OnRelayMessageCreated.Owner(id: "sudo-id", issuer: "sudoplatform.sudoservice")],
+                postboxId: "postbox-id",
+                message: "message contents"
         )
         let result = try RelayTransformer.transform(entry)
-        XCTAssertEqual(result.messageId, "dummyId")
-        XCTAssertEqual(result.connectionId, "dummyId")
-        XCTAssertEqual(result.cipherText, "message")
-        XCTAssertEqual(result.direction, RelayMessage.Direction.inbound)
-        XCTAssertEqual(result.timestamp, Date(millisecondsSince1970: 0))
+        XCTAssertEqual(result.id, "message-id")
+        XCTAssertEqual(result.createdAt, Date(millisecondsSince1970: 1.0))
+        XCTAssertEqual(result.updatedAt, Date(millisecondsSince1970: 2.0))
+        XCTAssertEqual(result.ownerId, "owner-id")
+        XCTAssertEqual(result.sudoId, "sudo-id")
+        XCTAssertEqual(result.postboxId, "postbox-id")
+        XCTAssertEqual(result.message, "message contents")
     }
 
-    // MARK: - Tests: OnPostBoxDeletedSubscription Transformer
-
-    func test_transform_OnPostBoxDeletedSubscription_success() throws {
-        let entry = OnPostBoxDeletedSubscription.Data.OnPostBoxDeleted(
-            connectionId: "dummyId",
-            remainingMessages: []
+    func test_transform_onMessageCreatedSubscription_WithNoValidSudoOwner_throws() throws {
+        let data = OnRelayMessageCreatedSubscription.Data.OnRelayMessageCreated(
+                id: "message-id",
+                createdAtEpochMs: 1.0,
+                updatedAtEpochMs: 2.0,
+                owner: "owner-id",
+                owners: [OnRelayMessageCreatedSubscription.Data.OnRelayMessageCreated.Owner(id: "sudo-id", issuer: "sudoplatform.not-sudoservice")],
+                postboxId: "postbox-id",
+                message: "message contents"
         )
-        let status = RelayTransformer.transform(entry)
-        XCTAssertEqual(status, Status.ok)
-    }
-
-    // MARK: - Test: Direction
-
-    func test_transform_Direction() {
         do {
-            let expectInbound = try RelayTransformer.transform(Direction.inbound)
-            XCTAssertEqual(expectInbound, RelayMessage.Direction.inbound)
-
-            let expectOutbound = try RelayTransformer.transform(Direction.outbound)
-            XCTAssertEqual(expectOutbound, RelayMessage.Direction.outbound)
-        } catch let error {
-            XCTFail("Unexpected error \(error)")
+            _ = try RelayTransformer.transform(data)
+            XCTFail("Expected error not thrown.")
+        } catch {
+            XCTAssertErrorsEqual(error, SudoDIRelayError.invalidMessage)
         }
-
     }
+
+    // MARK: - Tests: listPostboxes Transformers
+
+    func test_transform_listPostboxesQuery_success() throws {
+        let item = ListRelayPostboxesQuery.Data.ListRelayPostbox.Item(
+            id: "postbox-id",
+            createdAtEpochMs: 1.0,
+            updatedAtEpochMs: 2.0,
+            owner: "owner-id",
+            owners: [ListRelayPostboxesQuery.Data.ListRelayPostbox.Item.Owner(id: "sudo-id", issuer: "sudoplatform.sudoservice")],
+            connectionId: "connection-id",
+            isEnabled: true,
+            serviceEndpoint: "https://service_endpoint.com/di-relay"
+        )
+        let data = ListRelayPostboxesQuery.Data.ListRelayPostbox(items: [item], nextToken: nil)
+        let result = try RelayTransformer.transform(data)
+        XCTAssertNil(result.nextToken)
+        XCTAssertEqual(result.items.count, 1)
+        XCTAssertEqual(result.items[0].id, "postbox-id")
+        XCTAssertEqual(result.items[0].createdAt, Date(millisecondsSince1970: 1.0))
+        XCTAssertEqual(result.items[0].updatedAt, Date(millisecondsSince1970: 2.0))
+        XCTAssertEqual(result.items[0].ownerId, "owner-id")
+        XCTAssertEqual(result.items[0].sudoId, "sudo-id")
+        XCTAssertEqual(result.items[0].connectionId, "connection-id")
+        XCTAssertTrue(result.items[0].isEnabled)
+        XCTAssertEqual(result.items[0].serviceEndpoint, "https://service_endpoint.com/di-relay")
+    }
+
+    func test_transform_ListPostboxesQueryListWithNextToken_success() throws {
+        let entry = ListRelayPostboxesQuery.Data.ListRelayPostbox.Item(
+                id: "postbox-id",
+                createdAtEpochMs: 1.0,
+                updatedAtEpochMs: 2.0,
+                owner: "owner-id",
+                owners: [ListRelayPostboxesQuery.Data.ListRelayPostbox.Item.Owner(id: "sudo-id", issuer: "sudoplatform.sudoservice")],
+                connectionId: "connection-id",
+                isEnabled: true,
+                serviceEndpoint: "https://service_endpoint.com/di-relay"
+        )
+        let entry_2 = ListRelayPostboxesQuery.Data.ListRelayPostbox.Item(
+                id: "postbox-id-2",
+                createdAtEpochMs: 3.0,
+                updatedAtEpochMs: 4.0,
+                owner: "owner-id-2",
+                owners: [ListRelayPostboxesQuery.Data.ListRelayPostbox.Item.Owner(id: "sudo-id", issuer: "sudoplatform.sudoservice"),
+                         ListRelayPostboxesQuery.Data.ListRelayPostbox.Item.Owner(id: "other-id", issuer: "sudoplatform.not-sudoservice")],
+                connectionId: "connection-id-2",
+                isEnabled: false,
+                serviceEndpoint: "https://service_endpoint.com/di-relay-2"
+        )
+        let data = ListRelayPostboxesQuery.Data.ListRelayPostbox(items: [entry, entry_2], nextToken: "nextToken")
+        let result = try RelayTransformer.transform(data)
+
+        XCTAssertEqual(result.nextToken, "nextToken")
+        XCTAssertEqual(result.items.count, 2)
+        XCTAssertEqual(result.items[0].id, "postbox-id")
+        XCTAssertEqual(result.items[0].createdAt, Date(millisecondsSince1970: 1.0))
+        XCTAssertEqual(result.items[0].updatedAt, Date(millisecondsSince1970: 2.0))
+        XCTAssertEqual(result.items[0].ownerId, "owner-id")
+        XCTAssertEqual(result.items[0].sudoId, "sudo-id")
+        XCTAssertEqual(result.items[0].connectionId, "connection-id")
+        XCTAssertTrue(result.items[0].isEnabled)
+        XCTAssertEqual(result.items[0].serviceEndpoint, "https://service_endpoint.com/di-relay")
+
+        XCTAssertEqual(result.items[1].id, "postbox-id-2")
+        XCTAssertEqual(result.items[1].createdAt, Date(millisecondsSince1970: 3.0))
+        XCTAssertEqual(result.items[1].updatedAt, Date(millisecondsSince1970: 4.0))
+        XCTAssertEqual(result.items[1].ownerId, "owner-id-2")
+        XCTAssertEqual(result.items[1].sudoId, "sudo-id")
+        XCTAssertEqual(result.items[1].connectionId, "connection-id-2")
+        XCTAssertFalse(result.items[1].isEnabled)
+        XCTAssertEqual(result.items[1].serviceEndpoint, "https://service_endpoint.com/di-relay-2")
+    }
+
+    func test_transform_listPostboxesQuery_WithNoValidSudoOwner_throws() throws {
+        let item = ListRelayPostboxesQuery.Data.ListRelayPostbox.Item(
+                id: "postbox-id",
+                createdAtEpochMs: 1.0,
+                updatedAtEpochMs: 2.0,
+                owner: "owner-id",
+                owners: [ListRelayPostboxesQuery.Data.ListRelayPostbox.Item.Owner(id: "sudo-id", issuer: "sudoplatform.not-sudoservice")],
+                connectionId: "connection-id",
+                isEnabled: true,
+                serviceEndpoint: "https://service_endpoint.com/di-relay"
+        )
+        let data = ListRelayPostboxesQuery.Data.ListRelayPostbox(items: [item], nextToken: nil)
+        do {
+            _ = try RelayTransformer.transform(data)
+            XCTFail("Expected error not thrown.")
+        } catch {
+            XCTAssertErrorsEqual(error, SudoDIRelayError.invalidPostbox)
+        }
+    }
+
+    // MARK: - Tests: UpdatePostbox Transformers
+
+    func test_transform_UpdatePostbox_success() throws {
+        let entry = UpdateRelayPostboxMutation.Data.UpdateRelayPostbox(
+            id: "postbox-id",
+            createdAtEpochMs: 1.0,
+            updatedAtEpochMs: 2.0,
+            owner: "owner-id",
+            owners: [UpdateRelayPostboxMutation.Data.UpdateRelayPostbox.Owner(id: "sudo-id", issuer: "sudoplatform.sudoservice")],
+            connectionId: "connection-id",
+            isEnabled: true,
+            serviceEndpoint: "https://service_endpoint.com/di-relay"
+        )
+        let result = try RelayTransformer.transform(entry)
+        XCTAssertEqual(result.id, "postbox-id")
+        XCTAssertEqual(result.createdAt, Date(millisecondsSince1970: 1.0))
+        XCTAssertEqual(result.updatedAt, Date(millisecondsSince1970: 2.0))
+        XCTAssertEqual(result.ownerId, "owner-id")
+        XCTAssertEqual(result.sudoId, "sudo-id")
+        XCTAssertEqual(result.connectionId, "connection-id")
+        XCTAssertTrue(result.isEnabled)
+        XCTAssertEqual(result.serviceEndpoint, "https://service_endpoint.com/di-relay")
+    }
+
+    // MARK: - Tests: DeletePostbox Transformers
+
+    func test_transform_DeletePostbox_success() throws {
+        let entry = DeleteRelayPostboxMutation.Data.DeleteRelayPostbox(
+                id: "postbox-id"
+        )
+        let result = try RelayTransformer.transform(entry)
+        XCTAssertEqual(result, "postbox-id")
+    }
+
 }
