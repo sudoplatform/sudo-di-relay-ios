@@ -105,6 +105,14 @@ class DefaultRelayService: RelayService {
         return messageId
     }
 
+    func bulkDeleteMessage(withMessageIds messageIds: [String]) async throws -> [String] {
+        let input = BulkDeleteRelayMessageInput(messageIds: messageIds)
+        let mutation = BulkDeleteRelayMessageMutation(input: input)
+        _ = try await GraphQLHelper.performMutation(graphQLClient: sudoApiClient, mutation: mutation, logger: logger)
+
+        return messageIds
+    }
+
     @discardableResult func subscribeToMessageCreated(
             statusChangeHandler: SudoSubscriptionStatusChangeHandler?,
             resultHandler: @escaping ClientCompletion<Message>

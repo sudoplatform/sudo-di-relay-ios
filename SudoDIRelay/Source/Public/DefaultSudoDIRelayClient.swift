@@ -125,6 +125,10 @@ public class DefaultSudoDIRelayClient: SudoDIRelayClient {
         try await relayService.deleteMessage(withMessageId: messageId)
     }
 
+    public func bulkDeleteMessage(withMessageIds messageIds: [String]) async throws -> [String] {
+        try await relayService.bulkDeleteMessage(withMessageIds: messageIds)
+    }
+
     public func subscribeToMessageCreated(
             statusChangeHandler: SudoSubscriptionStatusChangeHandler?,
             resultHandler: @escaping ClientCompletion<Message>

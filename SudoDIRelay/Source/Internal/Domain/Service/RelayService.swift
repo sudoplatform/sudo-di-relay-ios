@@ -61,6 +61,14 @@ protocol RelayService: AnyObject {
     ///   - Failure: `SudoDIRelayError`
     func deleteMessage(withMessageId messageId: String) async throws -> String
 
+    /// Deletes the Messages associated with the given message identifiers.
+    /// - Parameters:
+    ///   - messageIds: The identifiers of the messages to be deleted.
+    /// - Returns:
+    ///   - Success: identifiers of deleted messages
+    ///   - Failure: `SudoDIRelayError`
+    func bulkDeleteMessage(withMessageIds messageIds: [String]) async throws -> [String]
+
     /// Subscribe to messages received to all postboxes for the current user.
     /// - Parameters:
     ///   - statusChangeHandler: Connection status change.

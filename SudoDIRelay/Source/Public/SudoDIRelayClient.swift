@@ -81,6 +81,14 @@ public protocol SudoDIRelayClient: AnyObject {
     ///   - Failure: `SudoDIRelayError`
     func deleteMessage(withMessageId messageId: String) async throws -> String
 
+    /// Deletes the messages associated with the given message identifiers
+    /// - Parameters:
+    ///   - messageIds: The identifiers of the messages to be deleted.
+    /// - Returns:
+    ///   - Success: identifiers of deleted messages
+    ///   - Failure: `SudoDIRelayError`
+    func bulkDeleteMessage(withMessageIds messageIds: [String]) async throws -> [String]
+
     // MARK: - Subscriptions
 
     /// Subscribe to message creation events for the current user. Subscription events will be delivered as long as the

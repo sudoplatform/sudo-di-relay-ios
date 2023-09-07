@@ -82,6 +82,28 @@ class MockRelayService: RelayService, Resetable {
         throw AnyError("Please add base result to `deleteMessage` in `MockRelayService`")
     }
 
+    // MARK: - BulkDeleteMessage
+
+    var bulkDeleteMessageCallCount = 0
+    var bulkDeleteMessageLastMessageIds: [String] = []
+    var bulkDeleteMessageResult: [String]?
+    var bulkDeleteMessageError: Error?
+
+    func bulkDeleteMessage(withMessageIds messageIds: [String]) async throws -> [String] {
+        bulkDeleteMessageCallCount += 1
+        bulkDeleteMessageLastMessageIds = messageIds
+
+        if let bulkDeleteMessageError = bulkDeleteMessageError {
+            throw bulkDeleteMessageError
+        }
+
+        if let bulkDeleteMessageResult = bulkDeleteMessageResult {
+            return bulkDeleteMessageResult
+        }
+
+        throw AnyError("Please add base result to `bulkDeleteMessage` in `MockRelayService`")
+    }
+
     // MARK: - CreatePostbox
 
     var createPostboxCallCount = 0

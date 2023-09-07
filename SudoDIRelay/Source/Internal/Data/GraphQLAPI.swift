@@ -98,6 +98,23 @@ internal struct DeleteRelayMessageInput: GraphQLMapConvertible {
   }
 }
 
+internal struct BulkDeleteRelayMessageInput: GraphQLMapConvertible {
+  internal var graphQLMap: GraphQLMap
+
+  internal init(messageIds: [GraphQLID]) {
+    graphQLMap = ["messageIds": messageIds]
+  }
+
+  internal var messageIds: [GraphQLID] {
+    get {
+      return graphQLMap["messageIds"] as! [GraphQLID]
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "messageIds")
+    }
+  }
+}
+
 internal struct InternalFireOnRelayMessageCreatedInput: GraphQLMapConvertible {
   internal var graphQLMap: GraphQLMap
 
@@ -1219,6 +1236,122 @@ internal final class DeleteRelayMessageMutation: GraphQLMutation {
         }
         set {
           snapshot.updateValue(newValue, forKey: "id")
+        }
+      }
+    }
+  }
+}
+
+internal final class BulkDeleteRelayMessageMutation: GraphQLMutation {
+  internal static let operationString =
+    "mutation BulkDeleteRelayMessage($input: BulkDeleteRelayMessageInput!) {\n  bulkDeleteRelayMessage(input: $input) {\n    __typename\n    items {\n      __typename\n      id\n    }\n  }\n}"
+
+  internal var input: BulkDeleteRelayMessageInput
+
+  internal init(input: BulkDeleteRelayMessageInput) {
+    self.input = input
+  }
+
+  internal var variables: GraphQLMap? {
+    return ["input": input]
+  }
+
+  internal struct Data: GraphQLSelectionSet {
+    internal static let possibleTypes = ["Mutation"]
+
+    internal static let selections: [GraphQLSelection] = [
+      GraphQLField("bulkDeleteRelayMessage", arguments: ["input": GraphQLVariable("input")], type: .object(BulkDeleteRelayMessage.selections)),
+    ]
+
+    internal var snapshot: Snapshot
+
+    internal init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    internal init(bulkDeleteRelayMessage: BulkDeleteRelayMessage? = nil) {
+      self.init(snapshot: ["__typename": "Mutation", "bulkDeleteRelayMessage": bulkDeleteRelayMessage.flatMap { $0.snapshot }])
+    }
+
+    internal var bulkDeleteRelayMessage: BulkDeleteRelayMessage? {
+      get {
+        return (snapshot["bulkDeleteRelayMessage"] as? Snapshot).flatMap { BulkDeleteRelayMessage(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "bulkDeleteRelayMessage")
+      }
+    }
+
+    internal struct BulkDeleteRelayMessage: GraphQLSelectionSet {
+      internal static let possibleTypes = ["RelayBulkDeletionResult"]
+
+      internal static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("items", type: .nonNull(.list(.nonNull(.object(Item.selections))))),
+      ]
+
+      internal var snapshot: Snapshot
+
+      internal init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      internal init(items: [Item]) {
+        self.init(snapshot: ["__typename": "RelayBulkDeletionResult", "items": items.map { $0.snapshot }])
+      }
+
+      internal var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      internal var items: [Item] {
+        get {
+          return (snapshot["items"] as! [Snapshot]).map { Item(snapshot: $0) }
+        }
+        set {
+          snapshot.updateValue(newValue.map { $0.snapshot }, forKey: "items")
+        }
+      }
+
+      internal struct Item: GraphQLSelectionSet {
+        internal static let possibleTypes = ["RelayDeletionResult"]
+
+        internal static let selections: [GraphQLSelection] = [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+        ]
+
+        internal var snapshot: Snapshot
+
+        internal init(snapshot: Snapshot) {
+          self.snapshot = snapshot
+        }
+
+        internal init(id: GraphQLID) {
+          self.init(snapshot: ["__typename": "RelayDeletionResult", "id": id])
+        }
+
+        internal var __typename: String {
+          get {
+            return snapshot["__typename"]! as! String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        internal var id: GraphQLID {
+          get {
+            return snapshot["id"]! as! GraphQLID
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "id")
+          }
         }
       }
     }

@@ -180,6 +180,45 @@ class DefaultRelayServiceTests: XCTestCase {
         }
     }
 
+    // MARK: - Tests: BulkDeleteMessage
+
+    func test_bulkDeleteMessage_RespectsErrors() async throws {
+        self.mockTransport.error = AnyError("Delete Failed")
+
+        do {
+            _ = try await instanceUnderTest.bulkDeleteMessage(withMessageIds: ["message-id-1", "message-id-2"])
+            XCTFail("Expected error not thrown.")
+        } catch {
+            self.XCTAssertErrorsEqual(
+                error,
+                SudoDIRelayError.fatalError(
+                    description: "Unexpected API operation error: appSyncClientError(cause: Delete Failed)")
+            )
+        }
+    }
+
+    func test_bulkDeleteMessage_ReturnsSuccessResult() async {
+        let data = BulkDeleteRelayMessageMutation.Data.BulkDeleteRelayMessage(
+            items: [
+                BulkDeleteRelayMessageMutation.Data.BulkDeleteRelayMessage.Item(id: "message-id-1"),
+                BulkDeleteRelayMessageMutation.Data.BulkDeleteRelayMessage.Item(id: "message-id-2")
+            ]
+        )
+        let mutationData = BulkDeleteRelayMessageMutation.Data(bulkDeleteRelayMessage: data)
+        self.mockTransport.responseBody = [
+            [
+                "data": mutationData.jsonObject
+            ]
+        ]
+
+        do {
+            let result = try await instanceUnderTest.bulkDeleteMessage(withMessageIds: ["message-id-1", "message-id-2"])
+            XCTAssertEqual(result, ["message-id-1", "message-id-2"])
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+    }
+
     // MARK: - Tests: CreatePostbox
 
     func test_createPostbox_RespectsErrors() async {

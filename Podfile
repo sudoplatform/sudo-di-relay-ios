@@ -24,8 +24,8 @@ target 'SudoDIRelay' do
   target 'SudoDIRelaySystemTests' do
     podspec :name => 'SudoDIRelay'
     pod 'SudoProfiles', '~> 17.0'
-    pod 'SudoEntitlements', '~> 9.0'
-    pod 'SudoEntitlementsAdmin', '~> 4.0'
+    pod 'SudoEntitlements', '~> 9.0.1'
+    pod 'SudoEntitlementsAdmin', '~> 4.1.1'
   end
 end
 
@@ -38,6 +38,6 @@ end
 post_install do |installer|
   installer.pods_project.build_configurations.each do |config|
     config.build_settings['CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED'] = 'YES'
-    config.build_settings['IPHONEOS_DEPLOYcd ..MENT_TARGET'] = '13.0'
+    config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
   end
 end

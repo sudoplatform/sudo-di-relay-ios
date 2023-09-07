@@ -74,6 +74,13 @@ mutation DeleteRelayMessage($input: DeleteRelayMessageInput!) {
     id
   }
 }
+mutation BulkDeleteRelayMessage($input: BulkDeleteRelayMessageInput!) {
+  bulkDeleteRelayMessage(input: $input) {
+    items {
+      id
+    }
+  }
+}
 mutation InternalFireOnRelayMessageCreated(
   $input: InternalFireOnRelayMessageCreatedInput!
 ) {
