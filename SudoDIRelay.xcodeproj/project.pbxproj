@@ -75,7 +75,7 @@
 		46E64E48281FEF91006F1E3D /* Error+Equality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E64E47281FEF91006F1E3D /* Error+Equality.swift */; };
 		46E8FF8F2806517600F9D51E /* GraphQLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E8FF8E2806517600F9D51E /* GraphQLHelper.swift */; };
 		46E8FF942806ADE800F9D51E /* PlatformSubscriptionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E8FF932806ADE800F9D51E /* PlatformSubscriptionStatus.swift */; };
-		84C07A82BA3A40976EC15BAC /* Pods_SudoDIRelay_SudoDIRelayIntegrationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCAD4B9A38E1428F0006B031 /* Pods_SudoDIRelay_SudoDIRelayIntegrationTests.framework */; };
+		60E83CD61D81F4DDF62E92B5 /* Pods_SudoDIRelay_SudoDIRelaySystemTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9359BFAAB962F59B89CCA206 /* Pods_SudoDIRelay_SudoDIRelaySystemTests.framework */; };
 		84C0F0E626BBA8CE005810AC /* SudoDIRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C0F0DC26BBA8CE005810AC /* SudoDIRelay.framework */; };
 		84C0F0FD26BBA9EB005810AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C0F0FC26BBA9EB005810AC /* AppDelegate.swift */; };
 		84C0F0FF26BBA9EB005810AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C0F0FE26BBA9EB005810AC /* SceneDelegate.swift */; };
@@ -123,6 +123,7 @@
 		1685B55FCC362B68C3EA38B5 /* Pods-SudoDIRelay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDIRelay.release.xcconfig"; path = "Target Support Files/Pods-SudoDIRelay/Pods-SudoDIRelay.release.xcconfig"; sourceTree = "<group>"; };
 		182752E71011A6189DAE8BDC /* Pods-SudoDecentralizedIdentityRelay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDecentralizedIdentityRelay.debug.xcconfig"; path = "Target Support Files/Pods-SudoDecentralizedIdentityRelay/Pods-SudoDecentralizedIdentityRelay.debug.xcconfig"; sourceTree = "<group>"; };
 		33FFF372CE5267B58B5ADBEF /* Pods_SudoDIRelay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoDIRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37717A4200E036A63A395B48 /* Pods-SudoDIRelay-SudoDIRelaySystemTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDIRelay-SudoDIRelaySystemTests.release.xcconfig"; path = "Target Support Files/Pods-SudoDIRelay-SudoDIRelaySystemTests/Pods-SudoDIRelay-SudoDIRelaySystemTests.release.xcconfig"; sourceTree = "<group>"; };
 		4600698D2819120B0010B7E6 /* PostboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostboxTests.swift; sourceTree = "<group>"; };
 		4626C64C2769AE9C00C7328B /* SudoDIRelayClientTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoDIRelayClientTestCase.swift; sourceTree = "<group>"; };
 		4626C64E2769AF9100C7328B /* SudoDIRelayConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoDIRelayConfig.swift; sourceTree = "<group>"; };
@@ -213,6 +214,7 @@
 		84C0F10826BBA9EE005810AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84C0F10A26BBA9EE005810AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84C0F11226BBAA54005810AC /* SudoDIRelaySystemTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SudoDIRelaySystemTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9359BFAAB962F59B89CCA206 /* Pods_SudoDIRelay_SudoDIRelaySystemTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoDIRelay_SudoDIRelaySystemTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A43ED3F9A42BB4F5BA3BE46A /* ListOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOutput.swift; sourceTree = "<group>"; };
 		ADFCBF682A11FDDF00C1341E /* ListPostboxesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPostboxesTests.swift; sourceTree = "<group>"; };
 		ADFCBF6A2A11FF4500C1341E /* UpdatePostboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePostboxTests.swift; sourceTree = "<group>"; };
@@ -221,11 +223,11 @@
 		ADFCBF702A130C7800C1341E /* DeleteMessageSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMessageSystemTests.swift; sourceTree = "<group>"; };
 		B1A20DF231086AA67706FD6B /* Pods_TestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B20911D3FFA37CDB04199FEF /* Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
-		CCAD4B9A38E1428F0006B031 /* Pods_SudoDIRelay_SudoDIRelayIntegrationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoDIRelay_SudoDIRelayIntegrationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDCA0B77AFCBC48EF74CF3E7 /* Pods_SudoDIRelay_SudoDIRelayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoDIRelay_SudoDIRelayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D460010390EA4E7CE5182BA6 /* Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.release.xcconfig"; path = "Target Support Files/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.release.xcconfig"; sourceTree = "<group>"; };
 		E037D0B81FA07B33BE8A225E /* Pods-SudoDIRelay-SudoDIRelayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDIRelay-SudoDIRelayTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoDIRelay-SudoDIRelayTests/Pods-SudoDIRelay-SudoDIRelayTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F62AF80D92DED01896F28AB4 /* Pods-SudoDIRelay-SudoDIRelayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDIRelay-SudoDIRelayTests.release.xcconfig"; path = "Target Support Files/Pods-SudoDIRelay-SudoDIRelayTests/Pods-SudoDIRelay-SudoDIRelayTests.release.xcconfig"; sourceTree = "<group>"; };
+		FB81572043071E05FCE70216 /* Pods-SudoDIRelay-SudoDIRelaySystemTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDIRelay-SudoDIRelaySystemTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoDIRelay-SudoDIRelaySystemTests/Pods-SudoDIRelay-SudoDIRelaySystemTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,7 +260,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84C07A82BA3A40976EC15BAC /* Pods_SudoDIRelay_SudoDIRelayIntegrationTests.framework in Frameworks */,
+				60E83CD61D81F4DDF62E92B5 /* Pods_SudoDIRelay_SudoDIRelaySystemTests.framework in Frameworks */,
 				84C0F11726BBAA54005810AC /* SudoDIRelay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -712,6 +714,8 @@
 				4DEEF3AD251C072D903B0DA3 /* Pods-SudoDecentralizedIdentityRelay.release.xcconfig */,
 				564E691B3F7C372121A00F45 /* Pods-SudoDIRelay-SudoDIRelayIntegrationTests.debug.xcconfig */,
 				51F22A600C748D61E9CBCD1E /* Pods-SudoDIRelay-SudoDIRelayIntegrationTests.release.xcconfig */,
+				FB81572043071E05FCE70216 /* Pods-SudoDIRelay-SudoDIRelaySystemTests.debug.xcconfig */,
+				37717A4200E036A63A395B48 /* Pods-SudoDIRelay-SudoDIRelaySystemTests.release.xcconfig */,
 				E037D0B81FA07B33BE8A225E /* Pods-SudoDIRelay-SudoDIRelayTests.debug.xcconfig */,
 				F62AF80D92DED01896F28AB4 /* Pods-SudoDIRelay-SudoDIRelayTests.release.xcconfig */,
 				7FC4D90D620C2CB9F29F297A /* Pods-SudoDIRelay.debug.xcconfig */,
@@ -764,7 +768,7 @@
 			isa = PBXGroup;
 			children = (
 				33FFF372CE5267B58B5ADBEF /* Pods_SudoDIRelay.framework */,
-				CCAD4B9A38E1428F0006B031 /* Pods_SudoDIRelay_SudoDIRelayIntegrationTests.framework */,
+				9359BFAAB962F59B89CCA206 /* Pods_SudoDIRelay_SudoDIRelaySystemTests.framework */,
 				CDCA0B77AFCBC48EF74CF3E7 /* Pods_SudoDIRelay_SudoDIRelayTests.framework */,
 				B1A20DF231086AA67706FD6B /* Pods_TestApp.framework */,
 			);
@@ -1011,15 +1015,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SudoDIRelay-SudoDIRelayIntegrationTests/Pods-SudoDIRelay-SudoDIRelayIntegrationTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-SudoDIRelay-SudoDIRelaySystemTests/Pods-SudoDIRelay-SudoDIRelaySystemTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SudoDIRelay-SudoDIRelayIntegrationTests/Pods-SudoDIRelay-SudoDIRelayIntegrationTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-SudoDIRelay-SudoDIRelaySystemTests/Pods-SudoDIRelay-SudoDIRelaySystemTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SudoDIRelay-SudoDIRelayIntegrationTests/Pods-SudoDIRelay-SudoDIRelayIntegrationTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SudoDIRelay-SudoDIRelaySystemTests/Pods-SudoDIRelay-SudoDIRelaySystemTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		80822063C83A94C8D7B0D845 /* [CP] Check Pods Manifest.lock */ = {
@@ -1134,7 +1138,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SudoDIRelay-SudoDIRelayIntegrationTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-SudoDIRelay-SudoDIRelaySystemTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1554,7 +1558,7 @@
 		};
 		84C0F11A26BBAA54005810AC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 564E691B3F7C372121A00F45 /* Pods-SudoDIRelay-SudoDIRelayIntegrationTests.debug.xcconfig */;
+			baseConfigurationReference = FB81572043071E05FCE70216 /* Pods-SudoDIRelay-SudoDIRelaySystemTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1576,7 +1580,7 @@
 		};
 		84C0F11B26BBAA54005810AC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51F22A600C748D61E9CBCD1E /* Pods-SudoDIRelay-SudoDIRelayIntegrationTests.release.xcconfig */;
+			baseConfigurationReference = 37717A4200E036A63A395B48 /* Pods-SudoDIRelay-SudoDIRelaySystemTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
