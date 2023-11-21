@@ -21,9 +21,6 @@ class DefaultRelayService: RelayService {
     /// Client used to interact with the GraphQL endpoint of the di relay.
     unowned var sudoApiClient: SudoApiClient
 
-    /// Helper for the AppSync client.
-    var appSyncClientHelper: AppSyncClientHelper
-
     /// Used to log diagnostic and error information.
     var logger: Logger
 
@@ -42,12 +39,10 @@ class DefaultRelayService: RelayService {
     init(
          userClient: SudoUserClient,
          sudoApiClient: SudoApiClient,
-         appSyncClientHelper: AppSyncClientHelper,
          logger: Logger = .relaySDKLogger
     ) {
         self.userClient = userClient
         self.sudoApiClient = sudoApiClient
-        self.appSyncClientHelper = appSyncClientHelper
         self.logger = logger
     }
 

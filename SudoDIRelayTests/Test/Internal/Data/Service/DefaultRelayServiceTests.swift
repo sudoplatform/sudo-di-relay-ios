@@ -18,7 +18,6 @@ class DefaultRelayServiceTests: XCTestCase {
 
     var graphQLClient: SudoApiClient!
     var instanceUnderTest: DefaultRelayService!
-    var appSyncClientHelper: MockAppSyncClientHelper!
     var mockUserClient: MockSudoUserClient!
     var mockTransport: MockAWSNetworkTransport!
     var logger: Logger!
@@ -30,23 +29,23 @@ class DefaultRelayServiceTests: XCTestCase {
     override func setUp() {
         logger = Logger.testLogger
 
-        guard let helper = try? MockAppSyncClientHelper() else {
-            XCTFail("Cannot instantiate MockAppSyncClientHelper in \(#function)")
+        self.mockUserClient = MockSudoUserClient()
+        guard let (graphQLClient, mockTransport) = try? MockAWSAppSyncClientGenerator.generate(logger: .testLogger, sudoUserClient: mockUserClient) else {
+            XCTFail("Failed to mock AppSyncClientGenerator")
             return
         }
-        appSyncClientHelper = helper
-        self.mockUserClient = appSyncClientHelper.getMockUserClient()
-        self.graphQLClient = appSyncClientHelper.getSudoApiClient()
-        self.mockTransport = appSyncClientHelper.getMockTransport()
 
-        instanceUnderTest = DefaultRelayService(userClient: mockUserClient, sudoApiClient: graphQLClient, appSyncClientHelper: appSyncClientHelper)
+        self.graphQLClient = graphQLClient
+        self.mockTransport = mockTransport
+
+        instanceUnderTest = DefaultRelayService(userClient: mockUserClient, sudoApiClient: graphQLClient)
         mockUserClient.isSignedInReturn = true
     }
 
     // MARK: - Tests: Lifecycle
 
     func test_initializer() {
-        let service = DefaultRelayService(userClient: mockUserClient, sudoApiClient: self.graphQLClient, appSyncClientHelper: self.appSyncClientHelper, logger: logger)
+        let service = DefaultRelayService(userClient: mockUserClient, sudoApiClient: self.graphQLClient, logger: logger)
         XCTAssertTrue(service.sudoApiClient === graphQLClient)
         XCTAssertTrue(service.logger === logger)
     }

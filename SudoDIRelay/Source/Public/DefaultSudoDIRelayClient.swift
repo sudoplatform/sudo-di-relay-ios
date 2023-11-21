@@ -35,9 +35,6 @@ public class DefaultSudoDIRelayClient: SudoDIRelayClient {
     /// Client used to authenticate to Sudo Platform.
     let sudoUserClient: SudoUserClient
 
-    /// Helper class to create AWS AppSyncClient
-    let appSyncClientHelper: AppSyncClientHelper
-
     /// App sync client for performing operations against the relay service.
     let sudoApiClient: SudoApiClient
 
@@ -53,25 +50,18 @@ public class DefaultSudoDIRelayClient: SudoDIRelayClient {
     /// Throws:
     ///     - `SudoDIRelayError` if invalid config.
     public convenience init(sudoUserClient: SudoUserClient) throws {
-        guard let configManager = SudoConfigManagerFactory.instance.getConfigManager(name: SudoConfigManagerFactory.Constants.defaultConfigManagerName) else {
+        // Get the SudoApiClient from the Manager and provide it with the Relay Service config.
+        guard let sudoApiClient = try SudoApiClientManager.instance?.getClient(
+            sudoUserClient: sudoUserClient, 
+            configNamespace: Config.Namespace.RelayService
+        ) else {
             throw SudoDIRelayError.invalidConfig
         }
-        guard configManager.getConfigSet(namespace: "apiService") != nil else {
-            throw SudoDIRelayError.invalidConfig
-        }
-        guard configManager.getConfigSet(namespace: Config.Namespace.RelayService) != nil else {
-            throw SudoDIRelayError.relayServiceConfigNotFound
-        }
 
-        let appSyncHelper = try DefaultAppSyncClientHelper(userClient: sudoUserClient)
-
-        let sudoApiClient = appSyncHelper.getSudoApiClient()
-
-        let relayService = DefaultRelayService(userClient: sudoUserClient, sudoApiClient: sudoApiClient, appSyncClientHelper: appSyncHelper)
+        let relayService = DefaultRelayService(userClient: sudoUserClient, sudoApiClient: sudoApiClient)
 
         self.init(
             sudoApiClient: sudoApiClient,
-            appSyncClientHelper: appSyncHelper,
             sudoUserClient: sudoUserClient,
             relayService: relayService
         )
@@ -82,13 +72,11 @@ public class DefaultSudoDIRelayClient: SudoDIRelayClient {
     /// This is used internally for injection and mock testing.
     internal init(
         sudoApiClient: SudoApiClient,
-        appSyncClientHelper: AppSyncClientHelper,
         sudoUserClient: SudoUserClient,
         relayService: RelayService,
         logger: Logger = .relaySDKLogger
     ) {
         self.sudoApiClient = sudoApiClient
-        self.appSyncClientHelper = appSyncClientHelper
         self.sudoUserClient = sudoUserClient
         self.relayService = relayService
         self.logger = logger

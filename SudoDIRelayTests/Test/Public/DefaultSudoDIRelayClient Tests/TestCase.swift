@@ -16,7 +16,6 @@ class DefaultSudoDIRelayTestCase: XCTestCase {
 
     var instanceUnderTest: DefaultSudoDIRelayClient!
     var graphQLClient: SudoApiClient!
-    var mockAppSyncClientHelper: MockAppSyncClientHelper!
     var mockRelayService: MockRelayService!
     var mockUserClient: MockSudoUserClient!
 
@@ -30,16 +29,9 @@ class DefaultSudoDIRelayTestCase: XCTestCase {
             return
         }
 
-        do {
-            mockAppSyncClientHelper = try MockAppSyncClientHelper()
-        } catch {
-            XCTFail("Unable to set up MockAppSyncClientHelper.")
-            return
-        }
         mockRelayService = MockRelayService()
         instanceUnderTest = DefaultSudoDIRelayClient(
             sudoApiClient: graphQLClient,
-            appSyncClientHelper: mockAppSyncClientHelper,
             sudoUserClient: mockUserClient,
             relayService: mockRelayService)
     }

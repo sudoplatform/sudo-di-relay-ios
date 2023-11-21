@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          SudoDIRelay 3.1.1 Docs
+          SudoDIRelay 3.2.0 Docs
         </a>
         
       </p>
@@ -211,7 +211,7 @@ the implementation class is only meant to be used for initializing an instance o
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listPostboxes</span><span class="p">(</span><span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?,</span> <span class="nv">nextToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ListOutput.html">ListOutput</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Postbox.html">Postbox</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listPostboxes</span><span class="p">(</span><span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?,</span> <span class="nv">nextToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ListOutput.html">ListOutput</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Postbox.html">Postbox</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -279,7 +279,7 @@ the implementation class is only meant to be used for initializing an instance o
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listMessages</span><span class="p">(</span><span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?,</span> <span class="nv">nextToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ListOutput.html">ListOutput</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Message.html">Message</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listMessages</span><span class="p">(</span><span class="nv">limit</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?,</span> <span class="nv">nextToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ListOutput.html">ListOutput</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Message.html">Message</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -360,7 +360,7 @@ the implementation class is only meant to be used for initializing an instance o
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createPostbox</span><span class="p">(</span><span class="n">withConnectionId</span> <span class="nv">connectionId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">ownershipProofToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">isEnabled</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Postbox.html">Postbox</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createPostbox</span><span class="p">(</span><span class="n">withConnectionId</span> <span class="nv">connectionId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">ownershipProofToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">isEnabled</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Postbox.html">Postbox</a></span></code></pre>
 
                         </div>
                       </div>
@@ -440,7 +440,7 @@ the implementation class is only meant to be used for initializing an instance o
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updatePostbox</span><span class="p">(</span><span class="n">withPostboxId</span> <span class="nv">postboxId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">isEnabled</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Postbox.html">Postbox</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updatePostbox</span><span class="p">(</span><span class="n">withPostboxId</span> <span class="nv">postboxId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">isEnabled</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Postbox.html">Postbox</a></span></code></pre>
 
                         </div>
                       </div>
@@ -508,7 +508,7 @@ the implementation class is only meant to be used for initializing an instance o
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deletePostbox</span><span class="p">(</span><span class="n">withPostboxId</span> <span class="nv">postboxId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deletePostbox</span><span class="p">(</span><span class="n">withPostboxId</span> <span class="nv">postboxId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -564,7 +564,7 @@ the implementation class is only meant to be used for initializing an instance o
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteMessage</span><span class="p">(</span><span class="n">withMessageId</span> <span class="nv">messageId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteMessage</span><span class="p">(</span><span class="n">withMessageId</span> <span class="nv">messageId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -620,7 +620,7 @@ the implementation class is only meant to be used for initializing an instance o
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">bulkDeleteMessage</span><span class="p">(</span><span class="n">withMessageIds</span> <span class="nv">messageIds</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">])</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">bulkDeleteMessage</span><span class="p">(</span><span class="n">withMessageIds</span> <span class="nv">messageIds</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">])</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -693,7 +693,7 @@ returned  token remains in scope and the connection status remains .connected.</
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">subscribeToMessageCreated</span><span class="p">(</span>
         <span class="nv">statusChangeHandler</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11SudoDIRelay0A31SubscriptionStatusChangeHandlera">SudoSubscriptionStatusChangeHandler</a></span><span class="p">?,</span>
         <span class="nv">resultHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:11SudoDIRelay16ClientCompletiona">ClientCompletion</a></span><span class="o">&lt;</span><span class="kt"><a href="../Structs/Message.html">Message</a></span><span class="o">&gt;</span>
-<span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/SubscriptionToken.html">SubscriptionToken</a></span><span class="p">?</span></code></pre>
+<span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/SubscriptionToken.html">SubscriptionToken</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -770,7 +770,7 @@ returned  token remains in scope and the connection status remains .connected.</
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2023 <a class="link" href="https://sudoplatform.com" target="_blank" rel="external noopener">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2023-09-08)</p>
+      <p>&copy; 2023 <a class="link" href="https://sudoplatform.com" target="_blank" rel="external noopener">Sudo Platform Engineering</a>. All rights reserved. (Last updated: 2023-11-22)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
