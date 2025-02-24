@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1330"
-   version = "1.3">
+   LastUpgradeVersion = "1540"
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
-      buildImplicitDependencies = "YES">
+      buildImplicitDependencies = "YES"
+      buildArchitectures = "Automatic">
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -14,10 +15,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "84C0F0E426BBA8CE005810AC"
-               BuildableName = "SudoDIRelayTests.xctest"
-               BlueprintName = "SudoDIRelayTests"
-               ReferencedContainer = "container:SudoDIRelay.xcodeproj">
+               BlueprintIdentifier = "sudo-di-relay-ios"
+               BuildableName = "sudo-di-relay-ios"
+               BlueprintName = "sudo-di-relay-ios"
+               ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -26,19 +27,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
-      <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "84C0F0E426BBA8CE005810AC"
-               BuildableName = "SudoDIRelayTests.xctest"
-               BlueprintName = "SudoDIRelayTests"
-               ReferencedContainer = "container:SudoDIRelay.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      shouldAutocreateTestPlan = "YES">
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -60,10 +50,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "84C0F0E426BBA8CE005810AC"
-            BuildableName = "SudoDIRelayTests.xctest"
-            BlueprintName = "SudoDIRelayTests"
-            ReferencedContainer = "container:SudoDIRelay.xcodeproj">
+            BlueprintIdentifier = "sudo-di-relay-ios"
+            BuildableName = "sudo-di-relay-ios"
+            BlueprintName = "sudo-di-relay-ios"
+            ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

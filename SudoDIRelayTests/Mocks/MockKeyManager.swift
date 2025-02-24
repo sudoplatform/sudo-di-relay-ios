@@ -8,6 +8,11 @@ import Foundation
 import SudoKeyManager
 
 class MockKeyManager: SudoKeyManager {
+    
+    func encryptWithPublicKey(_ key: Data, data: Data, algorithm: PublicKeyEncryptionAlgorithm) throws -> Data {
+        return data
+    }
+    
     func deletePrivateKey(_ name: String) throws {
 
     }

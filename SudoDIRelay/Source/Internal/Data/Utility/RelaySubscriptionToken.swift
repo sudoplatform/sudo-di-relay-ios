@@ -5,7 +5,7 @@
 //
 
 import AWSAppSync
-
+import Foundation
 /// Internal subscription token for handling the state of a subscription.
 class RelaySubscriptionToken: SubscriptionToken, Hashable {
 

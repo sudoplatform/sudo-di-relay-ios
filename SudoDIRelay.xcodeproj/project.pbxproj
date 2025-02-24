@@ -7,33 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1CA1F7A9ABA42CD7B92D3615 /* Pods_SudoDIRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33FFF372CE5267B58B5ADBEF /* Pods_SudoDIRelay.framework */; };
+		2FE4F1512D5D6F66009885FD /* SudoProfiles in Frameworks */ = {isa = PBXBuildFile; productRef = 2FE4F1502D5D6F66009885FD /* SudoProfiles */; };
+		2FE4F1542D5D6FB5009885FD /* SudoEntitlementsAdmin in Frameworks */ = {isa = PBXBuildFile; productRef = 2FE4F1532D5D6FB5009885FD /* SudoEntitlementsAdmin */; };
+		2FE4F1572D5D6FEB009885FD /* SudoEntitlements in Frameworks */ = {isa = PBXBuildFile; productRef = 2FE4F1562D5D6FEB009885FD /* SudoEntitlements */; };
 		4600698E2819120B0010B7E6 /* PostboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4600698D2819120B0010B7E6 /* PostboxTests.swift */; };
 		4626C64D2769AE9C00C7328B /* SudoDIRelayClientTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4626C64C2769AE9C00C7328B /* SudoDIRelayClientTestCase.swift */; };
-		4626C651276A13A000C7328B /* AnyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEBC26EED498006C6FD0 /* AnyError.swift */; };
-		462EE3D127D9B0CB00BC2115 /* Postbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462EE3D027D9B0CA00BC2115 /* Postbox.swift */; };
-		464CAEBE26EED499006C6FD0 /* SudoDecentralizedIdentityRelay.h in Headers */ = {isa = PBXBuildFile; fileRef = 464CAE2D26EED493006C6FD0 /* SudoDecentralizedIdentityRelay.h */; };
-		464CAEBF26EED499006C6FD0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 464CAE2F26EED493006C6FD0 /* Localizable.strings */; };
-		464CAF1D26EEE07D006C6FD0 /* Date+MillisecondsSinceEpoch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE3426EED493006C6FD0 /* Date+MillisecondsSinceEpoch.swift */; };
-		464CAF1E26EEE07D006C6FD0 /* OperationArray+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE3526EED493006C6FD0 /* OperationArray+Convenience.swift */; };
-		464CAF1F26EEE07D006C6FD0 /* SudoLogger+DecentralizedRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE3626EED493006C6FD0 /* SudoLogger+DecentralizedRelay.swift */; };
-		464CAF2026EEE07D006C6FD0 /* Bundle+Static.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE3726EED493006C6FD0 /* Bundle+Static.swift */; };
-		464CAF2126EEE07D006C6FD0 /* GraphQLResultWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE3B26EED494006C6FD0 /* GraphQLResultWorker.swift */; };
-		464CAF2226EEE07D006C6FD0 /* GraphQLAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE3C26EED494006C6FD0 /* GraphQLAPI.swift */; };
-		464CAF2326EEE07D006C6FD0 /* RelayTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE3E26EED494006C6FD0 /* RelayTransformer.swift */; };
-		464CAF2426EEE07D006C6FD0 /* DefaultRelayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4026EED494006C6FD0 /* DefaultRelayService.swift */; };
-		464CAF2526EEE07D006C6FD0 /* AppSyncClientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4226EED494006C6FD0 /* AppSyncClientHelper.swift */; };
-		464CAF2626EEE07D006C6FD0 /* Resetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4326EED494006C6FD0 /* Resetable.swift */; };
-		464CAF2726EEE07D006C6FD0 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4526EED494006C6FD0 /* SubscriptionManager.swift */; };
-		464CAF2A26EEE07D006C6FD0 /* RelaySubscriptionToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE4826EED494006C6FD0 /* RelaySubscriptionToken.swift */; };
-		464CAF3226EEE07D006C6FD0 /* RelayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5326EED494006C6FD0 /* RelayService.swift */; };
-		464CAF3326EEE07D006C6FD0 /* DefaultSudoDIRelayClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5526EED494006C6FD0 /* DefaultSudoDIRelayClient.swift */; };
-		464CAF3426EEE07D006C6FD0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5726EED494006C6FD0 /* Message.swift */; };
-		464CAF3526EEE07D006C6FD0 /* SubscriptionToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5826EED495006C6FD0 /* SubscriptionToken.swift */; };
-		464CAF3626EEE07D006C6FD0 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5926EED495006C6FD0 /* Status.swift */; };
-		464CAF3826EEE07D006C6FD0 /* SudoDIRelayClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5B26EED495006C6FD0 /* SudoDIRelayClient.swift */; };
-		464CAF3926EEE07D006C6FD0 /* SudoDIRelayError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5D26EED495006C6FD0 /* SudoDIRelayError.swift */; };
-		464CAF3A26EEE07D006C6FD0 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE5F26EED495006C6FD0 /* Strings.swift */; };
 		464CAF3B26EEE1A4006C6FD0 /* MockGraphQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7726EED496006C6FD0 /* MockGraphQL.swift */; };
 		464CAF3D26EEE1A4006C6FD0 /* MockSubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7926EED496006C6FD0 /* MockSubscriptionManager.swift */; };
 		464CAF3E26EEE1A4006C6FD0 /* MockSubscriptionToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7A26EED496006C6FD0 /* MockSubscriptionToken.swift */; };
@@ -70,43 +48,32 @@
 		464CAF7226EEE1CD006C6FD0 /* DataFactory+TestUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7026EED496006C6FD0 /* DataFactory+TestUtility.swift */; };
 		464CAF7326EEE1CD006C6FD0 /* HTTPTransports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7426EED496006C6FD0 /* HTTPTransports.swift */; };
 		46E64E48281FEF91006F1E3D /* Error+Equality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E64E47281FEF91006F1E3D /* Error+Equality.swift */; };
-		46E8FF8F2806517600F9D51E /* GraphQLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E8FF8E2806517600F9D51E /* GraphQLHelper.swift */; };
-		46E8FF942806ADE800F9D51E /* PlatformSubscriptionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E8FF932806ADE800F9D51E /* PlatformSubscriptionStatus.swift */; };
-		60E83CD61D81F4DDF62E92B5 /* Pods_SudoDIRelay_SudoDIRelaySystemTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9359BFAAB962F59B89CCA206 /* Pods_SudoDIRelay_SudoDIRelaySystemTests.framework */; };
-		84C0F0E626BBA8CE005810AC /* SudoDIRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C0F0DC26BBA8CE005810AC /* SudoDIRelay.framework */; };
 		84C0F0FD26BBA9EB005810AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C0F0FC26BBA9EB005810AC /* AppDelegate.swift */; };
 		84C0F0FF26BBA9EB005810AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C0F0FE26BBA9EB005810AC /* SceneDelegate.swift */; };
 		84C0F10126BBA9EB005810AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C0F10026BBA9EB005810AC /* ViewController.swift */; };
 		84C0F10426BBA9EB005810AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C0F10226BBA9EB005810AC /* Main.storyboard */; };
 		84C0F10626BBA9EE005810AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C0F10526BBA9EE005810AC /* Assets.xcassets */; };
 		84C0F10926BBA9EE005810AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C0F10726BBA9EE005810AC /* LaunchScreen.storyboard */; };
-		84C0F11726BBAA54005810AC /* SudoDIRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C0F0DC26BBA8CE005810AC /* SudoDIRelay.framework */; };
-		A43ED15F2A750AB60FC2A46C /* ListOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43ED3F9A42BB4F5BA3BE46A /* ListOutput.swift */; };
 		ADFCBF692A11FDDF00C1341E /* ListPostboxesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFCBF682A11FDDF00C1341E /* ListPostboxesTests.swift */; };
 		ADFCBF6B2A11FF4500C1341E /* UpdatePostboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFCBF6A2A11FF4500C1341E /* UpdatePostboxTests.swift */; };
 		ADFCBF6D2A12F7BE00C1341E /* UpdatePostboxSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFCBF6C2A12F7BE00C1341E /* UpdatePostboxSystemTests.swift */; };
 		ADFCBF6F2A130C4B00C1341E /* ListPostboxesSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFCBF6E2A130C4B00C1341E /* ListPostboxesSystemTests.swift */; };
 		ADFCBF712A130C7800C1341E /* DeleteMessageSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFCBF702A130C7800C1341E /* DeleteMessageSystemTests.swift */; };
-		C0BB50814B29D8009E61A973 /* Pods_SudoDIRelay_SudoDIRelayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCA0B77AFCBC48EF74CF3E7 /* Pods_SudoDIRelay_SudoDIRelayTests.framework */; };
-		CEDE041DCC9E77CA5DC04D4C /* Pods_TestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A20DF231086AA67706FD6B /* Pods_TestApp.framework */; };
+		E2E767892D0B959D00D6DE89 /* SudoDIRelay in Frameworks */ = {isa = PBXBuildFile; productRef = E2E767882D0B959D00D6DE89 /* SudoDIRelay */; };
+		E2E7678B2D0B95A200D6DE89 /* SudoDIRelay in Frameworks */ = {isa = PBXBuildFile; productRef = E2E7678A2D0B95A200D6DE89 /* SudoDIRelay */; };
+		E2E767992D0B985400D6DE89 /* AnyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEBC26EED498006C6FD0 /* AnyError.swift */; };
+		E2E7679A2D0B985500D6DE89 /* AnyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEBC26EED498006C6FD0 /* AnyError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		84C0F0E726BBA8CE005810AC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 84C0F0D326BBA8CD005810AC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 84C0F0DB26BBA8CE005810AC;
-			remoteInfo = SudoDecentralizedIdentityRelay;
-		};
-		84C0F11826BBAA54005810AC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 84C0F0D326BBA8CD005810AC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 84C0F0DB26BBA8CE005810AC;
-			remoteInfo = SudoDecentralizedIdentityRelay;
-		};
 		84C0F1D926BBAEBD005810AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84C0F0D326BBA8CD005810AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84C0F0F926BBA9EB005810AC;
+			remoteInfo = TestApp;
+		};
+		E2E767972D0B981100D6DE89 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84C0F0D326BBA8CD005810AC /* Project object */;
 			proxyType = 1;
@@ -116,11 +83,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		06AC1E2E07922C8420722B89 /* Pods-TestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApp.debug.xcconfig"; path = "Target Support Files/Pods-TestApp/Pods-TestApp.debug.xcconfig"; sourceTree = "<group>"; };
-		1685B55FCC362B68C3EA38B5 /* Pods-SudoDIRelay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDIRelay.release.xcconfig"; path = "Target Support Files/Pods-SudoDIRelay/Pods-SudoDIRelay.release.xcconfig"; sourceTree = "<group>"; };
-		182752E71011A6189DAE8BDC /* Pods-SudoDecentralizedIdentityRelay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDecentralizedIdentityRelay.debug.xcconfig"; path = "Target Support Files/Pods-SudoDecentralizedIdentityRelay/Pods-SudoDecentralizedIdentityRelay.debug.xcconfig"; sourceTree = "<group>"; };
-		33FFF372CE5267B58B5ADBEF /* Pods_SudoDIRelay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoDIRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		37717A4200E036A63A395B48 /* Pods-SudoDIRelay-SudoDIRelaySystemTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDIRelay-SudoDIRelaySystemTests.release.xcconfig"; path = "Target Support Files/Pods-SudoDIRelay-SudoDIRelaySystemTests/Pods-SudoDIRelay-SudoDIRelaySystemTests.release.xcconfig"; sourceTree = "<group>"; };
 		4600698D2819120B0010B7E6 /* PostboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostboxTests.swift; sourceTree = "<group>"; };
 		4626C64C2769AE9C00C7328B /* SudoDIRelayClientTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoDIRelayClientTestCase.swift; sourceTree = "<group>"; };
 		462EE3D027D9B0CA00BC2115 /* Postbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Postbox.swift; sourceTree = "<group>"; };
@@ -190,14 +152,6 @@
 		46E64E47281FEF91006F1E3D /* Error+Equality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Equality.swift"; sourceTree = "<group>"; };
 		46E8FF8E2806517600F9D51E /* GraphQLHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLHelper.swift; sourceTree = "<group>"; };
 		46E8FF932806ADE800F9D51E /* PlatformSubscriptionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformSubscriptionStatus.swift; sourceTree = "<group>"; };
-		4DEEF3AD251C072D903B0DA3 /* Pods-SudoDecentralizedIdentityRelay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDecentralizedIdentityRelay.release.xcconfig"; path = "Target Support Files/Pods-SudoDecentralizedIdentityRelay/Pods-SudoDecentralizedIdentityRelay.release.xcconfig"; sourceTree = "<group>"; };
-		51F22A600C748D61E9CBCD1E /* Pods-SudoDIRelay-SudoDIRelayIntegrationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDIRelay-SudoDIRelayIntegrationTests.release.xcconfig"; path = "Target Support Files/Pods-SudoDIRelay-SudoDIRelayIntegrationTests/Pods-SudoDIRelay-SudoDIRelayIntegrationTests.release.xcconfig"; sourceTree = "<group>"; };
-		564E691B3F7C372121A00F45 /* Pods-SudoDIRelay-SudoDIRelayIntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDIRelay-SudoDIRelayIntegrationTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoDIRelay-SudoDIRelayIntegrationTests/Pods-SudoDIRelay-SudoDIRelayIntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5EB4E9655642C01F12220EA5 /* Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayTests/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayTests.debug.xcconfig"; sourceTree = "<group>"; };
-		788DA514F677786725F693AF /* Pods-TestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApp.release.xcconfig"; path = "Target Support Files/Pods-TestApp/Pods-TestApp.release.xcconfig"; sourceTree = "<group>"; };
-		7F9A8A44EFC5DF75F7AAED8D /* Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayTests.release.xcconfig"; path = "Target Support Files/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayTests/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayTests.release.xcconfig"; sourceTree = "<group>"; };
-		7FC4D90D620C2CB9F29F297A /* Pods-SudoDIRelay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDIRelay.debug.xcconfig"; path = "Target Support Files/Pods-SudoDIRelay/Pods-SudoDIRelay.debug.xcconfig"; sourceTree = "<group>"; };
-		84C0F0DC26BBA8CE005810AC /* SudoDIRelay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SudoDIRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C0F0E526BBA8CE005810AC /* SudoDIRelayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SudoDIRelayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C0F0FA26BBA9EB005810AC /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C0F0FC26BBA9EB005810AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -208,37 +162,20 @@
 		84C0F10826BBA9EE005810AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84C0F10A26BBA9EE005810AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84C0F11226BBAA54005810AC /* SudoDIRelaySystemTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SudoDIRelaySystemTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9359BFAAB962F59B89CCA206 /* Pods_SudoDIRelay_SudoDIRelaySystemTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoDIRelay_SudoDIRelaySystemTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A43ED3F9A42BB4F5BA3BE46A /* ListOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOutput.swift; sourceTree = "<group>"; };
 		ADFCBF682A11FDDF00C1341E /* ListPostboxesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPostboxesTests.swift; sourceTree = "<group>"; };
 		ADFCBF6A2A11FF4500C1341E /* UpdatePostboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePostboxTests.swift; sourceTree = "<group>"; };
 		ADFCBF6C2A12F7BE00C1341E /* UpdatePostboxSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePostboxSystemTests.swift; sourceTree = "<group>"; };
 		ADFCBF6E2A130C4B00C1341E /* ListPostboxesSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPostboxesSystemTests.swift; sourceTree = "<group>"; };
 		ADFCBF702A130C7800C1341E /* DeleteMessageSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMessageSystemTests.swift; sourceTree = "<group>"; };
-		B1A20DF231086AA67706FD6B /* Pods_TestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B20911D3FFA37CDB04199FEF /* Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
-		CDCA0B77AFCBC48EF74CF3E7 /* Pods_SudoDIRelay_SudoDIRelayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SudoDIRelay_SudoDIRelayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D460010390EA4E7CE5182BA6 /* Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.release.xcconfig"; path = "Target Support Files/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests/Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.release.xcconfig"; sourceTree = "<group>"; };
-		E037D0B81FA07B33BE8A225E /* Pods-SudoDIRelay-SudoDIRelayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDIRelay-SudoDIRelayTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoDIRelay-SudoDIRelayTests/Pods-SudoDIRelay-SudoDIRelayTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F62AF80D92DED01896F28AB4 /* Pods-SudoDIRelay-SudoDIRelayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDIRelay-SudoDIRelayTests.release.xcconfig"; path = "Target Support Files/Pods-SudoDIRelay-SudoDIRelayTests/Pods-SudoDIRelay-SudoDIRelayTests.release.xcconfig"; sourceTree = "<group>"; };
-		FB81572043071E05FCE70216 /* Pods-SudoDIRelay-SudoDIRelaySystemTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SudoDIRelay-SudoDIRelaySystemTests.debug.xcconfig"; path = "Target Support Files/Pods-SudoDIRelay-SudoDIRelaySystemTests/Pods-SudoDIRelay-SudoDIRelaySystemTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		84C0F0D926BBA8CE005810AC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1CA1F7A9ABA42CD7B92D3615 /* Pods_SudoDIRelay.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		84C0F0E226BBA8CE005810AC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0BB50814B29D8009E61A973 /* Pods_SudoDIRelay_SudoDIRelayTests.framework in Frameworks */,
-				84C0F0E626BBA8CE005810AC /* SudoDIRelay.framework in Frameworks */,
+				E2E767892D0B959D00D6DE89 /* SudoDIRelay in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +183,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEDE041DCC9E77CA5DC04D4C /* Pods_TestApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,8 +190,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60E83CD61D81F4DDF62E92B5 /* Pods_SudoDIRelay_SudoDIRelaySystemTests.framework in Frameworks */,
-				84C0F11726BBAA54005810AC /* SudoDIRelay.framework in Frameworks */,
+				E2E7678B2D0B95A200D6DE89 /* SudoDIRelay in Frameworks */,
+				2FE4F1572D5D6FEB009885FD /* SudoEntitlements in Frameworks */,
+				2FE4F1542D5D6FB5009885FD /* SudoEntitlementsAdmin in Frameworks */,
+				2FE4F1512D5D6F66009885FD /* SudoProfiles in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,22 +635,6 @@
 		6C63A5040BD71F5B3801A429 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B20911D3FFA37CDB04199FEF /* Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.debug.xcconfig */,
-				D460010390EA4E7CE5182BA6 /* Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayIntegrationTests.release.xcconfig */,
-				5EB4E9655642C01F12220EA5 /* Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayTests.debug.xcconfig */,
-				7F9A8A44EFC5DF75F7AAED8D /* Pods-SudoDecentralizedIdentityRelay-SudoDecentralizedIdentityRelayTests.release.xcconfig */,
-				182752E71011A6189DAE8BDC /* Pods-SudoDecentralizedIdentityRelay.debug.xcconfig */,
-				4DEEF3AD251C072D903B0DA3 /* Pods-SudoDecentralizedIdentityRelay.release.xcconfig */,
-				564E691B3F7C372121A00F45 /* Pods-SudoDIRelay-SudoDIRelayIntegrationTests.debug.xcconfig */,
-				51F22A600C748D61E9CBCD1E /* Pods-SudoDIRelay-SudoDIRelayIntegrationTests.release.xcconfig */,
-				FB81572043071E05FCE70216 /* Pods-SudoDIRelay-SudoDIRelaySystemTests.debug.xcconfig */,
-				37717A4200E036A63A395B48 /* Pods-SudoDIRelay-SudoDIRelaySystemTests.release.xcconfig */,
-				E037D0B81FA07B33BE8A225E /* Pods-SudoDIRelay-SudoDIRelayTests.debug.xcconfig */,
-				F62AF80D92DED01896F28AB4 /* Pods-SudoDIRelay-SudoDIRelayTests.release.xcconfig */,
-				7FC4D90D620C2CB9F29F297A /* Pods-SudoDIRelay.debug.xcconfig */,
-				1685B55FCC362B68C3EA38B5 /* Pods-SudoDIRelay.release.xcconfig */,
-				06AC1E2E07922C8420722B89 /* Pods-TestApp.debug.xcconfig */,
-				788DA514F677786725F693AF /* Pods-TestApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -726,14 +648,13 @@
 				84C0F0FB26BBA9EB005810AC /* TestApp */,
 				84C0F0DD26BBA8CE005810AC /* Products */,
 				6C63A5040BD71F5B3801A429 /* Pods */,
-				B0C575EE279F0DFD7B49ED0E /* Frameworks */,
+				E2E767872D0B959D00D6DE89 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		84C0F0DD26BBA8CE005810AC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84C0F0DC26BBA8CE005810AC /* SudoDIRelay.framework */,
 				84C0F11226BBAA54005810AC /* SudoDIRelaySystemTests.xctest */,
 				84C0F0E526BBA8CE005810AC /* SudoDIRelayTests.xctest */,
 				84C0F0FA26BBA9EB005810AC /* TestApp.app */,
@@ -755,67 +676,33 @@
 			path = TestApp;
 			sourceTree = "<group>";
 		};
-		B0C575EE279F0DFD7B49ED0E /* Frameworks */ = {
+		E2E767872D0B959D00D6DE89 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				33FFF372CE5267B58B5ADBEF /* Pods_SudoDIRelay.framework */,
-				9359BFAAB962F59B89CCA206 /* Pods_SudoDIRelay_SudoDIRelaySystemTests.framework */,
-				CDCA0B77AFCBC48EF74CF3E7 /* Pods_SudoDIRelay_SudoDIRelayTests.framework */,
-				B1A20DF231086AA67706FD6B /* Pods_TestApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		84C0F0D726BBA8CE005810AC /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				464CAEBE26EED499006C6FD0 /* SudoDecentralizedIdentityRelay.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		84C0F0DB26BBA8CE005810AC /* SudoDIRelay */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 84C0F0F026BBA8CE005810AC /* Build configuration list for PBXNativeTarget "SudoDIRelay" */;
-			buildPhases = (
-				682229C5FE643DB6EBE115CB /* [CP] Check Pods Manifest.lock */,
-				84C0F0D726BBA8CE005810AC /* Headers */,
-				84C0F0D826BBA8CE005810AC /* Sources */,
-				84C0F0D926BBA8CE005810AC /* Frameworks */,
-				84C0F0DA26BBA8CE005810AC /* Resources */,
-				46CDB9F526C1E4ED0019EDC1 /* SwiftLint */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SudoDIRelay;
-			productName = SudoDecentralizedIdentityRelay;
-			productReference = 84C0F0DC26BBA8CE005810AC /* SudoDIRelay.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		84C0F0E426BBA8CE005810AC /* SudoDIRelayTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84C0F0F326BBA8CE005810AC /* Build configuration list for PBXNativeTarget "SudoDIRelayTests" */;
 			buildPhases = (
-				B4C638017214EE13D87766A5 /* [CP] Check Pods Manifest.lock */,
 				84C0F0E126BBA8CE005810AC /* Sources */,
 				84C0F0E226BBA8CE005810AC /* Frameworks */,
 				84C0F0E326BBA8CE005810AC /* Resources */,
-				2952C29AD719F7AB6365DC8D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				84C0F0E826BBA8CE005810AC /* PBXTargetDependency */,
+				E2E767982D0B981100D6DE89 /* PBXTargetDependency */,
 			);
 			name = SudoDIRelayTests;
+			packageProductDependencies = (
+				E2E767882D0B959D00D6DE89 /* SudoDIRelay */,
+			);
 			productName = SudoDecentralizedIdentityRelayTests;
 			productReference = 84C0F0E526BBA8CE005810AC /* SudoDIRelayTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -824,11 +711,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84C0F10B26BBA9EE005810AC /* Build configuration list for PBXNativeTarget "TestApp" */;
 			buildPhases = (
-				80822063C83A94C8D7B0D845 /* [CP] Check Pods Manifest.lock */,
 				84C0F0F626BBA9EB005810AC /* Sources */,
 				84C0F0F726BBA9EB005810AC /* Frameworks */,
 				84C0F0F826BBA9EB005810AC /* Resources */,
-				AE0CC9BCBFD9C61F3A9EF0D8 /* [CP] Embed Pods Frameworks */,
 				84C0F1D826BBAE8B005810AC /* Copy Config To Resources */,
 			);
 			buildRules = (
@@ -844,20 +729,23 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84C0F11C26BBAA54005810AC /* Build configuration list for PBXNativeTarget "SudoDIRelaySystemTests" */;
 			buildPhases = (
-				C7C684DE372173D0C0546955 /* [CP] Check Pods Manifest.lock */,
 				84C0F10E26BBAA54005810AC /* Sources */,
 				84C0F10F26BBAA54005810AC /* Frameworks */,
 				84C0F11026BBAA54005810AC /* Resources */,
-				6A7D92B08447738B753A365B /* [CP] Embed Pods Frameworks */,
 				84C0F1D726BBAE1F005810AC /* Copy TEST keys */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				84C0F11926BBAA54005810AC /* PBXTargetDependency */,
 				84C0F1DA26BBAEBD005810AC /* PBXTargetDependency */,
 			);
 			name = SudoDIRelaySystemTests;
+			packageProductDependencies = (
+				E2E7678A2D0B95A200D6DE89 /* SudoDIRelay */,
+				2FE4F1502D5D6F66009885FD /* SudoProfiles */,
+				2FE4F1532D5D6FB5009885FD /* SudoEntitlementsAdmin */,
+				2FE4F1562D5D6FEB009885FD /* SudoEntitlements */,
+			);
 			productName = SudoDecentralizedIdentityRelayIntegrationTests;
 			productReference = 84C0F11226BBAA54005810AC /* SudoDIRelaySystemTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -871,11 +759,9 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
-					84C0F0DB26BBA8CE005810AC = {
-						CreatedOnToolsVersion = 12.5.1;
-					};
 					84C0F0E426BBA8CE005810AC = {
 						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 84C0F0F926BBA9EB005810AC;
 					};
 					84C0F0F926BBA9EB005810AC = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -895,27 +781,23 @@
 				Base,
 			);
 			mainGroup = 84C0F0D226BBA8CD005810AC;
+			packageReferences = (
+				2FE4F14F2D5D6F66009885FD /* XCRemoteSwiftPackageReference "sudo-profiles-ios" */,
+				2FE4F1522D5D6FB5009885FD /* XCRemoteSwiftPackageReference "sudo-entitlements-admin-ios" */,
+				2FE4F1552D5D6FEB009885FD /* XCRemoteSwiftPackageReference "sudo-entitlements-ios" */,
+			);
 			productRefGroup = 84C0F0DD26BBA8CE005810AC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				84C0F0DB26BBA8CE005810AC /* SudoDIRelay */,
 				84C0F0E426BBA8CE005810AC /* SudoDIRelayTests */,
-				84C0F0F926BBA9EB005810AC /* TestApp */,
 				84C0F11126BBAA54005810AC /* SudoDIRelaySystemTests */,
+				84C0F0F926BBA9EB005810AC /* TestApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		84C0F0DA26BBA8CE005810AC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				464CAEBF26EED499006C6FD0 /* Localizable.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		84C0F0E326BBA8CE005810AC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -943,102 +825,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2952C29AD719F7AB6365DC8D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SudoDIRelay-SudoDIRelayTests/Pods-SudoDIRelay-SudoDIRelayTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SudoDIRelay-SudoDIRelayTests/Pods-SudoDIRelay-SudoDIRelayTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SudoDIRelay-SudoDIRelayTests/Pods-SudoDIRelay-SudoDIRelayTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		46CDB9F526C1E4ED0019EDC1 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint > /dev/null; then\n    swiftlint --path ${PROJECT_DIR}\nelse\n    echo \"Warning: SwiftLint not installed, run 'brew install swiftlint'\"\n    exit 1\nfi\n";
-		};
-		682229C5FE643DB6EBE115CB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SudoDIRelay-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6A7D92B08447738B753A365B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SudoDIRelay-SudoDIRelaySystemTests/Pods-SudoDIRelay-SudoDIRelaySystemTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SudoDIRelay-SudoDIRelaySystemTests/Pods-SudoDIRelay-SudoDIRelaySystemTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SudoDIRelay-SudoDIRelaySystemTests/Pods-SudoDIRelay-SudoDIRelaySystemTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		80822063C83A94C8D7B0D845 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TestApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		84C0F1D726BBAE1F005810AC /* Copy TEST keys */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1075,106 +861,14 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncp -f config/sudoplatformconfig.json \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nls ${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\n";
 		};
-		AE0CC9BCBFD9C61F3A9EF0D8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TestApp/Pods-TestApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TestApp/Pods-TestApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestApp/Pods-TestApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B4C638017214EE13D87766A5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SudoDIRelay-SudoDIRelayTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C7C684DE372173D0C0546955 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SudoDIRelay-SudoDIRelaySystemTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		84C0F0D826BBA8CE005810AC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4626C651276A13A000C7328B /* AnyError.swift in Sources */,
-				464CAF2526EEE07D006C6FD0 /* AppSyncClientHelper.swift in Sources */,
-				464CAF2026EEE07D006C6FD0 /* Bundle+Static.swift in Sources */,
-				464CAF1D26EEE07D006C6FD0 /* Date+MillisecondsSinceEpoch.swift in Sources */,
-				464CAF2426EEE07D006C6FD0 /* DefaultRelayService.swift in Sources */,
-				464CAF3326EEE07D006C6FD0 /* DefaultSudoDIRelayClient.swift in Sources */,
-				464CAF2226EEE07D006C6FD0 /* GraphQLAPI.swift in Sources */,
-				46E8FF8F2806517600F9D51E /* GraphQLHelper.swift in Sources */,
-				464CAF2126EEE07D006C6FD0 /* GraphQLResultWorker.swift in Sources */,
-				A43ED15F2A750AB60FC2A46C /* ListOutput.swift in Sources */,
-				464CAF3426EEE07D006C6FD0 /* Message.swift in Sources */,
-				464CAF1E26EEE07D006C6FD0 /* OperationArray+Convenience.swift in Sources */,
-				46E8FF942806ADE800F9D51E /* PlatformSubscriptionStatus.swift in Sources */,
-				462EE3D127D9B0CB00BC2115 /* Postbox.swift in Sources */,
-				464CAF3226EEE07D006C6FD0 /* RelayService.swift in Sources */,
-				464CAF2A26EEE07D006C6FD0 /* RelaySubscriptionToken.swift in Sources */,
-				464CAF2326EEE07D006C6FD0 /* RelayTransformer.swift in Sources */,
-				464CAF2626EEE07D006C6FD0 /* Resetable.swift in Sources */,
-				464CAF3626EEE07D006C6FD0 /* Status.swift in Sources */,
-				464CAF3A26EEE07D006C6FD0 /* Strings.swift in Sources */,
-				464CAF2726EEE07D006C6FD0 /* SubscriptionManager.swift in Sources */,
-				464CAF3526EEE07D006C6FD0 /* SubscriptionToken.swift in Sources */,
-				464CAF3826EEE07D006C6FD0 /* SudoDIRelayClient.swift in Sources */,
-				464CAF3926EEE07D006C6FD0 /* SudoDIRelayError.swift in Sources */,
-				464CAF1F26EEE07D006C6FD0 /* SudoLogger+DecentralizedRelay.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		84C0F0E126BBA8CE005810AC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2E767992D0B985400D6DE89 /* AnyError.swift in Sources */,
 				464CAF6326EEE1A5006C6FD0 /* Array+OperationConvenience.swift in Sources */,
 				464CAF5A26EEE1A4006C6FD0 /* CreatePostboxTests.swift in Sources */,
 				464CAF6726EEE1A5006C6FD0 /* DataFactory+Domain.swift in Sources */,
@@ -1221,6 +915,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2E7679A2D0B985500D6DE89 /* AnyError.swift in Sources */,
 				464CAF6B26EEE1CD006C6FD0 /* CreatePostboxSystemTests.swift in Sources */,
 				464CAF7226EEE1CD006C6FD0 /* DataFactory+TestUtility.swift in Sources */,
 				464CAF7026EEE1CD006C6FD0 /* DataFactoryNamespace.swift in Sources */,
@@ -1241,20 +936,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		84C0F0E826BBA8CE005810AC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 84C0F0DB26BBA8CE005810AC /* SudoDIRelay */;
-			targetProxy = 84C0F0E726BBA8CE005810AC /* PBXContainerItemProxy */;
-		};
-		84C0F11926BBAA54005810AC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 84C0F0DB26BBA8CE005810AC /* SudoDIRelay */;
-			targetProxy = 84C0F11826BBAA54005810AC /* PBXContainerItemProxy */;
-		};
 		84C0F1DA26BBAEBD005810AC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 84C0F0F926BBA9EB005810AC /* TestApp */;
 			targetProxy = 84C0F1D926BBAEBD005810AC /* PBXContainerItemProxy */;
+		};
+		E2E767982D0B981100D6DE89 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84C0F0F926BBA9EB005810AC /* TestApp */;
+			targetProxy = E2E767972D0B981100D6DE89 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1408,61 +1098,8 @@
 			};
 			name = Release;
 		};
-		84C0F0F126BBA8CE005810AC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7FC4D90D620C2CB9F29F297A /* Pods-SudoDIRelay.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SudoDIRelay/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sudoplatform.SudoDIRelay;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		84C0F0F226BBA8CE005810AC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1685B55FCC362B68C3EA38B5 /* Pods-SudoDIRelay.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SudoDIRelay/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sudoplatform.SudoDIRelay;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		84C0F0F426BBA8CE005810AC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E037D0B81FA07B33BE8A225E /* Pods-SudoDIRelay-SudoDIRelayTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1478,12 +1115,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TestApp";
 			};
 			name = Debug;
 		};
 		84C0F0F526BBA8CE005810AC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F62AF80D92DED01896F28AB4 /* Pods-SudoDIRelay-SudoDIRelayTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1499,12 +1136,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TestApp";
 			};
 			name = Release;
 		};
 		84C0F10C26BBA9EE005810AC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 06AC1E2E07922C8420722B89 /* Pods-TestApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1525,7 +1162,6 @@
 		};
 		84C0F10D26BBA9EE005810AC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 788DA514F677786725F693AF /* Pods-TestApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1546,7 +1182,6 @@
 		};
 		84C0F11A26BBAA54005810AC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB81572043071E05FCE70216 /* Pods-SudoDIRelay-SudoDIRelaySystemTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1568,7 +1203,6 @@
 		};
 		84C0F11B26BBAA54005810AC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37717A4200E036A63A395B48 /* Pods-SudoDIRelay-SudoDIRelaySystemTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1596,15 +1230,6 @@
 			buildConfigurations = (
 				84C0F0EE26BBA8CE005810AC /* Debug */,
 				84C0F0EF26BBA8CE005810AC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		84C0F0F026BBA8CE005810AC /* Build configuration list for PBXNativeTarget "SudoDIRelay" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				84C0F0F126BBA8CE005810AC /* Debug */,
-				84C0F0F226BBA8CE005810AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1637,6 +1262,59 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2FE4F14F2D5D6F66009885FD /* XCRemoteSwiftPackageReference "sudo-profiles-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sudoplatform/sudo-profiles-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 19.0.0;
+			};
+		};
+		2FE4F1522D5D6FB5009885FD /* XCRemoteSwiftPackageReference "sudo-entitlements-admin-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sudoplatform/sudo-entitlements-admin-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		2FE4F1552D5D6FEB009885FD /* XCRemoteSwiftPackageReference "sudo-entitlements-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sudoplatform/sudo-entitlements-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2FE4F1502D5D6F66009885FD /* SudoProfiles */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FE4F14F2D5D6F66009885FD /* XCRemoteSwiftPackageReference "sudo-profiles-ios" */;
+			productName = SudoProfiles;
+		};
+		2FE4F1532D5D6FB5009885FD /* SudoEntitlementsAdmin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FE4F1522D5D6FB5009885FD /* XCRemoteSwiftPackageReference "sudo-entitlements-admin-ios" */;
+			productName = SudoEntitlementsAdmin;
+		};
+		2FE4F1562D5D6FEB009885FD /* SudoEntitlements */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FE4F1552D5D6FEB009885FD /* XCRemoteSwiftPackageReference "sudo-entitlements-ios" */;
+			productName = SudoEntitlements;
+		};
+		E2E767882D0B959D00D6DE89 /* SudoDIRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SudoDIRelay;
+		};
+		E2E7678A2D0B95A200D6DE89 /* SudoDIRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SudoDIRelay;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 84C0F0D326BBA8CD005810AC /* Project object */;
 }
