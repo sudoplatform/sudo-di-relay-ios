@@ -5,7 +5,7 @@
 //
 
 import Foundation
-@testable import SudoDIRelay
+@testable import SudoEmail
 
 class MockSubscriptionManager: SubscriptionManager {
 
@@ -32,7 +32,7 @@ class MockSubscriptionManager: SubscriptionManager {
     }
 }
 
-class MockSubscriber: SudoDIRelay.Subscriber {
+class MockSubscriber: SudoEmail.Subscriber {
 
     var id: String = UUID().uuidString
     var notifyCalled = false

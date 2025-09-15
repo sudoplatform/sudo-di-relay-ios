@@ -8,44 +8,28 @@ import XCTest
 // This is only testable to initialize GraphQLError for testing
 @testable import SudoDIRelay
 // Necessary for GraphQLError creation
-@testable import AWSAppSync
-@testable import SudoApiClient
+import Amplify
+import SudoApiClient
 
 class SudoDIRelayErrorTests: XCTestCase {
-    // Public for generating graphql error for other test cases
-    public static func generateGraphQLError(errorType: String) -> GraphQLError {
-        return GraphQLError([
-            "errorType": errorType,
-            "message": "message"
-        ])
-    }
-
+    
     func constructGraphQLErrorWithErrorType(_ type: String?) -> GraphQLError {
-        guard let type = type else {
-            return GraphQLError([
-                "message": "message" // Must add a message due to force unwrap in AWSAppSync
-            ])
+        guard let type else {
+            return GraphQLError(message: "message", locations: nil, path: nil, extensions: nil)
         }
-        let obj: [String: Any] = [
-            "errorType": type,
-            "message": "message"
-        ]
-        return GraphQLError(obj)
-    }
-    func generateGraphQLError(errorType: String) -> GraphQLError {
-        return SudoDIRelayErrorTests.generateGraphQLError(errorType: errorType)
+        return GraphQLError(message: "message", locations: nil, path: nil, extensions: ["errorType": .string(type)])
     }
 
     // MARK: - Tests: GraphQL Initializer
 
     func test_init_graphQL_InvalidPostboxInput() {
-        let graphQLError = generateGraphQLError(errorType: "sudoplatform.relay.InvalidPostboxInputError")
+        let graphQLError = constructGraphQLErrorWithErrorType( "sudoplatform.relay.InvalidPostboxInputError")
         let error = SudoDIRelayError(graphQLError: graphQLError)
         XCTAssertErrorsEqual(error, SudoDIRelayError.invalidPostboxInput)
     }
 
     func test_init_graphQL_UnauthorizedPostboxAccess() {
-        let graphQLError = generateGraphQLError(errorType: "sudoplatform.relay.UnauthorizedPostboxAccessError")
+        let graphQLError = constructGraphQLErrorWithErrorType( "sudoplatform.relay.UnauthorizedPostboxAccessError")
         let error = SudoDIRelayError(graphQLError: graphQLError)
         XCTAssertErrorsEqual(error, SudoDIRelayError.unauthorizedPostboxAccess)
     }
@@ -57,7 +41,7 @@ class SudoDIRelayErrorTests: XCTestCase {
     }
 
     func test_init_graphQL_UnsupportedReturnsInternalError() {
-        let graphQLError = generateGraphQLError(errorType: "foo-bar")
+        let graphQLError = constructGraphQLErrorWithErrorType("foo-bar")
         let error = SudoDIRelayError(graphQLError: graphQLError)
         XCTAssertErrorsEqual(error, SudoDIRelayError.internalError("foo-bar - message"))
     }

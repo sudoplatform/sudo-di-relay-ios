@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F3154D02E72809100667CF5 /* RelaySubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3154CF2E72809100667CF5 /* RelaySubscriber.swift */; };
+		2F3154D22E72885700667CF5 /* MockSudoApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3154D12E72885700667CF5 /* MockSudoApiClient.swift */; };
 		2FE4F1512D5D6F66009885FD /* SudoProfiles in Frameworks */ = {isa = PBXBuildFile; productRef = 2FE4F1502D5D6F66009885FD /* SudoProfiles */; };
 		2FE4F1542D5D6FB5009885FD /* SudoEntitlementsAdmin in Frameworks */ = {isa = PBXBuildFile; productRef = 2FE4F1532D5D6FB5009885FD /* SudoEntitlementsAdmin */; };
 		2FE4F1572D5D6FEB009885FD /* SudoEntitlements in Frameworks */ = {isa = PBXBuildFile; productRef = 2FE4F1562D5D6FEB009885FD /* SudoEntitlements */; };
@@ -14,22 +16,17 @@
 		4626C64D2769AE9C00C7328B /* SudoDIRelayClientTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4626C64C2769AE9C00C7328B /* SudoDIRelayClientTestCase.swift */; };
 		464CAF3B26EEE1A4006C6FD0 /* MockGraphQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7726EED496006C6FD0 /* MockGraphQL.swift */; };
 		464CAF3D26EEE1A4006C6FD0 /* MockSubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7926EED496006C6FD0 /* MockSubscriptionManager.swift */; };
-		464CAF3E26EEE1A4006C6FD0 /* MockSubscriptionToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7A26EED496006C6FD0 /* MockSubscriptionToken.swift */; };
 		464CAF3F26EEE1A4006C6FD0 /* MockKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7B26EED496006C6FD0 /* MockKeyManager.swift */; };
-		464CAF4026EEE1A4006C6FD0 /* MockAWSNetworkTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE7C26EED496006C6FD0 /* MockAWSNetworkTransport.swift */; };
 		464CAF4926EEE1A4006C6FD0 /* MockRelayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8626EED496006C6FD0 /* MockRelayService.swift */; };
 		464CAF4B26EEE1A4006C6FD0 /* Date+MillisecondsSinceEpochTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8B26EED497006C6FD0 /* Date+MillisecondsSinceEpochTests.swift */; };
-		464CAF4C26EEE1A4006C6FD0 /* GraphQLResultWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE8F26EED497006C6FD0 /* GraphQLResultWorkerTests.swift */; };
 		464CAF4D26EEE1A4006C6FD0 /* RelayTransformerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE9126EED497006C6FD0 /* RelayTransformerTests.swift */; };
 		464CAF4E26EEE1A4006C6FD0 /* DefaultRelayServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE9326EED497006C6FD0 /* DefaultRelayServiceTests.swift */; };
-		464CAF4F26EEE1A4006C6FD0 /* RelaySubscriptionTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE9526EED497006C6FD0 /* RelaySubscriptionTokenTests.swift */; };
 		464CAF5026EEE1A4006C6FD0 /* SubscriptionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAE9626EED497006C6FD0 /* SubscriptionManagerTests.swift */; };
 		464CAF5726EEE1A4006C6FD0 /* MessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEA726EED498006C6FD0 /* MessageTests.swift */; };
 		464CAF5826EEE1A4006C6FD0 /* DeletePostboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEA926EED498006C6FD0 /* DeletePostboxTests.swift */; };
 		464CAF5A26EEE1A4006C6FD0 /* CreatePostboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEAB26EED498006C6FD0 /* CreatePostboxTests.swift */; };
 		464CAF5C26EEE1A4006C6FD0 /* TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEAD26EED498006C6FD0 /* TestCase.swift */; };
 		464CAF5D26EEE1A4006C6FD0 /* ListMessagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEAE26EED498006C6FD0 /* ListMessagesTests.swift */; };
-		464CAF5E26EEE1A4006C6FD0 /* SubscribeToMessagesReceivedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEAF26EED498006C6FD0 /* SubscribeToMessagesReceivedTests.swift */; };
 		464CAF5F26EEE1A4006C6FD0 /* SudoDIRelayErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEB126EED498006C6FD0 /* SudoDIRelayErrorTests.swift */; };
 		464CAF6026EEE1A5006C6FD0 /* Logger+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEB426EED498006C6FD0 /* Logger+Tests.swift */; };
 		464CAF6126EEE1A5006C6FD0 /* XCTestCase+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464CAEB526EED498006C6FD0 /* XCTestCase+Utility.swift */; };
@@ -83,6 +80,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F3154C52E72595A00667CF5 /* SubscriptionConnectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionConnectionState.swift; sourceTree = "<group>"; };
+		2F3154C72E725A1A00667CF5 /* SubscriptionNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionNotification.swift; sourceTree = "<group>"; };
+		2F3154C92E725AB300667CF5 /* SubscriptionNotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionNotificationType.swift; sourceTree = "<group>"; };
+		2F3154CB2E725B1400667CF5 /* Subscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscriber.swift; sourceTree = "<group>"; };
+		2F3154CE2E725F0800667CF5 /* GraphQLSubscriptionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLSubscriptionResult.swift; sourceTree = "<group>"; };
+		2F3154CF2E72809100667CF5 /* RelaySubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySubscriber.swift; sourceTree = "<group>"; };
+		2F3154D12E72885700667CF5 /* MockSudoApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSudoApiClient.swift; sourceTree = "<group>"; };
 		4600698D2819120B0010B7E6 /* PostboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostboxTests.swift; sourceTree = "<group>"; };
 		4626C64C2769AE9C00C7328B /* SudoDIRelayClientTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoDIRelayClientTestCase.swift; sourceTree = "<group>"; };
 		462EE3D027D9B0CA00BC2115 /* Postbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Postbox.swift; sourceTree = "<group>"; };
@@ -92,18 +96,14 @@
 		464CAE3526EED493006C6FD0 /* OperationArray+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OperationArray+Convenience.swift"; sourceTree = "<group>"; };
 		464CAE3626EED493006C6FD0 /* SudoLogger+DecentralizedRelay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SudoLogger+DecentralizedRelay.swift"; sourceTree = "<group>"; };
 		464CAE3726EED493006C6FD0 /* Bundle+Static.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Static.swift"; sourceTree = "<group>"; };
-		464CAE3B26EED494006C6FD0 /* GraphQLResultWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLResultWorker.swift; sourceTree = "<group>"; };
 		464CAE3C26EED494006C6FD0 /* GraphQLAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAPI.swift; sourceTree = "<group>"; };
 		464CAE3E26EED494006C6FD0 /* RelayTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelayTransformer.swift; sourceTree = "<group>"; };
 		464CAE4026EED494006C6FD0 /* DefaultRelayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRelayService.swift; sourceTree = "<group>"; };
-		464CAE4226EED494006C6FD0 /* AppSyncClientHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSyncClientHelper.swift; sourceTree = "<group>"; };
 		464CAE4326EED494006C6FD0 /* Resetable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resetable.swift; sourceTree = "<group>"; };
 		464CAE4526EED494006C6FD0 /* SubscriptionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
-		464CAE4826EED494006C6FD0 /* RelaySubscriptionToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaySubscriptionToken.swift; sourceTree = "<group>"; };
 		464CAE5326EED494006C6FD0 /* RelayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelayService.swift; sourceTree = "<group>"; };
 		464CAE5526EED494006C6FD0 /* DefaultSudoDIRelayClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSudoDIRelayClient.swift; sourceTree = "<group>"; };
 		464CAE5726EED494006C6FD0 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		464CAE5826EED495006C6FD0 /* SubscriptionToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionToken.swift; sourceTree = "<group>"; };
 		464CAE5926EED495006C6FD0 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		464CAE5B26EED495006C6FD0 /* SudoDIRelayClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SudoDIRelayClient.swift; sourceTree = "<group>"; };
 		464CAE5D26EED495006C6FD0 /* SudoDIRelayError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SudoDIRelayError.swift; sourceTree = "<group>"; };
@@ -122,22 +122,17 @@
 		464CAE7426EED496006C6FD0 /* HTTPTransports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTransports.swift; sourceTree = "<group>"; };
 		464CAE7726EED496006C6FD0 /* MockGraphQL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockGraphQL.swift; sourceTree = "<group>"; };
 		464CAE7926EED496006C6FD0 /* MockSubscriptionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSubscriptionManager.swift; sourceTree = "<group>"; };
-		464CAE7A26EED496006C6FD0 /* MockSubscriptionToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSubscriptionToken.swift; sourceTree = "<group>"; };
 		464CAE7B26EED496006C6FD0 /* MockKeyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockKeyManager.swift; sourceTree = "<group>"; };
-		464CAE7C26EED496006C6FD0 /* MockAWSNetworkTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAWSNetworkTransport.swift; sourceTree = "<group>"; };
 		464CAE8626EED496006C6FD0 /* MockRelayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRelayService.swift; sourceTree = "<group>"; };
 		464CAE8B26EED497006C6FD0 /* Date+MillisecondsSinceEpochTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+MillisecondsSinceEpochTests.swift"; sourceTree = "<group>"; };
-		464CAE8F26EED497006C6FD0 /* GraphQLResultWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLResultWorkerTests.swift; sourceTree = "<group>"; };
 		464CAE9126EED497006C6FD0 /* RelayTransformerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelayTransformerTests.swift; sourceTree = "<group>"; };
 		464CAE9326EED497006C6FD0 /* DefaultRelayServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRelayServiceTests.swift; sourceTree = "<group>"; };
-		464CAE9526EED497006C6FD0 /* RelaySubscriptionTokenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaySubscriptionTokenTests.swift; sourceTree = "<group>"; };
 		464CAE9626EED497006C6FD0 /* SubscriptionManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionManagerTests.swift; sourceTree = "<group>"; };
 		464CAEA726EED498006C6FD0 /* MessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTests.swift; sourceTree = "<group>"; };
 		464CAEA926EED498006C6FD0 /* DeletePostboxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletePostboxTests.swift; sourceTree = "<group>"; };
 		464CAEAB26EED498006C6FD0 /* CreatePostboxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostboxTests.swift; sourceTree = "<group>"; };
 		464CAEAD26EED498006C6FD0 /* TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCase.swift; sourceTree = "<group>"; };
 		464CAEAE26EED498006C6FD0 /* ListMessagesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMessagesTests.swift; sourceTree = "<group>"; };
-		464CAEAF26EED498006C6FD0 /* SubscribeToMessagesReceivedTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeToMessagesReceivedTests.swift; sourceTree = "<group>"; };
 		464CAEB126EED498006C6FD0 /* SudoDIRelayErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SudoDIRelayErrorTests.swift; sourceTree = "<group>"; };
 		464CAEB226EED498006C6FD0 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		464CAEB426EED498006C6FD0 /* Logger+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Logger+Tests.swift"; sourceTree = "<group>"; };
@@ -151,7 +146,6 @@
 		464CAEBD26EED498006C6FD0 /* DataFactory+Domain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataFactory+Domain.swift"; sourceTree = "<group>"; };
 		46E64E47281FEF91006F1E3D /* Error+Equality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Equality.swift"; sourceTree = "<group>"; };
 		46E8FF8E2806517600F9D51E /* GraphQLHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLHelper.swift; sourceTree = "<group>"; };
-		46E8FF932806ADE800F9D51E /* PlatformSubscriptionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformSubscriptionStatus.swift; sourceTree = "<group>"; };
 		84C0F0E526BBA8CE005810AC /* SudoDIRelayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SudoDIRelayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C0F0FA26BBA9EB005810AC /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C0F0FC26BBA9EB005810AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +194,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F3154C32E72593600667CF5 /* Subscriptions */ = {
+			isa = PBXGroup;
+			children = (
+				2F3154CB2E725B1400667CF5 /* Subscriber.swift */,
+				2F3154C52E72595A00667CF5 /* SubscriptionConnectionState.swift */,
+				2F3154C72E725A1A00667CF5 /* SubscriptionNotification.swift */,
+				2F3154C92E725AB300667CF5 /* SubscriptionNotificationType.swift */,
+			);
+			path = Subscriptions;
+			sourceTree = "<group>";
+		};
 		464CAE2C26EED493006C6FD0 /* SudoDIRelay */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,7 +228,6 @@
 			isa = PBXGroup;
 			children = (
 				464CAE3226EED493006C6FD0 /* Internal */,
-				46E8FF902806ADB400F9D51E /* Platform */,
 				464CAE5426EED494006C6FD0 /* Public */,
 				464CAE5E26EED495006C6FD0 /* Swiftgen */,
 			);
@@ -257,28 +261,11 @@
 			children = (
 				464CAE4126EED494006C6FD0 /* Protocols */,
 				464CAE3F26EED494006C6FD0 /* Service */,
-				464CAE3926EED494006C6FD0 /* Shared */,
 				464CAE3D26EED494006C6FD0 /* Transformers */,
 				464CAE4426EED494006C6FD0 /* Utility */,
 				464CAE3C26EED494006C6FD0 /* GraphQLAPI.swift */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		464CAE3926EED494006C6FD0 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				464CAE3A26EED494006C6FD0 /* Workers */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
-		464CAE3A26EED494006C6FD0 /* Workers */ = {
-			isa = PBXGroup;
-			children = (
-				464CAE3B26EED494006C6FD0 /* GraphQLResultWorker.swift */,
-			);
-			path = Workers;
 			sourceTree = "<group>";
 		};
 		464CAE3D26EED494006C6FD0 /* Transformers */ = {
@@ -300,7 +287,7 @@
 		464CAE4126EED494006C6FD0 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				464CAE4226EED494006C6FD0 /* AppSyncClientHelper.swift */,
+				2F3154CE2E725F0800667CF5 /* GraphQLSubscriptionResult.swift */,
 				464CAE4326EED494006C6FD0 /* Resetable.swift */,
 			);
 			path = Protocols;
@@ -309,7 +296,6 @@
 		464CAE4426EED494006C6FD0 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				464CAE4826EED494006C6FD0 /* RelaySubscriptionToken.swift */,
 				464CAE4526EED494006C6FD0 /* SubscriptionManager.swift */,
 			);
 			path = Utility;
@@ -345,11 +331,11 @@
 		464CAE5626EED494006C6FD0 /* Types */ = {
 			isa = PBXGroup;
 			children = (
+				2F3154C32E72593600667CF5 /* Subscriptions */,
 				A43ED3F9A42BB4F5BA3BE46A /* ListOutput.swift */,
 				464CAE5726EED494006C6FD0 /* Message.swift */,
 				462EE3D027D9B0CA00BC2115 /* Postbox.swift */,
 				464CAE5926EED495006C6FD0 /* Status.swift */,
-				464CAE5826EED495006C6FD0 /* SubscriptionToken.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -421,6 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				464CAE7426EED496006C6FD0 /* HTTPTransports.swift */,
+				2F3154CF2E72809100667CF5 /* RelaySubscriber.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -441,12 +428,11 @@
 		464CAE7626EED496006C6FD0 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				464CAE7C26EED496006C6FD0 /* MockAWSNetworkTransport.swift */,
 				464CAE7726EED496006C6FD0 /* MockGraphQL.swift */,
 				464CAE7B26EED496006C6FD0 /* MockKeyManager.swift */,
 				464CAE8626EED496006C6FD0 /* MockRelayService.swift */,
 				464CAE7926EED496006C6FD0 /* MockSubscriptionManager.swift */,
-				464CAE7A26EED496006C6FD0 /* MockSubscriptionToken.swift */,
+				2F3154D12E72885700667CF5 /* MockSudoApiClient.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -464,7 +450,6 @@
 			isa = PBXGroup;
 			children = (
 				464CAE8C26EED497006C6FD0 /* Data */,
-				464CAE9726EED497006C6FD0 /* Domain */,
 				464CAE8A26EED497006C6FD0 /* Extensions */,
 			);
 			path = Internal;
@@ -482,27 +467,10 @@
 			isa = PBXGroup;
 			children = (
 				464CAE9226EED497006C6FD0 /* Service */,
-				464CAE8D26EED497006C6FD0 /* Shared */,
 				464CAE9026EED497006C6FD0 /* Transformers */,
 				464CAE9426EED497006C6FD0 /* Utility */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		464CAE8D26EED497006C6FD0 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				464CAE8E26EED497006C6FD0 /* Workers */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
-		464CAE8E26EED497006C6FD0 /* Workers */ = {
-			isa = PBXGroup;
-			children = (
-				464CAE8F26EED497006C6FD0 /* GraphQLResultWorkerTests.swift */,
-			);
-			path = Workers;
 			sourceTree = "<group>";
 		};
 		464CAE9026EED497006C6FD0 /* Transformers */ = {
@@ -524,17 +492,9 @@
 		464CAE9426EED497006C6FD0 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				464CAE9526EED497006C6FD0 /* RelaySubscriptionTokenTests.swift */,
 				464CAE9626EED497006C6FD0 /* SubscriptionManagerTests.swift */,
 			);
 			path = Utility;
-			sourceTree = "<group>";
-		};
-		464CAE9726EED497006C6FD0 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Domain;
 			sourceTree = "<group>";
 		};
 		464CAEA526EED498006C6FD0 /* Public */ = {
@@ -563,7 +523,6 @@
 				464CAEA926EED498006C6FD0 /* DeletePostboxTests.swift */,
 				464CAEAE26EED498006C6FD0 /* ListMessagesTests.swift */,
 				ADFCBF682A11FDDF00C1341E /* ListPostboxesTests.swift */,
-				464CAEAF26EED498006C6FD0 /* SubscribeToMessagesReceivedTests.swift */,
 				464CAEAD26EED498006C6FD0 /* TestCase.swift */,
 				ADFCBF6A2A11FF4500C1341E /* UpdatePostboxTests.swift */,
 			);
@@ -608,37 +567,6 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
-		46E8FF902806ADB400F9D51E /* Platform */ = {
-			isa = PBXGroup;
-			children = (
-				46E8FF912806ADD100F9D51E /* Public */,
-			);
-			path = Platform;
-			sourceTree = "<group>";
-		};
-		46E8FF912806ADD100F9D51E /* Public */ = {
-			isa = PBXGroup;
-			children = (
-				46E8FF922806ADD900F9D51E /* Subscriptions */,
-			);
-			path = Public;
-			sourceTree = "<group>";
-		};
-		46E8FF922806ADD900F9D51E /* Subscriptions */ = {
-			isa = PBXGroup;
-			children = (
-				46E8FF932806ADE800F9D51E /* PlatformSubscriptionStatus.swift */,
-			);
-			path = Subscriptions;
-			sourceTree = "<group>";
-		};
-		6C63A5040BD71F5B3801A429 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		84C0F0D226BBA8CD005810AC = {
 			isa = PBXGroup;
 			children = (
@@ -647,7 +575,6 @@
 				464CAE7526EED496006C6FD0 /* SudoDIRelayTests */,
 				84C0F0FB26BBA9EB005810AC /* TestApp */,
 				84C0F0DD26BBA8CE005810AC /* Products */,
-				6C63A5040BD71F5B3801A429 /* Pods */,
 				E2E767872D0B959D00D6DE89 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -878,21 +805,17 @@
 				464CAF4E26EEE1A4006C6FD0 /* DefaultRelayServiceTests.swift in Sources */,
 				464CAF5826EEE1A4006C6FD0 /* DeletePostboxTests.swift in Sources */,
 				464CAF6226EEE1A5006C6FD0 /* Error+Equality.swift in Sources */,
-				464CAF4C26EEE1A4006C6FD0 /* GraphQLResultWorkerTests.swift in Sources */,
 				464CAF5D26EEE1A4006C6FD0 /* ListMessagesTests.swift in Sources */,
 				ADFCBF692A11FDDF00C1341E /* ListPostboxesTests.swift in Sources */,
 				464CAF6026EEE1A5006C6FD0 /* Logger+Tests.swift in Sources */,
 				464CAF5726EEE1A4006C6FD0 /* MessageTests.swift in Sources */,
-				464CAF4026EEE1A4006C6FD0 /* MockAWSNetworkTransport.swift in Sources */,
 				464CAF3B26EEE1A4006C6FD0 /* MockGraphQL.swift in Sources */,
 				464CAF3F26EEE1A4006C6FD0 /* MockKeyManager.swift in Sources */,
 				464CAF4926EEE1A4006C6FD0 /* MockRelayService.swift in Sources */,
 				464CAF3D26EEE1A4006C6FD0 /* MockSubscriptionManager.swift in Sources */,
-				464CAF3E26EEE1A4006C6FD0 /* MockSubscriptionToken.swift in Sources */,
+				2F3154D22E72885700667CF5 /* MockSudoApiClient.swift in Sources */,
 				4600698E2819120B0010B7E6 /* PostboxTests.swift in Sources */,
-				464CAF4F26EEE1A4006C6FD0 /* RelaySubscriptionTokenTests.swift in Sources */,
 				464CAF4D26EEE1A4006C6FD0 /* RelayTransformerTests.swift in Sources */,
-				464CAF5E26EEE1A4006C6FD0 /* SubscribeToMessagesReceivedTests.swift in Sources */,
 				464CAF5026EEE1A4006C6FD0 /* SubscriptionManagerTests.swift in Sources */,
 				464CAF5F26EEE1A4006C6FD0 /* SudoDIRelayErrorTests.swift in Sources */,
 				464CAF5C26EEE1A4006C6FD0 /* TestCase.swift in Sources */,
@@ -925,6 +848,7 @@
 				464CAF7326EEE1CD006C6FD0 /* HTTPTransports.swift in Sources */,
 				464CAF6826EEE1CD006C6FD0 /* ListMessagesSystemTests.swift in Sources */,
 				ADFCBF6F2A130C4B00C1341E /* ListPostboxesSystemTests.swift in Sources */,
+				2F3154D02E72809100667CF5 /* RelaySubscriber.swift in Sources */,
 				464CAF7126EEE1CD006C6FD0 /* Result+Convenience.swift in Sources */,
 				464CAF6C26EEE1CD006C6FD0 /* SubscribeToMessagesReceivedSystemTests.swift in Sources */,
 				4626C64D2769AE9C00C7328B /* SudoDIRelayClientTestCase.swift in Sources */,
@@ -1269,7 +1193,7 @@
 			repositoryURL = "https://github.com/sudoplatform/sudo-profiles-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 19.0.0;
+				minimumVersion = 20.0.0;
 			};
 		};
 		2FE4F1522D5D6FB5009885FD /* XCRemoteSwiftPackageReference "sudo-entitlements-admin-ios" */ = {
@@ -1277,7 +1201,7 @@
 			repositoryURL = "https://github.com/sudoplatform/sudo-entitlements-admin-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
+				minimumVersion = 8.0.0;
 			};
 		};
 		2FE4F1552D5D6FEB009885FD /* XCRemoteSwiftPackageReference "sudo-entitlements-ios" */ = {
@@ -1285,7 +1209,7 @@
 			repositoryURL = "https://github.com/sudoplatform/sudo-entitlements-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 12.0.0;
+				minimumVersion = 13.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

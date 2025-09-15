@@ -5,7 +5,6 @@
 //
 // swiftlint:disable nesting
 
-import AWSAppSync
 import SudoLogging
 import SudoConfigManager
 import SudoUser
@@ -83,8 +82,9 @@ public class DefaultSudoDIRelayClient: SudoDIRelayClient {
     }
     // MARK: - Methods
 
-    public func reset() throws {
-        try sudoApiClient.clearCaches(options: .init(clearQueries: true, clearMutations: true, clearSubscriptions: false))
+    public func reset() async throws {
+        logger.info("Resetting client state.")
+        await relayService.unsubscribeAll()
     }
 
     // MARK: - Conformance: SudoDIRelayClient
@@ -116,16 +116,20 @@ public class DefaultSudoDIRelayClient: SudoDIRelayClient {
     public func bulkDeleteMessage(withMessageIds messageIds: [String]) async throws -> [String] {
         try await relayService.bulkDeleteMessage(withMessageIds: messageIds)
     }
-
-    public func subscribeToMessageCreated(
-            statusChangeHandler: SudoSubscriptionStatusChangeHandler?,
-            resultHandler: @escaping ClientCompletion<Message>
-    ) async throws -> SubscriptionToken? {
-        try await relayService.subscribeToMessageCreated(statusChangeHandler: statusChangeHandler, resultHandler: resultHandler)
+    
+    public func subscribe(id: String, notificationType: SubscriptionNotificationType, subscriber: Subscriber) async throws {
+        try await relayService.subscribe(
+            id: id,
+            notificationType: notificationType,
+            subscriber: subscriber
+        )
+    }
+    
+    public func unsubscribe(id: String) async {
+        await relayService.unsubscribe(id: id)
     }
 
-    public func unsubscribeAll() {
-        relayService.unsubscribeAll()
+    public func unsubscribeAll() async {
+        await relayService.unsubscribeAll()
     }
-
 }

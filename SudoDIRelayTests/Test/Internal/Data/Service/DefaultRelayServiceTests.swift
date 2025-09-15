@@ -5,7 +5,6 @@
 //
 
 import XCTest
-import AWSAppSync
 import SudoKeyManager
 import SudoLogging
 import SudoApiClient
@@ -16,10 +15,9 @@ class DefaultRelayServiceTests: XCTestCase {
 
     // MARK: - Properties
 
-    var graphQLClient: SudoApiClient!
     var instanceUnderTest: DefaultRelayService!
     var mockUserClient: MockSudoUserClient!
-    var mockTransport: MockAWSNetworkTransport!
+    var mockSudoApiClient: MockSudoApiClient!
     var logger: Logger!
 
     let utcTimestamp: Double = 0.0
@@ -30,35 +28,21 @@ class DefaultRelayServiceTests: XCTestCase {
         logger = Logger.testLogger
 
         self.mockUserClient = MockSudoUserClient()
-        guard let (graphQLClient, mockTransport) = try? MockAWSAppSyncClientGenerator.generate(logger: .testLogger, sudoUserClient: mockUserClient) else {
-            XCTFail("Failed to mock AppSyncClientGenerator")
-            return
-        }
+        self.mockSudoApiClient = MockSudoApiClient()
 
-        self.graphQLClient = graphQLClient
-        self.mockTransport = mockTransport
-
-        instanceUnderTest = DefaultRelayService(userClient: mockUserClient, sudoApiClient: graphQLClient)
+        instanceUnderTest = DefaultRelayService(userClient: mockUserClient, sudoApiClient: mockSudoApiClient)
         mockUserClient.isSignedInReturn = true
-    }
-
-    // MARK: - Tests: Lifecycle
-
-    func test_initializer() {
-        let service = DefaultRelayService(userClient: mockUserClient, sudoApiClient: self.graphQLClient, logger: logger)
-        XCTAssertTrue(service.sudoApiClient === graphQLClient)
-        XCTAssertTrue(service.logger === logger)
     }
 
     // MARK: - Tests: listMessages
 
     func test_listMessages_RespectsErrors() async throws {
-        self.mockTransport.error = AnyError("ERROR")
+        self.mockSudoApiClient.fetchResult = .failure(AnyError("ERROR"))
         do {
             _ = try await instanceUnderTest.listMessages(limit: nil, nextToken: nil)
             XCTFail("Expected error not thrown.")
         } catch {
-            self.XCTAssertErrorsEqual(error, SudoDIRelayError.fatalError(description: "Unexpected API operation error: appSyncClientError(cause: ERROR)"))
+            self.XCTAssertErrorsEqual(error, SudoDIRelayError.fatalError(description: "Unexpected API operation error: ERROR"))
         }
     }
 
@@ -128,16 +112,12 @@ class DefaultRelayServiceTests: XCTestCase {
              )
         }
 
-        let queryData =  try ListRelayMessagesQuery.Data(
+        let queryData =  ListRelayMessagesQuery.Data(
             listRelayMessages:
-                ListRelayMessagesQuery.Data.ListRelayMessage(jsonObject: dummyListMessagesData)
+                ListRelayMessagesQuery.Data.ListRelayMessage(snapshot: dummyListMessagesData)
         )
 
-        self.mockTransport.responseBody = [
-            [
-                "data": queryData.jsonObject
-            ]
-        ]
+        self.mockSudoApiClient.fetchResult = .success(queryData)
 
         let messages = try await self.instanceUnderTest.listMessages(limit: nil, nextToken: nil)
         XCTAssertEqual(messages, expectedResult)
@@ -146,7 +126,7 @@ class DefaultRelayServiceTests: XCTestCase {
     // MARK: - Tests: DeleteMessage
 
     func test_deleteMessage_RespectsErrors() async throws {
-        self.mockTransport.error = AnyError("Delete Failed")
+        self.mockSudoApiClient.performResult = .failure(AnyError("Delete Failed"))
 
         do {
             _ = try await instanceUnderTest.deleteMessage(withMessageId: "message-id")
@@ -155,7 +135,7 @@ class DefaultRelayServiceTests: XCTestCase {
             self.XCTAssertErrorsEqual(
                 error,
                 SudoDIRelayError.fatalError(
-                    description: "Unexpected API operation error: appSyncClientError(cause: Delete Failed)")
+                    description: "Unexpected API operation error: Delete Failed")
             )
         }
     }
@@ -165,11 +145,7 @@ class DefaultRelayServiceTests: XCTestCase {
             id: "message-id"
         )
         let mutationData = DeleteRelayMessageMutation.Data(deleteRelayMessage: data)
-        self.mockTransport.responseBody = [
-            [
-                "data": mutationData.jsonObject
-            ]
-        ]
+        self.mockSudoApiClient.performResult = .success(mutationData)
 
         do {
             let result = try await instanceUnderTest.deleteMessage(withMessageId: "message-id")
@@ -182,7 +158,7 @@ class DefaultRelayServiceTests: XCTestCase {
     // MARK: - Tests: BulkDeleteMessage
 
     func test_bulkDeleteMessage_RespectsErrors() async throws {
-        self.mockTransport.error = AnyError("Delete Failed")
+        self.mockSudoApiClient.performResult = .failure(AnyError("Delete Failed"))
 
         do {
             _ = try await instanceUnderTest.bulkDeleteMessage(withMessageIds: ["message-id-1", "message-id-2"])
@@ -191,7 +167,7 @@ class DefaultRelayServiceTests: XCTestCase {
             self.XCTAssertErrorsEqual(
                 error,
                 SudoDIRelayError.fatalError(
-                    description: "Unexpected API operation error: appSyncClientError(cause: Delete Failed)")
+                    description: "Unexpected API operation error: Delete Failed")
             )
         }
     }
@@ -204,11 +180,7 @@ class DefaultRelayServiceTests: XCTestCase {
             ]
         )
         let mutationData = BulkDeleteRelayMessageMutation.Data(bulkDeleteRelayMessage: data)
-        self.mockTransport.responseBody = [
-            [
-                "data": mutationData.jsonObject
-            ]
-        ]
+        self.mockSudoApiClient.performResult = .success(mutationData)
 
         do {
             let result = try await instanceUnderTest.bulkDeleteMessage(withMessageIds: ["message-id-1", "message-id-2"])
@@ -221,7 +193,7 @@ class DefaultRelayServiceTests: XCTestCase {
     // MARK: - Tests: CreatePostbox
 
     func test_createPostbox_RespectsErrors() async {
-        self.mockTransport.error = AnyError("Create Failed")
+        self.mockSudoApiClient.performResult = .failure(AnyError("Create Failed"))
 
         do {
             _ = try await self.instanceUnderTest.createPostbox(
@@ -232,7 +204,7 @@ class DefaultRelayServiceTests: XCTestCase {
         } catch {
             self.XCTAssertErrorsEqual(
                 error,
-                SudoDIRelayError.fatalError(description: "Unexpected API operation error: appSyncClientError(cause: Create Failed)")
+                SudoDIRelayError.fatalError(description: "Unexpected API operation error: Create Failed")
             )
         }
     }
@@ -268,15 +240,11 @@ class DefaultRelayServiceTests: XCTestCase {
             isEnabled: true,
             serviceEndpoint: "https://service-endpoint.com")
 
-        let mutationData =  try CreateRelayPostboxMutation.Data(
-            createRelayPostbox: CreateRelayPostboxMutation.Data.CreateRelayPostbox(jsonObject: dummyCreatePostboxData)
+        let mutationData = CreateRelayPostboxMutation.Data(
+            createRelayPostbox: CreateRelayPostboxMutation.Data.CreateRelayPostbox(snapshot: dummyCreatePostboxData)
         )
 
-        self.mockTransport.responseBody = [
-            [
-                "data": mutationData.jsonObject
-            ]
-        ]
+        self.mockSudoApiClient.performResult = .success(mutationData)
 
         do {
             let postbox = try await instanceUnderTest.createPostbox(
@@ -292,13 +260,13 @@ class DefaultRelayServiceTests: XCTestCase {
     // MARK: - Tests: listPostboxes
 
     func test_listPostboxes_RespectsErrors() async throws {
-        self.mockTransport.error = AnyError("List Failed")
+        self.mockSudoApiClient.fetchResult = .failure(AnyError("List Failed"))
 
         do {
             _ = try await instanceUnderTest.listPostboxes(limit: nil, nextToken: nil)
             XCTFail("Expected error not thrown.")
         } catch {
-            self.XCTAssertErrorsEqual(error, SudoDIRelayError.fatalError(description: "Unexpected API operation error: appSyncClientError(cause: List Failed)"))
+            self.XCTAssertErrorsEqual(error, SudoDIRelayError.fatalError(description: "Unexpected API operation error: List Failed"))
         }
     }
 
@@ -372,16 +340,12 @@ class DefaultRelayServiceTests: XCTestCase {
             )
        }
 
-       let queryData =  try ListRelayPostboxesQuery.Data(
+       let queryData =  ListRelayPostboxesQuery.Data(
            listRelayPostboxes:
-               ListRelayPostboxesQuery.Data.ListRelayPostbox(jsonObject: dummyListPostboxesData)
+               ListRelayPostboxesQuery.Data.ListRelayPostbox(snapshot: dummyListPostboxesData)
        )
 
-       self.mockTransport.responseBody = [
-           [
-               "data": queryData.jsonObject
-           ]
-       ]
+        self.mockSudoApiClient.fetchResult = .success(queryData)
 
         do {
             let postboxes = try await instanceUnderTest.listPostboxes(limit: nil, nextToken: nil)
@@ -394,7 +358,7 @@ class DefaultRelayServiceTests: XCTestCase {
     // MARK: - Tests: UpdatePostbox
 
     func test_updatePostbox_RespectsErrors() async {
-        self.mockTransport.error = AnyError("Update Failed")
+        self.mockSudoApiClient.performResult = .failure(AnyError("Update Failed"))
 
         do {
             _ = try await self.instanceUnderTest.updatePostbox(
@@ -404,7 +368,7 @@ class DefaultRelayServiceTests: XCTestCase {
         } catch {
             self.XCTAssertErrorsEqual(
                 error,
-                SudoDIRelayError.fatalError(description: "Unexpected API operation error: appSyncClientError(cause: Update Failed)")
+                SudoDIRelayError.fatalError(description: "Unexpected API operation error: Update Failed")
             )
         }
     }
@@ -440,15 +404,11 @@ class DefaultRelayServiceTests: XCTestCase {
             isEnabled: false,
             serviceEndpoint: "https://service-endpoint.com")
 
-        let mutationData =  try UpdateRelayPostboxMutation.Data(
-            updateRelayPostbox: UpdateRelayPostboxMutation.Data.UpdateRelayPostbox(jsonObject: dummyUpdatePostboxData)
+        let mutationData =  UpdateRelayPostboxMutation.Data(
+            updateRelayPostbox: UpdateRelayPostboxMutation.Data.UpdateRelayPostbox(snapshot: dummyUpdatePostboxData)
         )
 
-        self.mockTransport.responseBody = [
-            [
-                "data": mutationData.jsonObject
-            ]
-        ]
+        self.mockSudoApiClient.performResult = .success(mutationData)
 
         do {
             let postbox = try await instanceUnderTest.updatePostbox(
@@ -463,7 +423,7 @@ class DefaultRelayServiceTests: XCTestCase {
     // MARK: - Tests: DeletePostbox
 
     func test_deletePostbox_RespectsErrors() async throws {
-        self.mockTransport.error = AnyError("Delete Failed")
+        self.mockSudoApiClient.performResult = .failure(AnyError("Delete Failed"))
 
         do {
             _ = try await instanceUnderTest.deletePostbox(withPostboxId: "postbox-id")
@@ -472,7 +432,7 @@ class DefaultRelayServiceTests: XCTestCase {
             self.XCTAssertErrorsEqual(
                 error,
                 SudoDIRelayError.fatalError(
-                    description: "Unexpected API operation error: appSyncClientError(cause: Delete Failed)")
+                    description: "Unexpected API operation error: Delete Failed")
             )
         }
     }
@@ -482,11 +442,7 @@ class DefaultRelayServiceTests: XCTestCase {
             id: "postbox-id"
         )
         let mutationData = DeleteRelayPostboxMutation.Data(deleteRelayPostbox: data)
-        self.mockTransport.responseBody = [
-            [
-                "data": mutationData.jsonObject
-            ]
-        ]
+        self.mockSudoApiClient.performResult = .success(mutationData)
 
         do {
             let result = try await instanceUnderTest.deletePostbox(withPostboxId: "postbox-id")

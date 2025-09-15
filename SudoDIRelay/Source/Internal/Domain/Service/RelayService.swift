@@ -69,17 +69,11 @@ protocol RelayService: AnyObject {
     ///   - Failure: `SudoDIRelayError`
     func bulkDeleteMessage(withMessageIds messageIds: [String]) async throws -> [String]
 
-    /// Subscribe to messages received to all postboxes for the current user.
-    /// - Parameters:
-    ///   - statusChangeHandler: Connection status change.
-    ///   - resultHandler: Returns the `RelayMessage` on success, or `Error` on failure.
-    /// - Returns: Token to manage subscription.
-    /// - Throws: `SudoDIRelayError`
-    func subscribeToMessageCreated(
-            statusChangeHandler: SudoSubscriptionStatusChangeHandler?,
-            resultHandler: @escaping ClientCompletion<Message>
-    ) async throws -> SubscriptionToken?
+    // MARK: - Subscriptions
+    
+    func subscribe(id: String, notificationType: SubscriptionNotificationType, subscriber: Subscriber) async throws
 
-    /// Unsubscribe from all relay subscriptions
-    func unsubscribeAll()
+    func unsubscribe(id: String) async
+
+    func unsubscribeAll() async
 }

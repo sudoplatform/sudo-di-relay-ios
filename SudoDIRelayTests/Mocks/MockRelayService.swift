@@ -35,28 +35,35 @@ class MockRelayService: RelayService, Resetable {
         throw AnyError("Please add base result to`listMessages` in `MockRelayService`")
     }
 
-    // MARK: - SubscribeToMessageCreated
+    // MARK: - Subscribe
 
-    var subscribeToMessageCreatedCallCount = 0
-    var subscribeToMessageCreatedResult: Result<Message, Error> = .failure(AnyError(
-    "Please add base result to `MockRelayService.subscribeToMessageCreated`"
-    ))
-    var subscribeToMessageCreatedReturnResult: SubscriptionToken = MockSubscriptionToken()
+    var subscribeCallCount = 0
+    var subscribeLastProperties: (String, SubscriptionNotificationType, Subscriber)?
+    var subscribeError: Error?
 
-    func subscribeToMessageCreated(
-        statusChangeHandler: SudoDIRelay.SudoSubscriptionStatusChangeHandler?,
-        resultHandler: @escaping SudoDIRelay.ClientCompletion<SudoDIRelay.Message>
-    ) async throws -> SudoDIRelay.SubscriptionToken? {
-        subscribeToMessageCreatedCallCount += 1
-        resultHandler(subscribeToMessageCreatedResult)
+    func subscribe(id: String, notificationType: SubscriptionNotificationType, subscriber: Subscriber) async throws {
+        subscribeCallCount += 1
+        subscribeLastProperties = (id, notificationType, subscriber)
 
-        return subscribeToMessageCreatedReturnResult
+        if let subscribeError = subscribeError {
+            throw subscribeError
+        }
+    }
+
+    // MARK: - Unsubscribe
+
+    var unsubscribeCallCount = 0
+    var unsubscribeLastId: String?
+
+    func unsubscribe(id: String) async {
+        unsubscribeCallCount += 1
+        unsubscribeLastId = id
     }
 
     // MARK: - UnsubscribeAll
     var unsubscribeAllCallCount = 0
 
-    func unsubscribeAll() {
+    func unsubscribeAll() async {
         unsubscribeAllCallCount += 1
     }
 

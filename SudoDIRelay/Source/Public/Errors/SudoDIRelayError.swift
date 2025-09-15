@@ -5,7 +5,7 @@
 //
 
 import Foundation
-import AWSAppSync
+import Amplify
 import SudoApiClient
 
 /// Errors that occur in SudoDIRelay.
@@ -58,10 +58,8 @@ public enum SudoDIRelayError: Error, Equatable, LocalizedError {
     // MARK: - Lifecycle
 
     /// Initialize a `SudoDIRelayError` from a `GraphQLError`.
-    ///
-    /// If the GraphQLError is unsupported, `nil` will be returned instead.
     init(graphQLError error: GraphQLError) {
-        guard let errorType = error["errorType"] as? String else {
+        guard let errorType = error.extensions?["errorType"]?.stringValue else {
             self = .internalError(error.message)
             return
         }
@@ -226,7 +224,12 @@ extension SudoDIRelayError {
         case ApiOperationError.rateLimitExceeded:
             return .rateLimitExceeded
         case ApiOperationError.graphQLError(let cause):
-            return .graphQLError(description: "Unexpected GraphQL error: \(cause)")
+            switch cause {
+            case let graphQLError as GraphQLError:
+                return SudoDIRelayError(graphQLError: graphQLError)
+            default:
+                return .graphQLError(description: "Unexpected GraphQL error: \(cause)")
+            }
         case ApiOperationError.requestFailed(let response, let cause):
             return .requestFailed(response: response, cause: cause)
         default:

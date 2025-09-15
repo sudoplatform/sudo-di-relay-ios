@@ -6,12 +6,6 @@
 
 import SudoLogging
 
-/// Generic type associated with API completion/closures. Generic type O is the expected output result in a success case.
-public typealias ClientCompletion<O> = (Swift.Result<O, Error>) -> Void
-
-/// Generic type associated with Subscription Status change completion/closures.
-public typealias SudoSubscriptionStatusChangeHandler = (PlatformSubscriptionStatus) -> Void
-
 /// Client used to interface with the Sudo Relay Platform service.
 ///
 /// It is recommended to code to this interface, rather than the implementation class (`DefaultSudoDIRelayClient`) as
@@ -20,9 +14,10 @@ public protocol SudoDIRelayClient: AnyObject {
 
     // MARK: - Lifecycle
 
-    /// Clear all locally cached apppsync data
+    /// Resets the clients state. Cleans up subscriptions.
+    ///
     /// - Throws: ClearCacheError
-    func reset() throws
+    func reset() async throws
 
     // MARK: - Queries
 
@@ -90,19 +85,18 @@ public protocol SudoDIRelayClient: AnyObject {
     func bulkDeleteMessage(withMessageIds messageIds: [String]) async throws -> [String]
 
     // MARK: - Subscriptions
+    
+    /// Subscribe to be notified of relay related events for the current user.
+    /// - Parameters:
+    ///   - id: Unique ID to be associated with the subscriber.
+    ///   - notificationType: Notification type to subscribe to.
+    ///   - subscriber: Subscriber to notify.
+    func subscribe(id: String, notificationType: SubscriptionNotificationType, subscriber: Subscriber) async throws
+    
+    /// Unsubscribes the specified subscriber so that it no longer receives change notifications.
+    /// - Parameter id: Unique ID associated with the subscriber to unsubscribe.
+    func unsubscribe(id: String) async
 
-    /// Subscribe to message creation events for the current user. Subscription events will be delivered as long as the
-    /// returned  token remains in scope and the connection status remains .connected.
-    ///
-    /// - Parameter statusChangeHandler: Optional handler for connection status change.
-    /// - Parameter resultHandler: On success, the created message; on failure an error.
-    ///
-    /// - Returns: `SubscriptionToken` object to allow management of the subscription.
-    func subscribeToMessageCreated(
-            statusChangeHandler: SudoSubscriptionStatusChangeHandler?,
-            resultHandler: @escaping ClientCompletion<Message>
-    ) async throws -> SubscriptionToken?
-
-    /// Unsubscribe from all subscriptions
-    func unsubscribeAll()
+    /// Unsubscribe all subscribers from receiving notifications.
+    func unsubscribeAll() async
 }

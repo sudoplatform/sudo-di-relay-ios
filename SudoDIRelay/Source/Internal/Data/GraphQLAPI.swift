@@ -1,7 +1,8 @@
 // swiftlint:disable all
 //  This file was automatically generated and should not be edited.
 
-import AWSAppSync
+import Amplify
+import SudoApiClient
 
 internal struct CreateRelayPostboxInput: GraphQLMapConvertible {
   internal var graphQLMap: GraphQLMap

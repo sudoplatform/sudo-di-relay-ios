@@ -4,8 +4,8 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
+import SudoApiClient
 @testable import SudoDIRelay
-import AWSAppSync
 import XCTest
 
 struct UnusedGraphQLSelectionSet: GraphQLSelectionSet {

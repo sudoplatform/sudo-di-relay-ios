@@ -116,7 +116,9 @@ extension DataFactory {
                     postboxId: "postbox-id",
                     message: "message contents"
             )
-            return try? OnRelayMessageCreatedSubscription.Data(onMessageCreatedSubscription)
+            return OnRelayMessageCreatedSubscription.Data(
+                onRelayMessageCreated: onMessageCreatedSubscription
+            )
         }
     }
 }

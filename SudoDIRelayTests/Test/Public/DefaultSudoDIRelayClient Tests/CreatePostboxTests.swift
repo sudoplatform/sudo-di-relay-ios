@@ -5,7 +5,6 @@
 //
 
 import XCTest
-@testable import AWSAppSync
 @testable import SudoDIRelay
 
 class DefaultSudoDIRelayClientCreatePostbox: DefaultSudoDIRelayTestCase {
